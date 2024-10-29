@@ -9,18 +9,27 @@ module PE(
     input logic [8:0] input_low_weight_index,
     input logic [8:0] input_high_weight_index,
     input logic [8:0] input_low_height_index,
-    input logic [8:0] input_high_height_index,    
+    input logic [8:0] input_high_height_index,
+
+    // id and total height and width to help calculate addr
+    input logic [3:0] id,
+    input logic [8:0] total_height,
+    input logic [8:0] total_width,
 
 
     input logic signed [7:0] weight_tile [0:35],
     input logic weight_valid,
     input logic weight_size, // 0 stands for 1 and 1 stands for 3
-    input logic [7:0] weight_dimen, // assume max OD = 128
+    input logic [7:0] od, // assume max OD = 128
+
 
     // assume the output 12 bits, the memory address is 16 bits
+    // output to memory
     output logic signed [11:0] output_tile [0:35],
     output logic signed [15:0] output_addr [0:35],
 
+
+    // outputs to next PE
     output logic [7:0] output_input_tile_reg [0:35],
     output logic output_input_tile_valid,
     output logic [7:0] output_weight_tile_reg [0:35]
@@ -73,7 +82,7 @@ module PE(
     // Step 3: Compute AT*dot_product*A
 
     // Define the Winograd transformation matrices for A and A^T
-    logic signed [11:0] AT1 [0:5][0:5] = '{
+    logic signed [11:0] at1 [0:5][0:5] = '{
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
@@ -82,7 +91,7 @@ module PE(
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
     };
 
-    logic signed [11:0] A1 [0:5][0:5] = '{
+    logic signed [11:0] a1 [0:5][0:5] = '{
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
@@ -91,14 +100,14 @@ module PE(
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
     };
 
-    logic signed [11:0] AT3 [0:5][0:3] = '{
+    logic signed [11:0] at3 [0:5][0:3] = '{
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
     };
 
-    logic signed [11:0] A3 [0:5][0:3] = '{
+    logic signed [11:0] a3 [0:5][0:3] = '{
         '{ 12'd1,  12'd0,  12'd0,  12'd0},
         '{ 12'd1,  12'd0,  12'd0,  12'd0},
         '{ 12'd1,  12'd0,  12'd0,  12'd0},
@@ -142,5 +151,17 @@ module PE(
             end
         end
     end
+
+    // [OD][temp2][temp3]
+    logic [8:0] temp1 [35:0]; 
+    logic [8:0] temp2 [35:0]; 
+    logic [8:0] temp3 [35:0]; 
+    always_comb begin 
+        for (int i = 0; i < 35; i++){
+            temp1[i] = od,
+            temp2[i] = 
+        }
+    end
+    
 
 endmodule
