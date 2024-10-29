@@ -60,7 +60,7 @@ module PE(
     end
 
     // Step 2: Compute dot product when both input and weight tiles are valid
-    logic [11:0] dot_product_result [0:35],
+    logic signed [11:0] dot_product_result [0:35],
     always_comb begin
         dot_product_result = 0;
         if (output_input_tile_valid && output_weight_tile_valid) begin
@@ -73,23 +73,74 @@ module PE(
     // Step 3: Compute AT*dot_product*A
 
     // Define the Winograd transformation matrices for A and A^T
-    logic signed [11:0] AT [0:5][0:3] = '{
+    logic signed [11:0] AT1 [0:5][0:5] = '{
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
     };
 
-    logic signed [11:0] A [0:3][0:5] = '{
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0}
+    logic signed [11:0] A1 [0:5][0:5] = '{
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
     };
 
+    logic signed [11:0] AT3 [0:5][0:3] = '{
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
+        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
+    };
 
+    logic signed [11:0] A3 [0:5][0:3] = '{
+        '{ 12'd1,  12'd0,  12'd0,  12'd0},
+        '{ 12'd1,  12'd0,  12'd0,  12'd0},
+        '{ 12'd1,  12'd0,  12'd0,  12'd0},
+        '{ 12'd1,  12'd0,  12'd0,  12'd0},
+        '{ 12'd1,  12'd0,  12'd0,  12'd0},
+        '{ 12'd1,  12'd0,  12'd0,  12'd0},
+    };
 
+    // Intermediate result for AT * dot_product
+    logic signed [19:0] intermediate_result [0:5][0:5];
+
+    // Step 3a: Compute AT * dot_product based on weight_size
+    // index in this step is wrong! need to change
+    always_comb begin
+        for (int i = 0; i < 6; i++) begin
+            for (int j = 0; j < 6; j++) begin
+                intermediate_result[i][j] = 0;
+                for (int k = 0; k < 6; k++) begin
+                    if (weight_size == 1) begin
+                        intermediate_result[i][j] += AT3[i][k] * dot_product_result[k][j];
+                    end else begin
+                        intermediate_result[i][j] += AT1[i][k] * dot_product_result[k][j];
+                    end
+                end
+            end
+        end
+    end
+
+    // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
+    always_comb begin
+        for (int i = 0; i < 6; i++) begin
+            for (int j = 0; j < 6; j++) begin
+                output_tile[i][j] = 0;
+                for (int k = 0; k < 6; k++) begin
+                    if (weight_size == 1) begin
+                        output_tile[i][j] += intermediate_result[i][k] * A3[k][j];
+                    end else begin
+                        output_tile[i][j] += intermediate_result[i][k] * A1[k][j];
+                    end
+                end
+            end
+        end
+    end
 
 endmodule
