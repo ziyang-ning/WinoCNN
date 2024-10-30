@@ -6,10 +6,8 @@ module PE(
     input logic signed [7:0] input_tile [0:5][0:5],
     input logic input_valid,
     // assume max H/W to be 512, 9 bits
-    input logic [8:0] input_low_weight_index,
-    input logic [8:0] input_high_weight_index,
-    input logic [8:0] input_low_height_index,
-    input logic [8:0] input_high_height_index,
+    input logic [8:0] input_weight_index,
+    input logic [8:0] input_height_index,
 
     // id and total height and width to help calculate addr
     input logic [3:0] id,
@@ -33,9 +31,13 @@ module PE(
     output logic [7:0] output_input_tile_reg [0:5][0:5],
     output logic output_input_tile_valid,
     output logic [7:0] output_weight_tile_reg [0:5][0:5],
-    output logic output_weight_tile_valid
+    output logic output_weight_tile_valid,
+    output logic [8:0] input_weight_index_o,
+    output logic [8:0] input_weight_index_o
 );
 
+    assign input_weight_index_o = input_weight_index;
+    assign input_weight_index_o = input_height_index;
     // Step 1: Store input and weight tiles in output registers and update valid signals
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
@@ -129,10 +131,10 @@ module PE(
 
     // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
     always_comb begin
-        for (int i = 0; i < 6; i++) begin
-            for (int j = 0; j < 6; j++) begin
+        for (i = 0; i < 6; i=i+1) begin
+            for (j = 0; j < 6; j=j+1) begin
                 output_tile[i][j] = 0;
-                for (int k = 0; k < 6; k++) begin
+                for (k = 0; k < 6; k=k+1) begin
                     if (size_type == 1) begin
                         output_tile[i][j] += intermediate_result[i][k] * A3[k][j];
                     end else begin
@@ -143,16 +145,7 @@ module PE(
         end
     end
 
-    // [OD][temp2][temp3]
-    logic [8:0] temp1 [35:0]; 
-    logic [8:0] temp2 [35:0]; 
-    logic [8:0] temp3 [35:0]; 
-    always_comb begin 
-        for (int i = 0; i < 35; i++){
-            temp1[i] = od,
-            temp2[i] = 
-        }
-    end
+
     
 
 endmodule
