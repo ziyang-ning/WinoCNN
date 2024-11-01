@@ -2,65 +2,99 @@ module PE(
     input logic clk,
     input logic reset,
 
-    // input tile fixed to be 6*6
-    input logic signed [7:0] input_tile [0:5][0:5],
-    input logic input_valid,
-    // assume max H/W to be 512, 9 bits
-    input logic [8:0] input_weight_index,
-    input logic [8:0] input_height_index,
 
-    // id and total height and width to help calculate addr
-    input logic [3:0] id,
-    input logic [8:0] total_height,
-    input logic [8:0] total_width,
+    // requirement for input[ID][H][W] and weigth [ID][OD][k][k]
+    // ID could be small, up to 16, 4 bits
+    // H and W could be up to 512, 9 bits
+    // OD could be up to 128, 8 bits
 
 
-    input logic signed [7:0] weight_tile [0:2][0:2],
-    input logic weight_valid,
-    input logic size_type, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4
-    input logic [7:0] od, // assume max OD = 128
+    // input from top PE or Itrans
+    // only need to know the first element index of input tile
+    input logic signed [15:0] data_tile_i [0:5][0:5], // change to 16 bits
+    input logic data_valid_i,
+    input logic [8:0] data_x_index_i,
+    input logic [8:0] data_y_index_i,
 
 
-    // assume the output 12 bits, the memory address is 16 bits
-    // output to memory
-    output logic signed [11:0] output_tile [0:5][0:5],
-    output logic signed [15:0] output_addr [0:5][0:5],
+    // input from left PE or Wtrans
+    input logic signed [15:0] weight_tile_i [0:2][0:2],
+    input logic weight_valid_i,
+    input logic weight_size_type_i, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4
+    input logic [7:0] weight_od_i, // assume max OD = 128
 
 
-    // outputs to next PE
-    output logic [7:0] output_input_tile_reg [0:5][0:5],
-    output logic output_input_tile_valid,
-    output logic [7:0] output_weight_tile_reg [0:5][0:5],
-    output logic output_weight_tile_valid,
-    output logic [8:0] input_weight_index_o,
-    output logic [8:0] input_weight_index_o
+    // output directly to memory
+    // assume the output 12 bits
+    // may the output to 3 parts, OD, i and j
+    output logic signed [15:0] result_tile_o [0:5][0:5],
+    output logic signed [15:0] result_od_o [0:5][0:5],
+    output logic signed [15:0] result_i_o [0:5][0:5],
+    output logic signed [15:0] result_j_o [0:5][0:5],
+
+
+    // outputs to bottom PE
+    output logic [15:0] data_tile_reg_o [0:5][0:5],
+    output logic data_valid_o,
+    output logic [8:0] data_x_index_o,
+    output logic [8:0] data_y_index_o,
+
+    // outputs to right PE
+    output logic [15:0] weight_tile_reg_o [0:2][0:2],
+    output logic weight_valid_o,
+    output logic weight_size_type_o,
+    output logic [7:0] weight_od_o
+    
 );
 
-    assign input_weight_index_o = input_weight_index;
-    assign input_weight_index_o = input_height_index;
-    // Step 1: Store input and weight tiles in output registers and update valid signals
+
+    // Step 1A: store data from top PE into reg
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
-            output_input_tile_reg <= '{default:'0};
-            output_weight_tile_reg <= '{default:'0};
-            output_input_tile_valid <= 0;
-            output_weight_tile_valid <= 0;
+            data_tile_reg_o <= '{default:'0};
+            data_valid_o <= 0;
+            data_x_index_o <= 0;
+            data_y_index_o <= 0;
         end else begin
-            // Update output input tile register and valid signal
-            if (input_valid) begin
-                output_input_tile_reg <= input_tile;
-                output_input_tile_valid <= 1;  // Set valid signal to 1 when data is updated
+            if (data_valid_i) begin
+                weight_tile_reg_o <= weight_tile_i;
+                data_valid_o <= 1;  
+                data_x_index_o <= data_x_index_i;
+                data_y_index_o <= data_y_index_i;
             end 
-            else output_input_tile_valid <= 0;
-
-            // Update output weight tile register and valid signal
-            if (weight_valid) begin
-                output_weight_tile_reg <= weight_tile;
-                output_weight_tile_valid <= 1;  // Set valid signal to 1 when data is updated
-            end 
-            else output_weight_tile_valid <= 0;
+            else begin
+                data_tile_reg_o <= '{default:'0};
+                data_valid_o <= 0;
+                data_x_index_o <= 0;
+                data_y_index_o <= 0;
+            end
         end
     end
+
+    // Step 1B: store weight from left PE into reg
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            weight_tile_reg_o <= '{default:'0};
+            weight_valid_o <= 0;
+            weight_size_type_o <= 0;
+            weight_od_o <= 0;
+        end else begin
+            if (weight_valid_i) begin
+                weight_tile_reg_o <= weight_tile_i;
+                weight_valid_o <= 1;  
+                weight_size_type_o <= weight_size_type_i;
+                weight_od_o <= weight_od_i;
+            end 
+            else begin
+                weight_tile_reg_o <= '{default:'0};
+                weight_valid_o <= 0;
+                weight_size_type_o <= 0;
+                weight_od_o <= 0;
+            end
+        end
+    end
+
+
 
     // Step 2: Compute dot product when both input and weight tiles are valid
     logic signed [11:0] dot_product_result [0:5][0:5];
