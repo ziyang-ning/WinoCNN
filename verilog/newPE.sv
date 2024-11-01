@@ -100,11 +100,10 @@ module PE(
     // Step 2: Compute dot product when both input and weight tiles are valid
     // VERY IMPORTANT: use the data in output_reg to calculate!!!!
     logic signed [15:0] dot_product [0:5][0:5];
-    int i, j, k;
     always_comb begin
         if (data_valid_o && weight_valid_o) begin
-            for (i = 0; i < 6; i=i+1) begin
-                for (j = 0; j < 6; j=j+1) begin
+            for (int i = 0; i < 6; i=i+1) begin
+                for (int j = 0; j < 6; j=j+1) begin
                     dot_product[i][j] = data_tile_reg_o[i][j] * weight_tile_reg_o[i][j];
                 end
             end
@@ -169,10 +168,10 @@ module PE(
     // index in this step is wrong! need to change
     // since dot_product has default value, we can use it to calculate even invalid
     always_comb begin
-        for (i = 0; i < 6; i=i+1) begin
-            for (j = 0; j < 6; j=j+1) begin
+        for (int i = 0; i < 6; i=i+1) begin
+            for (int j = 0; j < 6; j=j+1) begin
                 intermediate_result[i][j] = 0;
-                for (k = 0; k < 6; k=k+1) begin
+                for (int k = 0; k < 6; k=k+1) begin
                     if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + dot_product[k][j] <<< (at[i][k] - 1);
                     else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - dot_product[k][j] <<< (-at[i][k] - 1);
                 end
@@ -182,10 +181,10 @@ module PE(
 
     // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
     always_comb begin
-        for (i = 0; i < 6; i=i+1) begin
-            for (j = 0; j < 6; j=j+1) begin
+        for (int i = 0; i < 6; i=i+1) begin
+            for (int j = 0; j < 6; j=j+1) begin
                 result_tile_o[i][j] = 0;
-                for (k = 0; k < 6; k=k+1) begin
+                for (int k = 0; k < 6; k=k+1) begin
                     if (at[j][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + dot_product[i][k] <<< (at[j][k] - 1);
                     else if (at[j][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - dot_product[i][k] <<< (-at[j][k] - 1);
                 end
