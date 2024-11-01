@@ -172,12 +172,14 @@ module PE(
             for (int j = 0; j < 6; j=j+1) begin
                 intermediate_result[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
-                    if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + dot_product[k][j] <<< (at[i][k] - 1);
-                    else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - dot_product[k][j] <<< (-at[i][k] - 1);
+                    if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + (dot_product[k][j] <<< (at[i][k] - 1));
+                    else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - (dot_product[k][j] <<< (-at[i][k] - 1));
                 end
             end
         end
     end
+
+
 
     // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
     always_comb begin
@@ -185,8 +187,8 @@ module PE(
             for (int j = 0; j < 6; j=j+1) begin
                 result_tile_o[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
-                    if (at[j][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + dot_product[i][k] <<< (at[j][k] - 1);
-                    else if (at[j][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - dot_product[i][k] <<< (-at[j][k] - 1);
+                    if (at[j][k] > 0) result_tile_o[i][j] = result_tile_o[i][j] + (intermediate_result[i][k] <<< (at[j][k] - 1));
+                    else if (at[j][k] < 0) result_tile_o[i][j] = result_tile_o[i][j] - (intermediate_result[i][k] <<< (-at[j][k] - 1));
                 end
             end
         end
