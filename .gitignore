@@ -1,2 +1,34 @@
 .DS_Store
 
+# Generated simulation files
+simv
+*.daidir
+csrc
+vcs.key
+program.out
+sim
+verdi
+syn_simv
+syn_simv.daidir
+syn_program.out
+dve
+*.vpd
+*.vcd
+*.dump
+ucli.key
+inter.fsdb
+novas*
+verdiLog
+
+# Additional generated files
+*.vg
+*.rep
+*.db
+*.chk
+*.log
+*.out
+*.ddc
+*.svf
+
+# DVE files
+DVEfiles/

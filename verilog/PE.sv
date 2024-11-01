@@ -18,7 +18,7 @@ module PE(
 
 
     // input from left PE or Wtrans
-    input logic signed [15:0] weight_tile_i [0:2][0:2],
+    input logic signed [15:0] weight_tile_i [0:5][0:5],
     input logic weight_valid_i,
     input logic weight_size_type_i, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4
     input logic [7:0] weight_od_i, // assume max OD = 128
@@ -59,7 +59,7 @@ module PE(
             data_y_index_o <= 0;
         end else begin
             if (data_valid_i) begin
-                weight_tile_reg_o <= weight_tile_i;
+                data_tile_reg_o <= data_tile_i;
                 data_valid_o <= 1;  
                 data_x_index_o <= data_x_index_i;
                 data_y_index_o <= data_y_index_i;
@@ -100,11 +100,10 @@ module PE(
     // Step 2: Compute dot product when both input and weight tiles are valid
     // VERY IMPORTANT: use the data in output_reg to calculate!!!!
     logic signed [15:0] dot_product [0:5][0:5];
-    int i, j, k;
     always_comb begin
         if (data_valid_o && weight_valid_o) begin
-            for (i = 0; i < 6; i=i+1) begin
-                for (j = 0; j < 6; j=j+1) begin
+            for (int i = 0; i < 6; i=i+1) begin
+                for (int j = 0; j < 6; j=j+1) begin
                     dot_product[i][j] = data_tile_reg_o[i][j] * weight_tile_reg_o[i][j];
                 end
             end
@@ -135,7 +134,7 @@ module PE(
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
     };
 
-    logic signed [15:0] at3 [0:5][0:3] = '{
+    logic signed [15:0] at3 [0:3][0:5] = '{
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
         '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
@@ -148,7 +147,7 @@ module PE(
         '{ 12'd1,  12'd0,  12'd0,  12'd0},
         '{ 12'd1,  12'd0,  12'd0,  12'd0},
         '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
+        '{ 12'd1,  12'd0,  12'd0,  12'd0}
     };
 
     // Intermediate result for AT * dot_product
@@ -158,14 +157,14 @@ module PE(
     // index in this step is wrong! need to change
     // since dot_product has default value, we can use it to calculate even invalid
     always_comb begin
-        for (i = 0; i < 6; i=i+1) begin
-            for (j = 0; j < 6; j=j+1) begin
+        for (int i = 0; i < 6; i=i+1) begin
+            for (int j = 0; j < 6; j=j+1) begin
                 intermediate_result[i][j] = 0;
-                for (k = 0; k < 6; k=k+1) begin
-                    if (weigth_size_type_i == 1) begin
-                        intermediate_result[i][j] += AT3[i][k] * dot_product[k][j];
+                for (int k = 0; k < 6; k=k+1) begin
+                    if (weight_size_type_i == 1) begin
+                        intermediate_result[i][j] += at3[i][k] * dot_product[k][j];
                     end else begin
-                        intermediate_result[i][j] += AT1[i][k] * dot_product[k][j];
+                        intermediate_result[i][j] += at1[i][k] * dot_product[k][j];
                     end
                 end
             end
@@ -174,14 +173,14 @@ module PE(
 
     // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
     always_comb begin
-        for (i = 0; i < 6; i=i+1) begin
-            for (j = 0; j < 6; j=j+1) begin
+        for (int i = 0; i < 6; i=i+1) begin
+            for (int j = 0; j < 6; j=j+1) begin
                 result_tile_o[i][j] = 0;
-                for (k = 0; k < 6; k=k+1) begin
+                for (int k = 0; k < 6; k=k+1) begin
                     if (weight_size_type_i == 1) begin
-                        result_tile_o[i][j] += intermediate_result[i][k] * A3[k][j];
+                        result_tile_o[i][j] += intermediate_result[i][k] * a3[k][j];
                     end else begin
-                        result_tile_o[i][j] += intermediate_result[i][k] * A1[k][j];
+                        result_tile_o[i][j] += intermediate_result[i][k] * a1[k][j];
                     end
                 end
             end
@@ -195,9 +194,9 @@ module PE(
     // calculate result_i_o
     always_comb begin
         if (result_valid_o) begin
-            for (i = 0; i < 6; i=i+1) begin
-                for (j = 0; j < 6; j=j+1) begin
-                    result_i_o[i][j] = data_x_index_o[i][j] + i;
+            for (int i = 0; i < 6; i=i+1) begin
+                for (int j = 0; j < 6; j=j+1) begin
+                    result_i_o[i][j] = data_x_index_o + i;
                 end
             end
         end else begin
@@ -208,9 +207,9 @@ module PE(
     // calculate result_j_o
     always_comb begin
         if (result_valid_o) begin
-            for (i = 0; i < 6; i=i+1) begin
-                for (j = 0; j < 6; j=j+1) begin
-                    result_j_o[i][j] = data_y_index_o[i][j] + j;
+            for (int i = 0; i < 6; i=i+1) begin
+                for (int j = 0; j < 6; j=j+1) begin
+                    result_j_o[i][j] = data_y_index_o + j;
                 end
             end
         end else begin

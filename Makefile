@@ -7,9 +7,9 @@ all:	simv
 # Modify starting here
 #####
 
-TESTBENCH = PE_test.sv
+TESTBENCH = testbench/PE_test.sv
 SIMFILES = $(wildcard \
-	verolog/PE.sv \
+	verilog/PE.sv \
 )
 
 
