@@ -1,4 +1,5 @@
 % out_U and out_V will be the same (n,r) as the in_U and in_V
+% middle_n and middle_r are the (m,r) used for A_T
 
 function [out_U, out_V, Y] = winoPE(in_U, in_V, size, input_n, input_r, middle_n, middle_r, Y_n, Y_r)
 % if size is 0, 3*3 filter
