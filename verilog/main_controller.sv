@@ -41,58 +41,12 @@ module main_controller(
     logic [7:0] total_od_reg;
     logic [8:0] total_weight_reg;
     logic [8:0] total_height_reg;
-   
+
     // definition of counter to count the od1, od2 and id
     logic [7:0] od1_counter;
     logic [7:0] od2_counter;
     logic [3:0] id_counter;
     assign od2_counter = od1_counter + 1;
-
-    // counter for od1, od2 and id
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            od1_counter <= 0;
-            id_counter <= 0;
-        end else begin
-            if (state == COMPLETE) begin
-                if (od2_counter >= total_od_reg) begin
-                    // start the next id
-                    od1_counter <= 0;
-                    id_counter <= id_counter + 1;
-                end else begin
-                    // still work on the same id
-                    od1_counter <= od1_counter + 2;
-                end
-            end else begin
-                od1_counter <= od1_counter;
-                id_counter <= id_counter;
-            end
-        end
-    end
-
-    // store the off-chip input into local reg
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            total_id_reg  <= 0;
-            total_od_reg  <= 0;
-            total_weight_reg  <= 0;
-            total_height_reg  <= 0;
-        end else begin
-            if (wen_i) begin
-                total_id_reg  <= total_id_i;
-                total_od_reg  <= total_od_i;
-                total_weight_reg  <= total_weight_i;
-                total_height_reg  <= total_height_i;
-            end else begin
-                total_id_reg  <= total_id_reg;
-                total_od_reg  <= total_od_reg;
-                total_weight_reg  <= total_weight_reg;
-                total_height_reg  <= total_height_reg;
-            end
-        end
-
-    end
-
 
     // FSM for the main controller
     // four states: prepare, start, complete, finish
@@ -105,8 +59,6 @@ module main_controller(
     } state_t;
 
     state_t state, next_state;
-
-
     always_comb begin
         next_state = state;
         case(state)
@@ -131,6 +83,53 @@ module main_controller(
                 next_state = FINISH;
             end
         endcase
+    end
+   
+
+
+    // counter for od1, od2 and id
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            od1_counter <= 0;
+            id_counter <= 0;
+        end else begin
+            if (state == COMPLETE) begin
+                if (od2_counter >= total_od_reg) begin
+                    // start the next id
+                    od1_counter <= 0;
+                    id_counter <= id_counter + 1;
+                end else begin
+                    // still work on the same id
+                    od1_counter <= od1_counter + 2;
+                end
+            end else begin
+                od1_counter <= od1_counter;
+                id_counter <= id_counter;
+            end
+        end
+    end
+
+
+    // store the off-chip input into local reg
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            total_id_reg  <= 0;
+            total_od_reg  <= 0;
+            total_weight_reg  <= 0;
+            total_height_reg  <= 0;
+        end else begin
+            if (wen_i) begin
+                total_id_reg  <= total_id_i;
+                total_od_reg  <= total_od_i;
+                total_weight_reg  <= total_weight_i;
+                total_height_reg  <= total_height_i;
+            end else begin
+                total_id_reg  <= total_id_reg;
+                total_od_reg  <= total_od_reg;
+                total_weight_reg  <= total_weight_reg;
+                total_height_reg  <= total_height_reg;
+            end
+        end
     end
 
 
@@ -180,6 +179,7 @@ module main_controller(
         endcase
     end
 
+
     // data_start_o should be delay by three cycles for_data_start_count is high
     logic temp_reg1, temp_reg2, temp_reg3;
     always_ff @(posedge clk or posedge reset) begin
@@ -195,11 +195,6 @@ module main_controller(
             data_start_o <= temp_reg3;
         end
     end
-
-
-
-
-
 
 
 
