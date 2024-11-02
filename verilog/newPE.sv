@@ -116,39 +116,50 @@ module PE(
     // Step 3: Compute AT*dot_product*A
 
     // Define the Winograd transformation matrices for A and A^T
-    logic signed [15:0] at1 [0:5][0:5] = '{
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
-    };
+    logic signed [3:0] at [0:5][0:5];
 
-    logic signed [15:0] a1 [0:5][0:5] = '{
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
-    };
-
-    logic signed [15:0] at3 [0:3][0:5] = '{
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 },
-        '{ 12'd1,  12'd0,  12'd0,  12'd0,   12'd1,  12'd0 }
-    };
-
-    logic signed [15:0] a3 [0:5][0:3] = '{
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0},
-        '{ 12'd1,  12'd0,  12'd0,  12'd0}
-    };
+    assign at[0][0] = 'd1;
+    assign at[0][1] = 'd1;
+    assign at[0][2] = 'd1;
+    assign at[0][3] = 'd1;
+    assign at[0][4] = 'd1;
+    assign at[0][5] = 'd0;
+    
+    assign at[1][0] = 'd0;
+    assign at[1][1] = 'd1;
+    assign at[1][2] = -'d1;
+    assign at[1][3] = 'd2;
+    assign at[1][4] = -'d2;
+    assign at[1][5] = 'd0;
+    
+    assign at[2][0] = 'd0;
+    assign at[2][1] = 'd1;
+    assign at[2][2] = 'd1;
+    assign at[2][3] = 'd3;
+    assign at[2][4] = 'd3;
+    assign at[2][5] = 'd0;
+    
+    assign at[3][0] = 'd0;
+    assign at[3][1] = 'd1;
+    assign at[3][2] = -'d1;
+    assign at[3][3] = 'd4;
+    assign at[3][4] = -'d4;
+    assign at[3][5] = weight_size_type_i;
+    
+    assign at[4][0] = 'd0;
+    assign at[4][1] = 'd1;
+    assign at[4][2] = 'd1;
+    assign at[4][3] = 'd5;
+    assign at[4][4] = 'd5;
+    assign at[4][5] = 'd0;
+    
+    assign at[5][0] = 'd0;
+    assign at[5][1] = 'd1;
+    assign at[5][2] = -'d1;
+    assign at[5][3] = 'd6;
+    assign at[5][4] = -'d6;
+    assign at[5][5] = 'd1;
+    
 
     // Intermediate result for AT * dot_product
     logic signed [15:0] intermediate_result [0:5][0:5];
@@ -161,15 +172,14 @@ module PE(
             for (int j = 0; j < 6; j=j+1) begin
                 intermediate_result[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
-                    if (weight_size_type_i == 1) begin
-                        intermediate_result[i][j] += at3[i][k] * dot_product[k][j];
-                    end else begin
-                        intermediate_result[i][j] += at1[i][k] * dot_product[k][j];
-                    end
+                    if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + (dot_product[k][j] <<< (at[i][k] - 1));
+                    else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - (dot_product[k][j] <<< (-at[i][k] - 1));
                 end
             end
         end
     end
+
+
 
     // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
     always_comb begin
@@ -177,11 +187,8 @@ module PE(
             for (int j = 0; j < 6; j=j+1) begin
                 result_tile_o[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
-                    if (weight_size_type_i == 1) begin
-                        result_tile_o[i][j] += intermediate_result[i][k] * a3[k][j];
-                    end else begin
-                        result_tile_o[i][j] += intermediate_result[i][k] * a1[k][j];
-                    end
+                    if (at[j][k] > 0) result_tile_o[i][j] = result_tile_o[i][j] + (intermediate_result[i][k] <<< (at[j][k] - 1));
+                    else if (at[j][k] < 0) result_tile_o[i][j] = result_tile_o[i][j] - (intermediate_result[i][k] <<< (-at[j][k] - 1));
                 end
             end
         end

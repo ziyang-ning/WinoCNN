@@ -7,12 +7,9 @@ all:	simv
 # Modify starting here
 #####
 
-TESTBENCH = Top_test.sv
+TESTBENCH = testbench/PE_test.sv
 SIMFILES = $(wildcard \
-	glue_logic.sv \
-	cordic.sv \
-	theta_wrap.sv \
-	Top.sv \
+	verilog/newPE.sv \
 )
 
 
