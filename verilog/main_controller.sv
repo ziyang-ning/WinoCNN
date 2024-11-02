@@ -8,6 +8,7 @@ module main_controller(
     input logic [7:0] total_od_i,
     input logic [8:0] total_weight_i,
     input logic [8:0] total_height_i,
+    input logic total_size_type_i,
     input logic wen_i, // the enable signal to change the off-chip input
 
 
@@ -41,6 +42,32 @@ module main_controller(
     logic [7:0] total_od_reg;
     logic [8:0] total_weight_reg;
     logic [8:0] total_height_reg;
+    logic total_size_type_reg;
+
+    // store the off-chip input into local reg
+    always_ff @(posedge clk or pose dge reset) begin
+        if (reset) begin
+            total_id_reg  <= 0;
+            total_od_reg  <= 0;
+            total_weight_reg  <= 0;
+            total_height_reg  <= 0;
+            total_size_type_reg <= 0;
+        end else begin
+            if (wen_i) begin
+                total_id_reg  <= total_id_i;
+                total_od_reg  <= total_od_i;
+                total_weight_reg  <= total_weight_i;
+                total_height_reg  <= total_height_i;
+                total_size_type_reg <= total_size_type_i;
+            end else begin
+                total_id_reg  <= total_id_reg;
+                total_od_reg  <= total_od_reg;
+                total_weight_reg  <= total_weight_reg;
+                total_height_reg  <= total_height_reg;
+                total_size_type_reg <= total_size_type_reg;
+            end
+        end
+    end
 
     // definition of counter to count the od1, od2 and id
     logic [7:0] od1_counter;
@@ -84,7 +111,14 @@ module main_controller(
             end
         endcase
     end
-   
+
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            state <= PREPARE;
+        end else begin
+            state <= next_state;
+        end
+    end
 
 
     // counter for od1, od2 and id
@@ -110,36 +144,6 @@ module main_controller(
     end
 
 
-    // store the off-chip input into local reg
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            total_id_reg  <= 0;
-            total_od_reg  <= 0;
-            total_weight_reg  <= 0;
-            total_height_reg  <= 0;
-        end else begin
-            if (wen_i) begin
-                total_id_reg  <= total_id_i;
-                total_od_reg  <= total_od_i;
-                total_weight_reg  <= total_weight_i;
-                total_height_reg  <= total_height_i;
-            end else begin
-                total_id_reg  <= total_id_reg;
-                total_od_reg  <= total_od_reg;
-                total_weight_reg  <= total_weight_reg;
-                total_height_reg  <= total_height_reg;
-            end
-        end
-    end
-
-
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            state <= PREPARE;
-        end else begin
-            state <= next_state;
-        end
-    end
 
     // comb logic for other output
     logic [3:0] data_start_count;
