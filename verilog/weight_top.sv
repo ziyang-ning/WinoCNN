@@ -1,11 +1,11 @@
 module weight_controller (
     // include bot the controller and the weight buffer
-    input clk;
-    input reset;
+    input logic clk,
+    input logic reset,
 
     // off-chip input
-    input [7:0] total_id_i;
-    input [7:0] total_od_i;
+    input logic [7:0] total_id_i,
+    input logic [7:0] total_od_i,
     input logic total_size_type_i,
     input logic wen_i, // the enable signal to change the off-chip input
 
@@ -17,15 +17,15 @@ module weight_controller (
     input logic weight_start_i,
 
     // output to the main controller
-    output logic [7:0] weight_ready_o,
+    output logic weight_ready_o,
 
     // output to the memory, 18 elements in total
-    output logic [15:0] weight_addr_o[17:0],
+    output logic [15:0] weight_addr_o,
+    output logic weight_request_o,
 
     // input from the memory 
     input logic [15:0] weight_data_i[17:0],
-    input logic [15:0] weight_addr_i[17:0],
-    input logic weight_valid_i[17:0],
+    input logic weight_valid_i
 
 );
 
@@ -68,10 +68,63 @@ module weight_controller (
 
     weight_state_t weight_state, next_weight_state;
 
+    always_comb begin
+        next_weight_state = weight_state;
+        case(weight_state)
+            PREPARE: begin
+                if (weight_ready_o) begin
+                    next_weight_state = READY;
+                end
+            end
+            READY: begin
+                if (weight_start_i) begin
+                    next_weight_state = START;
+                end
+            end
+            START: begin
+                if (weight_prepare_i) begin
+                    next_weight_state = PREPARE;
+                end
+            end
+        endcase
+    end
 
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            weight_state <= PREPARE;
+        end else begin
+            weight_state <= next_weight_state;
+        end
+    end
 
+    always_comb begin
+        weight_addr_o = weight_od1_i + total_od_reg * weight_id_i;
 
+        case(weight_state)
+            PREPARE: begin
+                weight_ready_o = 1'b0;
+                weight_request_o = 1'b1;
+            end
+            READY: begin
+                weight_ready_o = 1'b1;
+                weight_request_o = 1'b0;
+            end
+            START: begin
+                weight_ready_o = 1'b0;
+                weight_request_o = 1'b0;
+            end
+        endcase
+    end
 
+    logic [15:0] weight_raw[17:0];
+
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            weight_raw <= '{default:'0};
+        end else begin
+            if (weight_valid_i) weight_raw <= weight_data_i;
+        end
+    end
 
 endmodule
 
