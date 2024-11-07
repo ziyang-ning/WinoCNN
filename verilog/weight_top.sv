@@ -18,15 +18,19 @@ module weight_controller (
 
     // output to the main controller
     output logic weight_ready_o,
+    output logic weight_finished_o,
 
     // output to the memory, 18 elements in total
     output logic [15:0] weight_addr_o,
     output logic weight_request_o,
 
     // input from the memory 
-    input logic [15:0] weight_data_i[17:0],
-    input logic weight_valid_i
+    input logic signed [15:0] weight_data_i[17:0],
+    input logic weight_valid_i,
 
+    // output to the PE arrays
+    output logic signed [15:0] result_tile_o_1 [5:0][5:0],
+    output logic signed [15:0] result_tile_o_2 [5:0][5:0]
 );
 
     // definition of the local reg to store off-chip input
@@ -54,25 +58,26 @@ module weight_controller (
     end
 
     // FSM of the weight controller
-    // four states: prepare, ready, start, null
+    // four states: prepare, ready, start, finished
     // prepare: start to prepare the buffer
     // ready: the buffer is ready
-    // start: open the valid bit and send data into the PE arrays
-    // null: do nothing
+    // start: start calculating the weight tile
+    // finished: open the valid bit and send data into the PE arrays
     typedef enum logic [1:0] {
         PREPARE = 2'b00,
         READY = 2'b01,
         START = 2'b10,
-        NULL = 2'b11
+        FINISHED = 2'b11
     } weight_state_t;
 
     weight_state_t weight_state, next_weight_state;
+    logic weight_received, weight_calculated;
 
     always_comb begin
         next_weight_state = weight_state;
         case(weight_state)
             PREPARE: begin
-                if (weight_ready_o) begin
+                if (weight_received) begin
                     next_weight_state = READY;
                 end
             end
@@ -82,6 +87,11 @@ module weight_controller (
                 end
             end
             START: begin
+                if (weight_calculated) begin
+                    next_weight_state = FINISHED;
+                end
+            end
+            FINISHED: begin
                 if (weight_prepare_i) begin
                     next_weight_state = PREPARE;
                 end
@@ -104,28 +114,79 @@ module weight_controller (
             PREPARE: begin
                 weight_ready_o = 1'b0;
                 weight_request_o = 1'b1;
+                weight_finished_o = 1'b0;
             end
             READY: begin
                 weight_ready_o = 1'b1;
                 weight_request_o = 1'b0;
+                weight_finished_o = 1'b0;
             end
             START: begin
                 weight_ready_o = 1'b0;
                 weight_request_o = 1'b0;
+                weight_finished_o = 1'b0;
+            end
+            FINISHED: begin
+                weight_ready_o = 1'b0;
+                weight_request_o = 1'b0;
+                weight_finished_o = 1'b1;
             end
         endcase
     end
 
-    logic [15:0] weight_raw[17:0];
+    logic signed [15:0] weight_raw_1[2:0][2:0];
+    logic signed [15:0] weight_raw_2[2:0][2:0];
 
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
-            weight_raw <= '{default:'0};
+            weight_raw_1 <= '{default:'0};
+            weight_raw_2 <= '{default:'0};
+            weight_received <= 1'b0;
+            weight_calculated <= 1'b0;
         end else begin
-            if (weight_valid_i) weight_raw <= weight_data_i;
+            if (weight_valid_i && weight_state == PREPARE) begin
+                weight_raw_1 <= weight_data_i[8:0];    //TODO: Check whether this is valid
+                weight_raw_2 <= weight_data_i[17:9];
+                weight_received <= 1'b1;
+            end
+            else weight_received <= 1'b0;
+
+            if (weight_state == START) weight_calculated <= 1'b1;
+            else weight_calculated <= 1'b0;
         end
     end
 
+    logic signed [15:0] intermediate_result_1 [0:5][0:2];
+    logic signed [15:0] intermediate_result_2 [0:5][0:2];
+    logic signed [15:0] g [0:5][0:2];       //TODO: finish G
+    
+    always_comb begin
+        for (int i = 0; i < 6; i=i+1) begin
+            for (int j = 0; j < 3; j=j+1) begin
+                intermediate_result_1[i][j] = 0;
+                intermediate_result_2[i][j] = 0;
+                for (int k = 0; k < 3; k=k+1) begin
+                    intermediate_result_1[i][j] = intermediate_result_1[i][j] + weight_raw_1[k][j] * g[i][k];
+                    intermediate_result_2[i][j] = intermediate_result_2[i][j] + weight_raw_2[k][j] * g[i][k];
+                end
+            end
+        end
+    end
+
+    always_comb begin
+        for (int i = 0; i < 6; i=i+1) begin
+            for (int j = 0; j < 6; j=j+1) begin
+                result_tile_o_1[i][j] = 0;
+                result_tile_o_2[i][j] = 0;
+                for (int k = 0; k < 3; k=k+1) begin
+                    result_tile_o_1[i][j] = result_tile_o_1[i][j] + intermediate_result_1[i][k] * g[j][k];
+                    result_tile_o_2[i][j] = result_tile_o_2[i][j] + intermediate_result_2[i][k] * g[j][k];
+                end
+            end
+        end
+    end
+    
+    
 endmodule
 
 
