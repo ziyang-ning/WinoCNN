@@ -6,7 +6,7 @@ module weight_controller (
     // off-chip input
     input logic [7:0] total_id_i,
     input logic [7:0] total_od_i,
-    input logic total_size_type_i,
+    input logic size_type_i,
     input logic wen_i, // the enable signal to change the off-chip input
 
     // input from the main controller
@@ -36,23 +36,23 @@ module weight_controller (
     // definition of the local reg to store off-chip input
     logic [3:0] total_id_reg;
     logic [7:0] total_od_reg;
-    logic total_size_type_reg;
+    logic size_type_reg;
 
     // store the off-chip input into local reg
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             total_id_reg  <= 0;
             total_od_reg  <= 0;
-            total_size_type_reg <= 0;
+            size_type_reg <= 0;
         end else begin
             if (wen_i) begin
                 total_id_reg  <= total_id_i;
                 total_od_reg  <= total_od_i;
-                total_size_type_reg <= total_size_type_i;
+                size_type_reg <= size_type_i;
             end else begin
                 total_id_reg  <= total_id_reg;
                 total_od_reg  <= total_od_reg;
-                total_size_type_reg <= total_size_type_reg;
+                size_type_reg <= size_type_reg;
             end
         end
     end
@@ -158,8 +158,32 @@ module weight_controller (
 
     logic signed [15:0] intermediate_result_1 [0:5][0:2];
     logic signed [15:0] intermediate_result_2 [0:5][0:2];
-    logic signed [15:0] g [0:5][0:2];       //TODO: finish G
+    logic signed [8:0] g [0:5][0:2];                      //fixed point (9, 7)
     
+    assign g[0][0] = 'd32;
+    assign g[0][1] = 'd0;
+    assign g[0][2] = 'd0;
+    
+    assign g[1][0] = -'d21;
+    assign g[1][1] = -'d21;
+    assign g[1][2] = -'d21;
+    
+    assign g[2][0] = -'d21;
+    assign g[2][1] = 'd21;
+    assign g[2][2] = -'d21;
+    
+    assign g[3][0] = 'd5;
+    assign g[3][1] = 'd10;
+    assign g[3][2] = 'd21;
+    
+    assign g[4][0] = 'd5;
+    assign g[4][1] = -'d10;
+    assign g[4][2] = 'd21;
+    
+    assign g[5][0] = size_type_reg ? 'd0 : 'd128;
+    assign g[5][1] = 'd0;
+    assign g[5][2] = 'd128;
+
     always_comb begin
         for (int i = 0; i < 6; i=i+1) begin
             for (int j = 0; j < 3; j=j+1) begin
