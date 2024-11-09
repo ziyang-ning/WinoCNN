@@ -38,6 +38,7 @@ module data_controller (
     // definition of the local reg to store off-chip input
     logic signed [15:0] input_buffer [5:0][6:0];
     logic direction;         // 0 for going right, 1 for going left
+    logic [2:0] pointer_x;
     logic [2:0] pointer_y;
     logic [1:0] prefetch_cnt;
 
@@ -136,6 +137,7 @@ module data_controller (
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             direction <= 0;
+            pointer_x <= 0;
             pointer_y <= 0;
             buffer_ready <= 0;
             input_calculated <= 0;
@@ -158,6 +160,38 @@ module data_controller (
                 end
             end
             if (prefetch_type == 2'b10 && weight_state == PREPARE) buffer_ready <= 1;
+
+            if (input_valid_i) begin
+                case (prefetch_type)
+                    2'b00: begin
+                        input_buffer[0:5][pointer_y] <= input_data_i[0:5];
+                        input_buffer[0:5][pointer_y+1] <= input_data_i[6:11];
+                        pointer_y <= pointer_y + 2;
+                    end
+                    2'b01: begin
+                        if (pointer_y < 6) begin
+                            input_buffer[0:5][pointer_y] <= input_data_i[0:5];
+                            input_buffer[0:5][pointer_y+1] <= input_data_i[6:11];
+                            pointer_y <= (pointer_y == 5) ? 0 : pointer_y + 2;
+                        end
+                        else begin
+                            input_buffer[0:5][6] <= input_data_i[0:5];
+                            input_buffer[0:5][0] <= input_data_i[6:11];
+                            pointer_y <= 1;
+                        end
+                    end
+                    2'b10: begin
+                        input_buffer[0:5][pointer_y] <= input_data_i[0:5];
+                        pointer_y <= (pointer_y == 6) ? 0 : pointer_y + 1;
+                    end
+                    2'b11: begin
+                        input_buffer[pointer_x][0:6] <= input_data_i[0:6];
+                        pointer_x <= (pointer_x == 5) ? 0 : pointer_x + 1;
+                    end
+                endcase
+            end
+
+            
 
             if (weight_state == START) input_calculated <= 1;
             else input_calculated <= 0;
