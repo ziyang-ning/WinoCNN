@@ -45,8 +45,8 @@ end
 % input and output size
 input_n = 8;    %size for the input matrix and filter
 input_r = 7;
-UV_n = 12;
-UV_r = 7;
+UV_n = 13;
+UV_r = 8;
 middle_n = 12;
 middle_r = 7;
 out_n = 12;
@@ -130,7 +130,7 @@ elseif (size_k == 1)
 end
 
 %prepare the output matrix and the number of iters
-red_out_wino = fi(zeros(64, 64), 1, out_n, out_r);
+red_out_wino = zeros(64, 64);
 [height, width] = size(A_red);
 
 % performing winoPE for red channel
@@ -169,6 +169,20 @@ max_diff_truths = max(max(abs(diff_float_fix_truth)));
 %------------- END OF WINOPE TESTBENCH -------------------
 
 
+%------------- Plotting -------------------
+subplot(2, 2, 1), imshow(A_red_norm), title('Original Red Channel Float Input');
+
+red_float_out_gray = mat2gray(red_float_out);
+subplot(2, 2, 2), imshow(red_float_out_gray), title('Red Channel Float Out');
+
+red_out_fixed_gray = mat2gray(double(red_out_fixed));
+subplot(2, 2, 3), imshow(red_float_out_gray), title('Red Channel Fixed Out');
+
+red_out_wino_gray = mat2gray(red_out_wino);
+subplot(2, 2, 4), imshow(red_out_wino_gray), title('Red Channel WINO fixed Out');
+
+sgtitle({'Comparison of Original Image, Floating Point Conv2d',
+        'Fixed-Point Conv2d, and Fixed-Point WINOPE'});
 
 
 
