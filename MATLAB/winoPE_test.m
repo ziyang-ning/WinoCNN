@@ -45,10 +45,10 @@ end
 % input and output size
 input_n = 8;    %size for the input matrix and filter
 input_r = 7;
-UV_n = 13;
-UV_r = 8;
-middle_n = 12;
-middle_r = 7;
+UV_n = 16;
+UV_r = 11;
+middle_n = 16;
+middle_r = 11;
 out_n = 12;
 out_r = 7;
 

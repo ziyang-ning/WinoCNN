@@ -29,9 +29,12 @@ function [out_U, out_V, Y] = winoPE(in_U, in_V, size_k, input_n, input_r, middle
     end
        
    A_T = double(fi(A_T, 1, middle_n, middle_r));
-%    UV = fi(double(in_U) .* double(in_V), 1, middle_n, middle_r);
-%    Y = double(A_T) * double(UV) * double(A_T.');
-   Y = A_T * (in_U .* in_V) * A_T.';
+   UV = double(fi(in_U .* in_V, 1, middle_n, middle_r));
+   Y = A_T * UV * A_T.';
    Y = double(fi(Y, 1, Y_n, Y_r));
+
+
+%    Y = A_T * (in_U .* in_V) * A_T.';
+%    Y = double(fi(Y, 1, Y_n, Y_r));
 
 end
