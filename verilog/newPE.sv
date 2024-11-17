@@ -97,6 +97,9 @@ module PE(
     end
 
 
+    //TODO:: ADD address calculation and pass it along through the pipline
+
+
     // Step 2: Compute dot product when both input and weight tiles are valid
     // VERY IMPORTANT: use the data in output_reg to calculate!!!!
     logic signed [15:0] dot_product [0:5][0:5];
@@ -111,7 +114,47 @@ module PE(
             dot_product = '{default:'0};
         end
     end
+    
+    logic dot_product_valid;
+    logic signed [15:0] dot_product_regs [0:5][0:5];
+    always_ff @( posedge clk or posedge reset ) begin
+        if (reset) begin
+            dot_product_regs <= '{default:'0};
+            dot_product_valid <= 0;
+        end else begin
+            if (data_valid_o && weight_valid_o) begin
+                dot_product_regs <= dot_product;
+                dot_product_valid <= 1;
+            end
+            else begin
+                dot_product_regs <= '{default:'0};
+                dot_product_valid <= 0;
+            end
+        end
+    end
 
+    // logic signed [15:0] dot_product [0:5][0:5];
+    
+    // logic dot_product_valid;
+    // always_ff @( posedge clk or posedge reset ) begin
+    //     if (reset) begin
+    //         dot_product <= '{default:'0};
+    //         dot_product_valid <= 0;
+    //     end else begin
+    //         if (data_valid_o && weight_valid_o) begin
+    //             for (int i = 0; i < 6; i=i+1) begin
+    //                 for (int j = 0; j < 6; j=j+1) begin
+    //                     dot_product[i][j] = data_tile_reg_o[i][j] * weight_tile_reg_o[i][j];
+    //                 end
+    //             end
+    //             dot_product_valid <= 1;
+    //         end
+    //         else begin
+    //             dot_product <= '{default:'0};
+    //             dot_product_valid <= 0;
+    //         end
+    //     end
+    // end
 
     // Step 3: Compute AT*dot_product*A
 
@@ -179,6 +222,24 @@ module PE(
         end
     end
 
+    logic signed [15:0] intermediate_result_regs [0:5][0:5];
+    logic intermediate_result_valid;
+
+    always_ff @( posedge clk or posedge reset ) begin
+        if (reset) begin
+            intermediate_result_regs <= '{default:'0};
+            intermediate_result_valid <= 0;
+        end else begin
+            if (dot_product_valid) begin
+                intermediate_result_regs <= intermediate_result;
+                intermediate_result_valid <= 1;
+            end
+            else begin
+                intermediate_result_regs <= '{default:'0};
+                intermediate_result_valid <= 0;
+            end
+        end
+    end
 
 
     // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
@@ -194,8 +255,27 @@ module PE(
         end
     end
 
+    logic signed [15:0] result_tile_o_regs [0:5][0:5];
+    logic result_valid_o;
+
+    always_ff @( posedge clk or posedge reset ) begin
+        if (reset) begin
+            result_tile_o_regs <= '{default:'0};
+            result_valid_o <= 0;
+        end else begin
+            if (dot_product_valid) begin
+                result_tile_o_regs <= result_tile_o;
+                result_valid_o <= 1;
+            end
+            else begin
+                result_tile_o_regs <= '{default:'0};
+                result_valid_o <= 0;
+            end
+        end
+    end
+
     // Step 4: other output the result to memory
-    assign result_valid_o = data_valid_o && weight_valid_o;
+    // assign result_valid_o = data_valid_o && weight_valid_o;
     assign result_od_o = weight_od_o;
 
     // calculate result_i_o
