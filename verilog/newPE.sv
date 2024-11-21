@@ -11,14 +11,14 @@ module PE(
 
     // input from top PE or Itrans
     // only need to know the first element index of input tile
-    input logic signed [15:0] data_tile_i [0:5][0:5], // change to 16 bits
+    input logic signed [10:0] data_tile_i [0:5][0:5], // change to 16 bits
     input logic data_valid_i,
     input logic [8:0] data_x_index_i,
     input logic [8:0] data_y_index_i,
 
 
     // input from left PE or Wtrans
-    input logic signed [15:0] weight_tile_i [0:5][0:5],
+    input logic signed [11:0] weight_tile_i [0:5][0:5],
     input logic weight_valid_i,
     input logic weight_size_type_i, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4
     input logic [7:0] weight_od_i, // assume max OD = 128
@@ -27,7 +27,7 @@ module PE(
     // output directly to memory
     // assume the output 12 bits
     // may the output to 3 parts, OD, i and j
-    output logic signed [15:0] result_tile_o [0:5][0:5],
+    output logic signed [11:0] result_tile_o [0:5][0:5],
     output logic signed [7:0] result_od_o,
     output logic signed [8:0] result_i_o [0:5][0:5],
     output logic signed [8:0] result_j_o [0:5][0:5],
@@ -35,14 +35,14 @@ module PE(
 
 
     // outputs to bottom PE
-    output logic signed [15:0] data_tile_reg_o [0:5][0:5],
+    output logic signed [10:0] data_tile_reg_o [0:5][0:5],
     output logic data_valid_o,
     output logic [8:0] data_x_index_o,
     output logic [8:0] data_y_index_o,
 
 
     // outputs to right PE
-    output logic signed [15:0] weight_tile_reg_o [0:5][0:5],
+    output logic signed [11:0] weight_tile_reg_o [0:5][0:5],
     output logic weight_valid_o,
     output logic weight_size_type_o,
     output logic [7:0] weight_od_o
@@ -102,12 +102,12 @@ module PE(
 
     // Step 2: Compute dot product when both input and weight tiles are valid
     // VERY IMPORTANT: use the data in output_reg to calculate!!!!
-    logic signed [15:0] dot_product [0:5][0:5];
+    logic signed [16:0] dot_product [0:5][0:5];
     always_comb begin
         if (data_valid_o && weight_valid_o) begin
             for (int i = 0; i < 6; i=i+1) begin
                 for (int j = 0; j < 6; j=j+1) begin
-                    dot_product[i][j] = data_tile_reg_o[i][j] * weight_tile_reg_o[i][j];
+                    dot_product[i][j] = (data_tile_reg_o[i][j] * weight_tile_reg_o[i][j]) >>> 6;
                 end
             end
         end else begin
@@ -116,7 +116,7 @@ module PE(
     end
     
     logic dot_product_valid;
-    logic signed [15:0] dot_product_regs [0:5][0:5];
+    logic signed [16:0] dot_product_regs [0:5][0:5];
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
             dot_product_regs <= '{default:'0};
@@ -215,8 +215,8 @@ module PE(
             for (int j = 0; j < 6; j=j+1) begin
                 intermediate_result[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
-                    if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + (dot_product[k][j] <<< (at[i][k] - 1));
-                    else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - (dot_product[k][j] <<< (-at[i][k] - 1));
+                    if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + (dot_product_regs[k][j] <<< (at[i][k] - 1));
+                    else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - (dot_product_regs[k][j] <<< (-at[i][k] - 1));
                 end
             end
         end

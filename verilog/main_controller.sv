@@ -12,9 +12,6 @@ module main_controller(
     input logic wen_i, // the enable signal to change the off-chip input
 
 
-    // input from the weight controller
-    input logic weight_ready_i,
-
     // input from the data controller
     input logic data_ready_i,
     input logic data_complete_i,
@@ -23,8 +20,6 @@ module main_controller(
     output logic [7:0] weight_od1_o,
     output logic [7:0] weight_od2_o,
     output logic [3:0] weight_id_o,
-    output logic weight_prepare_o,
-    output logic weight_start_o,
 
     // output to the data controller
     output logic [3:0] data_id_o,
@@ -90,7 +85,7 @@ module main_controller(
         next_state = state;
         case(state)
             PREPARE: begin
-                if (data_ready_i && weight_ready_i) begin
+                if (data_ready_i) begin
                     next_state = START;
                 end
             end
@@ -158,27 +153,19 @@ module main_controller(
         case (state)
             PREPARE: begin
                 data_prepare_o = 1;
-                weight_prepare_o = 1;
                 data_start_count = 0;
-                weight_start_o = 0;
             end
             START: begin
                 data_prepare_o = 0;
-                weight_prepare_o = 0;
                 data_start_count = 1;
-                weight_start_o = 1;
             end
             COMPLETE: begin
                 data_prepare_o = 0;
-                weight_prepare_o = 0;
                 data_start_count = 0;
-                weight_start_o = 0;
             end
             FINISH: begin
                 data_prepare_o = 0;
-                weight_prepare_o = 0;
                 data_start_count = 0;
-                weight_start_o = 0;
             end
         endcase
     end
