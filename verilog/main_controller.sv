@@ -6,7 +6,7 @@ module main_controller(
     // off-chip input
     input logic [3:0] total_id_i,
     input logic [7:0] total_od_i,
-    input logic [8:0] total_weight_i,
+    input logic [8:0] total_width_i,
     input logic [8:0] total_height_i,
     input logic total_size_type_i,
     input logic wen_i, // the enable signal to change the off-chip input
@@ -22,6 +22,8 @@ module main_controller(
     output logic [3:0] weight_id_o,
 
     // output to the data controller
+    output logic [7:0] block_width_o,
+    output logic [7:0] block_height_o,
     output logic [3:0] data_id_o,
     output logic data_prepare_o,
     output logic data_start_o,
@@ -35,29 +37,66 @@ module main_controller(
     // definition of the local reg to store off-chip input
     logic [3:0] total_id_reg;
     logic [7:0] total_od_reg;
-    logic [8:0] total_weight_reg;
+    logic [8:0] total_width_reg;
     logic [8:0] total_height_reg;
     logic total_size_type_reg;
+
+    assign block_width_o = total_size_type_reg ? (total_width_reg[0:1] > 0 ? (total_width_reg >> 2) + 1 : (total_width_reg >> 2))
+                                              : (total_width_reg[0:1] > 0 ? (total_width_reg >> 2) + 1 : (total_width_reg >> 2));
+    always_comb begin
+        if (total_size_type_reg) begin
+            block_width_o = total_width_reg[0:1] > 0 ? (total_width_reg >> 2) + 1 : (total_width_reg >> 2);
+            block_height_o = total_height_reg[0:1] > 0 ? (total_height_reg >> 2) + 1 : (total_height_reg >> 2);
+        end
+        else begin
+            case(total_width_reg)
+                0, 1, 2, 3, 4, 5, 6: block_width_o = 1;
+                7, 8, 9, 10, 11, 12: block_width_o = 2;
+                13, 14, 15, 16, 17, 18: block_width_o = 3;
+                19, 20, 21, 22, 23, 24: block_width_o = 4;
+                25, 26, 27, 28, 29, 30: block_width_o = 5;
+                31, 32, 33, 34, 35, 36: block_width_o = 6;
+                37, 38, 39, 40, 41, 42: block_width_o = 7;
+                43, 44, 45, 46, 47, 48: block_width_o = 8;
+                49, 50, 51, 52, 53, 54: block_width_o = 9;
+                55, 56, 57, 58, 59, 60: block_width_o = 10;
+                default: block_width_o = 1;
+            endcase
+            case(total_height_reg)
+                0, 1, 2, 3, 4, 5, 6: block_height_o = 1;
+                7, 8, 9, 10, 11, 12: block_height_o = 2;
+                13, 14, 15, 16, 17, 18: block_height_o = 3;
+                19, 20, 21, 22, 23, 24: block_height_o = 4;
+                25, 26, 27, 28, 29, 30: block_height_o = 5;
+                31, 32, 33, 34, 35, 36: block_height_o = 6;
+                37, 38, 39, 40, 41, 42: block_height_o = 7;
+                43, 44, 45, 46, 47, 48: block_height_o = 8;
+                49, 50, 51, 52, 53, 54: block_height_o = 9;
+                55, 56, 57, 58, 59, 60: block_height_o = 10;
+                default: block_height_o = 1;
+            endcase
+        end
+    end
 
     // store the off-chip input into local reg
     always_ff @(posedge clk or pose dge reset) begin
         if (reset) begin
             total_id_reg  <= 0;
             total_od_reg  <= 0;
-            total_weight_reg  <= 0;
+            total_width_reg  <= 0;
             total_height_reg  <= 0;
             total_size_type_reg <= 0;
         end else begin
             if (wen_i) begin
                 total_id_reg  <= total_id_i;
                 total_od_reg  <= total_od_i;
-                total_weight_reg  <= total_weight_i;
+                total_width_reg  <= total_width_i;
                 total_height_reg  <= total_height_i;
                 total_size_type_reg <= total_size_type_i;
             end else begin
                 total_id_reg  <= total_id_reg;
                 total_od_reg  <= total_od_reg;
-                total_weight_reg  <= total_weight_reg;
+                total_width_reg  <= total_width_reg;
                 total_height_reg  <= total_height_reg;
                 total_size_type_reg <= total_size_type_reg;
             end

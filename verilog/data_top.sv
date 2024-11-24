@@ -15,16 +15,17 @@ module data_controller (
     input logic [3:0] input_id_i,
     input logic input_prepare_i,
     input logic input_start_i,
+    input logic [7:0] block_width_i,
+    input logic [7:0] block_height_i,
 
     // output to the main controller
     output logic input_ready_o,
     output logic input_finished_o,
+    output logic new_id_o,
 
     // output to the memory
-    output logic [15:0] input_addr_x_o_1,
-    output logic [15:0] input_addr_y_o_1,
-    output logic [15:0] input_addr_x_o_2,
-    output logic [15:0] input_addr_y_o_2,
+    output logic [7:0] input_addr_o_1,
+    output logic [7:0] input_addr_o_2,
     output logic input_request_o,
 
     // input from the memory 
@@ -42,6 +43,10 @@ module data_controller (
     logic size_type_reg;
     logic [15:0] input_length_reg;
     logic [15:0] input_width_reg;
+    logic [15:0] block_cnt, max_block;
+
+    assign block_cnt = block_width_i * block_height_i;
+    assign max_block = block_cnt * (input_id_i + 1);
 
     // store the off-chip input into local reg
     always_ff @(posedge clk or posedge reset) begin
@@ -133,11 +138,9 @@ module data_controller (
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             buffer_ready <= 0;
-            input_addr_x_o_1 <= 0;
-            input_addr_y_o_1 <= 0;
-            input_addr_x_o_2 <= 0;
-            input_addr_y_o_2 <= 0;
-            prefetch_cnt <= 0;
+            input_addr_o_1 <= 0;
+            input_addr_o_2 <= 1;
+            new_id_o <= 0;
         end else begin
             if (weight_valid_i && weight_state == PREPARE) begin
                 input_raw_1 <= input_data_i_1;
@@ -146,61 +149,20 @@ module data_controller (
             end
             else buffer_ready <= 1'b0;
 
-            if (size_type_i) begin
-                if (input_addr_y_o_2 + 4 < input_length_reg) begin
-                    input_addr_y_o_1 <= input_addr_y_o_2 + 4;
-                    if (input_addr_y_o_2 + 8 < input_length_reg) begin
-                        input_addr_y_o_2 <= input_addr_y_o_2 + 8;
-                    end
-                    else if (input_addr_x_o_2 + 4 < input_width_reg) begin
-                        input_addr_y_o_2 <= 0;
-                        input_addr_x_o_2 <= input_addr_x_o_2 + 4;
-                    end
-                    else begin
-                        input_addr_y_o_2 <= 0;
-                        input_addr_x_o_2 <= 0;
-                        //TODO: FINISHED ONE ROUND
-                    end
-                end
-                else if (input_addr_x_o_2 + 4 < input_width_reg) begin
-                    input_addr_y_o_1 <= 0;
-                    input_addr_x_o_1 <= input_addr_x_o_2 + 4;
-                    input_addr_y_o_2 <= 4;
-                    input_addr_x_o_2 <= input_addr_x_o_2 + 4;
-                end
-                else begin 
-                    input_addr_y_o_1 <= 0;
-                    input_addr_x_o_1 <= 0;
-                    //TODO: FINISHED ONE ROUND
-                end
+            if (new_id_o) begin
+                input_addr_o_1 <= block_cnt * input_id_i;
+                input_addr_o_2 <= block_cnt * input_id_i + 1;
+                new_id_o <= 0;
+            end
+            else if (input_addr_o_1 + 3 == max_block) begin
+                input_addr_o_1 <= max_block - 1;
+                input_addr_o_2 <= 0;
+                new_id_o <= 1;
             end
             else begin
-                if (input_addr_y_o_2 + 6 < input_length_reg) begin
-                    input_addr_y_o_1 <= input_addr_y_o_2 + 6;
-                    if (input_addr_y_o_2 + 12 < input_length_reg) begin
-                        input_addr_y_o_2 <= input_addr_y_o_2 + 12;
-                    end
-                    else if (input_addr_x_o_2 + 4 < input_width_reg) begin
-                        input_addr_y_o_2 <= 0;
-                        input_addr_x_o_2 <= input_addr_x_o_2 + 6;
-                    end
-                    else begin
-                        input_addr_y_o_2 <= 0;
-                        input_addr_x_o_2 <= 0;
-                        //TODO: FINISHED ONE ROUND
-                    end
-                end
-                else if (input_addr_x_o_2 + 4 < input_width_reg) begin
-                    input_addr_y_o_1 <= 0;
-                    input_addr_x_o_1 <= input_addr_x_o_2 + 6;
-                    input_addr_y_o_2 <= 6;
-                    input_addr_x_o_2 <= input_addr_x_o_2 + 6;
-                end
-                else begin 
-                    input_addr_y_o_1 <= 0;
-                    input_addr_x_o_1 <= 0;
-                    //TODO: FINISHED ONE ROUND
-                end
+                input_addr_o_1 <= input_addr_o_1 + 2;
+                input_addr_o_2 <= input_addr_o_2 + 2;
+                if (input_addr_o_1 + 4 == max_block) new_id_o <= 1;
             end
         end
     end
