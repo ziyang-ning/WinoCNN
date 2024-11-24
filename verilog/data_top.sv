@@ -21,12 +21,15 @@ module data_controller (
     output logic input_finished_o,
 
     // output to the memory
-    output logic [15:0] input_addr_x_o,
-    output logic [15:0] input_addr_y_o,
+    output logic [15:0] input_addr_x_o_1,
+    output logic [15:0] input_addr_y_o_1,
+    output logic [15:0] input_addr_x_o_2,
+    output logic [15:0] input_addr_y_o_2,
     output logic input_request_o,
 
     // input from the memory 
-    input logic signed [15:0] input_data_i[5:0][5:0],
+    input logic signed [15:0] input_data_i_1[5:0][5:0],
+    input logic signed [15:0] input_data_i_2[5:0][5:0],
     input logic input_valid_i,
 
     // output to the PE arrays
@@ -36,7 +39,7 @@ module data_controller (
 
     // definition of the local reg to store off-chip input    
     logic [7:0] total_id_reg;
-    logic size_type_reg, input_sel;
+    logic size_type_reg;
     logic [15:0] input_length_reg;
     logic [15:0] input_width_reg;
 
@@ -130,45 +133,73 @@ module data_controller (
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             buffer_ready <= 0;
-            input_calculated <= 0;
-            input_addr_x_o <= 0;
-            input_addr_y_o <= 0;
+            input_addr_x_o_1 <= 0;
+            input_addr_y_o_1 <= 0;
+            input_addr_x_o_2 <= 0;
+            input_addr_y_o_2 <= 0;
             prefetch_cnt <= 0;
-            input_sel <= 0;
         end else begin
             if (weight_valid_i && weight_state == PREPARE) begin
-                if (input_sel == 0) input_raw_1 <= input_data_i;
-                else input_raw_2 <= input_data_i;
+                input_raw_1 <= input_data_i_1;
+                input_raw_2 <= input_data_i_2;
                 buffer_ready <= 1'b1;
-                input_sel <= ~input_sel;
             end
             else buffer_ready <= 1'b0;
 
-            if (input_state == START) input_calculated <= 1;
-            else input_calculated <= 0;
-
             if (size_type_i) begin
-                if (input_addr_y_o + 4 < input_length_reg) 
-                    input_addr_y_o <= input_addr_y_o + 4;
-                else if (input_addr_x_o + 4 < input_width_reg) begin
-                    input_addr_y_o <= 0;
-                    input_addr_x_o <= input_addr_x_o + 4;
+                if (input_addr_y_o_2 + 4 < input_length_reg) begin
+                    input_addr_y_o_1 <= input_addr_y_o_2 + 4;
+                    if (input_addr_y_o_2 + 8 < input_length_reg) begin
+                        input_addr_y_o_2 <= input_addr_y_o_2 + 8;
+                    end
+                    else if (input_addr_x_o_2 + 4 < input_width_reg) begin
+                        input_addr_y_o_2 <= 0;
+                        input_addr_x_o_2 <= input_addr_x_o_2 + 4;
+                    end
+                    else begin
+                        input_addr_y_o_2 <= 0;
+                        input_addr_x_o_2 <= 0;
+                        //TODO: FINISHED ONE ROUND
+                    end
+                end
+                else if (input_addr_x_o_2 + 4 < input_width_reg) begin
+                    input_addr_y_o_1 <= 0;
+                    input_addr_x_o_1 <= input_addr_x_o_2 + 4;
+                    input_addr_y_o_2 <= 4;
+                    input_addr_x_o_2 <= input_addr_x_o_2 + 4;
                 end
                 else begin 
-                    input_addr_y_o <= 0;
-                    input_addr_x_o <= 0;
+                    input_addr_y_o_1 <= 0;
+                    input_addr_x_o_1 <= 0;
+                    //TODO: FINISHED ONE ROUND
                 end
             end
             else begin
-                if (input_addr_y_o + 6 < input_length_reg) 
-                    input_addr_y_o <= input_addr_y_o + 6;
-                else if (input_addr_x_o + 6 < input_width_reg) begin
-                    input_addr_y_o <= 0;
-                    input_addr_x_o <= input_addr_x_o + 6;
+                if (input_addr_y_o_2 + 6 < input_length_reg) begin
+                    input_addr_y_o_1 <= input_addr_y_o_2 + 6;
+                    if (input_addr_y_o_2 + 12 < input_length_reg) begin
+                        input_addr_y_o_2 <= input_addr_y_o_2 + 12;
+                    end
+                    else if (input_addr_x_o_2 + 4 < input_width_reg) begin
+                        input_addr_y_o_2 <= 0;
+                        input_addr_x_o_2 <= input_addr_x_o_2 + 6;
+                    end
+                    else begin
+                        input_addr_y_o_2 <= 0;
+                        input_addr_x_o_2 <= 0;
+                        //TODO: FINISHED ONE ROUND
+                    end
+                end
+                else if (input_addr_x_o_2 + 4 < input_width_reg) begin
+                    input_addr_y_o_1 <= 0;
+                    input_addr_x_o_1 <= input_addr_x_o_2 + 6;
+                    input_addr_y_o_2 <= 6;
+                    input_addr_x_o_2 <= input_addr_x_o_2 + 6;
                 end
                 else begin 
-                    input_addr_y_o <= 0;
-                    input_addr_x_o <= 0;
+                    input_addr_y_o_1 <= 0;
+                    input_addr_x_o_1 <= 0;
+                    //TODO: FINISHED ONE ROUND
                 end
             end
         end
@@ -245,29 +276,58 @@ module data_controller (
         end
     end
 
+    logic signed [15:0] intermediate_result_regs_1 [0:5][0:5];
+    logic signed [15:0] intermediate_result_regs_2 [0:5][0:5];
+
+    always_ff @( posedge clk or posedge reset ) begin
+        if (reset) begin
+            intermediate_result_regs_1 <= '{default:'0};
+            intermediate_result_regs_2 <= '{default:'0};
+        end 
+        else begin
+            intermediate_result_regs_1 <= intermediate_result_1;
+            intermediate_result_regs_2 <= intermediate_result_2;
+        end
+    end
+
+    logic signed [15:0] result_regs_1 [0:5][0:5];
+    logic signed [15:0] result_regs_2 [0:5][0:5];
+
     always_comb begin
         for (int i = 0; i < 6; i=i+1) begin
             for (int j = 0; j < 6; j=j+1) begin
-                result_tile_o_1[i][j] = 0;
-                result_tile_o_2[i][j] = 0;
+                result_regs_1[i][j] = 0;
+                result_regs_2[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
                     if (bt[j][k] == -'d4) begin
-                        result_tile_o_1[i][j] = result_tile_o_1[i][j] - (intermediate_result_1[i][k] <<< 2) - intermediate_result_1[i][k];
-                        result_tile_o_2[i][j] = result_tile_o_2[i][j] - (intermediate_result_2[i][k] <<< 2) - intermediate_result_2[i][k];
+                        result_regs_1[i][j] = result_regs_1[i][j] - (intermediate_result_1[i][k] <<< 2) - intermediate_result_1[i][k];
+                        result_regs_2[i][j] = result_regs_2[i][j] - (intermediate_result_2[i][k] <<< 2) - intermediate_result_2[i][k];
                     end
                     else if (bt[j][k] < 0) begin
-                        result_tile_o_1[i][j] = result_tile_o_1[i][j] - (intermediate_result_1[i][k] <<< (-bt[j][k] - 1));
-                        result_tile_o_2[i][j] = result_tile_o_2[i][j] - (intermediate_result_2[i][k] <<< (-bt[j][k] - 1));
+                        result_regs_1[i][j] = result_regs_1[i][j] - (intermediate_result_1[i][k] <<< (-bt[j][k] - 1));
+                        result_regs_2[i][j] = result_regs_2[i][j] - (intermediate_result_2[i][k] <<< (-bt[j][k] - 1));
                     end
                     else begin
-                        result_tile_o_1[i][j] = result_tile_o_1[i][j] + (intermediate_result_1[i][k] <<< (bt[j][k] - 1));
-                        result_tile_o_2[i][j] = result_tile_o_2[i][j] + (intermediate_result_2[i][k] <<< (bt[j][k] - 1));
+                        result_regs_1[i][j] = result_regs_1[i][j] + (intermediate_result_1[i][k] <<< (bt[j][k] - 1));
+                        result_regs_2[i][j] = result_regs_2[i][j] + (intermediate_result_2[i][k] <<< (bt[j][k] - 1));
                     end
                 end
             end
         end
     end
 
+
+
+    always_ff @( posedge clk or posedge reset ) begin
+        if (reset) begin
+            result_tile_o_1 <= '{default:'0};
+            result_tile_o_2 <= '{default:'0};
+        end 
+        else begin
+            result_tile_o_1 <= result_regs_1;
+            result_tile_o_2 <= result_regs_2;
+        end
+    end
     
 endmodule
 
