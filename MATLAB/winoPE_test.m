@@ -11,9 +11,33 @@ size_k = 0;       % size_k = 0 for 3*3, = 1 for 1*1
 if (size_k == 0)
     % TODO: CHANGE YOUR kernel HERE
     % NOTE: the kernel will be later normalized to range from [-1 to 1]
-    kernel =    [-1, -1, -1; 
-                 -1,  8, -1; 
+    kernel_1 =    [-1, -1, -1; 
+                 -1,  2, -1;    % was 8 in the middle
                  -1, -1, -1];   % Edge detection kernel
+             
+    kernel_2 =    [0, -1, 0; 
+                   -1, 5, -1;    % Sharpen
+                   0, -1, 0];
+               
+    kernel =       [1, 0, -1; 
+                   2, 0, -2;    % random
+                   1, 0, -1];
+               
+    kernel_4 =       [0, -0.25, 0; 
+                    -0.25, 1, -0.25;    % Laplace
+                   0, -0.25, 0];
+               
+    kernel_5 =       [0, 1, 0; 
+                    -1, 0, 1;    % 45 deg
+                   0, -1, 0];
+   
+    kernel_6 =       [-1, 2, 0; 
+                    -2, 1, 1.5;    % random
+                   0, -1, 0];
+    kernel_7 =        [0, 1, -2;
+                     2, 1, 0;
+                     -1, 0 ,-1];
+             
     s0 = 0;
     s1 = 1;
 elseif (size_k == 1)
@@ -45,15 +69,15 @@ end
 % input and output size
 input_n = 8;    %size for the input matrix and filter
 input_r = 7;
-UV_n = 16;
-UV_r = 11;
+UV_n = 14;
+UV_r = 7;
 middle_n = 16;
 middle_r = 11;
 out_n = 12;
 out_r = 7;
 
 % extract data from image
-A = imread('test2.jpg');
+A = imread('test_pic_1.jpg');
 %
 % A = ones(64,64,3);  %All white image
 
@@ -77,9 +101,14 @@ kernel_norm = kernel / max_val;
 
 %------------- START OF ALL FLOAT TEST -------------------
 
-red_float_out = conv2(A_red_norm,kernel_norm,'same');
-green_float_out = conv2(A_green_norm,kernel_norm,'same');
-blue_float_out = conv2(A_blue_norm,kernel_norm,'same');
+% red_float_out = conv2(A_red_norm,kernel_norm,'same');
+% green_float_out = conv2(A_green_norm,kernel_norm,'same');
+% blue_float_out = conv2(A_blue_norm,kernel_norm,'same');
+
+red_float_out = filter2(kernel_norm, A_red_norm);
+green_float_out = filter2(kernel_norm, A_green_norm);
+blue_float_out = filter2(kernel_norm, A_blue_norm);
+
 
 %------------- END OF ALL FLOAT TEST -------------------
 
@@ -89,6 +118,9 @@ blue_float_out = conv2(A_blue_norm,kernel_norm,'same');
 %This section won't be very useful
 
 % put kernel and input into fixed point notation
+% we don't need this anymore because weight should be pre-computed
+
+
 red_in = fi(A_red_norm, 1, input_n, input_r);
 green_in = fi(A_green_norm, 1, input_n, input_r);
 blue_in = fi(A_blue_norm, 1, input_n, input_r);
@@ -143,12 +175,19 @@ for i = 1 : m : height
         
         %fixed pint for kernel and input
         input = double(fi(input, 1, input_n, input_r));
-        kernel_norm = double(fi(kernel_norm, 1, input_n, input_r));
         
-        V = double(G * kernel_norm * G.');   %This line can be outside of the loop
+        % do kernel calc in floating point
+%         kernel_norm = double(fi(kernel_norm, 1, input_n, input_r));
+        
+        %------------ CURRENTLY UNEXPLAINABLE ISSUE -------------
+%         V = double(G * flip(fliplr(kernel_norm)) * G.');   %This line can be outside of the loop
+        V = double(G * kernel_norm * G.');
         U = double(B_T * input * B_T.');
         
         [out_U, out_V, Y] = winoPE(U, V, size_k, UV_n, UV_r, middle_n, middle_r, out_n, out_r);
+        
+        
+        
         red_out_wino(i:i+3, j:j+3) = Y;
 
     end
@@ -159,11 +198,14 @@ end
 diff_float = red_out_wino - red_float_out
 max_diff_wino = max(max(abs(diff_float)))
 
-diff_fixed = red_out_wino - red_out_fixed;
-max_diff_wino_fixed = max(max(abs(diff_fixed)));
 
-diff_float_fix_truth = red_float_out - red_out_fixed;
-max_diff_truths = max(max(abs(diff_float_fix_truth)));
+% meaning less
+
+% diff_fixed = red_out_wino - red_out_fixed;
+% max_diff_wino_fixed = max(max(abs(diff_fixed)));
+% 
+% diff_float_fix_truth = red_float_out - red_out_fixed;
+% max_diff_truths = max(max(abs(diff_float_fix_truth)));
 
 
 %------------- END OF WINOPE TESTBENCH -------------------

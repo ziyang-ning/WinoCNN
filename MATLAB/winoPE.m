@@ -5,8 +5,17 @@ function [out_U, out_V, Y] = winoPE(in_U, in_V, size_k, input_n, input_r, middle
 % if size_k is 0, 3*3 filter
 % if size_k is 1, 1*1 filter
     
-    in_U = double(fi(in_U, 1, input_n, input_r));
-    in_V = double(fi(in_V, 1, input_n, input_r));
+% original apporach
+%     in_U = double(fi(in_U, 1, input_n, input_r));
+%     in_V = double(fi(in_V, 1, 12, 11));
+
+% new appaorch
+    in_U = fi(in_U, 1, input_n, input_r);
+    in_V = fi(in_V, 1, 12, 11);
+    
+%     in_V = double(fi(in_V, 1, input_n, input_r));
+    
+    
     
     out_U = in_U;
     out_V = in_V;
@@ -29,7 +38,13 @@ function [out_U, out_V, Y] = winoPE(in_U, in_V, size_k, input_n, input_r, middle
     end
        
    A_T = double(fi(A_T, 1, middle_n, middle_r));
-   UV = double(fi(in_U .* in_V, 1, middle_n, middle_r));
+   
+   
+   
+%    UV = double(fi(in_U .* in_V, 1, middle_n, middle_r));
+   UV = in_U .* in_V;
+   UV = double(fi(UV, 1, middle_n, middle_r));
+   
    Y = A_T * UV * A_T.';
    Y = double(fi(Y, 1, Y_n, Y_r));
 
