@@ -1,5 +1,5 @@
 # example memory compiler command
-FILENAME=SRAM8x32_single
+FILENAME=SRAM
 saed_mc src/${FILENAME}.config
 mkdir -p results
 mv mc_work results/${FILENAME}
