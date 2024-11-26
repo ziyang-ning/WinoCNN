@@ -112,7 +112,7 @@ module output_mem_top (
         data_2_out = sram_output_2;
         addr_1_out = addr_1_in;
         addr_2_out = addr_2_in;
-        scan_out = sram_output_1;
+        scan_out = (scan_mode == SCAN_OUT) ? sram_output_1 : 512'b0;
     end
 
     // CE is just the clk
