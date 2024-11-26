@@ -16,15 +16,15 @@ module data_mem_top (
     // inputs from the controllers
     input logic [7:0] addr_1_in,
     input logic [7:0] addr_2_in,
-    input logic addr_1_valid_in,
-    input logic addr_2_valid_in,
+    input logic package_1_valid_in,
+    input logic package_2_valid_in,
 
     output logic [511:0] data_1_out,
     output logic [511:0] data_2_out,
     output logic [7:0] addr_1_out, // use for debug
     output logic [7:0] addr_2_out, // use for debug
-    output logic data_1_valid_out,
-    output logic data_2_valid_out
+    output logic package_1_valid_out,
+    output logic package_2_valid_out
 
 );
 
