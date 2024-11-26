@@ -69,12 +69,22 @@ end
 % input and output size
 input_n = 8;    %size for the input matrix and filter
 input_r = 7;
-UV_n = 14;
-UV_r = 7;
+U_n = 14;
+U_r = 7;
+V_n = 12;
+V_r = 11;
 middle_n = 16;
 middle_r = 11;
 out_n = 12;
 out_r = 7;
+
+% if output_files = 1 then write input and weight matrix to txt files
+output_files = 1;
+folder_name = fullfile('..', 'matlab_data_out');
+if ~exist(folder_name, 'dir')
+    mkdir(folder_name);
+end
+
 
 % extract data from image
 A = imread('test_pic_1.jpg');
@@ -179,14 +189,20 @@ for i = 1 : m : height
         % do kernel calc in floating point
 %         kernel_norm = double(fi(kernel_norm, 1, input_n, input_r));
         
-        %------------ CURRENTLY UNEXPLAINABLE ISSUE -------------
-%         V = double(G * flip(fliplr(kernel_norm)) * G.');   %This line can be outside of the loop
         V = double(G * kernel_norm * G.');
         U = double(B_T * input * B_T.');
         
-        [out_U, out_V, Y] = winoPE(U, V, size_k, UV_n, UV_r, middle_n, middle_r, out_n, out_r);
+        if(output_files == 1)
+            in_U = double(fi(U, 1, U_n, U_r));
+            in_V = double(fi(V, 1, V_n, V_r));
+
+            % Save to text files
+            writematrix(in_U, fullfile(folder_name, strcat( string(i),string(j) ,'in_U.txt')), 'Delimiter', ' ');
+            writematrix(in_V, fullfile(folder_name, 'in_V.txt'), 'Delimiter', ' ');
+            
+        end
         
-        
+        [out_U, out_V, Y] = winoPE(U, V, size_k, U_n, U_r, V_n, V_r, middle_n, middle_r, out_n, out_r);
         
         red_out_wino(i:i+3, j:j+3) = Y;
 

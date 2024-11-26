@@ -1,21 +1,19 @@
 % out_U and out_V will be the same (n,r) as the in_U and in_V
 % middle_n and middle_r are the (n,r) used for A_T
 
-function [out_U, out_V, Y] = winoPE(in_U, in_V, size_k, input_n, input_r, middle_n, middle_r, Y_n, Y_r)
+function [out_U, out_V, Y] = winoPE(in_U, in_V, size_k, U_n, U_r, V_n, V_r, middle_n, middle_r, Y_n, Y_r)
 % if size_k is 0, 3*3 filter
 % if size_k is 1, 1*1 filter
     
-% original apporach
-%     in_U = double(fi(in_U, 1, input_n, input_r));
+% original approach
+%     in_U = double(fi(in_U, 1, U_n, U_r));
 %     in_V = double(fi(in_V, 1, 12, 11));
 
-% new appaorch
-    in_U = fi(in_U, 1, input_n, input_r);
-    in_V = fi(in_V, 1, 12, 11);
+% new approach
+    in_U = fi(in_U, 1, U_n, U_r);
+    in_V = fi(in_V, 1, V_n, V_r);
     
-%     in_V = double(fi(in_V, 1, input_n, input_r));
-    
-    
+%     in_V = double(fi(in_V, 1, U_n, U_r));
     
     out_U = in_U;
     out_V = in_V;
