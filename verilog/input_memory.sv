@@ -5,7 +5,7 @@ module data_mem_top (
 
     // scan related inputs
     input logic [511:0] scan_in,
-    input logic scan_enable,
+    // input logic scan_enable,
     input logic scan_mode,
     input logic [7:0] scan_addr, 
     // if scan_mode is high, load the scan_in to the memory, only use one port
@@ -24,7 +24,7 @@ module data_mem_top (
     output logic [7:0] addr_1_out, // use for debug
     output logic [7:0] addr_2_out, // use for debug
     output logic data_1_valid_out,
-    output logic data_2_valid_out,
+    output logic data_2_valid_out
 
 );
 
