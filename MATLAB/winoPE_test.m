@@ -196,8 +196,8 @@ for i = 1 : m : height
         U = double(B_T * input * B_T.');
         
         if(output_files == 1)
-            in_U = double(fi(U, 1, U_n, U_r));
-            in_V = double(fi(V, 1, V_n, V_r));
+            in_U = double(fi(U, 1, U_n, U_r).int);
+            in_V = double(fi(V, 1, V_n, V_r).int);
 
             % Save to text files
             writematrix(in_U, fullfile(folder_name, strcat(string(filename_count) ,'in_U.txt')), 'Delimiter', ' ');
