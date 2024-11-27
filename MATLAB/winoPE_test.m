@@ -175,6 +175,9 @@ end
 red_out_wino = zeros(64, 64);
 [height, width] = size(A_red);
 
+% filename counter for test data output
+filename_count = 0;
+
 % performing winoPE for red channel
 for i = 1 : m : height
     out_j = 1;
@@ -197,9 +200,9 @@ for i = 1 : m : height
             in_V = double(fi(V, 1, V_n, V_r));
 
             % Save to text files
-            writematrix(in_U, fullfile(folder_name, strcat( string(i),string(j) ,'in_U.txt')), 'Delimiter', ' ');
+            writematrix(in_U, fullfile(folder_name, strcat(string(filename_count) ,'in_U.txt')), 'Delimiter', ' ');
             writematrix(in_V, fullfile(folder_name, 'in_V.txt'), 'Delimiter', ' ');
-            
+            filename_count = filename_count + 1;
         end
         
         [out_U, out_V, Y] = winoPE(U, V, size_k, U_n, U_r, V_n, V_r, middle_n, middle_r, out_n, out_r);
