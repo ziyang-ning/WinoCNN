@@ -5,29 +5,29 @@ module PE_tb;
     logic reset;
 
     // Inputs to the PE
-    logic signed [15:0] data_tile_i [0:5][0:5];
+    logic signed [13:0] data_tile_i [0:5][0:5];
     logic data_valid_i;
     logic [8:0] data_x_index_i;
     logic [8:0] data_y_index_i;
 
-    logic signed [15:0] weight_tile_i [0:5][0:5];
+    logic signed [11:0] weight_tile_i [0:5][0:5];
     logic weight_valid_i;
     logic weight_size_type_i;
     logic [7:0] weight_od_i;
 
     // Outputs from the PE
-    logic signed [15:0] result_tile_o [0:5][0:5];
+    logic signed [11:0] result_tile_o [0:5][0:5];
     logic signed [7:0] result_od_o;
     logic signed [8:0] result_i_o [0:5][0:5];
     logic signed [8:0] result_j_o [0:5][0:5];
     logic signed result_valid_o;
 
-    logic signed [15:0] data_tile_reg_o [0:5][0:5];
+    logic signed [13:0] data_tile_reg_o [0:5][0:5];
     logic data_valid_o;
     logic [8:0] data_x_index_o;
     logic [8:0] data_y_index_o;
 
-    logic signed [15:0] weight_tile_reg_o [0:5][0:5];
+    logic signed [11:0] weight_tile_reg_o [0:5][0:5];
     logic weight_valid_o;
     logic weight_size_type_o;
     logic [7:0] weight_od_o;
@@ -65,6 +65,32 @@ module PE_tb;
         forever #5 clk = ~clk; // 100 MHz clock
     end
 
+
+    task load_tile_from_file(
+        input string file_name,
+        input int bit_width, // Added argument for bit width
+        output logic signed [13:0] tile [0:5][0:5]
+    );
+        int file;
+        int row, col;
+        int value;
+        file = $fopen(file_name, "r");
+        if (file == 0) begin
+            $fatal("Error: Could not open file %s", file_name);
+        end
+        for (row = 0; row < 6; row++) begin
+            for (col = 0; col < 6; col++) begin
+                if (!$feof(file)) begin
+                    $fscanf(file, "%d", value);
+                    tile[row][col] = value >>> (14 - bit_width); // Adjust value width
+                end else begin
+                    $fatal("Error: Unexpected end of file in %s", file_name);
+                end
+            end
+        end
+        $fclose(file);
+    endtask
+
     // Stimulus
     initial begin
         // Initialize inputs
@@ -75,6 +101,10 @@ module PE_tb;
         data_y_index_i = 0;
         weight_od_i = 0;
         weight_size_type_i = 0;
+
+        // Load data and weights from files
+        load_tile_from_file ("../matlab_data_out/0in_U.txt",14, data_tile_i);
+        load_tile_from_file ("../matlab_data_out/in_V.txt", 12, weight_tile_i);
         
         // Reset de-assertion
         #20 reset = 0;
@@ -85,20 +115,20 @@ module PE_tb;
         data_x_index_i = 9'd10;
         data_y_index_i = 9'd15;
         weight_od_i = 8'd3;
-        weight_size_type_i = 1'b0; // Testing with 1*1, 6*6 size
+        weight_size_type_i = 1'b1; // filter is 3*3 (I don't think this var do anything?)
 
         // Load example data into the data and weight tiles
-        for (int i = 0; i < 6; i++) begin
-            for (int j = 0; j < 6; j++) begin
-                data_tile_i[i][j] = 2; // Example pattern
-            end
-        end
+        // for (int i = 0; i < 6; i++) begin
+        //     for (int j = 0; j < 6; j++) begin
+        //         data_tile_i[i][j] = 2; // Example pattern
+        //     end
+        // end
         
-        for (int i = 0; i < 6; i++) begin
-            for (int j = 0; j < 6; j++) begin
-                weight_tile_i[i][j] = 3; // Example pattern
-            end
-        end
+        // for (int i = 0; i < 6; i++) begin
+        //     for (int j = 0; j < 6; j++) begin
+        //         weight_tile_i[i][j] = 3; // Example pattern
+        //     end
+        // end
 
         // Hold input signals for a few cycles
         #40;

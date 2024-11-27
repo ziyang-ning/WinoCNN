@@ -11,7 +11,7 @@ module PE(
 
     // input from top PE or Itrans
     // only need to know the first element index of input tile
-    input logic signed [10:0] data_tile_i [0:5][0:5], // change to 16 bits
+    input logic signed [13:0] data_tile_i [0:5][0:5], // change to 16 bits
     input logic data_valid_i,
     input logic [8:0] data_x_index_i,
     input logic [8:0] data_y_index_i,
@@ -20,8 +20,8 @@ module PE(
     // input from left PE or Wtrans
     input logic signed [11:0] weight_tile_i [0:5][0:5],
     input logic weight_valid_i,
-    input logic weight_size_type_i, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4
-    input logic [7:0] weight_od_i, // assume max OD = 128
+    input logic weight_size_type_i, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4 //TODO:do we need this?
+    input logic [7:0] weight_od_i, // assume max OD = 128   //TODO:do we need this?
 
 
     // output directly to memory
@@ -35,7 +35,7 @@ module PE(
 
 
     // outputs to bottom PE
-    output logic signed [10:0] data_tile_reg_o [0:5][0:5],
+    output logic signed [13:0] data_tile_reg_o [0:5][0:5],
     output logic data_valid_o,
     output logic [8:0] data_x_index_o,
     output logic [8:0] data_y_index_o,
@@ -102,12 +102,14 @@ module PE(
 
     // Step 2: Compute dot product when both input and weight tiles are valid
     // VERY IMPORTANT: use the data in output_reg to calculate!!!!
-    logic signed [16:0] dot_product [0:5][0:5];
+    logic signed [15:0] dot_product [0:5][0:5];
+    logic signed [25:0] mult_result;        //added for safety 
     always_comb begin
         if (data_valid_o && weight_valid_o) begin
             for (int i = 0; i < 6; i=i+1) begin
                 for (int j = 0; j < 6; j=j+1) begin
-                    dot_product[i][j] = (data_tile_reg_o[i][j] * weight_tile_reg_o[i][j]) >>> 6;
+                    mult_result = data_tile_reg_o[i][j] * weight_tile_reg_o[i][j];
+                    dot_product[i][j] = (mult_result) >>> 7;
                 end
             end
         end else begin
@@ -116,7 +118,7 @@ module PE(
     end
     
     logic dot_product_valid;
-    logic signed [16:0] dot_product_regs [0:5][0:5];
+    logic signed [15:0] dot_product_regs [0:5][0:5];
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
             dot_product_regs <= '{default:'0};
