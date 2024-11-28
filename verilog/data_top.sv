@@ -7,21 +7,18 @@ module data_controller (
     // off-chip input
     input logic [7:0] total_id_i,
     input logic size_type_i,
-    input logic [15:0] input_length_i,
-    input logic [15:0] input_width_i,
+    input logic [7:0] input_length_i,
+    input logic [7:0] input_width_i,
     input logic wen_i, // the enable signal to change the off-chip input
 
     // input from the main controller
     input logic [3:0] input_id_i,
     input logic input_prepare_i,
-    input logic input_start_i,
     input logic [7:0] block_width_i,
     input logic [7:0] block_height_i,
 
     // output to the main controller
-    output logic input_ready_o,
-    output logic input_finished_o,
-    output logic new_id_o,
+    output logic loop_finished_o,
 
     // output to the memory
     output logic [7:0] input_addr_o_1,
@@ -29,20 +26,20 @@ module data_controller (
     output logic input_request_o,
 
     // input from the memory 
-    input logic signed [15:0] input_data_i_1[5:0][5:0],
-    input logic signed [15:0] input_data_i_2[5:0][5:0],
+    input logic signed [7:0] input_data_i_1[5:0][5:0],
+    input logic signed [7:0] input_data_i_2[5:0][5:0],
     input logic input_valid_i,
 
     // output to the PE arrays
-    output logic signed [15:0] result_tile_o_1 [5:0][5:0],
-    output logic signed [15:0] result_tile_o_2 [5:0][5:0]
+    output logic signed [13:0] result_tile_o_1 [5:0][5:0],
+    output logic signed [13:0] result_tile_o_2 [5:0][5:0]
 );
 
     // definition of the local reg to store off-chip input    
     logic [7:0] total_id_reg;
     logic size_type_reg;
-    logic [15:0] input_length_reg;
-    logic [15:0] input_width_reg;
+    logic [7:0] input_length_reg;
+    logic [7:0] input_width_reg;
     logic [15:0] block_cnt, max_block;
 
     assign block_cnt = block_width_i * block_height_i;
@@ -64,113 +61,46 @@ module data_controller (
         end 
     end
 
-    typedef enum logic [1:0] {
-        PREPARE = 2'b00,
-        READY = 2'b01,
-        START = 2'b10,
-        FINISHED = 2'b11
-    } input_state_t;
-
-    input_state_t input_state, next_input_state;
-    logic buffer_ready, input_calculated;
-
-    always_comb begin
-        next_input_state = input_state;
-        case(input_state)
-            PREPARE: begin
-                if (buffer_ready) begin
-                    next_input_state = READY;
-                end
-            end
-            READY: begin
-                if (input_start_i) begin
-                    next_input_state = START;
-                end
-            end
-            START: begin
-                if (input_calculated) begin
-                    next_input_state = FINISHED;
-                end
-            end
-            FINISHED: begin
-                if (input_prepare_i) begin
-                    next_input_state = PREPARE;
-                end
-            end
-        endcase
-    end
-
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset)
-            input_state <= PREPARE;
-        else 
-            input_state <= next_input_state;
-    end
-
-    always_comb begin
-        case(input_state)
-            PREPARE: begin
-                input_ready_o = 1'b0;
-                input_request_o = 1'b1;
-                input_finished_o = 1'b0;
-            end
-            READY: begin
-                input_ready_o = 1'b1;
-                input_request_o = 1'b0;
-                input_finished_o = 1'b0;
-            end
-            START: begin
-                input_ready_o = 1'b0;
-                input_request_o = 1'b0;
-                input_finished_o = 1'b0;
-            end
-            FINISHED: begin
-                input_ready_o = 1'b0;
-                input_request_o = 1'b0;
-                input_finished_o = 1'b1;
-            end
-        endcase
-    end
-
-    logic signed [15:0] input_raw_1[5:0][5:0];
-    logic signed [15:0] input_raw_2[5:0][5:0];
+    logic signed [7:0] input_raw_1[5:0][5:0];
+    logic signed [7:0] input_raw_2[5:0][5:0];
     
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
-            buffer_ready <= 0;
             input_addr_o_1 <= 0;
             input_addr_o_2 <= 1;
-            new_id_o <= 0;
+            loop_finished_o <= 0;
+            input_request_o <= 1;
+            input_raw_1 <= '{default:'0};
+            input_raw_2 <= '{default:'0};
         end else begin
-            if (weight_valid_i && weight_state == PREPARE) begin
+            if (weight_valid_i && input_request_o) begin
                 input_raw_1 <= input_data_i_1;
                 input_raw_2 <= input_data_i_2;
-                buffer_ready <= 1'b1;
             end
-            else buffer_ready <= 1'b0;
 
-            if (new_id_o) begin
+            if (loop_finished_o && input_request_o) input_request_o <= 0;
+            if (input_prepare_i && ~input_request_o) input_request_o <= 1;
+
+            if (loop_finished_o) begin
                 input_addr_o_1 <= block_cnt * input_id_i;
                 input_addr_o_2 <= block_cnt * input_id_i + 1;
-                new_id_o <= 0;
+                loop_finished_o <= 0;
             end
             else if (input_addr_o_1 + 3 == max_block) begin
                 input_addr_o_1 <= max_block - 1;
                 input_addr_o_2 <= 0;
-                new_id_o <= 1;
+                loop_finished_o <= 1;
             end
             else begin
                 input_addr_o_1 <= input_addr_o_1 + 2;
                 input_addr_o_2 <= input_addr_o_2 + 2;
-                if (input_addr_o_1 + 4 == max_block) new_id_o <= 1;
+                if (input_addr_o_1 + 4 == max_block) loop_finished_o <= 1;
             end
         end
     end
 
-
-
-    logic signed [15:0] intermediate_result_1 [0:5][0:5];
-    logic signed [15:0] intermediate_result_2 [0:5][0:5];
+    logic signed [10:0] intermediate_result_1 [0:5][0:5];
+    logic signed [10:0] intermediate_result_2 [0:5][0:5];
     logic signed [2:0] bt [0:5][0:5];
     
     assign bt[0][0] = 'd3;
@@ -238,8 +168,8 @@ module data_controller (
         end
     end
 
-    logic signed [15:0] intermediate_result_regs_1 [0:5][0:5];
-    logic signed [15:0] intermediate_result_regs_2 [0:5][0:5];
+    logic signed [10:0] intermediate_result_regs_1 [0:5][0:5];
+    logic signed [10:0] intermediate_result_regs_2 [0:5][0:5];
 
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
@@ -252,8 +182,8 @@ module data_controller (
         end
     end
 
-    logic signed [15:0] result_regs_1 [0:5][0:5];
-    logic signed [15:0] result_regs_2 [0:5][0:5];
+    logic signed [13:0] result_regs_1 [0:5][0:5];
+    logic signed [13:0] result_regs_2 [0:5][0:5];
 
     always_comb begin
         for (int i = 0; i < 6; i=i+1) begin

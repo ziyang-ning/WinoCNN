@@ -11,7 +11,7 @@ module PE(
 
     // input from top PE or Itrans
     // only need to know the first element index of input tile
-    input logic signed [10:0] data_tile_i [0:5][0:5], // change to 16 bits
+    input logic signed [13:0] data_tile_i [0:5][0:5],
     input logic data_valid_i,
     input logic [8:0] data_x_index_i,
     input logic [8:0] data_y_index_i,
@@ -25,7 +25,6 @@ module PE(
 
 
     // output directly to memory
-    // assume the output 12 bits
     // may the output to 3 parts, OD, i and j
     output logic signed [11:0] result_tile_o [0:5][0:5],
     output logic signed [7:0] result_od_o,
@@ -35,7 +34,7 @@ module PE(
 
 
     // outputs to bottom PE
-    output logic signed [10:0] data_tile_reg_o [0:5][0:5],
+    output logic signed [13:0] data_tile_reg_o [0:5][0:5],
     output logic data_valid_o,
     output logic [8:0] data_x_index_o,
     output logic [8:0] data_y_index_o,

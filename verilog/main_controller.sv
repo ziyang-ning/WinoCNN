@@ -11,10 +11,8 @@ module main_controller(
     input logic total_size_type_i,
     input logic wen_i, // the enable signal to change the off-chip input
 
-
     // input from the data controller
-    input logic data_ready_i,
-    input logic data_complete_i,
+    input logic loop_finished_i,
 
     // output to the weight controller
     output logic [7:0] weight_od1_o,
@@ -26,13 +24,10 @@ module main_controller(
     output logic [7:0] block_height_o,
     output logic [3:0] data_id_o,
     output logic data_prepare_o,
-    output logic data_start_o,
 
     // off-chip output
     output logic conv_completed
-
 );
-
 
     // definition of the local reg to store off-chip input
     logic [3:0] total_id_reg;
@@ -41,8 +36,6 @@ module main_controller(
     logic [8:0] total_height_reg;
     logic total_size_type_reg;
 
-    assign block_width_o = total_size_type_reg ? (total_width_reg[0:1] > 0 ? (total_width_reg >> 2) + 1 : (total_width_reg >> 2))
-                                              : (total_width_reg[0:1] > 0 ? (total_width_reg >> 2) + 1 : (total_width_reg >> 2));
     always_comb begin
         if (total_size_type_reg) begin
             block_width_o = total_width_reg[0:1] > 0 ? (total_width_reg >> 2) + 1 : (total_width_reg >> 2);
@@ -114,7 +107,6 @@ module main_controller(
     
     typedef enum logic [1:0] {
         PREPARE,
-        START,
         COMPLETE,
         FINISH
     } state_t;
@@ -124,17 +116,12 @@ module main_controller(
         next_state = state;
         case(state)
             PREPARE: begin
-                if (data_ready_i) begin
-                    next_state = START;
-                end
-            end
-            START: begin
-                if (data_complete_i) begin
+                if (loop_finished_i) begin
                     next_state = COMPLETE;
                 end
             end
             COMPLETE: begin
-                if ((od2_counter >= total_od_reg) && (id_counter >= total_id_reg) && (data_complete_i)) begin
+                if ((od2_counter >= total_od_reg) && (id_counter >= total_id_reg)) begin
                     next_state = FINISH;
                 end else begin
                     next_state = PREPARE;
@@ -153,7 +140,6 @@ module main_controller(
             state <= next_state;
         end
     end
-
 
     // counter for od1, od2 and id
     always_ff @(posedge clk or posedge reset) begin
@@ -177,12 +163,8 @@ module main_controller(
         end
     end
 
-
-
     // comb logic for other output
-    logic [3:0] data_start_count;
     always_comb begin
-
         data_id_o = id_counter;
         weight_id_o = id_counter;
         weight_od1_o = od1_counter;
@@ -192,41 +174,14 @@ module main_controller(
         case (state)
             PREPARE: begin
                 data_prepare_o = 1;
-                data_start_count = 0;
-            end
-            START: begin
-                data_prepare_o = 0;
-                data_start_count = 1;
             end
             COMPLETE: begin
                 data_prepare_o = 0;
-                data_start_count = 0;
             end
             FINISH: begin
                 data_prepare_o = 0;
-                data_start_count = 0;
             end
         endcase
     end
-
-
-    // data_start_o should be delay by three cycles for_data_start_count is high
-    logic temp_reg1, temp_reg2, temp_reg3;
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            temp_reg1 <= 0;
-            temp_reg2 <= 0;
-            temp_reg3 <= 0;
-            data_start_o <= 0;
-        end else begin
-            temp_reg1 <= data_start_count;
-            temp_reg2 <= temp_reg1;
-            temp_reg3 <= temp_reg2;
-            data_start_o <= temp_reg3;
-        end
-    end
-
-
-
 
 endmodule
