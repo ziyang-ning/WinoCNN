@@ -257,8 +257,7 @@ module PE(
         end
     end
 
-    logic signed [15:0] result_tile_o_regs [0:5][0:5];
-    logic result_valid_o;
+    logic signed [11:0] result_tile_o_regs [0:5][0:5];
 
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin

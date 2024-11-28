@@ -66,32 +66,37 @@ module PE_tb;
     end
 
 
-    task load_tile_from_file(
-        input string file_name,
-        input int bit_width, // Added argument for bit width
-        output logic signed [13:0] tile [0:5][0:5]
-    );
-        int file;
-        int row, col;
-        int value;
-        file = $fopen(file_name, "r");
-        if (file == 0) begin
-            $fatal("Error: Could not open file %s", file_name);
-        end
-        for (row = 0; row < 6; row++) begin
-            for (col = 0; col < 6; col++) begin
-                if (!$feof(file)) begin
-                    $fscanf(file, "%d", value);
-                    tile[row][col] = value >>> (14 - bit_width); // Adjust value width
-                end else begin
-                    $fatal("Error: Unexpected end of file in %s", file_name);
-                end
-            end
-        end
-        $fclose(file);
-    endtask
+    // task load_tile_from_file(
+    //     input string file_name,
+    //     input int bit_width, // Added argument for bit width
+    //     output logic signed [13:0] tile [0:5][0:5]
+    // );
+    //     int file;
+    //     int row, col;
+    //     int value;
+    //     file = $fopen(file_name, "r");
+    //     if (file == 0) begin
+    //         $fatal("Error: Could not open file %s", file_name);
+    //     end
+    //     for (row = 0; row < 6; row++) begin
+    //         for (col = 0; col < 6; col++) begin
+    //             if (!$feof(file)) begin
+    //                 $fscanf(file, "%d", value);
+    //                 tile[row][col] = value >>> (14 - bit_width); // Adjust value width
+    //             end else begin
+    //                 $fatal("Error: Unexpected end of file in %s", file_name);
+    //             end
+    //         end
+    //     end
+    //     $fclose(file);
+    // endtask
 
     // Stimulus
+    int file;
+    int row, col;
+    int value;
+    logic signed [13:0] tile [0:5][0:5];
+    logic signed [11:0] tile_2 [0:5][0:5];
     initial begin
         // Initialize inputs
         reset = 1;
@@ -103,9 +108,35 @@ module PE_tb;
         weight_size_type_i = 0;
 
         // Load data and weights from files
-        load_tile_from_file ("../matlab_data_out/0in_U.txt",14, data_tile_i);
-        load_tile_from_file ("../matlab_data_out/in_V.txt", 12, weight_tile_i);
+
+
         
+        file = $fopen("../matlab_data_out/0in_U.txt", "r");
+        for (row = 0; row < 6; row++) begin
+            for (col = 0; col < 6; col++) begin
+                if (!$feof(file)) begin
+                    $fscanf(file, "%d", tile[row][col]);
+                end
+            end
+        end
+        $fclose(file);
+
+
+        // load_tile_from_file ("../matlab_data_out/in_V.txt", 12, weight_tile_i);
+
+        
+        file = $fopen("../matlab_data_out/in_V.txt", "r");
+        for (row = 0; row < 6; row++) begin
+            for (col = 0; col < 6; col++) begin
+                if (!$feof(file)) begin
+                    $fscanf(file, "%d", tile_2[row][col]);
+                end
+            end
+        end
+        $fclose(file);
+        
+        $monitor(result_tile_o);
+
         // Reset de-assertion
         #20 reset = 0;
 
