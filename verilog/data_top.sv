@@ -4,18 +4,12 @@ module data_controller (
     input logic clk,
     input logic reset,
 
-    // off-chip input
-    input logic [7:0] total_id_i,
-    input logic size_type_i,
-    input logic [7:0] input_length_i,
-    input logic [7:0] input_width_i,
-    input logic wen_i, // the enable signal to change the off-chip input
-
     // input from the main controller
     input logic [3:0] input_id_i,
     input logic input_prepare_i,
     input logic [7:0] block_width_i,
     input logic [7:0] block_height_i,
+    input logic size_type_i,
 
     // output to the main controller
     output logic loop_finished_o,
@@ -32,34 +26,17 @@ module data_controller (
 
     // output to the PE arrays
     output logic signed [13:0] result_tile_o_1 [5:0][5:0],
-    output logic signed [13:0] result_tile_o_2 [5:0][5:0]
+    output logic signed [13:0] result_tile_o_2 [5:0][5:0],
+    output logic data_valid_o,
+    output logic size_type_o,
+    output logic [7:0] block_cnt
 );
 
-    // definition of the local reg to store off-chip input    
-    logic [7:0] total_id_reg;
-    logic size_type_reg;
-    logic [7:0] input_length_reg;
-    logic [7:0] input_width_reg;
-    logic [15:0] block_cnt, max_block;
+    logic [15:0] max_block;
 
     assign block_cnt = block_width_i * block_height_i;
     assign max_block = block_cnt * (input_id_i + 1);
-
-    // store the off-chip input into local reg
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            total_id_reg  <= 0;
-            size_type_reg <= 0;
-            input_length_reg <= 0;
-            input_width_reg <= 0;
-        end 
-        else if (wen_i) begin
-            total_id_reg  <= total_id_i;
-            size_type_reg <= size_type_i;
-            input_length_reg <= input_length_i;
-            input_width_reg <= input_width_i;
-        end 
-    end
+    assign size_type_o = size_type_i;
 
     logic signed [7:0] input_raw_1[5:0][5:0];
     logic signed [7:0] input_raw_2[5:0][5:0];
@@ -214,16 +191,18 @@ module data_controller (
         if (reset) begin
             result_tile_o_1 <= '{default:'0};
             result_tile_o_2 <= '{default:'0};
+            data_valid_o <= 0;
         end 
         else begin
             result_tile_o_1 <= result_regs_1;
             result_tile_o_2 <= result_regs_2;
+            if (result_regs_1 != 0) data_valid_o <= 1;
         end
     end
     
 endmodule
 
-
+/*
 module data_buffer ();
 
 endmodule
@@ -238,3 +217,4 @@ module data_top ();
 
 endmodule
 
+*/

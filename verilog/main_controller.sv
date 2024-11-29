@@ -16,7 +16,6 @@ module main_controller(
 
     // output to the weight controller
     output logic [7:0] weight_od1_o,
-    output logic [7:0] weight_od2_o,
     output logic [3:0] weight_id_o,
 
     // output to the data controller
@@ -24,6 +23,7 @@ module main_controller(
     output logic [7:0] block_height_o,
     output logic [3:0] data_id_o,
     output logic data_prepare_o,
+    output logic size_type_o,
 
     // off-chip output
     output logic conv_completed
@@ -95,6 +95,8 @@ module main_controller(
             end
         end
     end
+
+    assign size_type_o = total_size_type_reg;
 
     // definition of counter to count the od1, od2 and id
     logic [7:0] od1_counter;
@@ -168,7 +170,6 @@ module main_controller(
         data_id_o = id_counter;
         weight_id_o = id_counter;
         weight_od1_o = od1_counter;
-        weight_od2_o = od2_counter;
         conv_completed = (state == FINISH);
 
         case (state)

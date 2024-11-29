@@ -12,25 +12,25 @@ module PE(
     // input from top PE or Itrans
     // only need to know the first element index of input tile
     input logic signed [13:0] data_tile_i [0:5][0:5],
-    input logic signed [13:0] data_tile_i [0:5][0:5], // change to 16 bits
     input logic data_valid_i,
-    input logic [8:0] data_x_index_i,
-    input logic [8:0] data_y_index_i,
+    input logic [7:0] data_addr_i,
+    input logic size_type_i, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4
+    input logic [7:0] block_cnt,
 
 
     // input from left PE or Wtrans
     input logic signed [11:0] weight_tile_i [0:5][0:5],
     input logic weight_valid_i,
-    input logic weight_size_type_i, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4 //TODO:do we need this?
     input logic [7:0] weight_od_i, // assume max OD = 128   //TODO:do we need this?
 
 
     // output directly to memory
     // may the output to 3 parts, OD, i and j
     output logic signed [11:0] result_tile_o [0:5][0:5],
-    output logic signed [7:0] result_od_o,
-    output logic signed [8:0] result_i_o [0:5][0:5],
-    output logic signed [8:0] result_j_o [0:5][0:5],
+    //output logic signed [7:0] result_od_o,
+    //output logic signed [8:0] result_i_o [0:5][0:5],
+    //output logic signed [8:0] result_j_o [0:5][0:5],
+    output logic [11:0] result_address_o,
     output logic signed result_valid_o,
 
 
@@ -44,7 +44,7 @@ module PE(
     // outputs to right PE
     output logic signed [11:0] weight_tile_reg_o [0:5][0:5],
     output logic weight_valid_o,
-    output logic weight_size_type_o,
+    output logic size_type_o,
     output logic [7:0] weight_od_o
     
 );
@@ -78,19 +78,19 @@ module PE(
         if (reset) begin
             weight_tile_reg_o <= '{default:'0};
             weight_valid_o <= 0;
-            weight_size_type_o <= 0;
+            size_type_o <= 0;
             weight_od_o <= 0;
         end else begin
             if (weight_valid_i) begin
                 weight_tile_reg_o <= weight_tile_i;
                 weight_valid_o <= 1;  
-                weight_size_type_o <= weight_size_type_i;
+                size_type_o <= size_type_i;
                 weight_od_o <= weight_od_i;
             end 
             else begin
                 weight_tile_reg_o <= '{default:'0};
                 weight_valid_o <= 0;
-                weight_size_type_o <= 0;
+                size_type_o <= 0;
                 weight_od_o <= 0;
             end
         end
@@ -189,7 +189,7 @@ module PE(
     assign at[3][2] = -'d1;
     assign at[3][3] = 'd4;
     assign at[3][4] = -'d4;
-    assign at[3][5] = weight_size_type_o;
+    assign at[3][5] = size_type_o;
     
     assign at[4][0] = 'd0;
     assign at[4][1] = 'd1;
@@ -213,7 +213,7 @@ module PE(
     // index in this step is wrong! need to change
     // since dot_product has default value, we can use it to calculate even invalid
     always_comb begin
-        if (weight_size_type_o) begin
+        if (size_type_o) begin
             for (int i = 0; i < 4; i=i+1) begin
                 for (int j = 0; j < 6; j=j+1) begin
                     intermediate_result[i][j] = 0;
@@ -260,7 +260,7 @@ module PE(
 
     // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
     always_comb begin
-        if (weight_size_type_o) begin
+        if (size_type_o) begin
             for (int i = 0; i < 4; i=i+1) begin
                 for (int j = 0; j < 4; j=j+1) begin
                     result_tile_middle[i][j] = 0;
@@ -304,6 +304,10 @@ module PE(
 
     // Step 4: other output the result to memory
     // assign result_valid_o = data_valid_o && weight_valid_o;
+    assign result_address_o = weight_od_o * block_cnt + data_addr_i;
+
+
+    /*
     assign result_od_o = weight_od_o;
 
     // calculate result_i_o
@@ -331,7 +335,7 @@ module PE(
             result_j_o = '{default:'0};
         end
     end
-
+    */
 
     
 
