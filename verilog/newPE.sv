@@ -11,11 +11,8 @@ module PE(
 
     // input from top PE or Itrans
     // only need to know the first element index of input tile
-<<<<<<< HEAD
     input logic signed [13:0] data_tile_i [0:5][0:5],
-=======
     input logic signed [13:0] data_tile_i [0:5][0:5], // change to 16 bits
->>>>>>> PE_testbench
     input logic data_valid_i,
     input logic [8:0] data_x_index_i,
     input logic [8:0] data_y_index_i,
