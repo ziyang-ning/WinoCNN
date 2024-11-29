@@ -189,7 +189,7 @@ module PE(
     assign at[3][2] = -'d1;
     assign at[3][3] = 'd4;
     assign at[3][4] = -'d4;
-    assign at[3][5] = weight_size_type_i;
+    assign at[3][5] = weight_size_type_o;
     
     assign at[4][0] = 'd0;
     assign at[4][1] = 'd1;
@@ -213,12 +213,25 @@ module PE(
     // index in this step is wrong! need to change
     // since dot_product has default value, we can use it to calculate even invalid
     always_comb begin
-        for (int i = 0; i < 6; i=i+1) begin
-            for (int j = 0; j < 6; j=j+1) begin
-                intermediate_result[i][j] = 0;
-                for (int k = 0; k < 6; k=k+1) begin
-                    if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + (dot_product_regs[k][j] <<< (at[i][k] - 1));
-                    else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - (dot_product_regs[k][j] <<< (-at[i][k] - 1));
+        if (weight_size_type_o) begin
+            for (int i = 0; i < 4; i=i+1) begin
+                for (int j = 0; j < 6; j=j+1) begin
+                    intermediate_result[i][j] = 0;
+                    for (int k = 0; k < 6; k=k+1) begin
+                        if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + (dot_product_regs[k][j] <<< (at[i][k] - 1));
+                        else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - (dot_product_regs[k][j] <<< (-at[i][k] - 1));
+                    end
+                end
+            end
+        end
+        else begin
+            for (int i = 0; i < 6; i=i+1) begin
+                for (int j = 0; j < 6; j=j+1) begin
+                    intermediate_result[i][j] = 0;
+                    for (int k = 0; k < 6; k=k+1) begin
+                        if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + (dot_product_regs[k][j] <<< (at[i][k] - 1));
+                        else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - (dot_product_regs[k][j] <<< (-at[i][k] - 1));
+                    end
                 end
             end
         end
@@ -243,33 +256,47 @@ module PE(
         end
     end
 
+    logic signed [15:0] result_tile_middle [0:5][0:5];
 
     // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
     always_comb begin
-        for (int i = 0; i < 6; i=i+1) begin
-            for (int j = 0; j < 6; j=j+1) begin
-                result_tile_o[i][j] = 0;
-                for (int k = 0; k < 6; k=k+1) begin
-                    if (at[j][k] > 0) result_tile_o[i][j] = result_tile_o[i][j] + (intermediate_result[i][k] <<< (at[j][k] - 1));
-                    else if (at[j][k] < 0) result_tile_o[i][j] = result_tile_o[i][j] - (intermediate_result[i][k] <<< (-at[j][k] - 1));
+        if (weight_size_type_o) begin
+            for (int i = 0; i < 4; i=i+1) begin
+                for (int j = 0; j < 4; j=j+1) begin
+                    result_tile_middle[i][j] = 0;
+                    for (int k = 0; k < 6; k=k+1) begin
+                        if (at[j][k] > 0) result_tile_middle[i][j] = result_tile_middle[i][j] + (intermediate_result_regs[i][k] <<< (at[j][k] - 1));
+                        else if (at[j][k] < 0) result_tile_middle[i][j] = result_tile_middle[i][j] - (intermediate_result_regs[i][k] <<< (-at[j][k] - 1));
+                    end
+                end
+            end
+        end
+        else begin
+            for (int i = 0; i < 6; i=i+1) begin
+                for (int j = 0; j < 6; j=j+1) begin
+                    result_tile_middle[i][j] = 0;
+                    for (int k = 0; k < 6; k=k+1) begin
+                        if (at[j][k] > 0) result_tile_middle[i][j] = result_tile_middle[i][j] + (intermediate_result_regs[i][k] <<< (at[j][k] - 1));
+                        else if (at[j][k] < 0) result_tile_middle[i][j] = result_tile_middle[i][j] - (intermediate_result_regs[i][k] <<< (-at[j][k] - 1));
+                    end
                 end
             end
         end
     end
 
-    logic signed [11:0] result_tile_o_regs [0:5][0:5];
-
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
-            result_tile_o_regs <= '{default:'0};
+            result_tile_o <= '{default:'0};
             result_valid_o <= 0;
         end else begin
             if (dot_product_valid) begin
-                result_tile_o_regs <= result_tile_o;
+                for (int i = 0; i < 6; i=i+1)
+                    for (int j = 0; j < 6; j=j+1)
+                        result_tile_o[i][j] <= result_tile_middle[i][j] >>> 4;
                 result_valid_o <= 1;
             end
             else begin
-                result_tile_o_regs <= '{default:'0};
+                result_tile_o <= '{default:'0};
                 result_valid_o <= 0;
             end
         end

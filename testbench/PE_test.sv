@@ -121,7 +121,7 @@ module PE_tb;
 
 
         
-        file = $fopen("./matlab_data_out/9in_U.txt", "r");
+        file = $fopen("./matlab_data_out/1in_U.txt", "r");
         for (row = 0; row < 6; row++) begin
             for (col = 0; col < 6; col++) begin
                     $fscanf(file, "%d", tile[row][col]);
