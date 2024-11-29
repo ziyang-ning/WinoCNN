@@ -7,9 +7,10 @@ all:	simv
 # Modify starting here
 #####
 
-TESTBENCH = testbench/main_controller_test.sv
+TESTBENCH = testbench/data_mem_top_test.sv
 SIMFILES = $(wildcard \
-	verilog/main_controller.sv \
+	verilog/input_memory.sv \
+	verilog/SRAM.v \
 )
 
 
@@ -32,5 +33,4 @@ clean:
 
 nuke:	clean
 	rm -rvf *.vg *.rep *.db *.chk *.log *.out *.ddc *.svf DVEfiles/
-
 

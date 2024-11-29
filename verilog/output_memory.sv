@@ -3,6 +3,12 @@ module output_mem_top (
     input logic clk, // clk from the controller
     input logic reset,
 
+    input logic [511:0] scan_in,
+    // input logic scan_enable,
+    input logic [7:0] scan_addr,
+    input logic [1:0] scan_mode,
+    output logic [511:0] scan_out,
+
     // inputs from the controllers
     input logic [7:0] addr_1_in,
     input logic [7:0] addr_2_in,
@@ -16,13 +22,11 @@ module output_mem_top (
     output logic [7:0] addr_1_out, // use for debug
     output logic [7:0] addr_2_out, // use for debug
     output logic package_1_valid_out,
-    output logic package_2_valid_out,
+    output logic package_2_valid_out
 
     // scan related inputs
     // input logic [511:0] scan_in,
-    input logic [1:0] scan_mode,
-    input logic [7:0] scan_addr,
-    output logic [511:0] scan_out
+
     // scan_addr could be the input from the testbench
     // no need to write a local counter in data_mem_top
 

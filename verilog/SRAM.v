@@ -10,7 +10,7 @@
 *  Creation date : Fri November 22 2024                              *
 *********************************************************************/
 
-`timescale 1ns/100fs
+//`timescale 1ns/100fs
 
 `define numAddr 7
 `define numWords 128
