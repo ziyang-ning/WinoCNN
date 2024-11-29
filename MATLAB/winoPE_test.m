@@ -78,13 +78,17 @@ middle_r = 11;
 out_n = 12;
 out_r = 7;
 
-% if output_files = 1 then write input and weight matrix to txt files
-output_files = 1;
-folder_name = fullfile('..', 'matlab_data_out');
-if ~exist(folder_name, 'dir')
-    mkdir(folder_name);
+% if file_generation = 1 then write input and weight matrix to txt files
+file_generation = 1;
+input_folder_name = fullfile('..', 'matlab_data_out');
+if ~exist(input_folder_name, 'dir')
+    mkdir(input_folder_name);
 end
 
+output_folder_name = fullfile('..', 'matlab_data_out/ans');
+if ~exist(output_folder_name, 'dir')
+    mkdir(output_folder_name);
+end
 
 % extract data from image
 A = imread('test_pic_1.jpg');
@@ -175,6 +179,9 @@ end
 red_out_wino = zeros(64, 64);
 [height, width] = size(A_red);
 
+% filename counter for test data output
+filename_count = 0;
+
 % performing winoPE for red channel
 for i = 1 : m : height
     out_j = 1;
@@ -192,17 +199,18 @@ for i = 1 : m : height
         V = double(G * kernel_norm * G.');
         U = double(B_T * input * B_T.');
         
-        if(output_files == 1)
-            in_U = double(fi(U, 1, U_n, U_r));
-            in_V = double(fi(V, 1, V_n, V_r));
+        if(file_generation == 1)
+            in_U = double(fi(U, 1, U_n, U_r).int);
+            in_V = double(fi(V, 1, V_n, V_r).int);
 
             % Save to text files
-            writematrix(in_U, fullfile(folder_name, strcat( string(i),string(j) ,'in_U.txt')), 'Delimiter', ' ');
-            writematrix(in_V, fullfile(folder_name, 'in_V.txt'), 'Delimiter', ' ');
-            
+            writematrix(in_U, fullfile(input_folder_name, strcat(string(filename_count) ,'in_U.txt')), 'Delimiter', ' ');
+            writematrix(in_V, fullfile(input_folder_name, 'in_V.txt'), 'Delimiter', ' ');
+            filename_count = filename_count + 1;
         end
         
-        [out_U, out_V, Y] = winoPE(U, V, size_k, U_n, U_r, V_n, V_r, middle_n, middle_r, out_n, out_r);
+        [out_U, out_V, Y] = winoPE(U, V, size_k, U_n, U_r, V_n, V_r, middle_n, middle_r, out_n, out_r, ...
+                                 file_generation, output_folder_name, filename_count);
         
         red_out_wino(i:i+3, j:j+3) = Y;
 
@@ -241,7 +249,6 @@ subplot(2, 2, 4), imshow(red_out_wino_gray), title('Red Channel WINO fixed Out')
 
 sgtitle({'Comparison of Original Image, Floating Point Conv2d',
         'Fixed-Point Conv2d, and Fixed-Point WINOPE'});
-
 
 
 
