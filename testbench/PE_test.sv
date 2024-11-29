@@ -99,6 +99,16 @@ module PE_tb;
     logic signed [11:0] tile_2 [0:5][0:5];
     initial begin
         // Initialize inputs
+
+        $monitor("[0]: %d %d %d %d %d %d \n [1]: %d %d %d %d %d %d \n [2]: %d %d %d %d %d %d \n \
+[3]: %d %d %d %d %d %d \n [4]: %d %d %d %d %d %d \n [5]: %d %d %d %d %d %d \n",                                      
+        result_tile_o[0][0], result_tile_o[0][1],result_tile_o[0][2],result_tile_o[0][3],result_tile_o[0][4],result_tile_o[0][5],
+        result_tile_o[1][0], result_tile_o[1][1],result_tile_o[1][2],result_tile_o[1][3],result_tile_o[1][4],result_tile_o[1][5],
+        result_tile_o[2][0], result_tile_o[2][1],result_tile_o[2][2],result_tile_o[2][3],result_tile_o[2][4],result_tile_o[2][5],
+        result_tile_o[3][0], result_tile_o[3][1],result_tile_o[3][2],result_tile_o[3][3],result_tile_o[3][4],result_tile_o[3][5],
+        result_tile_o[4][0], result_tile_o[4][1],result_tile_o[4][2],result_tile_o[4][3],result_tile_o[4][4],result_tile_o[4][5],
+        result_tile_o[5][0], result_tile_o[5][1],result_tile_o[5][2],result_tile_o[5][3],result_tile_o[5][4],result_tile_o[5][5]
+        );
         reset = 1;
         data_valid_i = 0;
         weight_valid_i = 0;
@@ -111,12 +121,10 @@ module PE_tb;
 
 
         
-        file = $fopen("../matlab_data_out/0in_U.txt", "r");
+        file = $fopen("./matlab_data_out/9in_U.txt", "r");
         for (row = 0; row < 6; row++) begin
             for (col = 0; col < 6; col++) begin
-                if (!$feof(file)) begin
                     $fscanf(file, "%d", tile[row][col]);
-                end
             end
         end
         $fclose(file);
@@ -125,18 +133,17 @@ module PE_tb;
         // load_tile_from_file ("../matlab_data_out/in_V.txt", 12, weight_tile_i);
 
         
-        file = $fopen("../matlab_data_out/in_V.txt", "r");
+        file = $fopen("./matlab_data_out/in_V.txt", "r");
         for (row = 0; row < 6; row++) begin
             for (col = 0; col < 6; col++) begin
-                if (!$feof(file)) begin
                     $fscanf(file, "%d", tile_2[row][col]);
-                end
             end
         end
         $fclose(file);
-        
-        $monitor(result_tile_o);
 
+
+        data_tile_i = tile;
+        weight_tile_i = tile_2;
         // Reset de-assertion
         #20 reset = 0;
 
@@ -162,12 +169,12 @@ module PE_tb;
         // end
 
         // Hold input signals for a few cycles
-        #40;
-        data_valid_i = 0;
-        weight_valid_i = 0;
+        //#40;
+        //data_valid_i = 0;
+        //weight_valid_i = 0;
 
         // Wait and observe output
-        #100;
+        #5000;
         $finish;
     end
 
