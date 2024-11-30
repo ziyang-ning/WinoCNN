@@ -50,38 +50,64 @@ module CIM_mem_top (
     logic [511:0] PE_tile_i_1_512;
     logic [511:0] PE_tile_i_2_512;
 
+    // always_comb begin
+    //     // adjust PE_tile_i_1 into PE_tile_i_1_512
+    //     PE_tile_i_1_512 = 512'b0;
+    //     for (int i = 0; i < 6; i++) begin
+    //         for (int j = 0; j < 6; j++) begin
+    //             PE_tile_i_1_512[(i * 6 + j) * 12 +: 12] = PE_tile_i_1[i][j];
+    //         end
+    //     end
+    // end
+
+    // always_comb begin
+    //     // adjust PE_tile_i_2 into PE_tile_i_2_512
+    //     PE_tile_i_2_512 = 512'b0;
+    //     for (int i = 0; i < 6; i++) begin
+    //         for (int j = 0; j < 6; j++) begin
+    //             PE_tile_i_2_512[(i * 6 + j) * 12 +: 12] = PE_tile_i_2[i][j];
+    //         end
+    //     end
+    // end
+    typedef enum logic [1:0] { 
+        SCAN_IN,
+        LOAD,
+        WRITE,
+        SCAN_OUT
+    } scan_mode_t;
+
+    scan_mode_t local_scan_mode; // use to distinguish the load and write mode
     always_comb begin
-        // adjust PE_tile_i_1 into PE_tile_i_1_512
-        PE_tile_i_1_512 = 512'b0;
-        for (int i = 0; i < 6; i++) begin
-            for (int j = 0; j < 6; j++) begin
-                PE_tile_i_1_512[(i * 6 + j) * 12 +: 12] = PE_tile_i_1[i][j];
+        if (scan_mode == 2'b0) begin
+            local_scan_mode = SCAN_IN;
+        end else if (scan_mode == 2'b11) begin
+            local_scan_mode = SCAN_OUT;
+        end else begin
+            if (clk == 1'b1) begin
+                local_scan_mode = LOAD;
+            end else begin
+                local_scan_mode = WRITE;
             end
         end
     end
 
-    always_comb begin
-        // adjust PE_tile_i_2 into PE_tile_i_2_512
-        PE_tile_i_2_512 = 512'b0;
-        for (int i = 0; i < 6; i++) begin
-            for (int j = 0; j < 6; j++) begin
-                PE_tile_i_2_512[(i * 6 + j) * 12 +: 12] = PE_tile_i_2[i][j];
-            end
-        end
+    scan_mode_t local_scan_mode_reg;
+    always_ff @(posedge mem_clk) begin
+        local_scan_mode_reg <= local_scan_mode;
     end
 
     always_comb begin
-        if (clk == 1) begin
+        if (local_scan_mode_reg == 2'b1) begin
             // sram input from PE
             addr_1_in = PE_addr_i_1;
             addr_2_in = PE_addr_i_2;
             package_1_valid_in = 1;
             package_2_valid_in = 1;
-            data_1_in = PE_tile_i_1_512;
-            data_2_in = PE_tile_i_2_512;
+            data_1_in = 0;
+            data_2_in = 0;
 
 
-        end else begin 
+        end else if (local_scan_mode_reg == 2'b10)begin 
             // sram input from CIM
             addr_1_in = result_addr_o_1;
             addr_2_in = result_addr_o_2;
@@ -90,7 +116,16 @@ module CIM_mem_top (
             data_1_in = result_o_1;
             data_2_in = result_o_2;
 
+        end else begin
+            // just give init values
+            addr_1_in = 0;
+            addr_2_in = 0;
+            package_1_valid_in = 0;
+            package_2_valid_in = 0;
+            data_1_in = 0;
+            data_2_in = 0;
         end
+        
 
     end
 

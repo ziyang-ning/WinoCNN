@@ -7,7 +7,7 @@ all:	simv
 # Modify starting here
 #####
 
-TESTBENCH = 
+TESTBENCH = testbench/CIM_mem_top_test.sv
 SIMFILES = $(wildcard \
 	verilog/output_memory.sv \
 	verilog/SRAM.v \

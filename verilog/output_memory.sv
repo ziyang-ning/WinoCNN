@@ -49,6 +49,11 @@ module output_mem_top (
         end
     end
 
+    scan_mode_t local_scan_mode_reg;
+    always_ff @(posedge mem_clk) begin
+        local_scan_mode_reg <= local_scan_mode;
+    end
+
     // declare the SRAM wires
     logic sram_clk;
     logic sram_WEN_1;
@@ -107,8 +112,8 @@ module output_mem_top (
                 sram_input_1 = 512'b0;
                 sram_input_2 = 512'b0;
 
-                package_1_valid_out = package_1_valid_in;
-                package_2_valid_out = package_2_valid_in;
+                package_1_valid_out = (local_scan_mode_reg == 1'b1);
+                package_2_valid_out = (local_scan_mode_reg == 1'b1);
                 data_1_out = sram_output_1;
                 data_2_out = sram_output_2;
                 addr_1_out = addr_1_in;
@@ -125,8 +130,8 @@ module output_mem_top (
                 sram_input_1 = package_1_valid_in ? data_1_in : 512'b0;
                 sram_input_2 = package_2_valid_in ? data_2_in : 512'b0;
 
-                package_1_valid_out = 1'b0;
-                package_2_valid_out = 1'b0;
+                package_1_valid_out = (local_scan_mode_reg == 1'b1);
+                package_2_valid_out = (local_scan_mode_reg == 1'b1);
                 data_1_out = sram_output_1;
                 data_2_out = sram_output_2;
                 addr_1_out = addr_1_in;
