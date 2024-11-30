@@ -6,7 +6,8 @@ clc;
 %------------- Setup Params -------------------
 
 % extract data from image
-A = imread('2424_pic.jpg');
+% NOTE:: 1*1 filter only works with 2424_pic.jpg because of the output size
+A = imread('test_pic.jpg');
 
 % input and output size
 input_n = 8;    %size for the input matrix and filter
@@ -20,7 +21,7 @@ middle_r = 11;
 out_n = 12;
 out_r = 7;
 
-size_k = 1;       % size_k = 0 for 3*3, = 1 for 1*1
+size_k = 0;       % size_k = 0 for 3*3, = 1 for 1*1
 
 % if file_generation = 1 then U, V matrices to txt files for 3*3
 % if file_generation = 2 then U, V matrices to txt files for 1*1
@@ -28,7 +29,7 @@ size_k = 1;       % size_k = 0 for 3*3, = 1 for 1*1
 % to txt files for memory tests
 % NOTE:: setting file_generation param will automatically change size_k
 
-file_generation = 3;
+file_generation = 0;
 
 if (file_generation == 1)
     size_k = 0;
@@ -59,9 +60,10 @@ else %file_generation == 3
     input_folder_name = fullfile('..', 'matlab_data_out/input_filter_HEX');
     input_HEX_fileName = fullfile(input_folder_name, 'input.txt');
     filter_HEX_fileName = fullfile(input_folder_name, 'filter.txt');
-
-    input_HEX_fileID = fopen(input_HEX_fileName, 'w');
-    filter_HEX_fileID = fopen(filter_HEX_fileName, 'w');
+    if (file_generation == 3)
+        input_HEX_fileID = fopen(input_HEX_fileName, 'w');
+        filter_HEX_fileID = fopen(filter_HEX_fileName, 'w');
+    end
     
     if ~exist(input_folder_name, 'dir')
         mkdir(input_folder_name);
@@ -78,7 +80,7 @@ end
 if (size_k == 0)
     % TODO: CHANGE YOUR kernel HERE
     % NOTE: the kernel will be later normalized to range from [-1 to 1]
-    kernel =    [-1, -1, -1; 
+    kernel_1 =    [-1, -1, -1; 
                  -1,  2, -1;    % was 8 in the middle
                  -1, -1, -1];   % Edge detection kernel
              
@@ -90,7 +92,7 @@ if (size_k == 0)
                    2, 0, -2;    % random
                    1, 0, -1];
                
-    kernel_4 =       [0, -0.25, 0; 
+    kernel =       [0, -0.25, 0; 
                     -0.25, 1, -0.25;    % Laplace
                    0, -0.25, 0];
                
@@ -304,16 +306,16 @@ max_diff_wino = max(max(abs(diff_float)))
 
 
 %------------- Plotting -------------------
-subplot(2, 2, 1), imshow(A_red_norm), title('Original Red Channel Float Input');
+subplot(1, 3, 1), imshow(A_red_norm), title('Original Red Channel Float Input');
 
 red_float_out_gray = mat2gray(red_float_out);
-subplot(2, 2, 2), imshow(red_float_out_gray), title('Red Channel Float Out');
+subplot(1, 3, 2), imshow(red_float_out_gray), title('Red Channel Float Out');
 
-red_out_fixed_gray = mat2gray(double(red_out_fixed));
-subplot(2, 2, 3), imshow(red_float_out_gray), title('Red Channel Fixed Out');
+% red_out_fixed_gray = mat2gray(double(red_out_fixed));
+% subplot(2, 2, 3), imshow(red_float_out_gray), title('Red Channel Fixed Out');
 
 red_out_wino_gray = mat2gray(red_out_wino);
-subplot(2, 2, 4), imshow(red_out_wino_gray), title('Red Channel WINO fixed Out');
+subplot(1, 3, 3), imshow(red_out_wino_gray), title('Red Channel WINO fixed Out');
 
 sgtitle({'Comparison of Original Image, Floating Point Conv2d',
         'Fixed-Point Conv2d, and Fixed-Point WINOPE'});
