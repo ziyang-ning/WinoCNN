@@ -1,7 +1,8 @@
 module CIM (
     input logic signed [11:0] PE_tile_i [0:5][0:5],    // 36 12-bit numbers
-    input logic [7:0] PE_od_i,                        // Input (not used in this logic)
-    input logic PE_addr_i,                            // Input (not used in this logic)
+    input logic [7:0] PE_od_i,                       
+    input logic PE_addr_i,
+    input logic PE_valid_i,                           
 
     input logic [511:0] memory_data_i,                // 512-bit memory data
     input logic [7:0] memory_addr_i,                  // Memory address (not used in this logic)
@@ -42,6 +43,8 @@ module CIM (
                 result_o[(i * 6 + j) * 12 +: 12] = sum[i][j];
             end
         end
+        result_valid_o = PE_valid_i && memory_valid_i && (PE_addr_i == memory_addr_i);
+        result_addr_o = PE_addr_i;
     end
 
 endmodule

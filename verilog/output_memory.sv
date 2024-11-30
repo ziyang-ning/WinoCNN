@@ -7,7 +7,8 @@ module output_mem_top (
     input [1:0] scan_mode,
     output logic [511:0] scan_out,
 
-    // inputs from the controllers
+    // inputs from the controllers or CIM
+    // decided by the CIM_mem_top
     input logic [7:0] addr_1_in,
     input logic [7:0] addr_2_in,
     input logic package_1_valid_in,
@@ -15,6 +16,7 @@ module output_mem_top (
     input logic [511:0] data_1_in,
     input logic [511:0] data_2_in,
 
+    // output to the CIM
     output logic [511:0] data_1_out,
     output logic [511:0] data_2_out,
     output logic [7:0] addr_1_out, // use for debug
@@ -123,8 +125,8 @@ module output_mem_top (
                 sram_input_1 = package_1_valid_in ? data_1_in : 512'b0;
                 sram_input_2 = package_2_valid_in ? data_2_in : 512'b0;
 
-                package_1_valid_out = package_1_valid_in;
-                package_2_valid_out = package_2_valid_in;
+                package_1_valid_out = 1'b0;
+                package_2_valid_out = 1'b0;
                 data_1_out = sram_output_1;
                 data_2_out = sram_output_2;
                 addr_1_out = addr_1_in;
