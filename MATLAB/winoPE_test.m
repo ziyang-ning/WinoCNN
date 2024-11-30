@@ -241,7 +241,7 @@ for i = 1 : m : height
         if(file_generation == 3)
             input_HEX_vals = fi(input, 1, input_n, input_r).hex;
             flattened = strjoin(string(input_HEX_vals), ' ');
-            pretty_HEX_data = regexprep(flattened, '\s+', ' '); % Replace multiple spaces with a single space
+            pretty_HEX_data = regexprep(flattened, '\s+', ''); % Replace multiple spaces with nothing
             fprintf(input_HEX_fileID, '%s\n', pretty_HEX_data); % Write the character array
         end
         
@@ -261,19 +261,19 @@ for i = 1 : m : height
             % Save to text files
             writematrix(in_U, fullfile(input_folder_name, strcat(string(filename_count) ,'in_U.txt')), 'Delimiter', ' ');
             writematrix(in_V, fullfile(input_folder_name, 'in_V.txt'), 'Delimiter', ' ');
-            filename_count = filename_count + 1;
         end
         if(file_generation == 3 && filename_count == 0)
             in_V_HEX = fi(V, 1, V_n, V_r).hex;
             V_flattened = strjoin(string(in_V_HEX), ' ');
-            pretty_V_HEX_data = regexprep(V_flattened, '\s+', ' '); % Replace multiple spaces with a single space
+            pretty_V_HEX_data = regexprep(V_flattened, '\s+', ''); % Replace multiple spaces with nothing
             fprintf(filter_HEX_fileID, '%s\n', pretty_V_HEX_data); % Write the character array
             fclose(filter_HEX_fileID);
-            filename_count = filename_count + 1;
         end
         
         [out_U, out_V, Y] = winoPE(U, V, size_k, U_n, U_r, V_n, V_r, middle_n, middle_r, out_n, out_r, ...
                                  file_generation, output_folder_name, filename_count);
+                             
+        filename_count = filename_count + 1; %update filename counter
         if(size_k == 0)
             red_out_wino(i:i+3, j:j+3) = Y;
         end
