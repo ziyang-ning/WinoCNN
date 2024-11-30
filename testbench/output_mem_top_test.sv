@@ -61,6 +61,8 @@ module output_mem_top_test;
         scan_mode = 0;
         scan_in = 512'h0;
         scan_addr = 8'h0;
+        data_1_in = '0;
+        data_2_in = '0;
         addr_1_in = 8'h0;
         addr_2_in = 8'h1;
         package_1_valid_in = 1'b0;
