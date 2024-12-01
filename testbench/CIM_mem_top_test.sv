@@ -6,11 +6,11 @@ module CIM_mem_top_test;
     // PE inputs
     logic signed [11:0] PE_tile_i_1 [0:5][0:5];
     logic [7:0] PE_od_i_1;
-    logic PE_addr_i_1;
+    logic [7:0] PE_addr_i_1;
     logic PE_valid_i_1;
     logic signed [11:0] PE_tile_i_2 [0:5][0:5];
     logic [7:0] PE_od_i_2;
-    logic PE_addr_i_2;
+    logic [7:0] PE_addr_i_2;
     logic PE_valid_i_2;
 
     // off-chip inputs
@@ -35,7 +35,7 @@ module CIM_mem_top_test;
 
     initial begin
         clk = 1;
-        mem_clk = 0;
+        mem_clk = 1;
 
         scan_mode = 0;
         scan_in = 512'h0;
@@ -89,6 +89,19 @@ module CIM_mem_top_test;
             end
         end
 
+        @(posedge clk);
+        for(int i = 0; i < 6; i++) begin
+            for(int j = 0; j < 6; j++) begin
+                PE_tile_i_1[i][j] = 12'hAA;
+                PE_tile_i_2[i][j] = 12'hBB;
+                PE_addr_i_1 = 8'h5;
+                PE_addr_i_2 = 8'h6;
+                PE_valid_i_1 = 0;
+                PE_valid_i_2 = 0;
+            end
+        end
+
+        #100
         @(posedge clk);
         // scan out all value from SRAM to a txt file
         scan_mode = 2'b11;

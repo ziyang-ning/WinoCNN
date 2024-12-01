@@ -1,7 +1,7 @@
 module CIM (
     input logic signed [11:0] PE_tile_i [0:5][0:5],    // 36 12-bit numbers
     input logic [7:0] PE_od_i,                       
-    input logic PE_addr_i,
+    input logic [7:0] PE_addr_i,
     input logic PE_valid_i,                           
 
     input logic [511:0] memory_data_i,                // 512-bit memory data

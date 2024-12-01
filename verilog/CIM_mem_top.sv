@@ -6,12 +6,12 @@ module CIM_mem_top (
     // PE inputs
     input logic signed [11:0] PE_tile_i_1 [0:5][0:5],
     input logic [7:0] PE_od_i_1,
-    input logic PE_addr_i_1,
+    input logic [7:0] PE_addr_i_1,
     input logic PE_valid_i_1,
 
     input logic signed [11:0] PE_tile_i_2 [0:5][0:5],
     input logic [7:0] PE_od_i_2,
-    input logic PE_addr_i_2,
+    input logic [7:0] PE_addr_i_2,
     input logic PE_valid_i_2,
 
     // off-chip inputs
@@ -22,170 +22,83 @@ module CIM_mem_top (
 
 
 );
+    // wires
+    logic [511:0] CIM_data_i_1;
+    logic [511:0] CIM_data_i_2;
+    logic [7:0] CIM_addr_i_1;
+    logic [7:0] CIM_addr_i_2;
+    logic CIM_valid_i_1;
+    logic CIM_valid_i_2;
 
-    // Internal variables
-
-    logic [7:0] addr_1_in;
-    logic [7:0] addr_2_in;
-    logic package_1_valid_in;
-    logic package_2_valid_in;
-    logic [511:0] data_1_in;
-    logic [511:0] data_2_in;
-
-    logic [511:0] data_1_out;
-    logic [511:0] data_2_out;
-    logic [7:0] addr_1_out;
-    logic [7:0] addr_2_out;
-    logic package_1_valid_out;
-    logic package_2_valid_out;
-
-    logic [511:0] result_o_1;
-    logic result_valid_o_1;
-    logic [7:0] result_addr_o_1;
-
-    logic [511:0] result_o_2;
-    logic result_valid_o_2;
-    logic [7:0] result_addr_o_2;
-
-    logic [511:0] PE_tile_i_1_512;
-    logic [511:0] PE_tile_i_2_512;
-
-    // always_comb begin
-    //     // adjust PE_tile_i_1 into PE_tile_i_1_512
-    //     PE_tile_i_1_512 = 512'b0;
-    //     for (int i = 0; i < 6; i++) begin
-    //         for (int j = 0; j < 6; j++) begin
-    //             PE_tile_i_1_512[(i * 6 + j) * 12 +: 12] = PE_tile_i_1[i][j];
-    //         end
-    //     end
-    // end
-
-    // always_comb begin
-    //     // adjust PE_tile_i_2 into PE_tile_i_2_512
-    //     PE_tile_i_2_512 = 512'b0;
-    //     for (int i = 0; i < 6; i++) begin
-    //         for (int j = 0; j < 6; j++) begin
-    //             PE_tile_i_2_512[(i * 6 + j) * 12 +: 12] = PE_tile_i_2[i][j];
-    //         end
-    //     end
-    // end
-    typedef enum logic [1:0] { 
-        SCAN_IN,
-        LOAD,
-        WRITE,
-        SCAN_OUT
-    } scan_mode_t;
-
-    scan_mode_t local_scan_mode; // use to distinguish the load and write mode
-    always_comb begin
-        if (scan_mode == 2'b0) begin
-            local_scan_mode = SCAN_IN;
-        end else if (scan_mode == 2'b11) begin
-            local_scan_mode = SCAN_OUT;
-        end else begin
-            if (clk == 1'b1) begin
-                local_scan_mode = LOAD;
-            end else begin
-                local_scan_mode = WRITE;
-            end
-        end
-    end
-
-    scan_mode_t local_scan_mode_reg;
-    always_ff @(posedge mem_clk) begin
-        local_scan_mode_reg <= local_scan_mode;
-    end
-
-    always_comb begin
-        if (local_scan_mode_reg == 2'b1) begin
-            // sram input from PE
-            addr_1_in = PE_addr_i_1;
-            addr_2_in = PE_addr_i_2;
-            package_1_valid_in = 1;
-            package_2_valid_in = 1;
-            data_1_in = 0;
-            data_2_in = 0;
+    logic [511:0] CIM_data_o_1;
+    logic [511:0] CIM_data_o_2;
+    logic [7:0] CIM_addr_o_1;
+    logic [7:0] CIM_addr_o_2;
+    logic CIM_valid_o_1;
+    logic CIM_valid_o_2;
+    
 
 
-        end else if (local_scan_mode_reg == 2'b10)begin 
-            // sram input from CIM
-            addr_1_in = result_addr_o_1;
-            addr_2_in = result_addr_o_2;
-            package_1_valid_in = result_valid_o_1;
-            package_2_valid_in = result_valid_o_2;
-            data_1_in = result_o_1;
-            data_2_in = result_o_2;
 
-        end else begin
-            // just give init values
-            addr_1_in = 0;
-            addr_2_in = 0;
-            package_1_valid_in = 0;
-            package_2_valid_in = 0;
-            data_1_in = 0;
-            data_2_in = 0;
-        end
-        
-
-    end
-
-
-    output_mem_top output_mem_top_1(
+    output_mem_top output_mem_top_1 (
         .mem_clk(mem_clk),
         .clk(clk),
-
         .scan_in(scan_in),
         .scan_addr(scan_addr),
         .scan_mode(scan_mode),
         .scan_out(scan_out),
 
-        .addr_1_in(addr_1_in),
-        .addr_2_in(addr_2_in),
-        .package_1_valid_in(package_1_valid_in),
-        .package_2_valid_in(package_2_valid_in),
-        .data_1_in(data_1_in),
-        .data_2_in(data_2_in),
+        .PE_addr_1_in(PE_addr_i_1),
+        .PE_addr_2_in(PE_addr_i_2),
+        .PE_package_1_valid_in(PE_valid_i_1),
+        .PE_package_2_valid_in(PE_valid_i_2),
 
-        .data_1_out(data_1_out),
-        .data_2_out(data_2_out),
-        .addr_1_out(addr_1_out),
-        .addr_2_out(addr_2_out),
-        .package_1_valid_out(package_1_valid_out),
-        .package_2_valid_out(package_2_valid_out)
+        .CIM_addr_1_in(CIM_addr_i_1),
+        .CIM_addr_2_in(CIM_addr_i_2),
+        .CIM_package_1_valid_in(CIM_valid_i_1),
+        .CIM_package_2_valid_in(CIM_valid_i_2),
+        .CIM_data_1_in(CIM_data_i_1),
+        .CIM_data_2_in(CIM_data_i_2),
+
+        .CIM_data_1_out(CIM_data_o_1),
+        .CIM_data_2_out(CIM_data_o_2),
+        .CIM_addr_1_out(CIM_addr_o_1),
+        .CIM_addr_2_out(CIM_addr_o_2),
+        .CIM_package_1_valid_out(CIM_valid_o_1),
+        .CIM_package_2_valid_out(CIM_valid_o_2)
     );
 
 
-    CIM CIM_1(
+    CIM CIM_1 (
         .PE_tile_i(PE_tile_i_1),
         .PE_od_i(PE_od_i_1),
         .PE_addr_i(PE_addr_i_1),
         .PE_valid_i(PE_valid_i_1),
 
-        .memory_data_i(data_1_out),
-        .memory_addr_i(addr_1_out),
-        .memory_valid_i(package_1_valid_out),
+        .memory_data_i(CIM_data_o_1),
+        .memory_addr_i(CIM_addr_o_1),
+        .memory_valid_i(CIM_valid_o_1),
 
-        .result_o(result_o_1),
-        .result_valid_o(result_valid_o_1),
-        .result_addr_o(result_addr_o_1)
+        .result_o(CIM_data_i_1),
+        .result_valid_o(CIM_valid_i_1),
+        .result_addr_o(CIM_addr_i_1)
     );
 
-    CIM CIM_2(
+    CIM CIM_2 (
         .PE_tile_i(PE_tile_i_2),
         .PE_od_i(PE_od_i_2),
         .PE_addr_i(PE_addr_i_2),
         .PE_valid_i(PE_valid_i_2),
 
-        .memory_data_i(data_2_out),
-        .memory_addr_i(addr_2_out),
-        .memory_valid_i(package_2_valid_out),
+        .memory_data_i(CIM_data_o_2),
+        .memory_addr_i(CIM_addr_o_2),
+        .memory_valid_i(CIM_valid_o_2),
 
-        .result_o(result_o_2),
-        .result_valid_o(result_valid_o_2),
-        .result_addr_o(result_addr_o_2)
+        .result_o(CIM_data_i_2),
+        .result_valid_o(CIM_valid_i_2),
+        .result_addr_o(CIM_addr_i_2)
     );
 
+
 endmodule
-
-
 
