@@ -37,38 +37,32 @@ module main_controller(
     logic total_size_type_reg;
 
     always_comb begin
-        if (total_size_type_reg) begin
-            block_width_o = total_width_reg[0:1] > 0 ? (total_width_reg >> 2) + 1 : (total_width_reg >> 2);
-            block_height_o = total_height_reg[0:1] > 0 ? (total_height_reg >> 2) + 1 : (total_height_reg >> 2);
-        end
-        else begin
-            case(total_width_reg)
-                0, 1, 2, 3, 4, 5, 6: block_width_o = 1;
-                7, 8, 9, 10, 11, 12: block_width_o = 2;
-                13, 14, 15, 16, 17, 18: block_width_o = 3;
-                19, 20, 21, 22, 23, 24: block_width_o = 4;
-                25, 26, 27, 28, 29, 30: block_width_o = 5;
-                31, 32, 33, 34, 35, 36: block_width_o = 6;
-                37, 38, 39, 40, 41, 42: block_width_o = 7;
-                43, 44, 45, 46, 47, 48: block_width_o = 8;
-                49, 50, 51, 52, 53, 54: block_width_o = 9;
-                55, 56, 57, 58, 59, 60: block_width_o = 10;
-                default: block_width_o = 1;
-            endcase
-            case(total_height_reg)
-                0, 1, 2, 3, 4, 5, 6: block_height_o = 1;
-                7, 8, 9, 10, 11, 12: block_height_o = 2;
-                13, 14, 15, 16, 17, 18: block_height_o = 3;
-                19, 20, 21, 22, 23, 24: block_height_o = 4;
-                25, 26, 27, 28, 29, 30: block_height_o = 5;
-                31, 32, 33, 34, 35, 36: block_height_o = 6;
-                37, 38, 39, 40, 41, 42: block_height_o = 7;
-                43, 44, 45, 46, 47, 48: block_height_o = 8;
-                49, 50, 51, 52, 53, 54: block_height_o = 9;
-                55, 56, 57, 58, 59, 60: block_height_o = 10;
-                default: block_height_o = 1;
-            endcase
-        end
+        case(total_width_reg)
+            0, 1, 2, 3, 4, 5, 6: block_width_o = 1;
+            7, 8, 9, 10, 11, 12: block_width_o = 2;
+            13, 14, 15, 16, 17, 18: block_width_o = 3;
+            19, 20, 21, 22, 23, 24: block_width_o = 4;
+            25, 26, 27, 28, 29, 30: block_width_o = 5;
+            31, 32, 33, 34, 35, 36: block_width_o = 6;
+            37, 38, 39, 40, 41, 42: block_width_o = 7;
+            43, 44, 45, 46, 47, 48: block_width_o = 8;
+            49, 50, 51, 52, 53, 54: block_width_o = 9;
+            55, 56, 57, 58, 59, 60: block_width_o = 10;
+            default: block_width_o = 1;
+        endcase
+        case(total_height_reg)
+            0, 1, 2, 3, 4, 5, 6: block_height_o = 1;
+            7, 8, 9, 10, 11, 12: block_height_o = 2;
+            13, 14, 15, 16, 17, 18: block_height_o = 3;
+            19, 20, 21, 22, 23, 24: block_height_o = 4;
+            25, 26, 27, 28, 29, 30: block_height_o = 5;
+            31, 32, 33, 34, 35, 36: block_height_o = 6;
+            37, 38, 39, 40, 41, 42: block_height_o = 7;
+            43, 44, 45, 46, 47, 48: block_height_o = 8;
+            49, 50, 51, 52, 53, 54: block_height_o = 9;
+            55, 56, 57, 58, 59, 60: block_height_o = 10;
+            default: block_height_o = 1;
+        endcase
     end
 
     // store the off-chip input into local reg

@@ -15,7 +15,7 @@ module PE(
     input logic data_valid_i,
     input logic [7:0] data_addr_i,
     input logic size_type_i, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4
-    input logic [7:0] block_cnt,
+    input logic [7:0] block_cnt_i,
 
 
     // input from left PE or Wtrans
@@ -31,44 +31,46 @@ module PE(
     //output logic signed [8:0] result_i_o [0:5][0:5],
     //output logic signed [8:0] result_j_o [0:5][0:5],
     output logic [11:0] result_address_o,
-    output logic signed result_valid_o,
+    output logic result_valid_o,
 
 
     // outputs to bottom PE
     output logic signed [13:0] data_tile_reg_o [0:5][0:5],
     output logic data_valid_o,
-    output logic [8:0] data_x_index_o,
-    output logic [8:0] data_y_index_o,
+    output logic [7:0] data_addr_o,
+    output logic size_type_o, // 0 stands for 1*1,6*6 and 1 stands for 3*3,4*4
+    output logic [7:0] block_cnt_o,
 
 
     // outputs to right PE
     output logic signed [11:0] weight_tile_reg_o [0:5][0:5],
     output logic weight_valid_o,
-    output logic size_type_o,
     output logic [7:0] weight_od_o
     
 );
 
+    logic [11:0] result_address_1;
+
+    assign size_type_o = size_type_i;
+    assign block_cnt_o = block_cnt_i;
+    assign result_address_1 = weight_od_o * block_cnt_o + data_addr_o;
 
     // Step 1A: store data from top PE into reg
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             data_tile_reg_o <= '{default:'0};
             data_valid_o <= 0;
-            data_x_index_o <= 0;
-            data_y_index_o <= 0;
+            data_addr_o <= 0;
         end else begin
             if (data_valid_i) begin
                 data_tile_reg_o <= data_tile_i;
                 data_valid_o <= 1;  
-                data_x_index_o <= data_x_index_i;
-                data_y_index_o <= data_y_index_i;
+                data_addr_o <= data_addr_i;
             end 
             else begin
                 data_tile_reg_o <= '{default:'0};
                 data_valid_o <= 0;
-                data_x_index_o <= 0;
-                data_y_index_o <= 0;
+                data_addr_o <= 0;
             end
         end
     end
@@ -118,18 +120,23 @@ module PE(
     end
     
     logic dot_product_valid;
+    logic [11:0] result_address_2;
     logic signed [15:0] dot_product_regs [0:5][0:5];
+
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
             dot_product_regs <= '{default:'0};
+            result_address_2 <= 0;
             dot_product_valid <= 0;
         end else begin
             if (data_valid_o && weight_valid_o) begin
                 dot_product_regs <= dot_product;
+                result_address_2 <= result_address_1;
                 dot_product_valid <= 1;
             end
             else begin
                 dot_product_regs <= '{default:'0};
+                result_address_2 <= 0;
                 dot_product_valid <= 0;
             end
         end
@@ -239,19 +246,23 @@ module PE(
 
     logic signed [15:0] intermediate_result_regs [0:5][0:5];
     logic intermediate_result_valid;
+    logic [11:0] result_address_3;
 
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
             intermediate_result_regs <= '{default:'0};
             intermediate_result_valid <= 0;
+            result_address_3 <= 0;
         end else begin
             if (dot_product_valid) begin
                 intermediate_result_regs <= intermediate_result;
                 intermediate_result_valid <= 1;
+                result_address_3 <= result_address_2;
             end
             else begin
                 intermediate_result_regs <= '{default:'0};
                 intermediate_result_valid <= 0;
+                result_address_3 <= 0;
             end
         end
     end
@@ -288,23 +299,25 @@ module PE(
         if (reset) begin
             result_tile_o <= '{default:'0};
             result_valid_o <= 0;
+            result_address_o <= 0;
         end else begin
             if (dot_product_valid) begin
                 for (int i = 0; i < 6; i=i+1)
                     for (int j = 0; j < 6; j=j+1)
                         result_tile_o[i][j] <= result_tile_middle[i][j] >>> 4;
                 result_valid_o <= 1;
+                result_address_o <= result_address_3;
             end
             else begin
                 result_tile_o <= '{default:'0};
                 result_valid_o <= 0;
+                result_address_o <= 0;
             end
         end
     end
 
     // Step 4: other output the result to memory
     // assign result_valid_o = data_valid_o && weight_valid_o;
-    assign result_address_o = weight_od_o * block_cnt + data_addr_i;
 
 
     /*

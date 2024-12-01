@@ -27,6 +27,8 @@ module data_controller (
     // output to the PE arrays
     output logic signed [13:0] result_tile_o_1 [5:0][5:0],
     output logic signed [13:0] result_tile_o_2 [5:0][5:0],
+    output logic [7:0] pe_data_addr_o_1,
+    output logic [7:0] pe_data_addr_o_2,
     output logic data_valid_o,
     output logic size_type_o,
     output logic [7:0] block_cnt
@@ -40,6 +42,7 @@ module data_controller (
 
     logic signed [7:0] input_raw_1[5:0][5:0];
     logic signed [7:0] input_raw_2[5:0][5:0];
+    logic input_valid_reg;
     
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
@@ -49,10 +52,17 @@ module data_controller (
             input_request_o <= 1;
             input_raw_1 <= '{default:'0};
             input_raw_2 <= '{default:'0};
+            input_valid_reg <= 0;
         end else begin
-            if (weight_valid_i && input_request_o) begin
+            if (input_valid_i && input_request_o) begin
                 input_raw_1 <= input_data_i_1;
                 input_raw_2 <= input_data_i_2;
+                input_valid_reg <= 1;
+            end
+            else begin
+                input_raw_1 <= '{default:'0};
+                input_raw_2 <= '{default:'0};
+                input_valid_reg <= 0;
             end
 
             if (loop_finished_o && input_request_o) input_request_o <= 0;
@@ -65,7 +75,7 @@ module data_controller (
             end
             else if (input_addr_o_1 + 3 == max_block) begin
                 input_addr_o_1 <= max_block - 1;
-                input_addr_o_2 <= 0;
+                input_addr_o_2 <= 8'b11111111;
                 loop_finished_o <= 1;
             end
             else begin
@@ -147,15 +157,33 @@ module data_controller (
 
     logic signed [10:0] intermediate_result_regs_1 [0:5][0:5];
     logic signed [10:0] intermediate_result_regs_2 [0:5][0:5];
+    logic [7:0] data_addr_1a;
+    logic [7:0] data_addr_2a;
+    logic intermediate_valid;
 
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
             intermediate_result_regs_1 <= '{default:'0};
             intermediate_result_regs_2 <= '{default:'0};
+            data_addr_1a <= 0;
+            data_addr_2a <= 0;
+            intermediate_valid <= 0;
         end 
         else begin
-            intermediate_result_regs_1 <= intermediate_result_1;
-            intermediate_result_regs_2 <= intermediate_result_2;
+            if (input_valid_reg) begin
+                intermediate_result_regs_1 <= intermediate_result_1;
+                intermediate_result_regs_2 <= intermediate_result_2;
+                data_addr_1a <= input_addr_o_1;
+                data_addr_2a <= input_addr_o_2;
+                intermediate_valid <= 1;
+            end
+            else begin
+                intermediate_result_regs_1 <= '{default:'0};
+                intermediate_result_regs_2 <= '{default:'0};
+                data_addr_1a <= 0;
+                data_addr_2a <= 0;
+                intermediate_valid <= 0;
+            end
         end
     end
 
@@ -169,16 +197,16 @@ module data_controller (
                 result_regs_2[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
                     if (bt[j][k] == -'d4) begin
-                        result_regs_1[i][j] = result_regs_1[i][j] - (intermediate_result_1[i][k] <<< 2) - intermediate_result_1[i][k];
-                        result_regs_2[i][j] = result_regs_2[i][j] - (intermediate_result_2[i][k] <<< 2) - intermediate_result_2[i][k];
+                        result_regs_1[i][j] = result_regs_1[i][j] - (intermediate_result_regs_1[i][k] <<< 2) - intermediate_result_regs_1[i][k];
+                        result_regs_2[i][j] = result_regs_2[i][j] - (intermediate_result_regs_2[i][k] <<< 2) - intermediate_result_regs_2[i][k];
                     end
                     else if (bt[j][k] < 0) begin
-                        result_regs_1[i][j] = result_regs_1[i][j] - (intermediate_result_1[i][k] <<< (-bt[j][k] - 1));
-                        result_regs_2[i][j] = result_regs_2[i][j] - (intermediate_result_2[i][k] <<< (-bt[j][k] - 1));
+                        result_regs_1[i][j] = result_regs_1[i][j] - (intermediate_result_regs_1[i][k] <<< (-bt[j][k] - 1));
+                        result_regs_2[i][j] = result_regs_2[i][j] - (intermediate_result_regs_2[i][k] <<< (-bt[j][k] - 1));
                     end
                     else begin
-                        result_regs_1[i][j] = result_regs_1[i][j] + (intermediate_result_1[i][k] <<< (bt[j][k] - 1));
-                        result_regs_2[i][j] = result_regs_2[i][j] + (intermediate_result_2[i][k] <<< (bt[j][k] - 1));
+                        result_regs_1[i][j] = result_regs_1[i][j] + (intermediate_result_regs_1[i][k] <<< (bt[j][k] - 1));
+                        result_regs_2[i][j] = result_regs_2[i][j] + (intermediate_result_regs_2[i][k] <<< (bt[j][k] - 1));
                     end
                 end
             end
@@ -191,12 +219,25 @@ module data_controller (
         if (reset) begin
             result_tile_o_1 <= '{default:'0};
             result_tile_o_2 <= '{default:'0};
+            pe_data_addr_o_1 <= 0;
+            pe_data_addr_o_2 <= 0;
             data_valid_o <= 0;
         end 
         else begin
-            result_tile_o_1 <= result_regs_1;
-            result_tile_o_2 <= result_regs_2;
-            if (result_regs_1 != 0) data_valid_o <= 1;
+            if (intermediate_valid) begin
+                result_tile_o_1 <= result_regs_1;
+                result_tile_o_2 <= result_regs_2;
+                pe_data_addr_o_1 <= data_addr_1a;
+                pe_data_addr_o_2 <= data_addr_2a;
+                data_valid_o <= 1;
+            end
+            else begin
+                result_tile_o_1 <= '{default:'0};
+                result_tile_o_2 <= '{default:'0};
+                pe_data_addr_o_1 <= 0;
+                pe_data_addr_o_2 <= 0;
+                data_valid_o <= 0;
+            end
         end
     end
     
