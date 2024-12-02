@@ -121,7 +121,7 @@ module PE_tb;
 
 
         
-        file = $fopen("./matlab_data_out/1in_U.txt", "r");
+        file = $fopen("./matlab_data_out/1by1UV/1in_U.txt", "r");
         for (row = 0; row < 6; row++) begin
             for (col = 0; col < 6; col++) begin
                     $fscanf(file, "%d", tile[row][col]);
@@ -133,7 +133,7 @@ module PE_tb;
         // load_tile_from_file ("../matlab_data_out/in_V.txt", 12, weight_tile_i);
 
         
-        file = $fopen("./matlab_data_out/in_V.txt", "r");
+        file = $fopen("./matlab_data_out/1by1UV/in_V.txt", "r");
         for (row = 0; row < 6; row++) begin
             for (col = 0; col < 6; col++) begin
                     $fscanf(file, "%d", tile_2[row][col]);
@@ -153,7 +153,7 @@ module PE_tb;
         data_x_index_i = 9'd10;
         data_y_index_i = 9'd15;
         weight_od_i = 8'd3;
-        weight_size_type_i = 1'b1; // filter is 3*3 (I don't think this var do anything?)
+        weight_size_type_i = 1'b0; // filter is 3*3 (I don't think this var do anything?)
 
         // Load example data into the data and weight tiles
         // for (int i = 0; i < 6; i++) begin
