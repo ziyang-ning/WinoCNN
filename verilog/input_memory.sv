@@ -1,7 +1,7 @@
 module data_mem_top (
     // clock here also work as scan_clk
     input logic clk,
-    input logic reset,
+    //input logic reset,
 
     // scan related inputs
     input logic [511:0] scan_in,
@@ -39,16 +39,16 @@ module data_mem_top (
     logic [511:0] sram_output_2; // output
 
     always_comb begin 
-        sram_WEN_1 = scan_mode;
-        sram_WEN_2 = 0; // never write to the second port
+        sram_WEN_1 = ~scan_mode;
+        sram_WEN_2 = 1; // never write to the second port
         sram_addr_1 = scan_mode ? scan_addr: addr_1_in;
         sram_addr_2 = scan_mode ? scan_addr: addr_2_in;
         sram_input_1 = scan_mode ? scan_in: sram_input_1;
         sram_input_2 = scan_mode ? scan_in: sram_input_2;
 
         // bypass signal, because sram read is a comb logic
-        data_1_valid_out = addr_1_valid_in;
-        data_2_valid_out = addr_2_valid_in;
+        package_1_valid_out = package_1_valid_in;
+        package_2_valid_out = package_2_valid_in;
         data_1_out = sram_output_1;
         data_2_out = sram_output_2;
         addr_1_out = addr_1_in;
@@ -73,7 +73,7 @@ module data_mem_top (
         .I1(sram_input_1),
         .I2(sram_input_2),
         .O1(sram_output_1),
-        .O2(sram_output_2),
+        .O2(sram_output_2)
     );
 
 

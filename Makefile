@@ -7,9 +7,13 @@ all:	simv
 # Modify starting here
 #####
 
-TESTBENCH = testbench/PE_test.sv
+TESTBENCH = testbench/CIM_mem_top_test.sv
 SIMFILES = $(wildcard \
-	verilog/newPE.sv \
+	verilog/output_memory.sv \
+	verilog/SRAM.v \
+	verilog/output_mem_top.sv \
+	verilog/CIM.sv \
+	verilog/CIM_mem_top.sv \
 )
 
 
@@ -32,5 +36,4 @@ clean:
 
 nuke:	clean
 	rm -rvf *.vg *.rep *.db *.chk *.log *.out *.ddc *.svf DVEfiles/
-
 
