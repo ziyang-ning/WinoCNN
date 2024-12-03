@@ -78,6 +78,7 @@ module output_mem_top_test;
         end
 
         scan_mode = 2'b1; // start load and store
+        
         @(negedge mem_clk);
         addr_1_in = 8'h5;
         addr_2_in = 8'hA;

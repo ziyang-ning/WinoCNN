@@ -1,6 +1,6 @@
 module data_mem_top_test;
     logic clk;
-    //logic reset;
+    logic reset;
 
     // scan related inputs
     logic [511:0] scan_in;
@@ -26,7 +26,22 @@ module data_mem_top_test;
     logic package_2_valid_out;               
 
     data_mem_top u_data_mem_top (
-        .*
+        .clk(clk),
+        .reset(reset),
+        .scan_in(scan_in),
+        // .scan_enable(scan_enable),
+        .scan_mode(scan_mode),
+        .scan_addr(scan_addr),
+        .addr_1_in(addr_1_in),
+        .addr_2_in(addr_2_in),
+        .package_1_valid_in(package_1_valid_in),
+        .package_2_valid_in(package_2_valid_in),
+        .data_1_out(data_1_out),
+        .data_2_out(data_2_out),
+        .addr_1_out(addr_1_out),
+        .addr_2_out(addr_2_out),
+        .package_1_valid_out(package_1_valid_out),
+        .package_2_valid_out(package_2_valid_out)
     );
 
     logic [511:0] mem_data [19:0];  
@@ -67,6 +82,7 @@ module data_mem_top_test;
 
     initial begin
         clk = 0;
+        reset = 1;
         scan_mode = 0;
         scan_in = 512'h0;
         scan_addr = 8'h0;
@@ -76,7 +92,8 @@ module data_mem_top_test;
         package_2_valid_in = 1'b0;
 
 
-        #10;
+        @(posedge clk);
+        reset = 0;
         scan_mode = 1'b1; 
 
         for (int i = 0; i < 128; i++) begin
@@ -91,7 +108,16 @@ module data_mem_top_test;
             #10;
         end
 
+        // in testbench mush give input at negedge
+        // but if it is a reg, it's OK to give input at posedge
+        @(negedge clk);
         scan_mode = 0;
+        addr_1_in = 8'h8;
+        addr_2_in = 8'h9;
+        package_1_valid_in = 1'b0;
+        package_2_valid_in = 1'b0;
+
+
         @(negedge clk);
         addr_1_in = 8'h5;
         addr_2_in = 8'hA;
@@ -99,10 +125,22 @@ module data_mem_top_test;
         package_2_valid_in = 1'b1;
 
         @(negedge clk);
+        addr_1_in = 8'h22;
+        addr_2_in = 8'h1A;
+        package_1_valid_in = 1'b0;
+        package_2_valid_in = 1'b0;
+
+        @(negedge clk);
         addr_1_in = 8'h1;
         addr_2_in = 8'h9;
         package_1_valid_in = 1'b1;
         package_2_valid_in = 1'b1;
+
+        @(negedge clk);
+        addr_1_in = 8'h5;
+        addr_2_in = 8'hB;
+        package_1_valid_in = 1'b0;
+        package_2_valid_in = 1'b0;
 
         @(negedge clk);
         addr_1_in = 8'h5;

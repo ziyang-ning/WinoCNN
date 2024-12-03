@@ -1,7 +1,7 @@
 module data_mem_top (
     // clock here also work as scan_clk
     input logic clk,
-    //input logic reset,
+    input logic reset,
 
     // scan related inputs
     input logic [511:0] scan_in,
@@ -46,14 +46,25 @@ module data_mem_top (
         sram_input_1 = scan_mode ? scan_in: sram_input_1;
         sram_input_2 = scan_mode ? scan_in: sram_input_2;
 
-        // bypass signal, because sram read is a comb logic
-        package_1_valid_out = package_1_valid_in;
-        package_2_valid_out = package_2_valid_in;
         data_1_out = sram_output_1;
         data_2_out = sram_output_2;
-        addr_1_out = addr_1_in;
-        addr_2_out = addr_2_in;
+
     end
+
+    always_ff @(posedge clk) begin
+        if (reset) begin
+            package_1_valid_out <= 1'b0;
+            package_2_valid_out <= 1'b0;
+            addr_1_out <= 8'b0;
+            addr_2_out <= 8'b0;
+        end else begin
+            package_1_valid_out <= package_1_valid_in;
+            package_2_valid_out <= package_2_valid_in;
+            addr_1_out <= addr_1_in;
+            addr_2_out <= addr_2_in;
+        end
+    end
+
 
     // CE is just the clk
     // CSB should be low, otherwise the data and address inputs are disabled
