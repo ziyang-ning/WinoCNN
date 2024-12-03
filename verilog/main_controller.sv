@@ -66,7 +66,7 @@ module main_controller(
     end
 
     // store the off-chip input into local reg
-    always_ff @(posedge clk or pose dge reset) begin
+    always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             total_id_reg  <= 0;
             total_od_reg  <= 0;
@@ -117,7 +117,7 @@ module main_controller(
                 end
             end
             COMPLETE: begin
-                if ((od2_counter >= total_od_reg) && (id_counter >= total_id_reg)) begin
+                if ((od2_counter >= total_od_reg - 1) && (id_counter >= total_id_reg - 1)) begin
                     next_state = FINISH;
                 end else begin
                     next_state = PREPARE;
@@ -144,7 +144,7 @@ module main_controller(
             id_counter <= 0;
         end else begin
             if (state == COMPLETE) begin
-                if (od2_counter >= total_od_reg) begin
+                if (od2_counter >= total_od_reg - 1) begin
                     // start the next id
                     od1_counter <= 0;
                     id_counter <= id_counter + 1;

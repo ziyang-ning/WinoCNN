@@ -1,4 +1,4 @@
-module top(
+module controller_top(
 
     input clk,
     input mem_clk,
@@ -12,7 +12,7 @@ module top(
     input logic wen,
 
     input input_mem_scan_mode,
-    input [1:0] output_mem_scan_mode,
+    // input [1:0] output_mem_scan_mode,
     // two output share the same scan_mode, but different from input scan_mode
     input [7:0] scan_addr,
     // four sram share the same scan_address
@@ -22,8 +22,8 @@ module top(
     // input [511:0] output_mem2_scan_in,
     // don't need to scan_in the output memory, 0 is enough
 
-    output [511:0] output_mem1_scan_out,
-    output [511:0] output_mem2_scan_out,
+    //output [511:0] output_mem1_scan_out,
+    //output [511:0] output_mem2_scan_out,
 
     output logic conv_completed
 
@@ -38,13 +38,6 @@ module top(
     logic data_prepare;
     logic size_type;
 
-    logic [7:0] input_addr_1_m;
-    logic [7:0] input_addr_2_m;
-    logic input_request_m;
-    logic signed [7:0] input_data_1_m[5:0][5:0];
-    logic signed [7:0] input_data_2_m[5:0][5:0];
-    logic input_valid_m;
-
     logic signed [13:0] data_tile_1_ctrl [5:0][5:0];
     logic signed [13:0] data_tile_2_ctrl [5:0][5:0];
     logic [7:0] data_addr_1_ctrl;
@@ -53,14 +46,10 @@ module top(
     logic size_type_ctrl;
     logic [7:0] block_cnt_ctrl;
 
-    logic [11:0] weight_addr_m;
-    logic signed [11:0] weight_data_1_m[5:0][5:0];
-    logic signed [11:0] weight_data_2_m[5:0][5:0];
-    logic weight_valid_m;
-    
     logic signed [11:0] weight_tile_1_ctrl [5:0][5:0];
     logic signed [11:0] weight_tile_2_ctrl [5:0][5:0];
-    logic weight_valid_ctrl;
+    logic weight_valid_1_ctrl;
+    logic weight_valid_2_ctrl;
     logic [7:0] weight_od1_ctrl;
     logic [7:0] weight_od2_ctrl;
 
@@ -137,27 +126,29 @@ module top(
         .conv_completed(conv_completed)
     );
 
-    data_mem_top data_sram(
-        .clk(clk),
 
+    weight_mem_controller_top weight_mem_controller_top_0(
+        .clk(clk),
+        .reset(reset),
+
+        .total_od_i(total_od),
+        .weight_od1_i(weight_od1),
+        .weight_id_i(weight_id),
+        .weight_main_valid_i(wen),
+
+        .scan_in(weight_mem_scan_in),
         .scan_mode(input_mem_scan_mode),
         .scan_addr(scan_addr),
-        .scan_in(data_mem_scan_in),
 
-        .addr_1_in(),
-        .addr_2_in(),
-        .package_1_valid_in(),
-        .package_2_valid_in(),
-
-        .data_1_out(),
-        .data_2_out(),
-        .addr_1_out(),
-        .addr_2_out(),
-        .package_1_valid_out(),
-        .package_2_valid_out()
+        .result_tile_o_1(weight_tile_1_ctrl),
+        .result_tile_o_2(weight_tile_2_ctrl),
+        .weight_valid_o_1(weight_valid_1_ctrl),
+        .weight_valid_o_2(weight_valid_2_ctrl),
+        .weight_od1_o(weight_od1_ctrl),
+        .weight_od2_o(weight_od2_ctrl)
     );
 
-    data_controller data_ctrl(
+    data_mem_controller_top data_mem_controller_top_0(
         .clk(clk),
         .reset(reset),
 
@@ -167,15 +158,11 @@ module top(
         .block_height_i(block_height),
         .size_type_i(size_type),
 
+        .scan_in(data_mem_scan_in),
+        .scan_mode(input_mem_scan_mode),
+        .scan_addr(scan_addr),
+
         .loop_finished_o(loop_finished),
-
-        .input_addr_o_1(input_addr_1_m),
-        .input_addr_o_2(input_addr_2_m),
-        .input_request_o(input_request_m),
-
-        .input_data_i_1(input_data_1_m),
-        .input_data_i_2(input_data_2_m),
-        .input_valid_i(input_valid_m),
 
         .result_tile_o_1(data_tile_1_ctrl),
         .result_tile_o_2(data_tile_2_ctrl),
@@ -184,49 +171,6 @@ module top(
         .data_valid_o(data_valid_ctrl),
         .size_type_o(size_type_ctrl),
         .block_cnt(block_cnt_ctrl)
-
-    );
-
-    data_mem_top weight_sram(
-        .clk(clk),
-
-        .scan_mode(input_mem_scan_mode),
-        .scan_addr(scan_addr),
-        .scan_in(weight_mem_scan_in),
-
-        .addr_1_in(weight_addr_m),
-        .addr_2_in((weight_addr_m+1)),
-        .package_1_valid_in(1'b1),
-        .package_2_valid_in(1'b1),
-
-        .data_1_out(weight_data_1_m),
-        .data_2_out(weight_data_2_m),
-        .addr_1_out(),
-        .addr_2_out(),
-        .package_1_valid_out(weight_valid_m),
-        .package_2_valid_out(weight_valid_m)
-    );
-
-    weight_controller weight_ctrl(
-        .clk(clk),
-        .reset(reset),
-
-        .total_od_i(total_od),
-
-        .weight_od1_i(weight_od1),
-        .weight_id_i(weight_id),
-
-        .weight_addr_o(weight_addr_m),
-
-        .weight_data_i_1(weight_data_1_m),
-        .weight_data_i_2(weight_data_2_m),
-        .weight_valid_i(weight_valid_m),
-
-        .result_tile_o_1(weight_tile_1_ctrl),
-        .result_tile_o_2(weight_tile_2_ctrl),
-        .weight_valid_o(weight_valid_ctrl),
-        .weight_od1_o(weight_od1_ctrl),
-        .weight_od2_o(weight_od2_ctrl)
     );
 
     PE pe_0(
@@ -240,7 +184,7 @@ module top(
         .block_cnt_i(block_cnt_ctrl),
 
         .weight_tile_i(weight_tile_1_ctrl),
-        .weight_valid_i(weight_valid_ctrl),
+        .weight_valid_i(weight_valid_1_ctrl),
         .weight_od_i(weight_od1_ctrl),
 
         .result_tile_o(result_tile_0),
@@ -298,7 +242,7 @@ module top(
         .block_cnt_i(block_cnt_02),
 
         .weight_tile_i(weight_tile_2_ctrl),
-        .weight_valid_i(weight_valid_ctrl),
+        .weight_valid_i(weight_valid_2_ctrl),
         .weight_od_i(weight_od2_ctrl),
 
         .result_tile_o(result_tile_2),
@@ -345,63 +289,63 @@ module top(
         .weight_od_o(weight_od_3)
     );
 
-    output_mem_top output_mem_top_0 (
-        .mem_clk(mem_clk),
-        .clk(clk),
+    // output_mem_top output_mem_top_0 (
+    //     .mem_clk(mem_clk),
+    //     .clk(clk),
 
-        .scan_in(0),
-        .scan_addr(scan_addr),
-        .scan_mode(output_mem_scan_mode),
-        .scan_out(output_mem1_scan_out),
+    //     .scan_in(0),
+    //     .scan_addr(scan_addr),
+    //     .scan_mode(output_mem_scan_mode),
+    //     .scan_out(output_mem1_scan_out),
 
-        .PE_addr_1_in(),
-        .PE_addr_2_in(),
-        .PE_package_1_valid_in(),
-        .PE_package_2_valid_in(),
+    //     .PE_addr_1_in(),
+    //     .PE_addr_2_in(),
+    //     .PE_package_1_valid_in(),
+    //     .PE_package_2_valid_in(),
 
-        .CIM_addr_1_in(),
-        .CIM_addr_2_in(),
-        .CIM_package_1_valid_in(),
-        .CIM_package_2_valid_in(),
-        .CIM_data_1_in(),
-        .CIM_data_2_in(),
+    //     .CIM_addr_1_in(),
+    //     .CIM_addr_2_in(),
+    //     .CIM_package_1_valid_in(),
+    //     .CIM_package_2_valid_in(),
+    //     .CIM_data_1_in(),
+    //     .CIM_data_2_in(),
 
-        .CIM_data_1_out(),
-        .CIM_data_2_out(),
-        .CIM_addr_1_out(),
-        .CIM_addr_2_out(),
-        .CIM_package_1_valid_out(),
-        .CIM_package_2_valid_out()
-    );
+    //     .CIM_data_1_out(),
+    //     .CIM_data_2_out(),
+    //     .CIM_addr_1_out(),
+    //     .CIM_addr_2_out(),
+    //     .CIM_package_1_valid_out(),
+    //     .CIM_package_2_valid_out()
+    // );
 
-    output_mem_top output_mem_top_1 (
-        .mem_clk(mem_clk),
-        .clk(clk),
+    // output_mem_top output_mem_top_1 (
+    //     .mem_clk(mem_clk),
+    //     .clk(clk),
 
-        .scan_in(0),
-        .scan_addr(scan_addr),
-        .scan_mode(output_mem_scan_mode),
-        .scan_out(output_mem2_scan_out),
+    //     .scan_in(0),
+    //     .scan_addr(scan_addr),
+    //     .scan_mode(output_mem_scan_mode),
+    //     .scan_out(output_mem2_scan_out),
 
-        .PE_addr_1_in(),
-        .PE_addr_2_in(),
-        .PE_package_1_valid_in(),
-        .PE_package_2_valid_in(),
+    //     .PE_addr_1_in(),
+    //     .PE_addr_2_in(),
+    //     .PE_package_1_valid_in(),
+    //     .PE_package_2_valid_in(),
 
-        .CIM_addr_1_in(),
-        .CIM_addr_2_in(),
-        .CIM_package_1_valid_in(),
-        .CIM_package_2_valid_in(),
-        .CIM_data_1_in(),
-        .CIM_data_2_in(),
+    //     .CIM_addr_1_in(),
+    //     .CIM_addr_2_in(),
+    //     .CIM_package_1_valid_in(),
+    //     .CIM_package_2_valid_in(),
+    //     .CIM_data_1_in(),
+    //     .CIM_data_2_in(),
 
-        .CIM_data_1_out(),
-        .CIM_data_2_out(),
-        .CIM_addr_1_out(),
-        .CIM_addr_2_out(),
-        .CIM_package_1_valid_out(),
-        .CIM_package_2_valid_out()
-    );
+    //     .CIM_data_1_out(),
+    //     .CIM_data_2_out(),
+    //     .CIM_addr_1_out(),
+    //     .CIM_addr_2_out(),
+    //     .CIM_package_1_valid_out(),
+    //     .CIM_package_2_valid_out()
+    // );
 
 endmodule
 

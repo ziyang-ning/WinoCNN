@@ -80,19 +80,16 @@ module PE(
         if (reset) begin
             weight_tile_reg_o <= '{default:'0};
             weight_valid_o <= 0;
-            size_type_o <= 0;
             weight_od_o <= 0;
         end else begin
             if (weight_valid_i) begin
                 weight_tile_reg_o <= weight_tile_i;
                 weight_valid_o <= 1;  
-                size_type_o <= size_type_i;
                 weight_od_o <= weight_od_i;
             end 
             else begin
                 weight_tile_reg_o <= '{default:'0};
                 weight_valid_o <= 0;
-                size_type_o <= 0;
                 weight_od_o <= 0;
             end
         end

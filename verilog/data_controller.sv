@@ -94,14 +94,14 @@ module data_controller (
                 input_request_o <= 1;
             end
             else if (input_prepare_i) begin
-                input_addr_o_1 <= input_addr_o_1;
-                input_addr_o_2 <= input_addr_o_2;
+                input_addr_o_1 <= block_cnt * input_id_i;
+                input_addr_o_2 <= block_cnt * input_id_i + 1;
                 loop_finished_o <= 0;
                 input_request_o <= 1;
             end
             else begin
-                input_addr_o_1 <= input_addr_o_1;
-                input_addr_o_2 <= input_addr_o_2;
+                input_addr_o_1 <= block_cnt * input_id_i;
+                input_addr_o_2 <= block_cnt * input_id_i + 1;
                 loop_finished_o <= 0;
                 input_request_o <= 0;
             end
@@ -110,8 +110,8 @@ module data_controller (
 
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
-            data_addr_1_reg <= 0;
-            data_addr_2_reg <= 1;
+            data_addr_1_reg <= block_cnt * input_id_i;
+            data_addr_2_reg <= block_cnt * input_id_i + 1;
         end 
         else begin
             if (input_valid_i) begin
@@ -119,8 +119,8 @@ module data_controller (
                 data_addr_2_reg <= input_addr_o_2;
             end
             else begin
-                data_addr_1_reg <= 0;
-                data_addr_2_reg <= 1;
+                data_addr_1_reg <= block_cnt * input_id_i;
+                data_addr_2_reg <= block_cnt * input_id_i + 1;
             end
         end
     end
