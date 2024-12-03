@@ -11,18 +11,18 @@ module data_controller (
     input logic [7:0] block_height_i,
     input logic size_type_i,
 
-    // output to the main controller
-    output logic loop_finished_o,
-
     // output to the memory
     output logic [7:0] input_addr_o_1,
     output logic [7:0] input_addr_o_2,
     output logic input_request_o,
 
     // input from the memory 
-    input logic signed [7:0] input_data_i_1[5:0][5:0],
-    input logic signed [7:0] input_data_i_2[5:0][5:0],
+    input logic signed [511:0] input_data_i_1,
+    input logic signed [511:0] input_data_i_2,
     input logic input_valid_i,
+
+    // output to the main controller
+    output logic loop_finished_o,
 
     // output to the PE arrays
     output logic signed [13:0] result_tile_o_1 [5:0][5:0],
@@ -42,46 +42,85 @@ module data_controller (
 
     logic signed [7:0] input_raw_1[5:0][5:0];
     logic signed [7:0] input_raw_2[5:0][5:0];
-    logic input_valid_reg;
+    logic [7:0] data_addr_1_reg;
+    logic [7:0] data_addr_2_reg;
+
+    always_comb begin
+        if (input_valid_i && !reset) begin
+            input_raw_1 = '{default:'0};
+            for (int i = 0; i < 6; i++) begin
+                for (int j = 0; j < 6; j++) begin
+                    input_raw_1[i][j] = input_data_i_1[(i * 6 + j) * 12 +: 12];
+                end
+            end
+            input_raw_2 = '{default:'0};
+            for (int i = 0; i < 6; i++) begin
+                for (int j = 0; j < 6; j++) begin
+                    input_raw_2[i][j] = input_data_i_2[(i * 6 + j) * 12 +: 12];
+                end
+            end
+        end
+        else begin
+            input_raw_1 = '{default:'0};
+            input_raw_2 = '{default:'0};
+        end
+    end
     
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             input_addr_o_1 <= 0;
             input_addr_o_2 <= 1;
             loop_finished_o <= 0;
-            input_request_o <= 1;
-            input_raw_1 <= '{default:'0};
-            input_raw_2 <= '{default:'0};
-            input_valid_reg <= 0;
+            input_request_o <= 0;
         end else begin
-            if (input_valid_i && input_request_o) begin
-                input_raw_1 <= input_data_i_1;
-                input_raw_2 <= input_data_i_2;
-                input_valid_reg <= 1;
-            end
-            else begin
-                input_raw_1 <= '{default:'0};
-                input_raw_2 <= '{default:'0};
-                input_valid_reg <= 0;
-            end
 
-            if (loop_finished_o && input_request_o) input_request_o <= 0;
-            if (input_prepare_i && ~input_request_o) input_request_o <= 1;
-
-            if (loop_finished_o) begin
+            if (loop_finished_o && input_request_o) begin
                 input_addr_o_1 <= block_cnt * input_id_i;
                 input_addr_o_2 <= block_cnt * input_id_i + 1;
                 loop_finished_o <= 0;
+                input_request_o <= 0;
             end
-            else if (input_addr_o_1 + 3 == max_block) begin
+            else if ((input_addr_o_1 + 3 == max_block) && input_request_o) begin
                 input_addr_o_1 <= max_block - 1;
                 input_addr_o_2 <= 8'b11111111;
                 loop_finished_o <= 1;
+                input_request_o <= 1;
             end
-            else begin
+            else if (input_request_o) begin
                 input_addr_o_1 <= input_addr_o_1 + 2;
                 input_addr_o_2 <= input_addr_o_2 + 2;
                 if (input_addr_o_1 + 4 == max_block) loop_finished_o <= 1;
+                else loop_finished_o <= 0;
+                input_request_o <= 1;
+            end
+            else if (input_prepare_i) begin
+                input_addr_o_1 <= input_addr_o_1;
+                input_addr_o_2 <= input_addr_o_2;
+                loop_finished_o <= 0;
+                input_request_o <= 1;
+            end
+            else begin
+                input_addr_o_1 <= input_addr_o_1;
+                input_addr_o_2 <= input_addr_o_2;
+                loop_finished_o <= 0;
+                input_request_o <= 0;
+            end
+        end
+    end
+
+    always_ff @( posedge clk or posedge reset ) begin
+        if (reset) begin
+            data_addr_1_reg <= 0;
+            data_addr_2_reg <= 1;
+        end 
+        else begin
+            if (input_valid_i) begin
+                data_addr_1_reg <= input_addr_o_1;
+                data_addr_2_reg <= input_addr_o_2;
+            end
+            else begin
+                data_addr_1_reg <= 0;
+                data_addr_2_reg <= 1;
             end
         end
     end
@@ -170,11 +209,11 @@ module data_controller (
             intermediate_valid <= 0;
         end 
         else begin
-            if (input_valid_reg) begin
+            if (input_valid_i) begin
                 intermediate_result_regs_1 <= intermediate_result_1;
                 intermediate_result_regs_2 <= intermediate_result_2;
-                data_addr_1a <= input_addr_o_1;
-                data_addr_2a <= input_addr_o_2;
+                data_addr_1a <= data_addr_1_reg;
+                data_addr_2a <= data_addr_2_reg;
                 intermediate_valid <= 1;
             end
             else begin

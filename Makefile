@@ -7,12 +7,12 @@ all:	simv
 # Modify starting here
 #####
 
-TESTBENCH = testbench/weight_mem_controller_top_test.sv
+TESTBENCH = testbench/data_mem_controller_top_test.sv
 SIMFILES = $(wildcard \
 	verilog/data_mem_top.sv \
 	verilog/SRAM.v \
-	verilog/weight_controller.sv \
-	verilog/weight_mem_controller_top.sv \
+	verilog/data_controller.sv \
+	verilog/data_mem_controller_top.sv \
 )
 
 
