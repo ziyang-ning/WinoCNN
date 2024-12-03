@@ -18,6 +18,10 @@ SIMFILES = $(wildcard \
 	verilog/controller_top.sv \
 	verilog/weight_controller.sv \
 	verilog/weight_mem_controller_top.sv \
+	verilog/top.sv \
+	verilog/CIM.sv \
+	verilog/CIM_mem_top.sv \
+	verilog/output_mem_top.sv \
 )
 
 

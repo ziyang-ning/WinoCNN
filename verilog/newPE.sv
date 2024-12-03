@@ -30,7 +30,7 @@ module PE(
     //output logic signed [7:0] result_od_o,
     //output logic signed [8:0] result_i_o [0:5][0:5],
     //output logic signed [8:0] result_j_o [0:5][0:5],
-    output logic [11:0] result_address_o,
+    output logic [7:0] result_address_o,
     output logic result_valid_o,
 
 
@@ -49,7 +49,7 @@ module PE(
     
 );
 
-    logic [11:0] result_address_1;
+    logic [7:0] result_address_1;
 
     assign size_type_o = size_type_i;
     assign block_cnt_o = block_cnt_i;
@@ -117,7 +117,7 @@ module PE(
     end
     
     logic dot_product_valid;
-    logic [11:0] result_address_2;
+    logic [7:0] result_address_2;
     logic signed [15:0] dot_product_regs [0:5][0:5];
 
     always_ff @( posedge clk or posedge reset ) begin
@@ -243,7 +243,7 @@ module PE(
 
     logic signed [15:0] intermediate_result_regs [0:5][0:5];
     logic intermediate_result_valid;
-    logic [11:0] result_address_3;
+    logic [7:0] result_address_3;
 
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin

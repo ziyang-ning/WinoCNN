@@ -5,12 +5,10 @@ module CIM_mem_top (
 
     // PE inputs
     input logic signed [11:0] PE_tile_i_1 [0:5][0:5],
-    input logic [7:0] PE_od_i_1,
     input logic [7:0] PE_addr_i_1,
     input logic PE_valid_i_1,
 
     input logic signed [11:0] PE_tile_i_2 [0:5][0:5],
-    input logic [7:0] PE_od_i_2,
     input logic [7:0] PE_addr_i_2,
     input logic PE_valid_i_2,
 
@@ -71,7 +69,6 @@ module CIM_mem_top (
 
     CIM CIM_1 (
         .PE_tile_i(PE_tile_i_1),
-        .PE_od_i(PE_od_i_1),
         .PE_addr_i(PE_addr_i_1),
         .PE_valid_i(PE_valid_i_1),
 
@@ -86,7 +83,6 @@ module CIM_mem_top (
 
     CIM CIM_2 (
         .PE_tile_i(PE_tile_i_2),
-        .PE_od_i(PE_od_i_2),
         .PE_addr_i(PE_addr_i_2),
         .PE_valid_i(PE_valid_i_2),
 
