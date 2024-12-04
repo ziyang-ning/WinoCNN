@@ -7,7 +7,8 @@ clc;
 
 % extract data from image
 % NOTE:: 1*1 filter only works with 2424_pic.jpg because of the output size
-A = imread('test_pic.jpg');
+% A = imread('test_pic.jpg');
+A = imread('2424_pic.jpg');
 
 % input and output size
 input_n = 8;    %size for the input matrix and filter
@@ -29,7 +30,7 @@ size_k = 0;       % size_k = 0 for 3*3, = 1 for 1*1
 % to txt files for memory tests
 % NOTE:: setting file_generation param will automatically change size_k
 
-file_generation = 0;
+file_generation = 3;
 
 if (file_generation == 1)
     size_k = 0;
@@ -57,19 +58,22 @@ elseif(file_generation == 2)
     
 else %file_generation == 3
     size_k = 0;
-    input_folder_name = fullfile('..', 'matlab_data_out/input_filter_HEX');
+    input_folder_name = fullfile('..', 'matlab_data_out/input2424_filter33_ID1OD1');
     input_HEX_fileName = fullfile(input_folder_name, 'input.txt');
     filter_HEX_fileName = fullfile(input_folder_name, 'filter.txt');
+%     U_HEX_fileName = fullfile(input_folder_name, 'U.txt');
+    
     if (file_generation == 3)
         input_HEX_fileID = fopen(input_HEX_fileName, 'w');
         filter_HEX_fileID = fopen(filter_HEX_fileName, 'w');
+%         U_HEX_fileID = fopen(U_HEX_fileName, 'w');
     end
     
     if ~exist(input_folder_name, 'dir')
         mkdir(input_folder_name);
     end
 
-    output_folder_name = fullfile('..', 'matlab_data_out/ans_33inputTEST');
+    output_folder_name = fullfile(input_folder_name, '/ans');
     if ~exist(output_folder_name, 'dir')
         mkdir(output_folder_name);
     end
@@ -247,6 +251,7 @@ for i = 1 : m : height
             fprintf(input_HEX_fileID, '%s\n', pretty_HEX_data); % Write the character array
         end
         
+        
         %fixed point for kernel and input
         input = double(fi(input, 1, input_n, input_r));
         
@@ -256,7 +261,7 @@ for i = 1 : m : height
         V = double(G * kernel_norm * G.');
         U = double(B_T * input * B_T.');
         
-        if(file_generation == 1 || file_generation == 2)
+        if(file_generation == 1 || file_generation == 2 || file_generation == 3)
             in_U = double(fi(U, 1, U_n, U_r).int);
             in_V = double(fi(V, 1, V_n, V_r).int);
 
@@ -269,6 +274,7 @@ for i = 1 : m : height
             V_flattened = strjoin(string(in_V_HEX), ' ');
             pretty_V_HEX_data = regexprep(V_flattened, '\s+', ''); % Replace multiple spaces with nothing
             fprintf(filter_HEX_fileID, '%s\n', pretty_V_HEX_data); % Write the character array
+            fprintf(filter_HEX_fileID, '0\n'); % Append a '0' on a new line
             fclose(filter_HEX_fileID);
         end
         
@@ -287,6 +293,9 @@ for i = 1 : m : height
     end
 end
 
+if(file_generation == 3)
+    fprintf(input_HEX_fileID, '0\n'); % Append a '0' on a new line
+end
 
 
 diff_float = red_out_wino - red_float_out
