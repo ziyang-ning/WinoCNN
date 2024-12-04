@@ -231,6 +231,7 @@ module data_controller (
 
     logic signed [13:0] result_regs_1 [0:5][0:5];
     logic signed [13:0] result_regs_2 [0:5][0:5];
+    logic signed [13:0] result_regs_2_delay [0:5][0:5];
 
     always_comb begin
         for (int i = 0; i < 6; i=i+1) begin
@@ -261,6 +262,7 @@ module data_controller (
         if (reset) begin
             result_tile_o_1 <= '{default:'0};
             result_tile_o_2 <= '{default:'0};
+            result_regs_2_delay <= '{default:'0};
             pe_data_addr_o_1 <= 0;
             pe_data_addr_o_2 <= 0;
             data_valid_o <= 0;
@@ -268,7 +270,8 @@ module data_controller (
         else begin
             if (intermediate_valid) begin
                 result_tile_o_1 <= result_regs_1;
-                result_tile_o_2 <= result_regs_2;
+                result_tile_o_2 <= result_regs_2_delay;
+                result_regs_2_delay <= result_regs_2;
                 pe_data_addr_o_1 <= data_addr_1a;
                 pe_data_addr_o_2 <= data_addr_2a;
                 data_valid_o <= 1;
@@ -276,6 +279,7 @@ module data_controller (
             else begin
                 result_tile_o_1 <= '{default:'0};
                 result_tile_o_2 <= '{default:'0};
+                result_regs_2_delay <= '{default:'0};
                 pe_data_addr_o_1 <= 0;
                 pe_data_addr_o_2 <= 0;
                 data_valid_o <= 0;

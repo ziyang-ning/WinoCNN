@@ -1,4 +1,4 @@
-module top_test;
+module top_test_2;
     integer file_data;
     integer file_weight;
     integer file_out1;
@@ -62,10 +62,10 @@ module top_test;
     end
 
     initial begin
-        file_data = $fopen("test1/data_scan_in.txt", "r");
-        file_weight = $fopen("test1/weight_scan_in.txt", "r");
-        file_out1 = $fopen("test1/output_mem1_scan_out.txt", "w");
-        file_out2 = $fopen("test1/output_mem2_scan_out.txt", "w");
+        file_data = $fopen("test2/data_scan_in.txt", "r");
+        file_weight = $fopen("test2/weight_scan_in.txt", "r");
+        file_out1 = $fopen("test2/output_mem1_scan_out.txt", "w");
+        file_out2 = $fopen("test2/output_mem2_scan_out.txt", "w");
 
         clk = 1;
         mem_clk = 1;
@@ -77,8 +77,8 @@ module top_test;
         weight_mem_scan_in = 512'h0;
         scan_addr = 8'h0;
 
-        total_id = 1;
-        total_od = 1;
+        total_id = 2;
+        total_od = 4;
         total_width = 9'd24;
         total_height = 9'd24;
         total_size_type = 1'b1;

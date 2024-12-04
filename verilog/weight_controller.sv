@@ -35,6 +35,7 @@ module weight_controller (
 
     logic signed [11:0] result_tile_reg_1 [5:0][5:0];
     logic signed [11:0] result_tile_reg_2 [5:0][5:0];
+    logic signed [11:0] result_tile_reg_2_delay [5:0][5:0];
     logic weight_valid_reg_1;
     logic weight_valid_reg_2;
     logic [7:0] weight_od1_reg;
@@ -74,7 +75,8 @@ module weight_controller (
 
     always_ff @(posedge clk) begin
         result_tile_o_1 <= result_tile_reg_1;
-        result_tile_o_2 <= result_tile_reg_2;
+        result_tile_o_2 <= result_tile_reg_2_delay;
+        result_tile_reg_2_delay <= result_tile_reg_2;
         weight_valid_o_1 <= weight_valid_reg_1;
         weight_valid_o_2 <= weight_valid_reg_2;
         weight_od1_o <= weight_od1_reg;
