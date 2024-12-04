@@ -108,7 +108,8 @@ module CIM_mem_top_test;
         for(int i = 0; i < 128; i++) begin
             scan_addr = i;
             #20;
-            $fwrite(file, "Address %0d: %h\n", i, scan_out);
+            // $fwrite(file, "Address %0d: %h\n", i, scan_out);
+            $fwrite(file, "%h\n", scan_out);
         end
 
         $fclose(file);
