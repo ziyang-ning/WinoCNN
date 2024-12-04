@@ -77,19 +77,19 @@ module top_test;
         weight_mem_scan_in = 512'h0;
         scan_addr = 8'h0;
 
-        total_id = 2;
-        total_od = 4;
-        total_width = 9'd30;
-        total_height = 9'd30;
-        total_size_type = 1'b0;
+        total_id = 1;
+        total_od = 1;
+        total_width = 9'd24;
+        total_height = 9'd24;
+        total_size_type = 1'b1;
         wen = 0;
 
 
         @(negedge clk);
         input_mem_scan_mode = 1;
         for (int i = 0; i < 128; i++) begin
-            scan_data = $fscanf(file_data, "%d\n", data_mem_scan_in);
-            scan_weight = $fscanf(file_weight, "%d\n", weight_mem_scan_in);
+            scan_data = $fscanf(file_data, "%h\n", data_mem_scan_in);
+            scan_weight = $fscanf(file_weight, "%h\n", weight_mem_scan_in);
             scan_addr = i;
             #20;
         end

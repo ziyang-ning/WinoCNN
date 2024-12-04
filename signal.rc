@@ -2,11 +2,11 @@ Magic 271485
 Revision Verdi_V-2023.12-SP2-1
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 25 1920 600 353 151
+viewPort 0 25 1034 767 352 65
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
-openDirFile -d / "" "/home/wenjieg/Desktop/class/WinoCNN/inter.fsdb"
+openDirFile -d / "" "/home/taoranji/Documents/WinoCNN/inter.fsdb"
 
 ; file time scale:
 ; fileTimeScale ### s|ms|us|ns|ps
@@ -16,16 +16,16 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 0.000000 624.030876
-cursor 30.000000
+zoom 0.000000 2546.526258
+cursor 9140.000000
 marker 0.000000
 
 ; user define markers
 ; userMarker time_pos marker_name color linestyle
 ; visible top row signal index
-top 2
+top 3
 ; marker line index
-markerPos 36
+markerPos 73
 
 ; event list
 ; addEvent event_name event_expression
@@ -46,45 +46,82 @@ curSTATUS ByChange
 
 
 addGroup "G1"
-activeDirFile "" "/home/wenjieg/Desktop/class/WinoCNN/inter.fsdb"
-addSignal -h 15 /top_test/clk
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/clk
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/reset
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/total_od_i[7:0]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/weight_od1_i[7:0]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/weight_id_i[3:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/weight_main_valid_i
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/scan_in[511:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/scan_mode
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/scan_addr[7:0]
-addSignal -expanded -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_1[5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_1[5][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_1[4][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_1[3][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_1[2][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_1[1][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_1[0][5:0]
-addSignal -expanded -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_2[5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_2[5][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_2[4][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_2[3][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_2[2][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_2[1][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/result_tile_o_2[0][5:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/weight_valid_o_1
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/weight_valid_o_2
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/weight_od1_o[7:0]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/weight_od2_o[7:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/data_mem_top_inst/data_SRAM/memory[127:0]
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/data_mem_top_inst/sram_WEN_1
-addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/data_mem_top_inst/sram_WEN_2
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/data_mem_top_inst/sram_addr_1[6:0]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/data_mem_top_inst/sram_addr_2[6:0]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/data_mem_top_inst/sram_input_1[511:0]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/data_mem_top_inst/sram_input_2[511:0]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/data_mem_top_inst/sram_output_1[511:0]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/data_mem_top_inst/sram_output_2[511:0]
+activeDirFile "" "/home/taoranji/Documents/WinoCNN/inter.fsdb"
+addSignal -h 15 -UNSIGNED -UDEC /top_test/file_data[31:0]
+addSignal -h 15 /top_test/top_0/clk
+addSignal -h 15 /top_test/top_0/clk
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[5:0]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_2[5:0]
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/pe_data_addr_o_1[7:0]
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/pe_data_addr_o_2[7:0]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/data_valid_o
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/size_type_o
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/block_cnt[7:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/scan_in[511:0]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/scan_mode
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/data_mem_controller_top_0/scan_addr[7:0]
 addGroup "G2"
+addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/weight_controller_inst/result_tile_o_1[5:0]
+addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/weight_controller_inst/result_tile_o_2[5:0]
+addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/weight_controller_inst/weight_valid_o_1
+addSignal -h 15 /top_test/top_0/weight_mem_controller_top_0/weight_controller_inst/weight_valid_o_2
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/weight_controller_inst/weight_od1_o[7:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/weight_mem_controller_top_0/weight_controller_inst/weight_od2_o[7:0]
+addGroup "G3"
+addSignal -expanded -h 15 /top_test/top_0/pe_0/data_tile_i[0:5]
+addSignal -expanded -h 15 /top_test/top_0/pe_0/data_tile_i[0][0:5]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/data_tile_i[0][0][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/data_tile_i[0][1][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/data_tile_i[0][2][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/data_tile_i[0][3][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/data_tile_i[0][4][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/data_tile_i[0][5][13:0]
+addSignal -h 15 /top_test/top_0/pe_0/data_tile_i[1][0:5]
+addSignal -h 15 /top_test/top_0/pe_0/data_tile_i[2][0:5]
+addSignal -h 15 /top_test/top_0/pe_0/data_tile_i[3][0:5]
+addSignal -h 15 /top_test/top_0/pe_0/data_tile_i[4][0:5]
+addSignal -h 15 /top_test/top_0/pe_0/data_tile_i[5][0:5]
+addSignal -h 15 /top_test/top_0/pe_0/data_valid_i
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/pe_0/data_addr_i[7:0]
+addSignal -h 15 /top_test/top_0/pe_0/size_type_i
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/pe_0/block_cnt_i[7:0]
+addSignal -h 15 /top_test/top_0/pe_0/weight_tile_i[0:5]
+addSignal -h 15 /top_test/top_0/pe_0/weight_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/weight_od_i[7:0]
+addSignal -h 15 /top_test/top_0/pe_0/result_tile_o[0:5]
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/pe_0/result_address_o[7:0]
+addSignal -h 15 /top_test/top_0/pe_0/result_valid_o
+addSignal -h 15 /top_test/top_0/pe_0/data_tile_reg_o[0:5]
+addSignal -h 15 /top_test/top_0/pe_0/data_valid_o
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/pe_0/data_addr_o[7:0]
+addSignal -h 15 /top_test/top_0/pe_0/weight_tile_reg_o[0:5]
+addSignal -h 15 /top_test/top_0/pe_0/weight_valid_o
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/weight_od_o[7:0]
+addGroup "G4"
+addSignal -h 15 /top_test/top_0/pe_1/data_tile_i[0:5]
+addSignal -h 15 /top_test/top_0/pe_1/data_valid_i
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/pe_1/data_addr_i[7:0]
+addSignal -h 15 /top_test/top_0/pe_1/size_type_i
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_1/block_cnt_i[7:0]
+addSignal -h 15 /top_test/top_0/pe_1/weight_tile_i[0:5]
+addSignal -h 15 /top_test/top_0/pe_1/weight_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_1/weight_od_i[7:0]
+addSignal -h 15 /top_test/top_0/pe_1/result_tile_o[0:5]
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/pe_1/result_address_o[7:0]
+addSignal -h 15 /top_test/top_0/pe_1/result_valid_o
+addGroup "G5"
+addSignal -h 15 /top_test/top_0/pe_2/data_tile_i[0:5]
+addSignal -h 15 /top_test/top_0/pe_2/data_valid_i
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/pe_2/data_addr_i[7:0]
+addSignal -h 15 /top_test/top_0/pe_2/size_type_i
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_2/block_cnt_i[7:0]
+addSignal -h 15 /top_test/top_0/pe_2/weight_tile_i[0:5]
+addSignal -h 15 /top_test/top_0/pe_2/weight_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_2/weight_od_i[7:0]
+addSignal -h 15 -UNSIGNED -UDEC /top_test/top_0/pe_2/result_address_o[7:0]
+addSignal -h 15 /top_test/top_0/pe_2/result_valid_o
+addSignal -h 15 /top_test/top_0/pe_2/result_tile_o[0:5]
+addGroup "G6"
 
 ; getSignalForm Scope Hierarchy Status
 ; active file of getSignalForm
