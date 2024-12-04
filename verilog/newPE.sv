@@ -298,7 +298,7 @@ module PE(
             result_valid_o <= 0;
             result_address_o <= 0;
         end else begin
-            if (dot_product_valid) begin
+            if (intermediate_result_valid) begin
                 for (int i = 0; i < 6; i=i+1)
                     for (int j = 0; j < 6; j=j+1)
                         result_tile_o[i][j] <= result_tile_middle[i][j] >>> 4;
