@@ -2,7 +2,7 @@ Magic 271485
 Revision Verdi_V-2023.12-SP2-1
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 25 1554 413 352 65
+viewPort 0 25 1547 828 352 65
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
@@ -16,7 +16,7 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 2508.641601 2850.778820
+zoom 2486.502200 2883.373869
 cursor 9140.000000
 marker 0.000000
 
@@ -25,7 +25,7 @@ marker 0.000000
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 18
+markerPos 11
 
 ; event list
 ; addEvent event_name event_expression
@@ -47,7 +47,7 @@ curSTATUS ByChange
 
 addGroup "G1"
 activeDirFile "" "/home/taoranji/Documents/WinoCNN/inter.fsdb"
-addSignal -h 15 /top_test/top_0/pe_0/data_tile_i[0:5]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/pe_0/data_tile_i[0:5]
 addSignal -h 15 /top_test/top_0/pe_0/data_valid_i
 addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/data_addr_i[7:0]
 addSignal -h 15 /top_test/top_0/pe_0/size_type_i
@@ -55,17 +55,7 @@ addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/block_cnt_i[7:0]
 addSignal -h 15 /top_test/top_0/pe_0/weight_tile_i[0:5]
 addSignal -h 15 /top_test/top_0/pe_0/weight_valid_i
 addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/weight_od_i[7:0]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/result_address_1[7:0]
-addSignal -h 15 /top_test/top_0/pe_0/dot_product[0:5]
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/result_address_2[7:0]
-addSignal -h 15 /top_test/top_0/pe_0/dot_product_regs[0:5]
-addSignal -h 15 /top_test/top_0/pe_0/dot_product_valid
-addSignal -h 15 /top_test/top_0/pe_0/intermediate_result[0:5]
-addSignal -h 15 /top_test/top_0/pe_0/intermediate_result_regs[0:5]
-addSignal -h 15 /top_test/top_0/pe_0/intermediate_result_valid
-addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/result_address_3[7:0]
-addSignal -h 15 /top_test/top_0/pe_0/result_tile_middle[0:5]
-addSignal -h 15 /top_test/top_0/pe_0/result_tile_o[0:5]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/pe_0/result_tile_o[0:5]
 addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/pe_0/result_address_o[7:0]
 addSignal -h 15 /top_test/top_0/pe_0/result_valid_o
 addGroup "G2"

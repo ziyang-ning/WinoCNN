@@ -40,23 +40,26 @@ module data_controller (
     assign max_block = block_cnt * (input_id_i + 1);
     assign size_type_o = size_type_i;
 
-    logic signed [7:0] input_raw_1[5:0][5:0];
-    logic signed [7:0] input_raw_2[5:0][5:0];
+    logic signed [7:0] input_raw_1[0:5][0:5];
+    logic signed [7:0] input_raw_2[0:5][0:5];
     logic [7:0] data_addr_1_reg;
     logic [7:0] data_addr_2_reg;
 
+    logic [8:0] temp;
     always_comb begin
         if (input_valid_i && !reset) begin
             input_raw_1 = '{default:'0};
             for (int i = 0; i < 6; i++) begin
                 for (int j = 0; j < 6; j++) begin
-                    input_raw_1[i][j] = input_data_i_1[(i * 6 + j) * 12 +: 12];
+                    temp = 9'd35 - (i * 6 + j);
+                    input_raw_1[i][j] = input_data_i_1[temp * 8 +: 8];
                 end
             end
             input_raw_2 = '{default:'0};
             for (int i = 0; i < 6; i++) begin
                 for (int j = 0; j < 6; j++) begin
-                    input_raw_2[i][j] = input_data_i_2[(i * 6 + j) * 12 +: 12];
+                    temp = 9'd35 - (i * 6 + j);
+                    input_raw_2[i][j] = input_data_i_2[temp * 8 +: 8];
                 end
             end
         end
@@ -125,13 +128,13 @@ module data_controller (
         end
     end
 
-    logic signed [10:0] intermediate_result_1 [0:5][0:5];
-    logic signed [10:0] intermediate_result_2 [0:5][0:5];
-    logic signed [2:0] bt [0:5][0:5];
+    logic signed [13:0] intermediate_result_1 [0:5][0:5];
+    logic signed [13:0] intermediate_result_2 [0:5][0:5];
+    logic signed [3:0] bt [0:5][0:5];
     
     assign bt[0][0] = 'd3;
     assign bt[0][1] = 'd0;
-    assign bt[0][2] = -'d4;
+    assign bt[0][2] = 'd4;
     assign bt[0][3] = 'd0;
     assign bt[0][4] = 'd1;
     assign bt[0][5] = 'd0;
@@ -167,7 +170,7 @@ module data_controller (
     assign bt[5][0] = 'd0;
     assign bt[5][1] = 'd3;
     assign bt[5][2] = 'd0;
-    assign bt[5][3] = -'d4;
+    assign bt[5][3] = 'd4;
     assign bt[5][4] = 'd0;
     assign bt[5][5] = 'd1;
 
@@ -177,7 +180,7 @@ module data_controller (
                 intermediate_result_1[i][j] = 0;
                 intermediate_result_2[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
-                    if (bt[i][k] == -'d4) begin
+                    if (bt[i][k] == 4) begin
                         intermediate_result_1[i][j] = intermediate_result_1[i][j] - (input_raw_1[k][j] <<< 2) - input_raw_1[k][j];
                         intermediate_result_2[i][j] = intermediate_result_2[i][j] - (input_raw_2[k][j] <<< 2) - input_raw_2[k][j];
                     end
@@ -194,8 +197,8 @@ module data_controller (
         end
     end
 
-    logic signed [10:0] intermediate_result_regs_1 [0:5][0:5];
-    logic signed [10:0] intermediate_result_regs_2 [0:5][0:5];
+    logic signed [13:0] intermediate_result_regs_1 [0:5][0:5];
+    logic signed [13:0] intermediate_result_regs_2 [0:5][0:5];
     logic [7:0] data_addr_1a;
     logic [7:0] data_addr_2a;
     logic intermediate_valid;
@@ -235,7 +238,7 @@ module data_controller (
                 result_regs_1[i][j] = 0;
                 result_regs_2[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
-                    if (bt[j][k] == -'d4) begin
+                    if (bt[j][k] == 4) begin
                         result_regs_1[i][j] = result_regs_1[i][j] - (intermediate_result_regs_1[i][k] <<< 2) - intermediate_result_regs_1[i][k];
                         result_regs_2[i][j] = result_regs_2[i][j] - (intermediate_result_regs_2[i][k] <<< 2) - intermediate_result_regs_2[i][k];
                     end
