@@ -2,11 +2,11 @@ Magic 271485
 Revision Verdi_V-2023.12-SP2-1
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 25 1272 393 330 116
+viewPort 0 25 2243 968 330 116
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
-openDirFile -d / "" "/home/wenjieg/Desktop/class/WinoCNN/inter.fsdb"
+openDirFile -d / "" "/home/taoranji/Documents/WinoCNN/inter.fsdb"
 
 ; file time scale:
 ; fileTimeScale ### s|ms|us|ns|ps
@@ -16,16 +16,16 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 0.000000 562.921894
-cursor 29131365.000000
+zoom 2650.581074 3409.209600
+cursor 9150.000000
 marker 0.000000
 
 ; user define markers
 ; userMarker time_pos marker_name color linestyle
 ; visible top row signal index
-top 0
+top 87
 ; marker line index
-markerPos 6
+markerPos 127
 
 ; event list
 ; addEvent event_name event_expression
@@ -46,7 +46,7 @@ curSTATUS ByChange
 
 
 addGroup "G1"
-activeDirFile "" "/home/wenjieg/Desktop/class/WinoCNN/inter.fsdb"
+activeDirFile "" "/home/taoranji/Documents/WinoCNN/inter.fsdb"
 addSignal -h 15 /top_test_2/top_0/mem_clk
 addSignal -h 15 /top_test_2/top_0/clk
 addSignal -h 15 /top_test_2/clk
@@ -112,7 +112,69 @@ addSignal -h 15 /top_test_2/top_0/pe_3/result_tile_o[0:5]
 addSignal -h 15 -UNSIGNED -UDEC /top_test_2/top_0/pe_3/result_address_o[7:0]
 addSignal -h 15 /top_test_2/top_0/pe_3/result_valid_o
 addGroup "G7"
+addSignal -expanded -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0:5]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][0][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][1][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][2][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][3][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][4][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][5][11:0]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[1][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[1][0][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[1][1][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[1][2][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[1][3][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[1][4][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[1][5][11:0]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[2][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[2][0][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[2][1][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[2][2][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[2][3][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[2][4][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[2][5][11:0]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[3][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[3][0][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[3][1][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[3][2][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[3][3][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[3][4][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[3][5][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[4][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[5][0:5]
+addSignal -h 15 -UNSIGNED -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_addr_i_1[7:0]
+addSignal -h 15 /top_test_2/top_0/CIM_mem_top_0/PE_valid_i_1
+addSignal -h 15 /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_2[0:5]
+addSignal -h 15 -UNSIGNED -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_addr_i_2[7:0]
+addSignal -h 15 /top_test_2/top_0/CIM_mem_top_0/PE_valid_i_2
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/CIM_mem_top_0/scan_in[511:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/CIM_mem_top_0/scan_addr[7:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/CIM_mem_top_0/scan_mode[1:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/CIM_mem_top_0/scan_out[511:0]
 addGroup "G8"
+addSignal -expanded -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0:5]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][0][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][1][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][2][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][3][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][4][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[0][5][11:0]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[1][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[2][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[3][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[4][0:5]
+addSignal -h 15 -2COMP -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_tile_i_1[5][0:5]
+addSignal -h 15 -UNSIGNED -UDEC /top_test_2/top_0/CIM_mem_top_0/PE_addr_i_1[7:0]
+addSignal -h 15 /top_test_2/top_0/CIM_mem_top_0/PE_valid_i_1
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/CIM_mem_top_0/CIM_data_o_1[511:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/CIM_mem_top_0/CIM_addr_o_1[7:0]
+addSignal -h 15 /top_test_2/top_0/CIM_mem_top_0/CIM_valid_o_1
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/CIM_mem_top_0/CIM_data_i_1[511:0]
+addSignal -h 15 /top_test_2/top_0/CIM_mem_top_0/CIM_valid_i_1
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/CIM_mem_top_0/CIM_addr_i_1[7:0]
+addGroup "G9"
 
 ; getSignalForm Scope Hierarchy Status
 ; active file of getSignalForm
