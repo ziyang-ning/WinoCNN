@@ -2,7 +2,7 @@
 clear;
 clc;
 % clf;
-
+F = fimath('RoundingMethod','Floor');
 %------------- Setup Params -------------------
 
 % extract data from image
@@ -30,7 +30,7 @@ size_k = 0;       % size_k = 0 for 3*3, = 1 for 1*1
 % to txt files for memory tests
 % NOTE:: setting file_generation param will automatically change size_k
 
-file_generation = 3;
+file_generation = 0;
 
 if (file_generation == 1)
     size_k = 0;
@@ -261,16 +261,17 @@ for i = 1 : m : height
         V = double(G * kernel_norm * G.');
         U = double(B_T * input * B_T.');
         
+        
         if(file_generation == 1 || file_generation == 2 || file_generation == 3)
-            in_U = double(fi(U, 1, U_n, U_r).int);
-            in_V = double(fi(V, 1, V_n, V_r).int);
+            in_U = double(fi(U, 1, U_n, U_r, F).int);
+            in_V = double(fi(V, 1, V_n, V_r).int);       %F is optional because we provide to PE
 
             % Save to text files
             writematrix(in_U, fullfile(input_folder_name, strcat(string(filename_count) ,'in_U.txt')), 'Delimiter', ' ');
             writematrix(in_V, fullfile(input_folder_name, 'in_V.txt'), 'Delimiter', ' ');
         end
         if(file_generation == 3 && filename_count == 0)
-            in_V_HEX = fi(V, 1, V_n, V_r).hex;
+            in_V_HEX = fi(V, 1, V_n, V_r).hex;           %F is optional because we provide to PE
             V_flattened = strjoin(string(in_V_HEX), ' ');
             pretty_V_HEX_data = regexprep(V_flattened, '\s+', ''); % Replace multiple spaces with nothing
             fprintf(filter_HEX_fileID, '%s\n', pretty_V_HEX_data); % Write the character array
