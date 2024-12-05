@@ -29,7 +29,8 @@ module data_controller (
     output logic signed [13:0] result_tile_o_2 [5:0][5:0],
     output logic [7:0] pe_data_addr_o_1,
     output logic [7:0] pe_data_addr_o_2,
-    output logic data_valid_o,
+    output logic data_valid_o_1,
+    output logic data_valid_o_2,
     output logic size_type_o,
     output logic [7:0] block_cnt
 );
@@ -113,17 +114,17 @@ module data_controller (
 
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
-            data_addr_1_reg <= block_cnt * input_id_i;
-            data_addr_2_reg <= block_cnt * input_id_i + 1;
+            data_addr_1_reg <= 0;
+            data_addr_2_reg <= 1;
         end 
         else begin
             if (input_valid_i) begin
-                data_addr_1_reg <= input_addr_o_1;
-                data_addr_2_reg <= input_addr_o_2;
+                data_addr_1_reg <= input_addr_o_1 - block_cnt * input_id_i;
+                data_addr_2_reg <= input_addr_o_2 - block_cnt * input_id_i;
             end
             else begin
-                data_addr_1_reg <= block_cnt * input_id_i;
-                data_addr_2_reg <= block_cnt * input_id_i + 1;
+                data_addr_1_reg <= 0;
+                data_addr_2_reg <= 1;
             end
         end
     end
@@ -232,6 +233,8 @@ module data_controller (
     logic signed [13:0] result_regs_1 [0:5][0:5];
     logic signed [13:0] result_regs_2 [0:5][0:5];
     logic signed [13:0] result_regs_2_delay [0:5][0:5];
+    logic [7:0] data_addr_2a_delay;
+    logic data_valid_2_delay;
 
     always_comb begin
         for (int i = 0; i < 6; i=i+1) begin
@@ -265,7 +268,10 @@ module data_controller (
             result_regs_2_delay <= '{default:'0};
             pe_data_addr_o_1 <= 0;
             pe_data_addr_o_2 <= 0;
-            data_valid_o <= 0;
+            data_addr_2a_delay <= 0;
+            data_valid_o_1 <= 0;
+            data_valid_o_2 <= 0;
+            data_valid_2_delay <= 0;
         end 
         else begin
             if (intermediate_valid) begin
@@ -273,16 +279,22 @@ module data_controller (
                 result_tile_o_2 <= result_regs_2_delay;
                 result_regs_2_delay <= result_regs_2;
                 pe_data_addr_o_1 <= data_addr_1a;
-                pe_data_addr_o_2 <= data_addr_2a;
-                data_valid_o <= 1;
+                pe_data_addr_o_2 <= data_addr_2a_delay;
+                data_addr_2a_delay <= data_addr_2a;
+                data_valid_o_1 <= 1;
+                data_valid_o_2 <= data_valid_2_delay;
+                data_valid_2_delay <= 1;
             end
             else begin
                 result_tile_o_1 <= '{default:'0};
                 result_tile_o_2 <= '{default:'0};
                 result_regs_2_delay <= '{default:'0};
                 pe_data_addr_o_1 <= 0;
-                pe_data_addr_o_2 <= 0;
-                data_valid_o <= 0;
+                pe_data_addr_o_2 <= data_addr_2a_delay;
+                data_addr_2a_delay <= 0;
+                data_valid_o_1 <= 0;
+                data_valid_o_2 <= data_valid_2_delay;
+                data_valid_2_delay <= 0;
             end
         end
     end

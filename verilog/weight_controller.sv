@@ -38,8 +38,10 @@ module weight_controller (
     logic signed [11:0] result_tile_reg_2_delay [5:0][5:0];
     logic weight_valid_reg_1;
     logic weight_valid_reg_2;
+    logic weight_valid_reg_2_delay;
     logic [7:0] weight_od1_reg;
     logic [7:0] weight_od2_reg;
+    logic [7:0] weight_od2_reg_delay;
 
     // addr and valid come from sram, the sram delayed by one cycle
     assign weight_addr_o_1 = weight_od1_i + total_od_i * weight_id_i;
@@ -78,9 +80,11 @@ module weight_controller (
         result_tile_o_2 <= result_tile_reg_2_delay;
         result_tile_reg_2_delay <= result_tile_reg_2;
         weight_valid_o_1 <= weight_valid_reg_1;
-        weight_valid_o_2 <= weight_valid_reg_2;
+        weight_valid_o_2 <= weight_valid_reg_2_delay;
+        weight_valid_reg_2_delay <= weight_valid_reg_2;
         weight_od1_o <= weight_od1_reg;
-        weight_od2_o <= weight_od2_reg;
+        weight_od2_o <= weight_od2_reg_delay;
+        weight_od2_reg_delay <= weight_od2_reg;
     end
 
     

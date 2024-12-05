@@ -165,7 +165,7 @@ module main_controller(
         weight_id_o = id_counter;
         weight_od1_o = od1_counter;
         conv_completed = (state == FINISH);
-
+        data_prepare_o = 0;
         case (state)
             PREPARE: begin
                 data_prepare_o = 1;

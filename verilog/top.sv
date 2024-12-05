@@ -1,8 +1,9 @@
 module top(
 
-    input clk,
+    // input clk,
     input mem_clk,
     input reset,
+    input clk_reset,
 
     input logic [3:0] total_id,
     input logic [7:0] total_od,
@@ -26,6 +27,12 @@ module top(
 
 );
 
+    logic clk;
+    always_ff @(posedge mem_clk or posedge clk_reset) begin
+        if (clk_reset) clk <= 0;
+        else clk <= ~clk;
+    end
+
     logic loop_finished;
     logic [7:0] weight_od1;
     logic [3:0] weight_id;
@@ -39,7 +46,8 @@ module top(
     logic signed [13:0] data_tile_2_ctrl [5:0][5:0];
     logic [7:0] data_addr_1_ctrl;
     logic [7:0] data_addr_2_ctrl;
-    logic data_valid_ctrl;
+    logic data_valid_1_ctrl;
+    logic data_valid_2_ctrl;
     logic size_type_ctrl;
     logic [7:0] block_cnt_ctrl;
 
@@ -165,7 +173,8 @@ module top(
         .result_tile_o_2(data_tile_2_ctrl),
         .pe_data_addr_o_1(data_addr_1_ctrl),
         .pe_data_addr_o_2(data_addr_2_ctrl),
-        .data_valid_o(data_valid_ctrl),
+        .data_valid_o_1(data_valid_1_ctrl),
+        .data_valid_o_2(data_valid_2_ctrl),
         .size_type_o(size_type_ctrl),
         .block_cnt(block_cnt_ctrl)
     );
@@ -175,7 +184,7 @@ module top(
         .reset(reset),
 
         .data_tile_i(data_tile_1_ctrl),
-        .data_valid_i(data_valid_ctrl),
+        .data_valid_i(data_valid_1_ctrl),
         .data_addr_i(data_addr_1_ctrl),
         .size_type_i(size_type_ctrl),
         .block_cnt_i(block_cnt_ctrl),
@@ -204,7 +213,7 @@ module top(
         .reset(reset),
 
         .data_tile_i(data_tile_2_ctrl),
-        .data_valid_i(data_valid_ctrl),
+        .data_valid_i(data_valid_2_ctrl),
         .data_addr_i(data_addr_2_ctrl),
         .size_type_i(size_type_ctrl),
         .block_cnt_i(block_cnt_ctrl),

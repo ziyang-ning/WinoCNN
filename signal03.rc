@@ -1,0 +1,119 @@
+Magic 271485
+Revision Verdi_V-2023.12-SP2-1
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 25 1272 393 330 116
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/home/wenjieg/Desktop/class/WinoCNN/inter.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 0.000000 562.921894
+cursor 29131365.000000
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+; visible top row signal index
+top 0
+; marker line index
+markerPos 6
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "G1"
+activeDirFile "" "/home/wenjieg/Desktop/class/WinoCNN/inter.fsdb"
+addSignal -h 15 /top_test_2/top_0/mem_clk
+addSignal -h 15 /top_test_2/top_0/clk
+addSignal -h 15 /top_test_2/clk
+addSignal -h 15 /top_test_2/top_0/data_mem_controller_top_0/result_tile_o_1[5:0]
+addSignal -h 15 /top_test_2/top_0/data_mem_controller_top_0/result_tile_o_2[5:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/data_mem_controller_top_0/pe_data_addr_o_1[7:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/data_mem_controller_top_0/pe_data_addr_o_2[7:0]
+addSignal -h 15 /top_test_2/top_0/data_mem_controller_top_0/data_valid_o_1
+addSignal -h 15 /top_test_2/top_0/data_mem_controller_top_0/data_valid_o_2
+addGroup "G2"
+addSignal -h 15 /top_test_2/top_0/weight_mem_controller_top_0/result_tile_o_1[5:0]
+addSignal -h 15 /top_test_2/top_0/weight_mem_controller_top_0/result_tile_o_2[5:0]
+addSignal -h 15 /top_test_2/top_0/weight_mem_controller_top_0/weight_valid_o_1
+addSignal -h 15 /top_test_2/top_0/weight_mem_controller_top_0/weight_valid_o_2
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/weight_mem_controller_top_0/weight_od1_o[7:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/weight_mem_controller_top_0/weight_od2_o[7:0]
+addGroup "G3"
+addSignal -h 15 /top_test_2/top_0/pe_0/data_tile_i[0:5]
+addSignal -h 15 /top_test_2/top_0/pe_0/data_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_0/data_addr_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_0/size_type_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_0/block_cnt_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_0/weight_tile_i[0:5]
+addSignal -h 15 /top_test_2/top_0/pe_0/weight_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_0/weight_od_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_0/result_tile_o[0:5]
+addSignal -h 15 -UNSIGNED -UDEC /top_test_2/top_0/pe_0/result_address_o[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_0/result_valid_o
+addGroup "G4"
+addSignal -h 15 /top_test_2/top_0/pe_1/data_tile_i[0:5]
+addSignal -h 15 /top_test_2/top_0/pe_1/data_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_1/data_addr_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_1/size_type_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_1/block_cnt_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_1/weight_tile_i[0:5]
+addSignal -h 15 /top_test_2/top_0/pe_1/weight_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_1/weight_od_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_1/result_tile_o[0:5]
+addSignal -h 15 -UNSIGNED -UDEC /top_test_2/top_0/pe_1/result_address_o[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_1/result_valid_o
+addGroup "G5"
+addSignal -h 15 /top_test_2/top_0/pe_2/data_tile_i[0:5]
+addSignal -h 15 /top_test_2/top_0/pe_2/data_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_2/data_addr_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_2/size_type_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_2/block_cnt_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_2/weight_tile_i[0:5]
+addSignal -h 15 /top_test_2/top_0/pe_2/weight_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_2/weight_od_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_2/result_tile_o[0:5]
+addSignal -h 15 -UNSIGNED -UDEC /top_test_2/top_0/pe_2/result_address_o[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_2/result_valid_o
+addGroup "G6"
+addSignal -h 15 /top_test_2/top_0/pe_3/data_tile_i[0:5]
+addSignal -h 15 /top_test_2/top_0/pe_3/data_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_3/data_addr_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_3/size_type_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_3/block_cnt_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_3/weight_tile_i[0:5]
+addSignal -h 15 /top_test_2/top_0/pe_3/weight_valid_i
+addSignal -h 15 -UNSIGNED -HEX /top_test_2/top_0/pe_3/weight_od_i[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_3/result_tile_o[0:5]
+addSignal -h 15 -UNSIGNED -UDEC /top_test_2/top_0/pe_3/result_address_o[7:0]
+addSignal -h 15 /top_test_2/top_0/pe_3/result_valid_o
+addGroup "G7"
+addGroup "G8"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+
