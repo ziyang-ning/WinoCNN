@@ -1,4 +1,5 @@
 VCS = SW_VCS=2020.12-SP2-1 vcs -sverilog +vc -Mupdate -line -full64 -kdb -lca -debug_access+all+reverse
+LIB = /afs/umich.edu/class/eecs470/lib/verilog/lec25dscc25.v
 
 all:	simv
 	./simv | tee program.out
@@ -7,7 +8,7 @@ all:	simv
 # Modify starting here
 #####
 
-TESTBENCH = testbench/top_test.sv
+TESTBENCH = testbench/top_test2.sv
 SIMFILES = $(wildcard \
 	verilog/data_mem_top.sv \
 	verilog/SRAM.v \
@@ -15,7 +16,6 @@ SIMFILES = $(wildcard \
 	verilog/data_mem_controller_top.sv \
 	verilog/main_controller.sv \
 	verilog/newPE.sv \
-	verilog/controller_top.sv \
 	verilog/weight_controller.sv \
 	verilog/weight_mem_controller_top.sv \
 	verilog/top.sv \
@@ -23,7 +23,7 @@ SIMFILES = $(wildcard \
 	verilog/CIM_mem_top.sv \
 	verilog/output_mem_top.sv \
 )
-
+SYNFILES = top.vg
 
 #####
 # Should be no need to modify after here
@@ -35,6 +35,15 @@ verdi:	$(SIMFILES) $(TESTBENCH)
 	$(VCS) $(TESTBENCH) $(SIMFILES) -o verdi -R -gui | tee dve.log
 
 .PHONY: verdi
+
+top.vg: verilog/top.sv syn/top.tcl
+	dc_shell-t -f syn/top.tcl | tee syn/top.out
+
+syn_simv:	$(SYNFILES) $(TESTBENCH)
+	$(VCS) $(TESTBENCH) $(SYNFILES) $(LIB) -o syn_simv | tee syn_simv.log
+
+syn:	syn_simv
+	./syn_simv | tee syn_program.out | tee syn.log
 
 clean:
 	rm -rvf simv *.daidir csrc vcs.key program.out sim verdi \

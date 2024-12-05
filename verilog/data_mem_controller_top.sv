@@ -23,7 +23,8 @@ module data_mem_controller_top (
     output logic signed [13:0] result_tile_o_2 [5:0][5:0],
     output logic [7:0] pe_data_addr_o_1,
     output logic [7:0] pe_data_addr_o_2,
-    output logic data_valid_o,
+    output logic data_valid_o_1,
+    output logic data_valid_o_2,
     output logic size_type_o,
     output logic [7:0] block_cnt
 
@@ -64,7 +65,8 @@ module data_mem_controller_top (
         .result_tile_o_2(result_tile_o_2),
         .pe_data_addr_o_1(pe_data_addr_o_1),
         .pe_data_addr_o_2(pe_data_addr_o_2),
-        .data_valid_o(data_valid_o),
+        .data_valid_o_1(data_valid_o_1),
+        .data_valid_o_2(data_valid_o_2),
         .size_type_o(size_type_o),
         .block_cnt(block_cnt)
     );

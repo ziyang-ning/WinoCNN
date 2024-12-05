@@ -43,8 +43,8 @@ module data_mem_top (
         sram_WEN_2 = 1; // never write to the second port
         sram_addr_1 = scan_mode ? scan_addr: addr_1_in;
         sram_addr_2 = scan_mode ? scan_addr: addr_2_in;
-        sram_input_1 = scan_mode ? scan_in: sram_input_1;
-        sram_input_2 = scan_mode ? scan_in: sram_input_2;
+        sram_input_1 = scan_mode ? scan_in: 0;
+        sram_input_2 = scan_mode ? scan_in: 0;
 
         data_1_out = sram_output_1;
         data_2_out = sram_output_2;

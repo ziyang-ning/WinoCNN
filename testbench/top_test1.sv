@@ -1,4 +1,4 @@
-module top_test;
+module top_test_1;
     integer file_data;
     integer file_weight;
     integer file_out1;

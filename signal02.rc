@@ -1,0 +1,168 @@
+Magic 271485
+Revision Verdi_V-2023.12-SP2-1
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 25 2078 632 386 65
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/home/taoranji/Documents/WinoCNN/inter.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 2577.130965 2931.493285
+cursor 2620.000000
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+; visible top row signal index
+top 89
+; marker line index
+markerPos 113
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "G1"
+activeDirFile "" "/home/taoranji/Documents/WinoCNN/inter.fsdb"
+addSignal -h 15 -UNSIGNED -UDEC /top_test/file_data[31:0]
+addSignal -h 15 -UNSIGNED -UDEC /top_test/file_data[31:0]
+addSignal -h 15 -UNSIGNED -UDEC /top_test/file_data[31:0]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[5][5:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[5][5][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[5][4][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[5][3][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[5][2][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[5][1][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[5][0][7:0]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[4][5:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[4][5][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[4][4][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[4][3][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[4][2][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[4][1][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[4][0][7:0]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[3][5:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[3][5][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[3][4][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[3][3][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[3][2][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[3][1][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[3][0][7:0]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[2][5:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[2][5][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[2][4][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[2][3][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[2][2][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[2][1][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[2][0][7:0]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[1][5:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[1][5][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[1][4][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[1][3][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[1][2][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[1][1][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[1][0][7:0]
+addSignal -expanded -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[0][5:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[0][5][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[0][4][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[0][3][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[0][2][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[0][1][7:0]
+addSignal -h 15 -2COMP -UDEC /top_test/top_0/data_mem_controller_top_0/data_controller_inst/input_raw_1[0][0][7:0]
+addSignal -expanded -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[0:5]
+addSignal -expanded -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[0][0:5]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[0][0][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[0][1][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[0][2][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[0][3][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[0][4][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[0][5][13:0]
+addSignal -expanded -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[1][0:5]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[1][0][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[1][1][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[1][2][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[1][3][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[1][4][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[1][5][13:0]
+addSignal -expanded -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[2][0:5]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[2][0][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[2][1][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[2][2][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[2][3][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[2][4][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[2][5][13:0]
+addSignal -expanded -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[3][0:5]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[3][0][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[3][1][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[3][2][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[3][3][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[3][4][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[3][5][13:0]
+addSignal -expanded -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[4][0:5]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[4][0][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[4][1][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[4][2][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[4][3][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[4][4][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[4][5][13:0]
+addSignal -expanded -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[5][0:5]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[5][0][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[5][1][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[5][2][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[5][3][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[5][4][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_1[5][5][13:0]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_2[0:5]
+addSignal -expanded -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[5:0]
+addSignal -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[5][5:0]
+addSignal -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[4][5:0]
+addSignal -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[3][5:0]
+addSignal -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[2][5:0]
+addSignal -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[1][5:0]
+addSignal -expanded -h 15 -2COMP -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[0][5:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[0][5][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[0][4][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[0][3][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[0][2][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[0][1][13:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_1[0][0][13:0]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/result_tile_o_2[5:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/data_addr_1_reg[7:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/data_addr_2_reg[7:0]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_regs_1[0:5]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_result_regs_2[0:5]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/data_addr_1a[7:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/data_addr_2a[7:0]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/intermediate_valid
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/pe_data_addr_o_1[7:0]
+addSignal -h 15 -UNSIGNED -HEX /top_test/top_0/data_mem_controller_top_0/data_controller_inst/pe_data_addr_o_2[7:0]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/bt[0:5]
+addSignal -h 15 /top_test/top_0/data_mem_controller_top_0/data_controller_inst/data_valid_o
+addGroup "G2"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+

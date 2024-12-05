@@ -29,7 +29,8 @@ module data_controller (
     output logic signed [13:0] result_tile_o_2 [5:0][5:0],
     output logic [7:0] pe_data_addr_o_1,
     output logic [7:0] pe_data_addr_o_2,
-    output logic data_valid_o,
+    output logic data_valid_o_1,
+    output logic data_valid_o_2,
     output logic size_type_o,
     output logic [7:0] block_cnt
 );
@@ -40,23 +41,26 @@ module data_controller (
     assign max_block = block_cnt * (input_id_i + 1);
     assign size_type_o = size_type_i;
 
-    logic signed [7:0] input_raw_1[5:0][5:0];
-    logic signed [7:0] input_raw_2[5:0][5:0];
+    logic signed [7:0] input_raw_1[0:5][0:5];
+    logic signed [7:0] input_raw_2[0:5][0:5];
     logic [7:0] data_addr_1_reg;
     logic [7:0] data_addr_2_reg;
 
+    logic [8:0] temp;
     always_comb begin
         if (input_valid_i && !reset) begin
             input_raw_1 = '{default:'0};
             for (int i = 0; i < 6; i++) begin
                 for (int j = 0; j < 6; j++) begin
-                    input_raw_1[i][j] = input_data_i_1[(i * 6 + j) * 12 +: 12];
+                    temp = 9'd35 - (i * 6 + j);
+                    input_raw_1[i][j] = input_data_i_1[temp * 8 +: 8];
                 end
             end
             input_raw_2 = '{default:'0};
             for (int i = 0; i < 6; i++) begin
                 for (int j = 0; j < 6; j++) begin
-                    input_raw_2[i][j] = input_data_i_2[(i * 6 + j) * 12 +: 12];
+                    temp = 9'd35 - (i * 6 + j);
+                    input_raw_2[i][j] = input_data_i_2[temp * 8 +: 8];
                 end
             end
         end
@@ -110,28 +114,28 @@ module data_controller (
 
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
-            data_addr_1_reg <= block_cnt * input_id_i;
-            data_addr_2_reg <= block_cnt * input_id_i + 1;
+            data_addr_1_reg <= 0;
+            data_addr_2_reg <= 1;
         end 
         else begin
             if (input_valid_i) begin
-                data_addr_1_reg <= input_addr_o_1;
-                data_addr_2_reg <= input_addr_o_2;
+                data_addr_1_reg <= input_addr_o_1 - block_cnt * input_id_i;
+                data_addr_2_reg <= input_addr_o_2 - block_cnt * input_id_i;
             end
             else begin
-                data_addr_1_reg <= block_cnt * input_id_i;
-                data_addr_2_reg <= block_cnt * input_id_i + 1;
+                data_addr_1_reg <= 0;
+                data_addr_2_reg <= 1;
             end
         end
     end
 
-    logic signed [10:0] intermediate_result_1 [0:5][0:5];
-    logic signed [10:0] intermediate_result_2 [0:5][0:5];
-    logic signed [2:0] bt [0:5][0:5];
+    logic signed [13:0] intermediate_result_1 [0:5][0:5];
+    logic signed [13:0] intermediate_result_2 [0:5][0:5];
+    logic signed [3:0] bt [0:5][0:5];
     
     assign bt[0][0] = 'd3;
     assign bt[0][1] = 'd0;
-    assign bt[0][2] = -'d4;
+    assign bt[0][2] = 'd4;
     assign bt[0][3] = 'd0;
     assign bt[0][4] = 'd1;
     assign bt[0][5] = 'd0;
@@ -167,7 +171,7 @@ module data_controller (
     assign bt[5][0] = 'd0;
     assign bt[5][1] = 'd3;
     assign bt[5][2] = 'd0;
-    assign bt[5][3] = -'d4;
+    assign bt[5][3] = 'd4;
     assign bt[5][4] = 'd0;
     assign bt[5][5] = 'd1;
 
@@ -177,7 +181,7 @@ module data_controller (
                 intermediate_result_1[i][j] = 0;
                 intermediate_result_2[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
-                    if (bt[i][k] == -'d4) begin
+                    if (bt[i][k] == 4) begin
                         intermediate_result_1[i][j] = intermediate_result_1[i][j] - (input_raw_1[k][j] <<< 2) - input_raw_1[k][j];
                         intermediate_result_2[i][j] = intermediate_result_2[i][j] - (input_raw_2[k][j] <<< 2) - input_raw_2[k][j];
                     end
@@ -194,8 +198,8 @@ module data_controller (
         end
     end
 
-    logic signed [10:0] intermediate_result_regs_1 [0:5][0:5];
-    logic signed [10:0] intermediate_result_regs_2 [0:5][0:5];
+    logic signed [13:0] intermediate_result_regs_1 [0:5][0:5];
+    logic signed [13:0] intermediate_result_regs_2 [0:5][0:5];
     logic [7:0] data_addr_1a;
     logic [7:0] data_addr_2a;
     logic intermediate_valid;
@@ -228,6 +232,9 @@ module data_controller (
 
     logic signed [13:0] result_regs_1 [0:5][0:5];
     logic signed [13:0] result_regs_2 [0:5][0:5];
+    logic signed [13:0] result_regs_2_delay [0:5][0:5];
+    logic [7:0] data_addr_2a_delay;
+    logic data_valid_2_delay;
 
     always_comb begin
         for (int i = 0; i < 6; i=i+1) begin
@@ -235,7 +242,7 @@ module data_controller (
                 result_regs_1[i][j] = 0;
                 result_regs_2[i][j] = 0;
                 for (int k = 0; k < 6; k=k+1) begin
-                    if (bt[j][k] == -'d4) begin
+                    if (bt[j][k] == 4) begin
                         result_regs_1[i][j] = result_regs_1[i][j] - (intermediate_result_regs_1[i][k] <<< 2) - intermediate_result_regs_1[i][k];
                         result_regs_2[i][j] = result_regs_2[i][j] - (intermediate_result_regs_2[i][k] <<< 2) - intermediate_result_regs_2[i][k];
                     end
@@ -258,24 +265,36 @@ module data_controller (
         if (reset) begin
             result_tile_o_1 <= '{default:'0};
             result_tile_o_2 <= '{default:'0};
+            result_regs_2_delay <= '{default:'0};
             pe_data_addr_o_1 <= 0;
             pe_data_addr_o_2 <= 0;
-            data_valid_o <= 0;
+            data_addr_2a_delay <= 0;
+            data_valid_o_1 <= 0;
+            data_valid_o_2 <= 0;
+            data_valid_2_delay <= 0;
         end 
         else begin
             if (intermediate_valid) begin
                 result_tile_o_1 <= result_regs_1;
-                result_tile_o_2 <= result_regs_2;
+                result_tile_o_2 <= result_regs_2_delay;
+                result_regs_2_delay <= result_regs_2;
                 pe_data_addr_o_1 <= data_addr_1a;
-                pe_data_addr_o_2 <= data_addr_2a;
-                data_valid_o <= 1;
+                pe_data_addr_o_2 <= data_addr_2a_delay;
+                data_addr_2a_delay <= data_addr_2a;
+                data_valid_o_1 <= 1;
+                data_valid_o_2 <= data_valid_2_delay;
+                data_valid_2_delay <= 1;
             end
             else begin
                 result_tile_o_1 <= '{default:'0};
                 result_tile_o_2 <= '{default:'0};
+                result_regs_2_delay <= '{default:'0};
                 pe_data_addr_o_1 <= 0;
-                pe_data_addr_o_2 <= 0;
-                data_valid_o <= 0;
+                pe_data_addr_o_2 <= data_addr_2a_delay;
+                data_addr_2a_delay <= 0;
+                data_valid_o_1 <= 0;
+                data_valid_o_2 <= data_valid_2_delay;
+                data_valid_2_delay <= 0;
             end
         end
     end

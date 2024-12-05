@@ -217,10 +217,11 @@ module PE(
     // index in this step is wrong! need to change
     // since dot_product has default value, we can use it to calculate even invalid
     always_comb begin
+        intermediate_result = '{default:'0};
         if (size_type_o) begin
             for (int i = 0; i < 4; i=i+1) begin
                 for (int j = 0; j < 6; j=j+1) begin
-                    intermediate_result[i][j] = 0;
+                    //intermediate_result[i][j] = 0;
                     for (int k = 0; k < 6; k=k+1) begin
                         if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + (dot_product_regs[k][j] <<< (at[i][k] - 1));
                         else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - (dot_product_regs[k][j] <<< (-at[i][k] - 1));
@@ -231,7 +232,7 @@ module PE(
         else begin
             for (int i = 0; i < 6; i=i+1) begin
                 for (int j = 0; j < 6; j=j+1) begin
-                    intermediate_result[i][j] = 0;
+                    //intermediate_result[i][j] = 0;
                     for (int k = 0; k < 6; k=k+1) begin
                         if (at[i][k] > 0) intermediate_result[i][j] = intermediate_result[i][j] + (dot_product_regs[k][j] <<< (at[i][k] - 1));
                         else if (at[i][k] < 0) intermediate_result[i][j] = intermediate_result[i][j] - (dot_product_regs[k][j] <<< (-at[i][k] - 1));
@@ -268,10 +269,11 @@ module PE(
 
     // Step 3b: Compute (AT * dot_product) * A to get the final 4x4 output
     always_comb begin
+        result_tile_middle = '{default:'0};
         if (size_type_o) begin
             for (int i = 0; i < 4; i=i+1) begin
                 for (int j = 0; j < 4; j=j+1) begin
-                    result_tile_middle[i][j] = 0;
+                    //result_tile_middle[i][j] = 0;
                     for (int k = 0; k < 6; k=k+1) begin
                         if (at[j][k] > 0) result_tile_middle[i][j] = result_tile_middle[i][j] + (intermediate_result_regs[i][k] <<< (at[j][k] - 1));
                         else if (at[j][k] < 0) result_tile_middle[i][j] = result_tile_middle[i][j] - (intermediate_result_regs[i][k] <<< (-at[j][k] - 1));
@@ -282,7 +284,7 @@ module PE(
         else begin
             for (int i = 0; i < 6; i=i+1) begin
                 for (int j = 0; j < 6; j=j+1) begin
-                    result_tile_middle[i][j] = 0;
+                    //result_tile_middle[i][j] = 0;
                     for (int k = 0; k < 6; k=k+1) begin
                         if (at[j][k] > 0) result_tile_middle[i][j] = result_tile_middle[i][j] + (intermediate_result_regs[i][k] <<< (at[j][k] - 1));
                         else if (at[j][k] < 0) result_tile_middle[i][j] = result_tile_middle[i][j] - (intermediate_result_regs[i][k] <<< (-at[j][k] - 1));
