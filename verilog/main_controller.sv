@@ -19,11 +19,12 @@ module main_controller(
     output logic [3:0] weight_id_o,
 
     // output to the data controller
-    output logic [7:0] block_width_o,
-    output logic [7:0] block_height_o,
+    output logic [7:0] block_width,
+    output logic [7:0] block_height,
     output logic [3:0] data_id_o,
     output logic data_prepare_o,
     output logic size_type_o,
+    output logic [7:0] block_cnt,
 
     // off-chip output
     output logic conv_completed
@@ -38,30 +39,30 @@ module main_controller(
 
     always_comb begin
         case(total_width_reg)
-            0, 1, 2, 3, 4, 5, 6: block_width_o = 1;
-            7, 8, 9, 10, 11, 12: block_width_o = 2;
-            13, 14, 15, 16, 17, 18: block_width_o = 3;
-            19, 20, 21, 22, 23, 24: block_width_o = 4;
-            25, 26, 27, 28, 29, 30: block_width_o = 5;
-            31, 32, 33, 34, 35, 36: block_width_o = 6;
-            37, 38, 39, 40, 41, 42: block_width_o = 7;
-            43, 44, 45, 46, 47, 48: block_width_o = 8;
-            49, 50, 51, 52, 53, 54: block_width_o = 9;
-            55, 56, 57, 58, 59, 60: block_width_o = 10;
-            default: block_width_o = 1;
+            0, 1, 2, 3, 4, 5, 6: block_width = 1;
+            7, 8, 9, 10, 11, 12: block_width = 2;
+            13, 14, 15, 16, 17, 18: block_width = 3;
+            19, 20, 21, 22, 23, 24: block_width = 4;
+            25, 26, 27, 28, 29, 30: block_width = 5;
+            31, 32, 33, 34, 35, 36: block_width = 6;
+            37, 38, 39, 40, 41, 42: block_width = 7;
+            43, 44, 45, 46, 47, 48: block_width = 8;
+            49, 50, 51, 52, 53, 54: block_width = 9;
+            55, 56, 57, 58, 59, 60: block_width = 10;
+            default: block_width = 1;
         endcase
         case(total_height_reg)
-            0, 1, 2, 3, 4, 5, 6: block_height_o = 1;
-            7, 8, 9, 10, 11, 12: block_height_o = 2;
-            13, 14, 15, 16, 17, 18: block_height_o = 3;
-            19, 20, 21, 22, 23, 24: block_height_o = 4;
-            25, 26, 27, 28, 29, 30: block_height_o = 5;
-            31, 32, 33, 34, 35, 36: block_height_o = 6;
-            37, 38, 39, 40, 41, 42: block_height_o = 7;
-            43, 44, 45, 46, 47, 48: block_height_o = 8;
-            49, 50, 51, 52, 53, 54: block_height_o = 9;
-            55, 56, 57, 58, 59, 60: block_height_o = 10;
-            default: block_height_o = 1;
+            0, 1, 2, 3, 4, 5, 6: block_height = 1;
+            7, 8, 9, 10, 11, 12: block_height = 2;
+            13, 14, 15, 16, 17, 18: block_height = 3;
+            19, 20, 21, 22, 23, 24: block_height = 4;
+            25, 26, 27, 28, 29, 30: block_height = 5;
+            31, 32, 33, 34, 35, 36: block_height = 6;
+            37, 38, 39, 40, 41, 42: block_height = 7;
+            43, 44, 45, 46, 47, 48: block_height = 8;
+            49, 50, 51, 52, 53, 54: block_height = 9;
+            55, 56, 57, 58, 59, 60: block_height = 10;
+            default: block_height = 1;
         endcase
     end
 
@@ -134,6 +135,52 @@ module main_controller(
             state <= PREPARE;
         end else begin
             state <= next_state;
+        end
+    end
+
+    logic [15:0] max_block;
+
+    assign block_cnt = block_width_i * block_height_i;
+    assign max_block = block_cnt * (input_id_i + 1);
+
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            input_addr_o_1 <= 0;
+            input_addr_o_2 <= 1;
+            loop_finished_o <= 0;
+            input_request_o <= 0;
+        end else begin
+            if (loop_finished_o) begin
+                input_addr_o_1 <= block_cnt * input_id_i;
+                input_addr_o_2 <= block_cnt * input_id_i + 1;
+                loop_finished_o <= 0;
+                input_request_o <= 0;
+            end
+            else if ((input_addr_o_1 + 3 == max_block) && input_request_o) begin
+                input_addr_o_1 <= max_block - 1;
+                input_addr_o_2 <= 8'b11111111;
+                loop_finished_o <= 1;
+                input_request_o <= 1;
+            end
+            else if (input_request_o) begin
+                input_addr_o_1 <= input_addr_o_1 + 2;
+                input_addr_o_2 <= input_addr_o_2 + 2;
+                if (input_addr_o_1 + 4 == max_block) loop_finished_o <= 1;
+                else loop_finished_o <= 0;
+                input_request_o <= 1;
+            end
+            else if (input_prepare_i) begin
+                input_addr_o_1 <= block_cnt * input_id_i;
+                input_addr_o_2 <= block_cnt * input_id_i + 1;
+                loop_finished_o <= 0;
+                input_request_o <= 1;
+            end
+            else begin
+                input_addr_o_1 <= block_cnt * input_id_i;
+                input_addr_o_2 <= block_cnt * input_id_i + 1;
+                loop_finished_o <= 0;
+                input_request_o <= 0;
+            end
         end
     end
 
