@@ -30,7 +30,7 @@ size_k = 0;       % size_k = 0 for 3*3, = 1 for 1*1
 % to txt files for memory tests
 % NOTE:: setting file_generation param will automatically change size_k
 
-file_generation = 0;
+file_generation = 3;
 
 if (file_generation == 1)
     size_k = 0;
@@ -316,19 +316,18 @@ max_diff_wino = max(max(abs(diff_float)))
 
 
 %------------- Plotting -------------------
-subplot(1, 3, 1), imshow(A_red_norm), title('Original Red Channel Float Input');
+subplot(1, 3, 1), imshow(A_red_norm), title('Original Single Float Input');
 
 red_float_out_gray = mat2gray(red_float_out);
-subplot(1, 3, 2), imshow(red_float_out_gray), title('Red Channel Float Out');
+subplot(1, 3, 2), imshow(red_float_out_gray), title('Floating Point OD[1]  Output');
 
 % red_out_fixed_gray = mat2gray(double(red_out_fixed));
 % subplot(2, 2, 3), imshow(red_float_out_gray), title('Red Channel Fixed Out');
 
 red_out_wino_gray = mat2gray(red_out_wino);
-subplot(1, 3, 3), imshow(red_out_wino_gray), title('Red Channel WINO fixed Out');
+subplot(1, 3, 3), imshow(red_out_wino_gray), title('WINO OD[1] Fixed Point Out');
 
-sgtitle({'Comparison of Original Image, Floating Point Conv2d',
-        'Fixed-Point Conv2d, and Fixed-Point WINOPE'});
+sgtitle({'Comparison of 2d Convolution with ID = [1], OD = [1]'});
 
 
 

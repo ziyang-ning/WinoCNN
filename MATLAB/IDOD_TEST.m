@@ -205,12 +205,18 @@ input_3dmat;
 kernel_norm;
 
 [height, width] = size(input_3dmat);
-red_float_out = zeros(height, width);
+red_float_out = zeros(height*2, width);
+
+input1_3dmatidx = 1:24;
+input2_3dmatidx = 25:48;
 
 for i = 1 : ID
     
     for j = 1 : OD
-        red_float_out((i-1)*24+1:i*24, :) = red_float_out((i-1)*24+1:i*24, :) + ...
+        
+        %do 1 ID first, all 4 kernels
+        %next iter, add ID2 to the original values
+        red_float_out((j-1)*24+1:j*24, :) = red_float_out((j-1)*24+1:j*24, :) + ...
             filter2(kernel_norm(:,(j-1)*3+1 +(i-1)*12:j*3+(i-1)*12), input_3dmat((i-1)*24+1:i*24, :));
     end
     
@@ -275,7 +281,7 @@ end
 [out_height, out_height_width] = size(input_3dmat);
 red_out_wino = zeros(height, width);
 
-all_out_wino = zeros(out_height, out_height_width);
+all_out_wino = zeros(out_height*2, out_height_width);
 
 % filename counter for test data output
 filename_count = 0;
@@ -286,9 +292,12 @@ prev_ID = 0;
 %             filter2(kernel_norm(:,(j-1)*3+1:j*3), input_3dmat((i-1)*24+1:i*24, :));
 
 for z = 1 : ID
+    %change HERE
     input_padded_small = input_3dmat_padded((z-1)*26+1:z*26, :);
+   
     for y = 1 : OD
         % performing winoPE for red channel
+        
         
         kernel_norm_small = kernel_norm(:,((y-1)*3+1)+(z-1)*12 :y*3+(z-1)*12);
         start_indx = (y-1)*3+1+(z-1)*12;
@@ -367,7 +376,7 @@ end
         
 
 
-all_out_wino((z-1)*24+1:z*24, :) = all_out_wino((z-1)*24+1:z*24, :) + red_out_wino;
+all_out_wino((y-1)*24+1:y*24, :) = all_out_wino((y-1)*24+1:y*24, :) + red_out_wino;
     end
     
     
@@ -377,6 +386,7 @@ if(file_generation == 3)
     fprintf(input_HEX_fileID, '0\n'); % Append a '0' on a new line
 end
 
+all_out_wino_fixed = double(fi(all_out_wino, 1, out_n, out_r).int);
 all_out_wino = double(fi(all_out_wino, 1, out_n, out_r));
 
 
@@ -399,19 +409,18 @@ max_diff_wino = max(max(abs(diff_float)))
 
 
 %------------- Plotting -------------------
-subplot(1, 3, 1), imshow(A_red_norm), title('Original Red Channel Float Input');
+subplot(1, 3, 1), imshow(input_3dmat), title('Original ID[2] Input');
 
 red_float_out_gray = mat2gray(red_float_out);
-subplot(1, 3, 2), imshow(red_float_out_gray), title('Red Channel Float Out');
+subplot(1, 3, 2), imshow(red_float_out_gray), title('Floating Point OD[4] Output');
 
 % red_out_fixed_gray = mat2gray(double(red_out_fixed));
 % subplot(2, 2, 3), imshow(red_float_out_gray), title('Red Channel Fixed Out');
 
 red_out_wino_gray = mat2gray(all_out_wino);
-subplot(1, 3, 3), imshow(red_out_wino_gray), title('Red Channel WINO fixed Out');
+subplot(1, 3, 3), imshow(red_out_wino_gray), title('WINO OD[4] fixed Out');
 
-sgtitle({'Comparison of Original Image, Floating Point Conv2d',
-        'Fixed-Point Conv2d, and Fixed-Point WINOPE'});
+sgtitle({'Comparison of 3d Convolution with ID = [2], OD = [4]'});
 
 
 

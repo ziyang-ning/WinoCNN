@@ -8,4 +8,16 @@ Main Reference: X. Liu, Y. Chen, C. Hao, A. Dhar, and D. Chen, “WinoCNN: Kerne
 
 `winoPE_test.m`: code that pre-processs image data, feeds into the Winograd PE, and plots the output data. It is also responsible for generating test data for the Verilog testbenches.
 
-HOW TO RECREATE REPORT RESULT: press the "Run" button in `winoPE_test.m` to plot out the winoPE result for a 3 * 3 Laplace filter. You can make changes to variables like `size_k`, `file_generation`, and `A` to select your desired input image, filter size, and file generation mode. Starting at line 79, we have also provided a variety of 3 * 3 filters. Simply change the desired filter name to `kernel` to apply to the convolution operation.
+`IDOD_TEST.m`: code that expand on the ideas of `winoPE_test.m`, generalizing it to various `ID` and `OD` sizes. The default `ID = 2` and `OD = 4`.
+
+For both files, you can make changes to variables like `size_k`, `file_generation`, and `A` to select your desired input image, filter size, and file generation mode. The default input to perform the convolution operation is the red (and green if ID = 2) channel of the input image. Starting at line 79, we have also provided a variety of 3 * 3 filters. Simply change the desired filter name to `kernel` to apply to the convolution operation. 
+
+
+
+HOW TO RECREATE REPORT RESULT:
+
+Press the "Run" button in `winoPE_test.m` to run winoPE with `ID = OD = 1` and a 3 * 3 Laplace filter. The plots will automatically show up, and error information will display in the terminal. You can find the output data used by the testbenches in the directory: `../matlab_data_out/input2424_filter33_ID1OD1`.
+
+Press the "Run" button in `IDOD_TEST.m` to run winoPE with `ID = 2`, `OD = 4`. The set of 8 kernels can be found at around line 138: `kernel = [kernel_1, kernel_1, kernel_2, kernel_2, kernel_3, kernel_4, kernel_5, kernel_6];`. The plots will automatically show up, and error information will display in the terminal. You can find the output data used by the testbenches in the directory: `../matlab_data_out/input2424_filter33_ID2OD4`.
+
+Note: Report Results are created with the input image `A = imread('2424_pic.jpg');` due to the size limitations of the Verilog SRAM.
