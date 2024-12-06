@@ -400,6 +400,7 @@ end
 
 if(file_generation == 3)
     fprintf(input_HEX_fileID, '0\n'); % Append a '0' on a new line
+    fprintf(filter_HEX_fileID, '0\n'); % Append a '0' on a new line
 end
 
 all_out_wino_fixed = fi(all_out_wino, 1, out_n, out_r);
