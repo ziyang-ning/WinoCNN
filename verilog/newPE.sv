@@ -53,7 +53,7 @@ module PE(
 
     assign size_type_o = size_type_i;
     assign block_cnt_o = block_cnt_i;
-    assign result_address_1 = weight_od_o * block_cnt_o + data_addr_o;
+    assign result_address_1 = (weight_od_o >> 1) * block_cnt_o + data_addr_o;
 
     // Step 1A: store data from top PE into reg
     always_ff @(posedge clk or posedge reset) begin

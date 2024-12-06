@@ -11,7 +11,6 @@ all:	simv
 TESTBENCH = testbench/top_test2.sv
 SIMFILES = $(wildcard \
 	verilog/data_mem_top.sv \
-	verilog/SRAM.v \
 	verilog/data_controller.sv \
 	verilog/data_mem_controller_top.sv \
 	verilog/main_controller.sv \

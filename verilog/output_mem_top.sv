@@ -65,6 +65,14 @@ module output_mem_top (
         local_scan_mode_reg <= local_scan_mode;
     end
 
+    logic CIM_package_1_valid_in_reg;
+    logic CIM_package_2_valid_in_reg;
+
+    always_ff @(posedge mem_clk) begin
+        CIM_package_1_valid_in_reg <= CIM_package_1_valid_in;
+        CIM_package_2_valid_in_reg <= CIM_package_2_valid_in;
+    end
+
     // declare the SRAM wires
     logic sram_clk;
     logic sram_WEN_1;
@@ -96,7 +104,7 @@ module output_mem_top (
         scan_out = 512'b0;
 
 
-        case (local_scan_mode_reg)
+        case (local_scan_mode)
             SCAN_IN: begin
                 sram_clk = clk;
                 sram_WEN_1 = 1'b0; // only write into the first port
@@ -136,12 +144,12 @@ module output_mem_top (
                 sram_clk = mem_clk;
                 // should not write into the sram if the package is not valid
                 // write the package from CIM to the memory
-                sram_WEN_1 = ~CIM_package_1_valid_in;
-                sram_WEN_2 = ~CIM_package_2_valid_in;
-                sram_addr_1 = CIM_package_1_valid_in ? CIM_addr_1_in : 7'b0;
-                sram_addr_2 = CIM_package_2_valid_in ? CIM_addr_2_in : 7'b0;
-                sram_input_1 = CIM_package_1_valid_in ? CIM_data_1_in : 512'b0;
-                sram_input_2 = CIM_package_2_valid_in ? CIM_data_2_in : 512'b0;
+                sram_WEN_1 = ~CIM_package_1_valid_in_reg;
+                sram_WEN_2 = ~CIM_package_2_valid_in_reg;
+                sram_addr_1 = CIM_package_1_valid_in_reg ? CIM_addr_1_in : 7'b0;
+                sram_addr_2 = CIM_package_2_valid_in_reg ? CIM_addr_2_in : 7'b0;
+                sram_input_1 = CIM_package_1_valid_in_reg ? CIM_data_1_in : 512'b0;
+                sram_input_2 = CIM_package_2_valid_in_reg ? CIM_data_2_in : 512'b0;
 
                 // package_1_valid_out = (local_scan_mode_reg == 1'b1);
                 // package_2_valid_out = (local_scan_mode_reg == 1'b1);

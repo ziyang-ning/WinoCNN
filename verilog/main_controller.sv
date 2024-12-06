@@ -37,32 +37,62 @@ module main_controller(
     logic total_size_type_reg;
 
     always_comb begin
-        case(total_width_reg)
-            0, 1, 2, 3, 4, 5, 6: block_width_o = 1;
-            7, 8, 9, 10, 11, 12: block_width_o = 2;
-            13, 14, 15, 16, 17, 18: block_width_o = 3;
-            19, 20, 21, 22, 23, 24: block_width_o = 4;
-            25, 26, 27, 28, 29, 30: block_width_o = 5;
-            31, 32, 33, 34, 35, 36: block_width_o = 6;
-            37, 38, 39, 40, 41, 42: block_width_o = 7;
-            43, 44, 45, 46, 47, 48: block_width_o = 8;
-            49, 50, 51, 52, 53, 54: block_width_o = 9;
-            55, 56, 57, 58, 59, 60: block_width_o = 10;
-            default: block_width_o = 1;
-        endcase
-        case(total_height_reg)
-            0, 1, 2, 3, 4, 5, 6: block_height_o = 1;
-            7, 8, 9, 10, 11, 12: block_height_o = 2;
-            13, 14, 15, 16, 17, 18: block_height_o = 3;
-            19, 20, 21, 22, 23, 24: block_height_o = 4;
-            25, 26, 27, 28, 29, 30: block_height_o = 5;
-            31, 32, 33, 34, 35, 36: block_height_o = 6;
-            37, 38, 39, 40, 41, 42: block_height_o = 7;
-            43, 44, 45, 46, 47, 48: block_height_o = 8;
-            49, 50, 51, 52, 53, 54: block_height_o = 9;
-            55, 56, 57, 58, 59, 60: block_height_o = 10;
-            default: block_height_o = 1;
-        endcase
+        if (size_type_o) begin
+            case(total_width_reg)
+                0, 1, 2, 3, 4, 5, 6: block_width_o = 1;
+                7, 8, 9, 10: block_width_o = 2;
+                11, 12, 13, 14: block_width_o = 3;
+                15, 16, 17, 18: block_width_o = 4;
+                19, 20, 21, 22: block_width_o = 5;
+                23, 24, 25, 26: block_width_o = 6;
+                27, 28, 29, 30: block_width_o = 7;
+                31, 32, 33, 34: block_width_o = 8;
+                35, 36, 37, 38: block_width_o = 9;
+                39, 40, 41, 42: block_width_o = 10;
+                default: block_width_o = 1;
+            endcase
+            case(total_height_reg)
+                0, 1, 2, 3, 4, 5, 6: block_height_o = 1;
+                7, 8, 9, 10: block_height_o = 2;
+                11, 12, 13, 14: block_height_o = 3;
+                15, 16, 17, 18: block_height_o = 4;
+                19, 20, 21, 22: block_height_o = 5;
+                23, 24, 25, 26: block_height_o = 6;
+                27, 28, 29, 30: block_height_o = 7;
+                31, 32, 33, 34: block_height_o = 8;
+                35, 36, 37, 38: block_height_o = 9;
+                39, 40, 41, 42: block_height_o = 10;
+                default: block_height_o = 1;
+            endcase
+        end
+        else begin
+            case(total_width_reg)
+                0, 1, 2, 3, 4, 5, 6: block_width_o = 1;
+                7, 8, 9, 10, 11, 12: block_width_o = 2;
+                13, 14, 15, 16, 17, 18: block_width_o = 3;
+                19, 20, 21, 22, 23, 24: block_width_o = 4;
+                25, 26, 27, 28, 29, 30: block_width_o = 5;
+                31, 32, 33, 34, 35, 36: block_width_o = 6;
+                37, 38, 39, 40, 41, 42: block_width_o = 7;
+                43, 44, 45, 46, 47, 48: block_width_o = 8;
+                49, 50, 51, 52, 53, 54: block_width_o = 9;
+                55, 56, 57, 58, 59, 60: block_width_o = 10;
+                default: block_width_o = 1;
+            endcase
+            case(total_height_reg)
+                0, 1, 2, 3, 4, 5, 6: block_height_o = 1;
+                7, 8, 9, 10, 11, 12: block_height_o = 2;
+                13, 14, 15, 16, 17, 18: block_height_o = 3;
+                19, 20, 21, 22, 23, 24: block_height_o = 4;
+                25, 26, 27, 28, 29, 30: block_height_o = 5;
+                31, 32, 33, 34, 35, 36: block_height_o = 6;
+                37, 38, 39, 40, 41, 42: block_height_o = 7;
+                43, 44, 45, 46, 47, 48: block_height_o = 8;
+                49, 50, 51, 52, 53, 54: block_height_o = 9;
+                55, 56, 57, 58, 59, 60: block_height_o = 10;
+                default: block_height_o = 1;
+            endcase
+        end
     end
 
     // store the off-chip input into local reg

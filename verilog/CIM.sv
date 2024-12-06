@@ -17,10 +17,12 @@ module CIM (
     logic signed [11:0] sum [0:5][0:5];           // Sum of PE_tile_i and memory_tile_i
 
     // Extract 36 12-bit numbers from memory_data_i (last 432 bits)
+    logic [8:0] temp1;
     always_comb begin
         for (int i = 0; i < 6; i++) begin
             for (int j = 0; j < 6; j++) begin
-                memory_tile_i[i][j] = memory_data_i[(i * 6 + j) * 12 +: 12];
+                temp1 = 9'd35 - (i * 6 + j);
+                memory_tile_i[i][j] = memory_data_i[temp1 * 12 +: 12];
             end
         end
     end
@@ -35,11 +37,13 @@ module CIM (
     end
 
     // Flatten the 6x6 array of sums into a 512-bit output
+    logic [8:0] temp2;
     always_comb begin
         result_o = 512'b0; // Initialize the output
         for (int i = 0; i < 6; i++) begin
             for (int j = 0; j < 6; j++) begin
-                result_o[(i * 6 + j) * 12 +: 12] = sum[i][j];
+                temp2 = 9'd35 - (i * 6 + j);
+                result_o[temp2 * 12 +: 12] = sum[i][j];
             end
         end
         result_valid_o = PE_valid_i && memory_valid_i && (PE_addr_i == memory_addr_i);

@@ -287,7 +287,7 @@ module data_controller (
             end
             else begin
                 result_tile_o_1 <= '{default:'0};
-                result_tile_o_2 <= '{default:'0};
+                result_tile_o_2 <= result_regs_2_delay;
                 result_regs_2_delay <= '{default:'0};
                 pe_data_addr_o_1 <= 0;
                 pe_data_addr_o_2 <= data_addr_2a_delay;
