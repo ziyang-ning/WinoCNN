@@ -6,9 +6,10 @@ module top_test_1;
     integer scan_data;
     integer scan_weight;
     
-    logic clk;
+    // logic clk;
     logic mem_clk;
     logic reset;
+    logic clk_reset;
 
     logic [3:0] total_id;
     logic [7:0] total_od;
@@ -29,9 +30,10 @@ module top_test_1;
     logic conv_completed;
 
     top top_0 (
-        .clk(clk),
+        // .clk(clk),
         .mem_clk(mem_clk),
         .reset(reset),
+        .clk_reset(clk_reset),
 
         .total_id(total_id),
         .total_od(total_od),
@@ -52,13 +54,14 @@ module top_test_1;
         .conv_completed(conv_completed)
     );
 
-
-    always begin
-        #10 clk = ~clk;  
-    end
-
     always begin
         #5 mem_clk = ~mem_clk;  
+    end
+
+    logic clk;
+    always_ff @(posedge mem_clk or posedge clk_reset) begin
+        if (clk_reset) clk <= 0;
+        else clk <= ~clk;
     end
 
     initial begin
@@ -67,7 +70,6 @@ module top_test_1;
         file_out1 = $fopen("test1/output_mem1_scan_out.txt", "w");
         file_out2 = $fopen("test1/output_mem2_scan_out.txt", "w");
 
-        clk = 1;
         mem_clk = 1;
         reset = 1;
 
@@ -83,6 +85,9 @@ module top_test_1;
         total_height = 9'd24;
         total_size_type = 1'b1;
         wen = 0;
+        clk_reset = 1;
+        #10;
+        clk_reset = 0;
 
 
         @(negedge clk);

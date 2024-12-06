@@ -8,7 +8,7 @@ all:	simv
 # Modify starting here
 #####
 
-TESTBENCH = testbench/top_test2.sv
+TESTBENCH = testbench/top_test1.sv
 SIMFILES = $(wildcard \
 	verilog/data_mem_top.sv \
 	verilog/data_controller.sv \
