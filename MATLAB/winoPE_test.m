@@ -65,14 +65,16 @@ else %file_generation == 3
     
     input_folder_name = fullfile(data_folder_name, '/in_U_in_V');
     PE_out_folder_name = fullfile(data_folder_name, '/ans/PE_out');
+    Y_HEX_out_folder_name = fullfile(data_folder_name, '/ans');
     
     input_HEX_fileName = fullfile(data_folder_name, 'input.txt');
     filter_HEX_fileName = fullfile(data_folder_name, 'filter.txt');
-%     U_HEX_fileName = fullfile(data_folder_name, 'U.txt');
+    Y_HEX_fileName = fullfile(Y_HEX_out_folder_name, 'Y_HEX.txt');
     
     if (file_generation == 3)
         input_HEX_fileID = fopen(input_HEX_fileName, 'w');
         filter_HEX_fileID = fopen(filter_HEX_fileName, 'w');
+        Y_HEX_fileID = fopen(Y_HEX_fileName, 'w');
 %         U_HEX_fileID = fopen(U_HEX_fileName, 'w');
     end
     
@@ -294,6 +296,11 @@ for i = 1 : m : height
             fprintf(filter_HEX_fileID, '0\n'); % Append a '0' on a new line
             fclose(filter_HEX_fileID);
         end
+        
+        if(file_generation == 3)
+            PE_out_folder_name = Y_HEX_fileID;
+        end
+         
         
         [out_U, out_V, Y] = winoPE(U, V, size_k, U_n, U_r, V_n, V_r, middle_n, middle_r, out_n, out_r, ...
                                  file_generation, PE_out_folder_name, filename_count);
