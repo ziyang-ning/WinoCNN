@@ -59,18 +59,18 @@ F = fimath('RoundingMethod','Floor');
    Y = Y_inter_d * A_T.';
    Y = fi(Y, 1, Y_n, Y_r, F);
    
-   if(file_generation >= 1 && file_generation ~= 3)
+   if(file_generation >= 1)% && file_generation ~= 3)
        writematrix(Y.int, fullfile(output_folder_name, strcat(string(filename_count) ,'output.txt')), 'Delimiter', ' ');
    end
    
    % output_folder_name = [output_folder_name, output_even_HEX_fileID, output_odd_HEX_fileID];
-   if(file_generation == 3)
-            Y_HEX = Y.hex;           %F is optional because we provide to PE
-            Y_flattened = strjoin(string(Y_HEX), ' ');
-            pretty_Y_HEX_data = regexprep(Y_flattened, '\s+', ''); % Replace multiple spaces with nothing
-            fprintf(output_folder_name, '%s\n', pretty_Y_HEX_data); % Write the character array
-            
-   end
+%    if(file_generation == 3)
+%             Y_HEX = Y.hex;           %F is optional because we provide to PE
+%             Y_flattened = strjoin(string(Y_HEX), ' ');
+%             pretty_Y_HEX_data = regexprep(Y_flattened, '\s+', ''); % Replace multiple spaces with nothing
+%             fprintf(output_folder_name, '%s\n', pretty_Y_HEX_data); % Write the character array
+%             
+%    end
    
    Y = double(Y);
 

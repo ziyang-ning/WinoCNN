@@ -37,9 +37,9 @@ file_generation = 3;
 
 if (file_generation == 1)
     size_k = 0;
-    input_folder_name = fullfile('..', 'matlab_data_out/3by3UV');
-    if ~exist(input_folder_name, 'dir')
-        mkdir(input_folder_name);
+    data_folder_name = fullfile('..', 'matlab_data_out/3by3UV');
+    if ~exist(data_folder_name, 'dir')
+        mkdir(data_folder_name);
     end
 
     output_folder_name = fullfile('..', 'matlab_data_out/ans_33');
@@ -49,9 +49,9 @@ if (file_generation == 1)
 
 elseif(file_generation == 2)
     size_k = 1;
-    input_folder_name = fullfile('..', 'matlab_data_out/1by1UV');
-    if ~exist(input_folder_name, 'dir')
-        mkdir(input_folder_name);
+    data_folder_name = fullfile('..', 'matlab_data_out/1by1UV');
+    if ~exist(data_folder_name, 'dir')
+        mkdir(data_folder_name);
     end
 
     output_folder_name = fullfile('..', 'matlab_data_out/ans_11');
@@ -61,15 +61,17 @@ elseif(file_generation == 2)
     
 else %file_generation == 3
     size_k = 0;
-    input_folder_name = fullfile('..', 'matlab_data_out/input2424_filter33_ID2OD4');
-    output_folder_name = fullfile(input_folder_name, '/ans');
+    data_folder_name = fullfile('..', 'matlab_data_out/input2424_filter33_ID2OD4');
+    input_folder_name = fullfile(data_folder_name, '/in_U_in_V');
+    output_folder_name = fullfile(data_folder_name, '/ans');
+    PE_out_folder_name = fullfile(data_folder_name, '/ans/PE_out');
 
-    input_HEX_fileName = fullfile(input_folder_name, 'input.txt');
-    filter_HEX_fileName = fullfile(input_folder_name, 'filter.txt');
+    input_HEX_fileName = fullfile(data_folder_name, 'input.txt');
+    filter_HEX_fileName = fullfile(data_folder_name, 'filter.txt');
     
     output_even_HEX_fileName = fullfile(output_folder_name, 'output_even.txt');
     output_odd_HEX_fileName = fullfile(output_folder_name, 'output_odd.txt');
-%     U_HEX_fileName = fullfile(input_folder_name, 'U.txt');
+%     U_HEX_fileName = fullfile(data_folder_name, 'U.txt');
     
     if (file_generation == 3)
         input_HEX_fileID = fopen(input_HEX_fileName, 'w');
@@ -82,13 +84,24 @@ else %file_generation == 3
 %     output_folder_name_gen3 = [output_folder_name, output_even_HEX_fileID, output_odd_HEX_fileID];
     
     
-    if ~exist(input_folder_name, 'dir')
-        mkdir(input_folder_name);
+    if ~exist(data_folder_name, 'dir')
+        mkdir(data_folder_name);
     end
     
     if ~exist(output_folder_name, 'dir')
         mkdir(output_folder_name);
     end
+    
+    if ~exist(PE_out_folder_name, 'dir')
+        mkdir(PE_out_folder_name);
+    end
+    
+    if ~exist(input_folder_name, 'dir')
+        mkdir(input_folder_name);
+    end
+    
+    
+    
 end
 
 
@@ -350,14 +363,14 @@ for i = 1 : m : height
         end
         prev_y = y;
         
-        if(mod(filename_count,2) == 0)
-            output_folder_name = output_even_HEX_fileID;
-        else
-            output_folder_name = output_odd_HEX_fileID;
-        end
+%         if(mod(filename_count,2) == 0)
+%             output_folder_name = output_even_HEX_fileID;
+%         else
+%             output_folder_name = output_odd_HEX_fileID;
+%         end
         
         [out_U, out_V, Y] = winoPE(U, V, size_k, U_n, U_r, V_n, V_r, middle_n, middle_r, out_n, out_r, ...
-                                 file_generation, output_folder_name, filename_count);
+                                 file_generation, PE_out_folder_name, filename_count);
                              
         filename_count = filename_count + 1; %update filename counter
         if(size_k == 0)
@@ -386,10 +399,34 @@ if(file_generation == 3)
     fprintf(input_HEX_fileID, '0\n'); % Append a '0' on a new line
 end
 
-all_out_wino_fixed = double(fi(all_out_wino, 1, out_n, out_r).int);
+all_out_wino_fixed = fi(all_out_wino, 1, out_n, out_r);
 all_out_wino = double(fi(all_out_wino, 1, out_n, out_r));
 
-
+if(file_generation == 3)
+    %file output for all_out_wino
+    for y = 1 : OD
+        
+        if(mod(y,2) == 0)
+            output_folder_name = output_even_HEX_fileID;
+        else
+            output_folder_name = output_odd_HEX_fileID;
+        end
+        
+        one_out_wino_fixed = all_out_wino_fixed((y-1)*24+1:y*24, :);
+        
+        %end index for the sliced 4*4 output
+        for i = 4 : 4 : out_height_width
+            for j = 4 : 4 : out_height_width
+                Y = one_out_wino_fixed(i-3 : i, j-3:j);
+                Y_HEX = Y.hex;           %F is optional because we provide to PE
+                Y_flattened = strjoin(string(Y_HEX), ' ');
+                pretty_Y_HEX_data = regexprep(Y_flattened, '\s+', ''); % Replace multiple spaces with nothing
+                pretty_Y_HEX_data_with_zeros = strcat(repmat('0', 1, 20), pretty_Y_HEX_data, repmat('0', 1, 42));
+                fprintf(output_folder_name, '%s\n', pretty_Y_HEX_data_with_zeros); % Write the character array
+            end
+        end
+    end
+end
 
 
 diff_float = all_out_wino - red_float_out

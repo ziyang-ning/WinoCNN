@@ -1,4 +1,7 @@
 %% Test Single PE functionality 
+
+%BUG OUTPUT.TXT in the winoPE.m is not generating
+
 clear;
 clc;
 % clf;
@@ -34,9 +37,9 @@ file_generation = 3;
 
 if (file_generation == 1)
     size_k = 0;
-    input_folder_name = fullfile('..', 'matlab_data_out/3by3UV');
-    if ~exist(input_folder_name, 'dir')
-        mkdir(input_folder_name);
+    data_folder_name = fullfile('..', 'matlab_data_out/3by3UV');
+    if ~exist(data_folder_name, 'dir')
+        mkdir(data_folder_name);
     end
 
     output_folder_name = fullfile('..', 'matlab_data_out/ans_33');
@@ -46,9 +49,9 @@ if (file_generation == 1)
 
 elseif(file_generation == 2)
     size_k = 1;
-    input_folder_name = fullfile('..', 'matlab_data_out/1by1UV');
-    if ~exist(input_folder_name, 'dir')
-        mkdir(input_folder_name);
+    data_folder_name = fullfile('..', 'matlab_data_out/1by1UV');
+    if ~exist(data_folder_name, 'dir')
+        mkdir(data_folder_name);
     end
 
     output_folder_name = fullfile('..', 'matlab_data_out/ans_11');
@@ -58,10 +61,14 @@ elseif(file_generation == 2)
     
 else %file_generation == 3
     size_k = 0;
-    input_folder_name = fullfile('..', 'matlab_data_out/input2424_filter33_ID1OD1');
-    input_HEX_fileName = fullfile(input_folder_name, 'input.txt');
-    filter_HEX_fileName = fullfile(input_folder_name, 'filter.txt');
-%     U_HEX_fileName = fullfile(input_folder_name, 'U.txt');
+    data_folder_name = fullfile('..', 'matlab_data_out/input2424_filter33_ID1OD1');
+    
+    input_folder_name = fullfile(data_folder_name, '/in_U_in_V');
+    PE_out_folder_name = fullfile(data_folder_name, '/ans/PE_out');
+    
+    input_HEX_fileName = fullfile(data_folder_name, 'input.txt');
+    filter_HEX_fileName = fullfile(data_folder_name, 'filter.txt');
+%     U_HEX_fileName = fullfile(data_folder_name, 'U.txt');
     
     if (file_generation == 3)
         input_HEX_fileID = fopen(input_HEX_fileName, 'w');
@@ -69,13 +76,22 @@ else %file_generation == 3
 %         U_HEX_fileID = fopen(U_HEX_fileName, 'w');
     end
     
-    if ~exist(input_folder_name, 'dir')
-        mkdir(input_folder_name);
+    if ~exist(data_folder_name, 'dir')
+        mkdir(data_folder_name);
     end
 
-    output_folder_name = fullfile(input_folder_name, '/ans');
+    output_folder_name = fullfile(data_folder_name, '/ans');
     if ~exist(output_folder_name, 'dir')
         mkdir(output_folder_name);
+    end
+    
+        
+    if ~exist(PE_out_folder_name, 'dir')
+        mkdir(PE_out_folder_name);
+    end
+    
+    if ~exist(input_folder_name, 'dir')
+        mkdir(input_folder_name);
     end
 end
 
@@ -280,7 +296,7 @@ for i = 1 : m : height
         end
         
         [out_U, out_V, Y] = winoPE(U, V, size_k, U_n, U_r, V_n, V_r, middle_n, middle_r, out_n, out_r, ...
-                                 file_generation, output_folder_name, filename_count);
+                                 file_generation, PE_out_folder_name, filename_count);
                              
         filename_count = filename_count + 1; %update filename counter
         if(size_k == 0)
