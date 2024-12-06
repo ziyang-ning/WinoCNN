@@ -15,6 +15,7 @@ SIMFILES = $(wildcard \
 	verilog/data_mem_controller_top.sv \
 	verilog/main_controller.sv \
 	verilog/newPE.sv \
+	verilog/SRAM.v \
 	verilog/weight_controller.sv \
 	verilog/weight_mem_controller_top.sv \
 	verilog/top.sv \

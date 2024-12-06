@@ -120,8 +120,8 @@ module top_test_2;
         for(int i = 0; i < 128; i++) begin
             scan_addr = i;
             #20;
-            $fwrite(file_out1, "Address %0d: %h\n", i, output_mem1_scan_out);
-            $fwrite(file_out2, "Address %0d: %h\n", i, output_mem2_scan_out);
+            $fwrite(file_out1, "%h\n", output_mem1_scan_out);
+            $fwrite(file_out2, "%h\n", output_mem2_scan_out);
         end
 
         $fclose(file_data);
