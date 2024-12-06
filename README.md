@@ -49,8 +49,8 @@ Find the `Makefile` and make sure the testbench is `top_test2.sv`
 
 In the terminal, run `$ make` or `$ make verdi`
 
-Output files will be automatically generated. To compare the MATLAB result and testbench result, type: `make diff1` or `make diff2` depending on your test.
+Output files will be automatically generated. To compare the MATLAB result and testbench result, type: `$ make diff1` or `$ make diff2` depending on your test.
 
 ### Step 4: Syn the project
 
-CD into the syn folder. Load the module of eecs598 by module load eecs598-002/f23.Then run syn can run the syn.
+Enter the `/syn` folder. Run `$ module load eecs598-002/f23` and then run `$ make syn`.
