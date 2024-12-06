@@ -39,6 +39,10 @@ while ~feof(fid_in)
     end
 end
 
+for i = 1 : 128
+    fprintf(fid_out, '%s\n', repmat('0', 1, 128));
+end
+
 % Close the files
 fclose(fid_in);
 fclose(fid_out);
