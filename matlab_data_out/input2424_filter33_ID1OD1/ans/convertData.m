@@ -31,8 +31,8 @@ while ~feof(fid_in)
             modifiedLine = [modifiedLine, chunk, '000000'];
         end
         
-        % Add 42 zeros at the end
-        modifiedLine = [modifiedLine, '000000000000000000000000000000000000000000'];
+        % Add 42 -6 zeros at the end
+        modifiedLine = [modifiedLine, '000000000000000000000000000000000000'];
         
         % Write the modified line to the output file
         fprintf(fid_out, '%s\n', modifiedLine);
