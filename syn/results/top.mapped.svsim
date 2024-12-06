@@ -1,0 +1,46 @@
+`ifndef SYNTHESIS
+
+//
+// This is an automatically generated file from 
+// dc_shell Version V-2023.12-SP5 -- Jul 16, 2024
+//
+
+// For simulation only. Do not modify.
+
+module top_svsim(
+
+        input mem_clk,
+    input reset,
+    input clk_reset,
+
+    input logic [3:0] total_id,
+    input logic [7:0] total_od,
+    input logic [8:0] total_width,
+    input logic [8:0] total_height,
+    input logic total_size_type,
+    input logic wen,
+
+    input input_mem_scan_mode,
+    input [1:0] output_mem_scan_mode,
+        input [7:0] scan_addr,
+        input [511:0] data_mem_scan_in,
+    input [511:0] weight_mem_scan_in,
+
+    output [511:0] output_mem1_scan_out,
+    output [511:0] output_mem2_scan_out,
+
+    output logic conv_completed
+
+);
+
+    
+
+  top top( {>>{ mem_clk }}, {>>{ reset }}, {>>{ clk_reset }}, {>>{ total_id }}, 
+        {>>{ total_od }}, {>>{ total_width }}, {>>{ total_height }}, 
+        {>>{ total_size_type }}, {>>{ wen }}, {>>{ input_mem_scan_mode }}, 
+        {>>{ output_mem_scan_mode }}, {>>{ scan_addr }}, 
+        {>>{ data_mem_scan_in }}, {>>{ weight_mem_scan_in }}, 
+        {>>{ output_mem1_scan_out }}, {>>{ output_mem2_scan_out }}, 
+        {>>{ conv_completed }} );
+endmodule
+`endif

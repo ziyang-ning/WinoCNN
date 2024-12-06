@@ -1,0 +1,33 @@
+ 
+****************************************
+Report : area
+Design : top
+Version: V-2023.12-SP5
+Date   : Thu Dec  5 20:11:38 2024
+****************************************
+
+Library(s) Used:
+
+    gtech (File: /usr/caen/synopsys-synth-2023.12-SP5/libraries/syn/gtech.db)
+    SRAM_typ_1d05_25_ccs (File: /home/wenjieg/Desktop/class/WinoCNN/syn/memory/db/SRAM_typ_1d05_25_ccs.db)
+
+Number of ports:                      1390415
+Number of nets:                       2396658
+Number of cells:                       917346
+Number of combinational cells:         855436
+Number of sequential cells:             21546
+Number of macros/black boxes:               4
+Number of buf/inv:                     108278
+Number of references:                      71
+
+Combinational area:                  0.000000
+Buf/Inv area:                        0.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                4.000000
+Net Interconnect area:          387981.268681
+
+Total cell area:                     4.000000
+Total area:                     387985.268681
+
+Information: This design contains unmapped logic. (RPT-7)
+1

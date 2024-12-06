@@ -1,0 +1,1459 @@
+ 
+****************************************
+Report : timing
+        -path full_clock
+        -delay min
+        -nets
+        -max_paths 30
+        -transition_time
+Design : top
+Version: V-2023.12-SP5
+Date   : Thu Dec  5 20:11:37 2024
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: TT1p05vm40T   Library: SRAM_typ_1d05_25_ccs
+Wire Load Model Mode: enclosed
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5785/Z_0 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N46 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5792/Z_0 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_1[0] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A1[0] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5785/Z_1 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N47 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5792/Z_1 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_1[1] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A1[1] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5785/Z_2 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N48 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5792/Z_2 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_1[2] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A1[2] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5785/Z_3 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N49 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5792/Z_3 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_1[3] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A1[3] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5785/Z_4 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N50 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5792/Z_4 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_1[4] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A1[4] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5785/Z_5 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N51 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5792/Z_5 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_1[5] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A1[5] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5785/Z_6 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N52 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5792/Z_6 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_1[6] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A1[6] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5786/Z_0 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N53 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5793/Z_0 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_2[0] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A2[0] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5786/Z_1 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N54 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5793/Z_1 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_2[1] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A2[1] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5786/Z_2 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N55 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5793/Z_2 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_2[2] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A2[2] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5786/Z_3 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N56 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5793/Z_3 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_2[3] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A2[3] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5786/Z_4 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N57 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5793/Z_4 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_2[4] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A2[4] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5786/Z_5 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N58 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5793/Z_5 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_2[5] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A2[5] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5786/Z_6 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N59 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5793/Z_6 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_addr_2[6] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/A2[6] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5785/Z_0 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N46 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5792/Z_0 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_1[0] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A1[0] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5785/Z_1 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N47 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5792/Z_1 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_1[1] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A1[1] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5785/Z_2 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N48 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5792/Z_2 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_1[2] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A1[2] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5785/Z_3 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N49 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5792/Z_3 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_1[3] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A1[3] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5785/Z_4 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N50 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5792/Z_4 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_1[4] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A1[4] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5785/Z_5 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N51 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5792/Z_5 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_1[5] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A1[5] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5785/Z_6 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N52 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5792/Z_6 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_1[6] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A1[6] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5786/Z_0 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N53 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5793/Z_0 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_2[0] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A2[0] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5786/Z_1 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N54 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5793/Z_1 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_2[1] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A2[1] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5786/Z_2 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N55 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5793/Z_2 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_2[2] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A2[2] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5786/Z_3 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N56 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5793/Z_3 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_2[3] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A2[3] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5786/Z_4 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N57 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5793/Z_4 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_2[4] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A2[4] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5786/Z_5 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N58 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5793/Z_5 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_2[5] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A2[5] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_1_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_CIM_package_2_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_B_7/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_1_output_mem_top_1_N7 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_1_output_mem_top_1_C5786/Z_6 (*SELECT_OP_2.7_2.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_N59 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_C5793/Z_6 (*SELECT_OP_4.7_4.1_7)                            0.00      0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_sram_addr_2[6] (net)                              1                   0.00       0.21 f
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/A2[6] (SRAM)                                    0.00      0.00       0.22 f    d u 
+  data arrival time                                                                                               0.22
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_1_output_mem_top_1_output_SRAM/CE2 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.22
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.08
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5787/Z_0 (*SELECT_OP_2.512_2.1_512)                        0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N60 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5794/Z_0 (*SELECT_OP_4.512_4.1_512)                        0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_input_1[0] (net)                             1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/I1[0] (SRAM)                                    0.00      0.05       0.26 f    d u 
+  data arrival time                                                                                               0.26
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.26
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.04
+
+
+  Startpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                ForQA                 SRAM_typ_1d05_25_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                          Fanout     Trans      Incr       Path      Attributes
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)      0.08      0.00       0.20 r
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/Q (**SEQGEN**)               0.00      0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg (net)                  2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_B_5/Z (GTECH_BUF)                                           0.00      0.00       0.20 f    d 
+  CIM_mem_top_0_output_mem_top_1_N5 (net)                                          2                   0.00       0.20 f
+  CIM_mem_top_0_output_mem_top_1_C5787/Z_1 (*SELECT_OP_2.512_2.1_512)                        0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_N61 (net)                                         1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_C5794/Z_1 (*SELECT_OP_4.512_4.1_512)                        0.00      0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_sram_input_1[1] (net)                             1                   0.00       0.21 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/I1[1] (SRAM)                                    0.00      0.05       0.26 f    d u 
+  data arrival time                                                                                               0.26
+
+  clock core_clk (rise edge)                                                                           0.00       0.00
+  clock network delay (ideal)                                                                          0.20       0.20
+  clock uncertainty                                                                                    1.00       1.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)                                                0.00       1.20 r
+  library hold time                                                                                    0.10       1.30
+  data required time                                                                                              1.30
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                              1.30
+  data arrival time                                                                                              -0.26
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                                               -1.04
+
+
+1
