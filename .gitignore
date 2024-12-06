@@ -21,15 +21,5 @@ inter.fsdb
 novas*
 verdiLog
 
-# Additional generated files
-*.vg
-*.rep
-*.db
-*.chk
-*.log
-*.out
-*.ddc
-*.svf
-
 # DVE files
 DVEfiles/

@@ -1,0 +1,7 @@
+#@ # 
+#@ # Running lc_shell Version V-2023.12-SP5 for linux64 -- Aug 01, 2024
+#@ # Date:   Fri Nov 22 14:27:08 2024
+#@ # Run by: wenjieg@eecs2420p04.engin.umich.edu
+#@ 
+
+source -echo -verbose /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/dc_results/temporary_script_for_db_creation.tcl

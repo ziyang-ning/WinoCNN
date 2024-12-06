@@ -1,0 +1,2074 @@
+Reading '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM.lib' ...
+Warning: Line 4, The 'default_rise_delay_intercept' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, The 'default_output_pin_rise_res' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, The 'default_inout_pin_fall_res' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, The 'default_inout_pin_rise_res' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, The 'default_fanout_load' attribute is not specified. Using 1.00. (LBDB-172)
+Warning: Line 4, The 'default_fall_delay_intercept' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, The 'default_slope_rise' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, The 'default_output_pin_fall_res' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, The 'default_intrinsic_rise' attribute is not specified. Using 1.00. (LBDB-172)
+Warning: Line 4, The 'default_rise_pin_resistance' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, The 'default_slope_fall' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, The 'default_intrinsic_fall' attribute is not specified. Using 1.00. (LBDB-172)
+Warning: Line 4, The 'default_fall_pin_resistance' attribute is not specified. Using 0.00. (LBDB-172)
+Warning: Line 4, No 'pulling_resistance_unit' attribute has been specified for the
+	library. This attribute is needed in technology libraries. (LBDB-238)
+Warning: Line 4, The attribute 'slew_lower_threshold_pct_rise' is not specified. (LBDB-605)
+Warning: Line 4, The attribute 'slew_upper_threshold_pct_rise' is not specified. (LBDB-605)
+Warning: Line 4, The attribute 'slew_lower_threshold_pct_fall' is not specified. (LBDB-605)
+Warning: Line 4, The attribute 'slew_upper_threshold_pct_fall' is not specified. (LBDB-605)
+Warning: Line 4, The attribute 'input_threshold_pct_rise' is not specified. (LBDB-605)
+Warning: Line 4, The attribute 'output_threshold_pct_rise' is not specified. (LBDB-605)
+Warning: Line 4, The attribute 'input_threshold_pct_fall' is not specified. (LBDB-605)
+Warning: Line 4, The attribute 'output_threshold_pct_fall' is not specified. (LBDB-605)
+Warning: Line 6283, Cell 'SRAM', pin 'O1[0]', The 'O1[0]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6289, Cell 'SRAM', pin 'O1[1]', The 'O1[1]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6295, Cell 'SRAM', pin 'O1[2]', The 'O1[2]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6301, Cell 'SRAM', pin 'O1[3]', The 'O1[3]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6307, Cell 'SRAM', pin 'O1[4]', The 'O1[4]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6313, Cell 'SRAM', pin 'O1[5]', The 'O1[5]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6319, Cell 'SRAM', pin 'O1[6]', The 'O1[6]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6325, Cell 'SRAM', pin 'O1[7]', The 'O1[7]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6331, Cell 'SRAM', pin 'O1[8]', The 'O1[8]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6337, Cell 'SRAM', pin 'O1[9]', The 'O1[9]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6343, Cell 'SRAM', pin 'O1[10]', The 'O1[10]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6349, Cell 'SRAM', pin 'O1[11]', The 'O1[11]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6355, Cell 'SRAM', pin 'O1[12]', The 'O1[12]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6361, Cell 'SRAM', pin 'O1[13]', The 'O1[13]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6367, Cell 'SRAM', pin 'O1[14]', The 'O1[14]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6373, Cell 'SRAM', pin 'O1[15]', The 'O1[15]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6379, Cell 'SRAM', pin 'O1[16]', The 'O1[16]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6385, Cell 'SRAM', pin 'O1[17]', The 'O1[17]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6391, Cell 'SRAM', pin 'O1[18]', The 'O1[18]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6397, Cell 'SRAM', pin 'O1[19]', The 'O1[19]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6403, Cell 'SRAM', pin 'O1[20]', The 'O1[20]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6409, Cell 'SRAM', pin 'O1[21]', The 'O1[21]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6415, Cell 'SRAM', pin 'O1[22]', The 'O1[22]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6421, Cell 'SRAM', pin 'O1[23]', The 'O1[23]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6427, Cell 'SRAM', pin 'O1[24]', The 'O1[24]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6433, Cell 'SRAM', pin 'O1[25]', The 'O1[25]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6439, Cell 'SRAM', pin 'O1[26]', The 'O1[26]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6445, Cell 'SRAM', pin 'O1[27]', The 'O1[27]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6451, Cell 'SRAM', pin 'O1[28]', The 'O1[28]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6457, Cell 'SRAM', pin 'O1[29]', The 'O1[29]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6463, Cell 'SRAM', pin 'O1[30]', The 'O1[30]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6469, Cell 'SRAM', pin 'O1[31]', The 'O1[31]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6475, Cell 'SRAM', pin 'O1[32]', The 'O1[32]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6481, Cell 'SRAM', pin 'O1[33]', The 'O1[33]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6487, Cell 'SRAM', pin 'O1[34]', The 'O1[34]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6493, Cell 'SRAM', pin 'O1[35]', The 'O1[35]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6499, Cell 'SRAM', pin 'O1[36]', The 'O1[36]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6505, Cell 'SRAM', pin 'O1[37]', The 'O1[37]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6511, Cell 'SRAM', pin 'O1[38]', The 'O1[38]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6517, Cell 'SRAM', pin 'O1[39]', The 'O1[39]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6523, Cell 'SRAM', pin 'O1[40]', The 'O1[40]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6529, Cell 'SRAM', pin 'O1[41]', The 'O1[41]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6535, Cell 'SRAM', pin 'O1[42]', The 'O1[42]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6541, Cell 'SRAM', pin 'O1[43]', The 'O1[43]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6547, Cell 'SRAM', pin 'O1[44]', The 'O1[44]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6553, Cell 'SRAM', pin 'O1[45]', The 'O1[45]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6559, Cell 'SRAM', pin 'O1[46]', The 'O1[46]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6565, Cell 'SRAM', pin 'O1[47]', The 'O1[47]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6571, Cell 'SRAM', pin 'O1[48]', The 'O1[48]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6577, Cell 'SRAM', pin 'O1[49]', The 'O1[49]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6583, Cell 'SRAM', pin 'O1[50]', The 'O1[50]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6589, Cell 'SRAM', pin 'O1[51]', The 'O1[51]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6595, Cell 'SRAM', pin 'O1[52]', The 'O1[52]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6601, Cell 'SRAM', pin 'O1[53]', The 'O1[53]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6607, Cell 'SRAM', pin 'O1[54]', The 'O1[54]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6613, Cell 'SRAM', pin 'O1[55]', The 'O1[55]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6619, Cell 'SRAM', pin 'O1[56]', The 'O1[56]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6625, Cell 'SRAM', pin 'O1[57]', The 'O1[57]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6631, Cell 'SRAM', pin 'O1[58]', The 'O1[58]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6637, Cell 'SRAM', pin 'O1[59]', The 'O1[59]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6643, Cell 'SRAM', pin 'O1[60]', The 'O1[60]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6649, Cell 'SRAM', pin 'O1[61]', The 'O1[61]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6655, Cell 'SRAM', pin 'O1[62]', The 'O1[62]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6661, Cell 'SRAM', pin 'O1[63]', The 'O1[63]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6667, Cell 'SRAM', pin 'O1[64]', The 'O1[64]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6673, Cell 'SRAM', pin 'O1[65]', The 'O1[65]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6679, Cell 'SRAM', pin 'O1[66]', The 'O1[66]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6685, Cell 'SRAM', pin 'O1[67]', The 'O1[67]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6691, Cell 'SRAM', pin 'O1[68]', The 'O1[68]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6697, Cell 'SRAM', pin 'O1[69]', The 'O1[69]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6703, Cell 'SRAM', pin 'O1[70]', The 'O1[70]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6709, Cell 'SRAM', pin 'O1[71]', The 'O1[71]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6715, Cell 'SRAM', pin 'O1[72]', The 'O1[72]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6721, Cell 'SRAM', pin 'O1[73]', The 'O1[73]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6727, Cell 'SRAM', pin 'O1[74]', The 'O1[74]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6733, Cell 'SRAM', pin 'O1[75]', The 'O1[75]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6739, Cell 'SRAM', pin 'O1[76]', The 'O1[76]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6745, Cell 'SRAM', pin 'O1[77]', The 'O1[77]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6751, Cell 'SRAM', pin 'O1[78]', The 'O1[78]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6757, Cell 'SRAM', pin 'O1[79]', The 'O1[79]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6763, Cell 'SRAM', pin 'O1[80]', The 'O1[80]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6769, Cell 'SRAM', pin 'O1[81]', The 'O1[81]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6775, Cell 'SRAM', pin 'O1[82]', The 'O1[82]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6781, Cell 'SRAM', pin 'O1[83]', The 'O1[83]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6787, Cell 'SRAM', pin 'O1[84]', The 'O1[84]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6793, Cell 'SRAM', pin 'O1[85]', The 'O1[85]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6799, Cell 'SRAM', pin 'O1[86]', The 'O1[86]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6805, Cell 'SRAM', pin 'O1[87]', The 'O1[87]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6811, Cell 'SRAM', pin 'O1[88]', The 'O1[88]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6817, Cell 'SRAM', pin 'O1[89]', The 'O1[89]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6823, Cell 'SRAM', pin 'O1[90]', The 'O1[90]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6829, Cell 'SRAM', pin 'O1[91]', The 'O1[91]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6835, Cell 'SRAM', pin 'O1[92]', The 'O1[92]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6841, Cell 'SRAM', pin 'O1[93]', The 'O1[93]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6847, Cell 'SRAM', pin 'O1[94]', The 'O1[94]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6853, Cell 'SRAM', pin 'O1[95]', The 'O1[95]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6859, Cell 'SRAM', pin 'O1[96]', The 'O1[96]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6865, Cell 'SRAM', pin 'O1[97]', The 'O1[97]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6871, Cell 'SRAM', pin 'O1[98]', The 'O1[98]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6877, Cell 'SRAM', pin 'O1[99]', The 'O1[99]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6883, Cell 'SRAM', pin 'O1[100]', The 'O1[100]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6889, Cell 'SRAM', pin 'O1[101]', The 'O1[101]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6895, Cell 'SRAM', pin 'O1[102]', The 'O1[102]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6901, Cell 'SRAM', pin 'O1[103]', The 'O1[103]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6907, Cell 'SRAM', pin 'O1[104]', The 'O1[104]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6913, Cell 'SRAM', pin 'O1[105]', The 'O1[105]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6919, Cell 'SRAM', pin 'O1[106]', The 'O1[106]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6925, Cell 'SRAM', pin 'O1[107]', The 'O1[107]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6931, Cell 'SRAM', pin 'O1[108]', The 'O1[108]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6937, Cell 'SRAM', pin 'O1[109]', The 'O1[109]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6943, Cell 'SRAM', pin 'O1[110]', The 'O1[110]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6949, Cell 'SRAM', pin 'O1[111]', The 'O1[111]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6955, Cell 'SRAM', pin 'O1[112]', The 'O1[112]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6961, Cell 'SRAM', pin 'O1[113]', The 'O1[113]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6967, Cell 'SRAM', pin 'O1[114]', The 'O1[114]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6973, Cell 'SRAM', pin 'O1[115]', The 'O1[115]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6979, Cell 'SRAM', pin 'O1[116]', The 'O1[116]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6985, Cell 'SRAM', pin 'O1[117]', The 'O1[117]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6991, Cell 'SRAM', pin 'O1[118]', The 'O1[118]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 6997, Cell 'SRAM', pin 'O1[119]', The 'O1[119]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7003, Cell 'SRAM', pin 'O1[120]', The 'O1[120]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7009, Cell 'SRAM', pin 'O1[121]', The 'O1[121]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7015, Cell 'SRAM', pin 'O1[122]', The 'O1[122]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7021, Cell 'SRAM', pin 'O1[123]', The 'O1[123]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7027, Cell 'SRAM', pin 'O1[124]', The 'O1[124]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7033, Cell 'SRAM', pin 'O1[125]', The 'O1[125]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7039, Cell 'SRAM', pin 'O1[126]', The 'O1[126]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7045, Cell 'SRAM', pin 'O1[127]', The 'O1[127]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7051, Cell 'SRAM', pin 'O1[128]', The 'O1[128]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7057, Cell 'SRAM', pin 'O1[129]', The 'O1[129]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7063, Cell 'SRAM', pin 'O1[130]', The 'O1[130]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7069, Cell 'SRAM', pin 'O1[131]', The 'O1[131]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7075, Cell 'SRAM', pin 'O1[132]', The 'O1[132]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7081, Cell 'SRAM', pin 'O1[133]', The 'O1[133]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7087, Cell 'SRAM', pin 'O1[134]', The 'O1[134]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7093, Cell 'SRAM', pin 'O1[135]', The 'O1[135]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7099, Cell 'SRAM', pin 'O1[136]', The 'O1[136]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7105, Cell 'SRAM', pin 'O1[137]', The 'O1[137]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7111, Cell 'SRAM', pin 'O1[138]', The 'O1[138]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7117, Cell 'SRAM', pin 'O1[139]', The 'O1[139]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7123, Cell 'SRAM', pin 'O1[140]', The 'O1[140]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7129, Cell 'SRAM', pin 'O1[141]', The 'O1[141]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7135, Cell 'SRAM', pin 'O1[142]', The 'O1[142]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7141, Cell 'SRAM', pin 'O1[143]', The 'O1[143]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7147, Cell 'SRAM', pin 'O1[144]', The 'O1[144]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7153, Cell 'SRAM', pin 'O1[145]', The 'O1[145]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7159, Cell 'SRAM', pin 'O1[146]', The 'O1[146]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7165, Cell 'SRAM', pin 'O1[147]', The 'O1[147]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7171, Cell 'SRAM', pin 'O1[148]', The 'O1[148]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7177, Cell 'SRAM', pin 'O1[149]', The 'O1[149]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7183, Cell 'SRAM', pin 'O1[150]', The 'O1[150]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7189, Cell 'SRAM', pin 'O1[151]', The 'O1[151]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7195, Cell 'SRAM', pin 'O1[152]', The 'O1[152]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7201, Cell 'SRAM', pin 'O1[153]', The 'O1[153]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7207, Cell 'SRAM', pin 'O1[154]', The 'O1[154]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7213, Cell 'SRAM', pin 'O1[155]', The 'O1[155]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7219, Cell 'SRAM', pin 'O1[156]', The 'O1[156]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7225, Cell 'SRAM', pin 'O1[157]', The 'O1[157]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7231, Cell 'SRAM', pin 'O1[158]', The 'O1[158]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7237, Cell 'SRAM', pin 'O1[159]', The 'O1[159]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7243, Cell 'SRAM', pin 'O1[160]', The 'O1[160]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7249, Cell 'SRAM', pin 'O1[161]', The 'O1[161]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7255, Cell 'SRAM', pin 'O1[162]', The 'O1[162]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7261, Cell 'SRAM', pin 'O1[163]', The 'O1[163]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7267, Cell 'SRAM', pin 'O1[164]', The 'O1[164]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7273, Cell 'SRAM', pin 'O1[165]', The 'O1[165]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7279, Cell 'SRAM', pin 'O1[166]', The 'O1[166]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7285, Cell 'SRAM', pin 'O1[167]', The 'O1[167]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7291, Cell 'SRAM', pin 'O1[168]', The 'O1[168]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7297, Cell 'SRAM', pin 'O1[169]', The 'O1[169]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7303, Cell 'SRAM', pin 'O1[170]', The 'O1[170]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7309, Cell 'SRAM', pin 'O1[171]', The 'O1[171]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7315, Cell 'SRAM', pin 'O1[172]', The 'O1[172]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7321, Cell 'SRAM', pin 'O1[173]', The 'O1[173]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7327, Cell 'SRAM', pin 'O1[174]', The 'O1[174]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7333, Cell 'SRAM', pin 'O1[175]', The 'O1[175]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7339, Cell 'SRAM', pin 'O1[176]', The 'O1[176]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7345, Cell 'SRAM', pin 'O1[177]', The 'O1[177]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7351, Cell 'SRAM', pin 'O1[178]', The 'O1[178]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7357, Cell 'SRAM', pin 'O1[179]', The 'O1[179]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7363, Cell 'SRAM', pin 'O1[180]', The 'O1[180]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7369, Cell 'SRAM', pin 'O1[181]', The 'O1[181]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7375, Cell 'SRAM', pin 'O1[182]', The 'O1[182]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7381, Cell 'SRAM', pin 'O1[183]', The 'O1[183]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7387, Cell 'SRAM', pin 'O1[184]', The 'O1[184]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7393, Cell 'SRAM', pin 'O1[185]', The 'O1[185]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7399, Cell 'SRAM', pin 'O1[186]', The 'O1[186]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7405, Cell 'SRAM', pin 'O1[187]', The 'O1[187]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7411, Cell 'SRAM', pin 'O1[188]', The 'O1[188]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7417, Cell 'SRAM', pin 'O1[189]', The 'O1[189]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7423, Cell 'SRAM', pin 'O1[190]', The 'O1[190]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7429, Cell 'SRAM', pin 'O1[191]', The 'O1[191]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7435, Cell 'SRAM', pin 'O1[192]', The 'O1[192]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7441, Cell 'SRAM', pin 'O1[193]', The 'O1[193]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7447, Cell 'SRAM', pin 'O1[194]', The 'O1[194]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7453, Cell 'SRAM', pin 'O1[195]', The 'O1[195]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7459, Cell 'SRAM', pin 'O1[196]', The 'O1[196]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7465, Cell 'SRAM', pin 'O1[197]', The 'O1[197]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7471, Cell 'SRAM', pin 'O1[198]', The 'O1[198]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7477, Cell 'SRAM', pin 'O1[199]', The 'O1[199]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7483, Cell 'SRAM', pin 'O1[200]', The 'O1[200]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7489, Cell 'SRAM', pin 'O1[201]', The 'O1[201]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7495, Cell 'SRAM', pin 'O1[202]', The 'O1[202]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7501, Cell 'SRAM', pin 'O1[203]', The 'O1[203]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7507, Cell 'SRAM', pin 'O1[204]', The 'O1[204]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7513, Cell 'SRAM', pin 'O1[205]', The 'O1[205]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7519, Cell 'SRAM', pin 'O1[206]', The 'O1[206]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7525, Cell 'SRAM', pin 'O1[207]', The 'O1[207]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7531, Cell 'SRAM', pin 'O1[208]', The 'O1[208]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7537, Cell 'SRAM', pin 'O1[209]', The 'O1[209]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7543, Cell 'SRAM', pin 'O1[210]', The 'O1[210]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7549, Cell 'SRAM', pin 'O1[211]', The 'O1[211]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7555, Cell 'SRAM', pin 'O1[212]', The 'O1[212]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7561, Cell 'SRAM', pin 'O1[213]', The 'O1[213]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7567, Cell 'SRAM', pin 'O1[214]', The 'O1[214]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7573, Cell 'SRAM', pin 'O1[215]', The 'O1[215]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7579, Cell 'SRAM', pin 'O1[216]', The 'O1[216]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7585, Cell 'SRAM', pin 'O1[217]', The 'O1[217]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7591, Cell 'SRAM', pin 'O1[218]', The 'O1[218]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7597, Cell 'SRAM', pin 'O1[219]', The 'O1[219]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7603, Cell 'SRAM', pin 'O1[220]', The 'O1[220]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7609, Cell 'SRAM', pin 'O1[221]', The 'O1[221]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7615, Cell 'SRAM', pin 'O1[222]', The 'O1[222]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7621, Cell 'SRAM', pin 'O1[223]', The 'O1[223]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7627, Cell 'SRAM', pin 'O1[224]', The 'O1[224]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7633, Cell 'SRAM', pin 'O1[225]', The 'O1[225]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7639, Cell 'SRAM', pin 'O1[226]', The 'O1[226]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7645, Cell 'SRAM', pin 'O1[227]', The 'O1[227]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7651, Cell 'SRAM', pin 'O1[228]', The 'O1[228]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7657, Cell 'SRAM', pin 'O1[229]', The 'O1[229]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7663, Cell 'SRAM', pin 'O1[230]', The 'O1[230]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7669, Cell 'SRAM', pin 'O1[231]', The 'O1[231]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7675, Cell 'SRAM', pin 'O1[232]', The 'O1[232]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7681, Cell 'SRAM', pin 'O1[233]', The 'O1[233]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7687, Cell 'SRAM', pin 'O1[234]', The 'O1[234]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7693, Cell 'SRAM', pin 'O1[235]', The 'O1[235]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7699, Cell 'SRAM', pin 'O1[236]', The 'O1[236]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7705, Cell 'SRAM', pin 'O1[237]', The 'O1[237]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7711, Cell 'SRAM', pin 'O1[238]', The 'O1[238]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7717, Cell 'SRAM', pin 'O1[239]', The 'O1[239]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7723, Cell 'SRAM', pin 'O1[240]', The 'O1[240]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7729, Cell 'SRAM', pin 'O1[241]', The 'O1[241]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7735, Cell 'SRAM', pin 'O1[242]', The 'O1[242]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7741, Cell 'SRAM', pin 'O1[243]', The 'O1[243]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7747, Cell 'SRAM', pin 'O1[244]', The 'O1[244]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7753, Cell 'SRAM', pin 'O1[245]', The 'O1[245]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7759, Cell 'SRAM', pin 'O1[246]', The 'O1[246]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7765, Cell 'SRAM', pin 'O1[247]', The 'O1[247]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7771, Cell 'SRAM', pin 'O1[248]', The 'O1[248]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7777, Cell 'SRAM', pin 'O1[249]', The 'O1[249]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7783, Cell 'SRAM', pin 'O1[250]', The 'O1[250]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7789, Cell 'SRAM', pin 'O1[251]', The 'O1[251]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7795, Cell 'SRAM', pin 'O1[252]', The 'O1[252]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7801, Cell 'SRAM', pin 'O1[253]', The 'O1[253]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7807, Cell 'SRAM', pin 'O1[254]', The 'O1[254]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7813, Cell 'SRAM', pin 'O1[255]', The 'O1[255]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7819, Cell 'SRAM', pin 'O1[256]', The 'O1[256]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7825, Cell 'SRAM', pin 'O1[257]', The 'O1[257]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7831, Cell 'SRAM', pin 'O1[258]', The 'O1[258]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7837, Cell 'SRAM', pin 'O1[259]', The 'O1[259]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7843, Cell 'SRAM', pin 'O1[260]', The 'O1[260]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7849, Cell 'SRAM', pin 'O1[261]', The 'O1[261]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7855, Cell 'SRAM', pin 'O1[262]', The 'O1[262]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7861, Cell 'SRAM', pin 'O1[263]', The 'O1[263]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7867, Cell 'SRAM', pin 'O1[264]', The 'O1[264]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7873, Cell 'SRAM', pin 'O1[265]', The 'O1[265]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7879, Cell 'SRAM', pin 'O1[266]', The 'O1[266]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7885, Cell 'SRAM', pin 'O1[267]', The 'O1[267]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7891, Cell 'SRAM', pin 'O1[268]', The 'O1[268]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7897, Cell 'SRAM', pin 'O1[269]', The 'O1[269]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7903, Cell 'SRAM', pin 'O1[270]', The 'O1[270]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7909, Cell 'SRAM', pin 'O1[271]', The 'O1[271]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7915, Cell 'SRAM', pin 'O1[272]', The 'O1[272]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7921, Cell 'SRAM', pin 'O1[273]', The 'O1[273]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7927, Cell 'SRAM', pin 'O1[274]', The 'O1[274]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7933, Cell 'SRAM', pin 'O1[275]', The 'O1[275]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7939, Cell 'SRAM', pin 'O1[276]', The 'O1[276]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7945, Cell 'SRAM', pin 'O1[277]', The 'O1[277]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7951, Cell 'SRAM', pin 'O1[278]', The 'O1[278]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7957, Cell 'SRAM', pin 'O1[279]', The 'O1[279]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7963, Cell 'SRAM', pin 'O1[280]', The 'O1[280]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7969, Cell 'SRAM', pin 'O1[281]', The 'O1[281]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7975, Cell 'SRAM', pin 'O1[282]', The 'O1[282]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7981, Cell 'SRAM', pin 'O1[283]', The 'O1[283]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7987, Cell 'SRAM', pin 'O1[284]', The 'O1[284]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7993, Cell 'SRAM', pin 'O1[285]', The 'O1[285]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 7999, Cell 'SRAM', pin 'O1[286]', The 'O1[286]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8005, Cell 'SRAM', pin 'O1[287]', The 'O1[287]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8011, Cell 'SRAM', pin 'O1[288]', The 'O1[288]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8017, Cell 'SRAM', pin 'O1[289]', The 'O1[289]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8023, Cell 'SRAM', pin 'O1[290]', The 'O1[290]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8029, Cell 'SRAM', pin 'O1[291]', The 'O1[291]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8035, Cell 'SRAM', pin 'O1[292]', The 'O1[292]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8041, Cell 'SRAM', pin 'O1[293]', The 'O1[293]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8047, Cell 'SRAM', pin 'O1[294]', The 'O1[294]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8053, Cell 'SRAM', pin 'O1[295]', The 'O1[295]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8059, Cell 'SRAM', pin 'O1[296]', The 'O1[296]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8065, Cell 'SRAM', pin 'O1[297]', The 'O1[297]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8071, Cell 'SRAM', pin 'O1[298]', The 'O1[298]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8077, Cell 'SRAM', pin 'O1[299]', The 'O1[299]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8083, Cell 'SRAM', pin 'O1[300]', The 'O1[300]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8089, Cell 'SRAM', pin 'O1[301]', The 'O1[301]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8095, Cell 'SRAM', pin 'O1[302]', The 'O1[302]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8101, Cell 'SRAM', pin 'O1[303]', The 'O1[303]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8107, Cell 'SRAM', pin 'O1[304]', The 'O1[304]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8113, Cell 'SRAM', pin 'O1[305]', The 'O1[305]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8119, Cell 'SRAM', pin 'O1[306]', The 'O1[306]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8125, Cell 'SRAM', pin 'O1[307]', The 'O1[307]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8131, Cell 'SRAM', pin 'O1[308]', The 'O1[308]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8137, Cell 'SRAM', pin 'O1[309]', The 'O1[309]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8143, Cell 'SRAM', pin 'O1[310]', The 'O1[310]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8149, Cell 'SRAM', pin 'O1[311]', The 'O1[311]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8155, Cell 'SRAM', pin 'O1[312]', The 'O1[312]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8161, Cell 'SRAM', pin 'O1[313]', The 'O1[313]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8167, Cell 'SRAM', pin 'O1[314]', The 'O1[314]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8173, Cell 'SRAM', pin 'O1[315]', The 'O1[315]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8179, Cell 'SRAM', pin 'O1[316]', The 'O1[316]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8185, Cell 'SRAM', pin 'O1[317]', The 'O1[317]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8191, Cell 'SRAM', pin 'O1[318]', The 'O1[318]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8197, Cell 'SRAM', pin 'O1[319]', The 'O1[319]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8203, Cell 'SRAM', pin 'O1[320]', The 'O1[320]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8209, Cell 'SRAM', pin 'O1[321]', The 'O1[321]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8215, Cell 'SRAM', pin 'O1[322]', The 'O1[322]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8221, Cell 'SRAM', pin 'O1[323]', The 'O1[323]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8227, Cell 'SRAM', pin 'O1[324]', The 'O1[324]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8233, Cell 'SRAM', pin 'O1[325]', The 'O1[325]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8239, Cell 'SRAM', pin 'O1[326]', The 'O1[326]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8245, Cell 'SRAM', pin 'O1[327]', The 'O1[327]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8251, Cell 'SRAM', pin 'O1[328]', The 'O1[328]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8257, Cell 'SRAM', pin 'O1[329]', The 'O1[329]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8263, Cell 'SRAM', pin 'O1[330]', The 'O1[330]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8269, Cell 'SRAM', pin 'O1[331]', The 'O1[331]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8275, Cell 'SRAM', pin 'O1[332]', The 'O1[332]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8281, Cell 'SRAM', pin 'O1[333]', The 'O1[333]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8287, Cell 'SRAM', pin 'O1[334]', The 'O1[334]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8293, Cell 'SRAM', pin 'O1[335]', The 'O1[335]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8299, Cell 'SRAM', pin 'O1[336]', The 'O1[336]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8305, Cell 'SRAM', pin 'O1[337]', The 'O1[337]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8311, Cell 'SRAM', pin 'O1[338]', The 'O1[338]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8317, Cell 'SRAM', pin 'O1[339]', The 'O1[339]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8323, Cell 'SRAM', pin 'O1[340]', The 'O1[340]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8329, Cell 'SRAM', pin 'O1[341]', The 'O1[341]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8335, Cell 'SRAM', pin 'O1[342]', The 'O1[342]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8341, Cell 'SRAM', pin 'O1[343]', The 'O1[343]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8347, Cell 'SRAM', pin 'O1[344]', The 'O1[344]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8353, Cell 'SRAM', pin 'O1[345]', The 'O1[345]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8359, Cell 'SRAM', pin 'O1[346]', The 'O1[346]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8365, Cell 'SRAM', pin 'O1[347]', The 'O1[347]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8371, Cell 'SRAM', pin 'O1[348]', The 'O1[348]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8377, Cell 'SRAM', pin 'O1[349]', The 'O1[349]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8383, Cell 'SRAM', pin 'O1[350]', The 'O1[350]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8389, Cell 'SRAM', pin 'O1[351]', The 'O1[351]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8395, Cell 'SRAM', pin 'O1[352]', The 'O1[352]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8401, Cell 'SRAM', pin 'O1[353]', The 'O1[353]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8407, Cell 'SRAM', pin 'O1[354]', The 'O1[354]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8413, Cell 'SRAM', pin 'O1[355]', The 'O1[355]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8419, Cell 'SRAM', pin 'O1[356]', The 'O1[356]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8425, Cell 'SRAM', pin 'O1[357]', The 'O1[357]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8431, Cell 'SRAM', pin 'O1[358]', The 'O1[358]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8437, Cell 'SRAM', pin 'O1[359]', The 'O1[359]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8443, Cell 'SRAM', pin 'O1[360]', The 'O1[360]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8449, Cell 'SRAM', pin 'O1[361]', The 'O1[361]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8455, Cell 'SRAM', pin 'O1[362]', The 'O1[362]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8461, Cell 'SRAM', pin 'O1[363]', The 'O1[363]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8467, Cell 'SRAM', pin 'O1[364]', The 'O1[364]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8473, Cell 'SRAM', pin 'O1[365]', The 'O1[365]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8479, Cell 'SRAM', pin 'O1[366]', The 'O1[366]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8485, Cell 'SRAM', pin 'O1[367]', The 'O1[367]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8491, Cell 'SRAM', pin 'O1[368]', The 'O1[368]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8497, Cell 'SRAM', pin 'O1[369]', The 'O1[369]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8503, Cell 'SRAM', pin 'O1[370]', The 'O1[370]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8509, Cell 'SRAM', pin 'O1[371]', The 'O1[371]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8515, Cell 'SRAM', pin 'O1[372]', The 'O1[372]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8521, Cell 'SRAM', pin 'O1[373]', The 'O1[373]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8527, Cell 'SRAM', pin 'O1[374]', The 'O1[374]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8533, Cell 'SRAM', pin 'O1[375]', The 'O1[375]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8539, Cell 'SRAM', pin 'O1[376]', The 'O1[376]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8545, Cell 'SRAM', pin 'O1[377]', The 'O1[377]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8551, Cell 'SRAM', pin 'O1[378]', The 'O1[378]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8557, Cell 'SRAM', pin 'O1[379]', The 'O1[379]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8563, Cell 'SRAM', pin 'O1[380]', The 'O1[380]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8569, Cell 'SRAM', pin 'O1[381]', The 'O1[381]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8575, Cell 'SRAM', pin 'O1[382]', The 'O1[382]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8581, Cell 'SRAM', pin 'O1[383]', The 'O1[383]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8587, Cell 'SRAM', pin 'O1[384]', The 'O1[384]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8593, Cell 'SRAM', pin 'O1[385]', The 'O1[385]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8599, Cell 'SRAM', pin 'O1[386]', The 'O1[386]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8605, Cell 'SRAM', pin 'O1[387]', The 'O1[387]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8611, Cell 'SRAM', pin 'O1[388]', The 'O1[388]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8617, Cell 'SRAM', pin 'O1[389]', The 'O1[389]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8623, Cell 'SRAM', pin 'O1[390]', The 'O1[390]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8629, Cell 'SRAM', pin 'O1[391]', The 'O1[391]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8635, Cell 'SRAM', pin 'O1[392]', The 'O1[392]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8641, Cell 'SRAM', pin 'O1[393]', The 'O1[393]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8647, Cell 'SRAM', pin 'O1[394]', The 'O1[394]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8653, Cell 'SRAM', pin 'O1[395]', The 'O1[395]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8659, Cell 'SRAM', pin 'O1[396]', The 'O1[396]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8665, Cell 'SRAM', pin 'O1[397]', The 'O1[397]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8671, Cell 'SRAM', pin 'O1[398]', The 'O1[398]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8677, Cell 'SRAM', pin 'O1[399]', The 'O1[399]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8683, Cell 'SRAM', pin 'O1[400]', The 'O1[400]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8689, Cell 'SRAM', pin 'O1[401]', The 'O1[401]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8695, Cell 'SRAM', pin 'O1[402]', The 'O1[402]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8701, Cell 'SRAM', pin 'O1[403]', The 'O1[403]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8707, Cell 'SRAM', pin 'O1[404]', The 'O1[404]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8713, Cell 'SRAM', pin 'O1[405]', The 'O1[405]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8719, Cell 'SRAM', pin 'O1[406]', The 'O1[406]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8725, Cell 'SRAM', pin 'O1[407]', The 'O1[407]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8731, Cell 'SRAM', pin 'O1[408]', The 'O1[408]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8737, Cell 'SRAM', pin 'O1[409]', The 'O1[409]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8743, Cell 'SRAM', pin 'O1[410]', The 'O1[410]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8749, Cell 'SRAM', pin 'O1[411]', The 'O1[411]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8755, Cell 'SRAM', pin 'O1[412]', The 'O1[412]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8761, Cell 'SRAM', pin 'O1[413]', The 'O1[413]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8767, Cell 'SRAM', pin 'O1[414]', The 'O1[414]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8773, Cell 'SRAM', pin 'O1[415]', The 'O1[415]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8779, Cell 'SRAM', pin 'O1[416]', The 'O1[416]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8785, Cell 'SRAM', pin 'O1[417]', The 'O1[417]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8791, Cell 'SRAM', pin 'O1[418]', The 'O1[418]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8797, Cell 'SRAM', pin 'O1[419]', The 'O1[419]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8803, Cell 'SRAM', pin 'O1[420]', The 'O1[420]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8809, Cell 'SRAM', pin 'O1[421]', The 'O1[421]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8815, Cell 'SRAM', pin 'O1[422]', The 'O1[422]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8821, Cell 'SRAM', pin 'O1[423]', The 'O1[423]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8827, Cell 'SRAM', pin 'O1[424]', The 'O1[424]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8833, Cell 'SRAM', pin 'O1[425]', The 'O1[425]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8839, Cell 'SRAM', pin 'O1[426]', The 'O1[426]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8845, Cell 'SRAM', pin 'O1[427]', The 'O1[427]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8851, Cell 'SRAM', pin 'O1[428]', The 'O1[428]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8857, Cell 'SRAM', pin 'O1[429]', The 'O1[429]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8863, Cell 'SRAM', pin 'O1[430]', The 'O1[430]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8869, Cell 'SRAM', pin 'O1[431]', The 'O1[431]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8875, Cell 'SRAM', pin 'O1[432]', The 'O1[432]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8881, Cell 'SRAM', pin 'O1[433]', The 'O1[433]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8887, Cell 'SRAM', pin 'O1[434]', The 'O1[434]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8893, Cell 'SRAM', pin 'O1[435]', The 'O1[435]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8899, Cell 'SRAM', pin 'O1[436]', The 'O1[436]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8905, Cell 'SRAM', pin 'O1[437]', The 'O1[437]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8911, Cell 'SRAM', pin 'O1[438]', The 'O1[438]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8917, Cell 'SRAM', pin 'O1[439]', The 'O1[439]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8923, Cell 'SRAM', pin 'O1[440]', The 'O1[440]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8929, Cell 'SRAM', pin 'O1[441]', The 'O1[441]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8935, Cell 'SRAM', pin 'O1[442]', The 'O1[442]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8941, Cell 'SRAM', pin 'O1[443]', The 'O1[443]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8947, Cell 'SRAM', pin 'O1[444]', The 'O1[444]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8953, Cell 'SRAM', pin 'O1[445]', The 'O1[445]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8959, Cell 'SRAM', pin 'O1[446]', The 'O1[446]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8965, Cell 'SRAM', pin 'O1[447]', The 'O1[447]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8971, Cell 'SRAM', pin 'O1[448]', The 'O1[448]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8977, Cell 'SRAM', pin 'O1[449]', The 'O1[449]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8983, Cell 'SRAM', pin 'O1[450]', The 'O1[450]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8989, Cell 'SRAM', pin 'O1[451]', The 'O1[451]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 8995, Cell 'SRAM', pin 'O1[452]', The 'O1[452]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9001, Cell 'SRAM', pin 'O1[453]', The 'O1[453]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9007, Cell 'SRAM', pin 'O1[454]', The 'O1[454]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9013, Cell 'SRAM', pin 'O1[455]', The 'O1[455]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9019, Cell 'SRAM', pin 'O1[456]', The 'O1[456]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9025, Cell 'SRAM', pin 'O1[457]', The 'O1[457]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9031, Cell 'SRAM', pin 'O1[458]', The 'O1[458]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9037, Cell 'SRAM', pin 'O1[459]', The 'O1[459]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9043, Cell 'SRAM', pin 'O1[460]', The 'O1[460]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9049, Cell 'SRAM', pin 'O1[461]', The 'O1[461]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9055, Cell 'SRAM', pin 'O1[462]', The 'O1[462]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9061, Cell 'SRAM', pin 'O1[463]', The 'O1[463]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9067, Cell 'SRAM', pin 'O1[464]', The 'O1[464]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9073, Cell 'SRAM', pin 'O1[465]', The 'O1[465]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9079, Cell 'SRAM', pin 'O1[466]', The 'O1[466]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9085, Cell 'SRAM', pin 'O1[467]', The 'O1[467]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9091, Cell 'SRAM', pin 'O1[468]', The 'O1[468]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9097, Cell 'SRAM', pin 'O1[469]', The 'O1[469]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9103, Cell 'SRAM', pin 'O1[470]', The 'O1[470]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9109, Cell 'SRAM', pin 'O1[471]', The 'O1[471]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9115, Cell 'SRAM', pin 'O1[472]', The 'O1[472]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9121, Cell 'SRAM', pin 'O1[473]', The 'O1[473]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9127, Cell 'SRAM', pin 'O1[474]', The 'O1[474]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9133, Cell 'SRAM', pin 'O1[475]', The 'O1[475]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9139, Cell 'SRAM', pin 'O1[476]', The 'O1[476]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9145, Cell 'SRAM', pin 'O1[477]', The 'O1[477]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9151, Cell 'SRAM', pin 'O1[478]', The 'O1[478]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9157, Cell 'SRAM', pin 'O1[479]', The 'O1[479]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9163, Cell 'SRAM', pin 'O1[480]', The 'O1[480]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9169, Cell 'SRAM', pin 'O1[481]', The 'O1[481]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9175, Cell 'SRAM', pin 'O1[482]', The 'O1[482]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9181, Cell 'SRAM', pin 'O1[483]', The 'O1[483]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9187, Cell 'SRAM', pin 'O1[484]', The 'O1[484]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9193, Cell 'SRAM', pin 'O1[485]', The 'O1[485]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9199, Cell 'SRAM', pin 'O1[486]', The 'O1[486]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9205, Cell 'SRAM', pin 'O1[487]', The 'O1[487]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9211, Cell 'SRAM', pin 'O1[488]', The 'O1[488]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9217, Cell 'SRAM', pin 'O1[489]', The 'O1[489]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9223, Cell 'SRAM', pin 'O1[490]', The 'O1[490]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9229, Cell 'SRAM', pin 'O1[491]', The 'O1[491]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9235, Cell 'SRAM', pin 'O1[492]', The 'O1[492]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9241, Cell 'SRAM', pin 'O1[493]', The 'O1[493]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9247, Cell 'SRAM', pin 'O1[494]', The 'O1[494]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9253, Cell 'SRAM', pin 'O1[495]', The 'O1[495]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9259, Cell 'SRAM', pin 'O1[496]', The 'O1[496]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9265, Cell 'SRAM', pin 'O1[497]', The 'O1[497]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9271, Cell 'SRAM', pin 'O1[498]', The 'O1[498]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9277, Cell 'SRAM', pin 'O1[499]', The 'O1[499]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9283, Cell 'SRAM', pin 'O1[500]', The 'O1[500]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9289, Cell 'SRAM', pin 'O1[501]', The 'O1[501]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9295, Cell 'SRAM', pin 'O1[502]', The 'O1[502]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9301, Cell 'SRAM', pin 'O1[503]', The 'O1[503]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9307, Cell 'SRAM', pin 'O1[504]', The 'O1[504]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9313, Cell 'SRAM', pin 'O1[505]', The 'O1[505]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9319, Cell 'SRAM', pin 'O1[506]', The 'O1[506]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9325, Cell 'SRAM', pin 'O1[507]', The 'O1[507]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9331, Cell 'SRAM', pin 'O1[508]', The 'O1[508]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9337, Cell 'SRAM', pin 'O1[509]', The 'O1[509]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9343, Cell 'SRAM', pin 'O1[510]', The 'O1[510]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9349, Cell 'SRAM', pin 'O1[511]', The 'O1[511]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9355, Cell 'SRAM', pin 'O2[0]', The 'O2[0]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9361, Cell 'SRAM', pin 'O2[1]', The 'O2[1]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9367, Cell 'SRAM', pin 'O2[2]', The 'O2[2]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9373, Cell 'SRAM', pin 'O2[3]', The 'O2[3]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9379, Cell 'SRAM', pin 'O2[4]', The 'O2[4]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9385, Cell 'SRAM', pin 'O2[5]', The 'O2[5]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9391, Cell 'SRAM', pin 'O2[6]', The 'O2[6]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9397, Cell 'SRAM', pin 'O2[7]', The 'O2[7]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9403, Cell 'SRAM', pin 'O2[8]', The 'O2[8]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9409, Cell 'SRAM', pin 'O2[9]', The 'O2[9]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9415, Cell 'SRAM', pin 'O2[10]', The 'O2[10]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9421, Cell 'SRAM', pin 'O2[11]', The 'O2[11]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9427, Cell 'SRAM', pin 'O2[12]', The 'O2[12]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9433, Cell 'SRAM', pin 'O2[13]', The 'O2[13]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9439, Cell 'SRAM', pin 'O2[14]', The 'O2[14]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9445, Cell 'SRAM', pin 'O2[15]', The 'O2[15]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9451, Cell 'SRAM', pin 'O2[16]', The 'O2[16]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9457, Cell 'SRAM', pin 'O2[17]', The 'O2[17]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9463, Cell 'SRAM', pin 'O2[18]', The 'O2[18]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9469, Cell 'SRAM', pin 'O2[19]', The 'O2[19]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9475, Cell 'SRAM', pin 'O2[20]', The 'O2[20]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9481, Cell 'SRAM', pin 'O2[21]', The 'O2[21]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9487, Cell 'SRAM', pin 'O2[22]', The 'O2[22]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9493, Cell 'SRAM', pin 'O2[23]', The 'O2[23]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9499, Cell 'SRAM', pin 'O2[24]', The 'O2[24]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9505, Cell 'SRAM', pin 'O2[25]', The 'O2[25]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9511, Cell 'SRAM', pin 'O2[26]', The 'O2[26]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9517, Cell 'SRAM', pin 'O2[27]', The 'O2[27]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9523, Cell 'SRAM', pin 'O2[28]', The 'O2[28]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9529, Cell 'SRAM', pin 'O2[29]', The 'O2[29]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9535, Cell 'SRAM', pin 'O2[30]', The 'O2[30]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9541, Cell 'SRAM', pin 'O2[31]', The 'O2[31]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9547, Cell 'SRAM', pin 'O2[32]', The 'O2[32]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9553, Cell 'SRAM', pin 'O2[33]', The 'O2[33]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9559, Cell 'SRAM', pin 'O2[34]', The 'O2[34]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9565, Cell 'SRAM', pin 'O2[35]', The 'O2[35]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9571, Cell 'SRAM', pin 'O2[36]', The 'O2[36]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9577, Cell 'SRAM', pin 'O2[37]', The 'O2[37]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9583, Cell 'SRAM', pin 'O2[38]', The 'O2[38]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9589, Cell 'SRAM', pin 'O2[39]', The 'O2[39]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9595, Cell 'SRAM', pin 'O2[40]', The 'O2[40]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9601, Cell 'SRAM', pin 'O2[41]', The 'O2[41]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9607, Cell 'SRAM', pin 'O2[42]', The 'O2[42]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9613, Cell 'SRAM', pin 'O2[43]', The 'O2[43]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9619, Cell 'SRAM', pin 'O2[44]', The 'O2[44]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9625, Cell 'SRAM', pin 'O2[45]', The 'O2[45]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9631, Cell 'SRAM', pin 'O2[46]', The 'O2[46]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9637, Cell 'SRAM', pin 'O2[47]', The 'O2[47]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9643, Cell 'SRAM', pin 'O2[48]', The 'O2[48]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9649, Cell 'SRAM', pin 'O2[49]', The 'O2[49]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9655, Cell 'SRAM', pin 'O2[50]', The 'O2[50]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9661, Cell 'SRAM', pin 'O2[51]', The 'O2[51]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9667, Cell 'SRAM', pin 'O2[52]', The 'O2[52]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9673, Cell 'SRAM', pin 'O2[53]', The 'O2[53]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9679, Cell 'SRAM', pin 'O2[54]', The 'O2[54]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9685, Cell 'SRAM', pin 'O2[55]', The 'O2[55]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9691, Cell 'SRAM', pin 'O2[56]', The 'O2[56]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9697, Cell 'SRAM', pin 'O2[57]', The 'O2[57]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9703, Cell 'SRAM', pin 'O2[58]', The 'O2[58]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9709, Cell 'SRAM', pin 'O2[59]', The 'O2[59]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9715, Cell 'SRAM', pin 'O2[60]', The 'O2[60]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9721, Cell 'SRAM', pin 'O2[61]', The 'O2[61]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9727, Cell 'SRAM', pin 'O2[62]', The 'O2[62]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9733, Cell 'SRAM', pin 'O2[63]', The 'O2[63]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9739, Cell 'SRAM', pin 'O2[64]', The 'O2[64]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9745, Cell 'SRAM', pin 'O2[65]', The 'O2[65]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9751, Cell 'SRAM', pin 'O2[66]', The 'O2[66]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9757, Cell 'SRAM', pin 'O2[67]', The 'O2[67]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9763, Cell 'SRAM', pin 'O2[68]', The 'O2[68]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9769, Cell 'SRAM', pin 'O2[69]', The 'O2[69]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9775, Cell 'SRAM', pin 'O2[70]', The 'O2[70]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9781, Cell 'SRAM', pin 'O2[71]', The 'O2[71]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9787, Cell 'SRAM', pin 'O2[72]', The 'O2[72]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9793, Cell 'SRAM', pin 'O2[73]', The 'O2[73]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9799, Cell 'SRAM', pin 'O2[74]', The 'O2[74]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9805, Cell 'SRAM', pin 'O2[75]', The 'O2[75]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9811, Cell 'SRAM', pin 'O2[76]', The 'O2[76]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9817, Cell 'SRAM', pin 'O2[77]', The 'O2[77]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9823, Cell 'SRAM', pin 'O2[78]', The 'O2[78]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9829, Cell 'SRAM', pin 'O2[79]', The 'O2[79]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9835, Cell 'SRAM', pin 'O2[80]', The 'O2[80]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9841, Cell 'SRAM', pin 'O2[81]', The 'O2[81]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9847, Cell 'SRAM', pin 'O2[82]', The 'O2[82]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9853, Cell 'SRAM', pin 'O2[83]', The 'O2[83]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9859, Cell 'SRAM', pin 'O2[84]', The 'O2[84]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9865, Cell 'SRAM', pin 'O2[85]', The 'O2[85]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9871, Cell 'SRAM', pin 'O2[86]', The 'O2[86]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9877, Cell 'SRAM', pin 'O2[87]', The 'O2[87]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9883, Cell 'SRAM', pin 'O2[88]', The 'O2[88]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9889, Cell 'SRAM', pin 'O2[89]', The 'O2[89]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9895, Cell 'SRAM', pin 'O2[90]', The 'O2[90]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9901, Cell 'SRAM', pin 'O2[91]', The 'O2[91]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9907, Cell 'SRAM', pin 'O2[92]', The 'O2[92]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9913, Cell 'SRAM', pin 'O2[93]', The 'O2[93]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9919, Cell 'SRAM', pin 'O2[94]', The 'O2[94]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9925, Cell 'SRAM', pin 'O2[95]', The 'O2[95]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9931, Cell 'SRAM', pin 'O2[96]', The 'O2[96]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9937, Cell 'SRAM', pin 'O2[97]', The 'O2[97]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9943, Cell 'SRAM', pin 'O2[98]', The 'O2[98]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9949, Cell 'SRAM', pin 'O2[99]', The 'O2[99]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9955, Cell 'SRAM', pin 'O2[100]', The 'O2[100]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9961, Cell 'SRAM', pin 'O2[101]', The 'O2[101]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9967, Cell 'SRAM', pin 'O2[102]', The 'O2[102]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9973, Cell 'SRAM', pin 'O2[103]', The 'O2[103]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9979, Cell 'SRAM', pin 'O2[104]', The 'O2[104]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9985, Cell 'SRAM', pin 'O2[105]', The 'O2[105]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9991, Cell 'SRAM', pin 'O2[106]', The 'O2[106]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 9997, Cell 'SRAM', pin 'O2[107]', The 'O2[107]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10003, Cell 'SRAM', pin 'O2[108]', The 'O2[108]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10009, Cell 'SRAM', pin 'O2[109]', The 'O2[109]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10015, Cell 'SRAM', pin 'O2[110]', The 'O2[110]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10021, Cell 'SRAM', pin 'O2[111]', The 'O2[111]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10027, Cell 'SRAM', pin 'O2[112]', The 'O2[112]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10033, Cell 'SRAM', pin 'O2[113]', The 'O2[113]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10039, Cell 'SRAM', pin 'O2[114]', The 'O2[114]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10045, Cell 'SRAM', pin 'O2[115]', The 'O2[115]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10051, Cell 'SRAM', pin 'O2[116]', The 'O2[116]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10057, Cell 'SRAM', pin 'O2[117]', The 'O2[117]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10063, Cell 'SRAM', pin 'O2[118]', The 'O2[118]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10069, Cell 'SRAM', pin 'O2[119]', The 'O2[119]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10075, Cell 'SRAM', pin 'O2[120]', The 'O2[120]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10081, Cell 'SRAM', pin 'O2[121]', The 'O2[121]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10087, Cell 'SRAM', pin 'O2[122]', The 'O2[122]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10093, Cell 'SRAM', pin 'O2[123]', The 'O2[123]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10099, Cell 'SRAM', pin 'O2[124]', The 'O2[124]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10105, Cell 'SRAM', pin 'O2[125]', The 'O2[125]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10111, Cell 'SRAM', pin 'O2[126]', The 'O2[126]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10117, Cell 'SRAM', pin 'O2[127]', The 'O2[127]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10123, Cell 'SRAM', pin 'O2[128]', The 'O2[128]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10129, Cell 'SRAM', pin 'O2[129]', The 'O2[129]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10135, Cell 'SRAM', pin 'O2[130]', The 'O2[130]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10141, Cell 'SRAM', pin 'O2[131]', The 'O2[131]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10147, Cell 'SRAM', pin 'O2[132]', The 'O2[132]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10153, Cell 'SRAM', pin 'O2[133]', The 'O2[133]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10159, Cell 'SRAM', pin 'O2[134]', The 'O2[134]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10165, Cell 'SRAM', pin 'O2[135]', The 'O2[135]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10171, Cell 'SRAM', pin 'O2[136]', The 'O2[136]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10177, Cell 'SRAM', pin 'O2[137]', The 'O2[137]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10183, Cell 'SRAM', pin 'O2[138]', The 'O2[138]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10189, Cell 'SRAM', pin 'O2[139]', The 'O2[139]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10195, Cell 'SRAM', pin 'O2[140]', The 'O2[140]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10201, Cell 'SRAM', pin 'O2[141]', The 'O2[141]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10207, Cell 'SRAM', pin 'O2[142]', The 'O2[142]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10213, Cell 'SRAM', pin 'O2[143]', The 'O2[143]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10219, Cell 'SRAM', pin 'O2[144]', The 'O2[144]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10225, Cell 'SRAM', pin 'O2[145]', The 'O2[145]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10231, Cell 'SRAM', pin 'O2[146]', The 'O2[146]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10237, Cell 'SRAM', pin 'O2[147]', The 'O2[147]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10243, Cell 'SRAM', pin 'O2[148]', The 'O2[148]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10249, Cell 'SRAM', pin 'O2[149]', The 'O2[149]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10255, Cell 'SRAM', pin 'O2[150]', The 'O2[150]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10261, Cell 'SRAM', pin 'O2[151]', The 'O2[151]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10267, Cell 'SRAM', pin 'O2[152]', The 'O2[152]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10273, Cell 'SRAM', pin 'O2[153]', The 'O2[153]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10279, Cell 'SRAM', pin 'O2[154]', The 'O2[154]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10285, Cell 'SRAM', pin 'O2[155]', The 'O2[155]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10291, Cell 'SRAM', pin 'O2[156]', The 'O2[156]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10297, Cell 'SRAM', pin 'O2[157]', The 'O2[157]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10303, Cell 'SRAM', pin 'O2[158]', The 'O2[158]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10309, Cell 'SRAM', pin 'O2[159]', The 'O2[159]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10315, Cell 'SRAM', pin 'O2[160]', The 'O2[160]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10321, Cell 'SRAM', pin 'O2[161]', The 'O2[161]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10327, Cell 'SRAM', pin 'O2[162]', The 'O2[162]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10333, Cell 'SRAM', pin 'O2[163]', The 'O2[163]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10339, Cell 'SRAM', pin 'O2[164]', The 'O2[164]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10345, Cell 'SRAM', pin 'O2[165]', The 'O2[165]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10351, Cell 'SRAM', pin 'O2[166]', The 'O2[166]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10357, Cell 'SRAM', pin 'O2[167]', The 'O2[167]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10363, Cell 'SRAM', pin 'O2[168]', The 'O2[168]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10369, Cell 'SRAM', pin 'O2[169]', The 'O2[169]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10375, Cell 'SRAM', pin 'O2[170]', The 'O2[170]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10381, Cell 'SRAM', pin 'O2[171]', The 'O2[171]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10387, Cell 'SRAM', pin 'O2[172]', The 'O2[172]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10393, Cell 'SRAM', pin 'O2[173]', The 'O2[173]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10399, Cell 'SRAM', pin 'O2[174]', The 'O2[174]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10405, Cell 'SRAM', pin 'O2[175]', The 'O2[175]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10411, Cell 'SRAM', pin 'O2[176]', The 'O2[176]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10417, Cell 'SRAM', pin 'O2[177]', The 'O2[177]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10423, Cell 'SRAM', pin 'O2[178]', The 'O2[178]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10429, Cell 'SRAM', pin 'O2[179]', The 'O2[179]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10435, Cell 'SRAM', pin 'O2[180]', The 'O2[180]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10441, Cell 'SRAM', pin 'O2[181]', The 'O2[181]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10447, Cell 'SRAM', pin 'O2[182]', The 'O2[182]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10453, Cell 'SRAM', pin 'O2[183]', The 'O2[183]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10459, Cell 'SRAM', pin 'O2[184]', The 'O2[184]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10465, Cell 'SRAM', pin 'O2[185]', The 'O2[185]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10471, Cell 'SRAM', pin 'O2[186]', The 'O2[186]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10477, Cell 'SRAM', pin 'O2[187]', The 'O2[187]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10483, Cell 'SRAM', pin 'O2[188]', The 'O2[188]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10489, Cell 'SRAM', pin 'O2[189]', The 'O2[189]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10495, Cell 'SRAM', pin 'O2[190]', The 'O2[190]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10501, Cell 'SRAM', pin 'O2[191]', The 'O2[191]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10507, Cell 'SRAM', pin 'O2[192]', The 'O2[192]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10513, Cell 'SRAM', pin 'O2[193]', The 'O2[193]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10519, Cell 'SRAM', pin 'O2[194]', The 'O2[194]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10525, Cell 'SRAM', pin 'O2[195]', The 'O2[195]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10531, Cell 'SRAM', pin 'O2[196]', The 'O2[196]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10537, Cell 'SRAM', pin 'O2[197]', The 'O2[197]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10543, Cell 'SRAM', pin 'O2[198]', The 'O2[198]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10549, Cell 'SRAM', pin 'O2[199]', The 'O2[199]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10555, Cell 'SRAM', pin 'O2[200]', The 'O2[200]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10561, Cell 'SRAM', pin 'O2[201]', The 'O2[201]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10567, Cell 'SRAM', pin 'O2[202]', The 'O2[202]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10573, Cell 'SRAM', pin 'O2[203]', The 'O2[203]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10579, Cell 'SRAM', pin 'O2[204]', The 'O2[204]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10585, Cell 'SRAM', pin 'O2[205]', The 'O2[205]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10591, Cell 'SRAM', pin 'O2[206]', The 'O2[206]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10597, Cell 'SRAM', pin 'O2[207]', The 'O2[207]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10603, Cell 'SRAM', pin 'O2[208]', The 'O2[208]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10609, Cell 'SRAM', pin 'O2[209]', The 'O2[209]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10615, Cell 'SRAM', pin 'O2[210]', The 'O2[210]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10621, Cell 'SRAM', pin 'O2[211]', The 'O2[211]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10627, Cell 'SRAM', pin 'O2[212]', The 'O2[212]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10633, Cell 'SRAM', pin 'O2[213]', The 'O2[213]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10639, Cell 'SRAM', pin 'O2[214]', The 'O2[214]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10645, Cell 'SRAM', pin 'O2[215]', The 'O2[215]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10651, Cell 'SRAM', pin 'O2[216]', The 'O2[216]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10657, Cell 'SRAM', pin 'O2[217]', The 'O2[217]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10663, Cell 'SRAM', pin 'O2[218]', The 'O2[218]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10669, Cell 'SRAM', pin 'O2[219]', The 'O2[219]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10675, Cell 'SRAM', pin 'O2[220]', The 'O2[220]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10681, Cell 'SRAM', pin 'O2[221]', The 'O2[221]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10687, Cell 'SRAM', pin 'O2[222]', The 'O2[222]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10693, Cell 'SRAM', pin 'O2[223]', The 'O2[223]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10699, Cell 'SRAM', pin 'O2[224]', The 'O2[224]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10705, Cell 'SRAM', pin 'O2[225]', The 'O2[225]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10711, Cell 'SRAM', pin 'O2[226]', The 'O2[226]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10717, Cell 'SRAM', pin 'O2[227]', The 'O2[227]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10723, Cell 'SRAM', pin 'O2[228]', The 'O2[228]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10729, Cell 'SRAM', pin 'O2[229]', The 'O2[229]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10735, Cell 'SRAM', pin 'O2[230]', The 'O2[230]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10741, Cell 'SRAM', pin 'O2[231]', The 'O2[231]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10747, Cell 'SRAM', pin 'O2[232]', The 'O2[232]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10753, Cell 'SRAM', pin 'O2[233]', The 'O2[233]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10759, Cell 'SRAM', pin 'O2[234]', The 'O2[234]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10765, Cell 'SRAM', pin 'O2[235]', The 'O2[235]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10771, Cell 'SRAM', pin 'O2[236]', The 'O2[236]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10777, Cell 'SRAM', pin 'O2[237]', The 'O2[237]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10783, Cell 'SRAM', pin 'O2[238]', The 'O2[238]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10789, Cell 'SRAM', pin 'O2[239]', The 'O2[239]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10795, Cell 'SRAM', pin 'O2[240]', The 'O2[240]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10801, Cell 'SRAM', pin 'O2[241]', The 'O2[241]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10807, Cell 'SRAM', pin 'O2[242]', The 'O2[242]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10813, Cell 'SRAM', pin 'O2[243]', The 'O2[243]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10819, Cell 'SRAM', pin 'O2[244]', The 'O2[244]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10825, Cell 'SRAM', pin 'O2[245]', The 'O2[245]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10831, Cell 'SRAM', pin 'O2[246]', The 'O2[246]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10837, Cell 'SRAM', pin 'O2[247]', The 'O2[247]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10843, Cell 'SRAM', pin 'O2[248]', The 'O2[248]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10849, Cell 'SRAM', pin 'O2[249]', The 'O2[249]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10855, Cell 'SRAM', pin 'O2[250]', The 'O2[250]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10861, Cell 'SRAM', pin 'O2[251]', The 'O2[251]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10867, Cell 'SRAM', pin 'O2[252]', The 'O2[252]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10873, Cell 'SRAM', pin 'O2[253]', The 'O2[253]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10879, Cell 'SRAM', pin 'O2[254]', The 'O2[254]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10885, Cell 'SRAM', pin 'O2[255]', The 'O2[255]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10891, Cell 'SRAM', pin 'O2[256]', The 'O2[256]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10897, Cell 'SRAM', pin 'O2[257]', The 'O2[257]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10903, Cell 'SRAM', pin 'O2[258]', The 'O2[258]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10909, Cell 'SRAM', pin 'O2[259]', The 'O2[259]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10915, Cell 'SRAM', pin 'O2[260]', The 'O2[260]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10921, Cell 'SRAM', pin 'O2[261]', The 'O2[261]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10927, Cell 'SRAM', pin 'O2[262]', The 'O2[262]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10933, Cell 'SRAM', pin 'O2[263]', The 'O2[263]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10939, Cell 'SRAM', pin 'O2[264]', The 'O2[264]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10945, Cell 'SRAM', pin 'O2[265]', The 'O2[265]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10951, Cell 'SRAM', pin 'O2[266]', The 'O2[266]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10957, Cell 'SRAM', pin 'O2[267]', The 'O2[267]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10963, Cell 'SRAM', pin 'O2[268]', The 'O2[268]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10969, Cell 'SRAM', pin 'O2[269]', The 'O2[269]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10975, Cell 'SRAM', pin 'O2[270]', The 'O2[270]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10981, Cell 'SRAM', pin 'O2[271]', The 'O2[271]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10987, Cell 'SRAM', pin 'O2[272]', The 'O2[272]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10993, Cell 'SRAM', pin 'O2[273]', The 'O2[273]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 10999, Cell 'SRAM', pin 'O2[274]', The 'O2[274]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11005, Cell 'SRAM', pin 'O2[275]', The 'O2[275]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11011, Cell 'SRAM', pin 'O2[276]', The 'O2[276]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11017, Cell 'SRAM', pin 'O2[277]', The 'O2[277]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11023, Cell 'SRAM', pin 'O2[278]', The 'O2[278]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11029, Cell 'SRAM', pin 'O2[279]', The 'O2[279]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11035, Cell 'SRAM', pin 'O2[280]', The 'O2[280]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11041, Cell 'SRAM', pin 'O2[281]', The 'O2[281]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11047, Cell 'SRAM', pin 'O2[282]', The 'O2[282]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11053, Cell 'SRAM', pin 'O2[283]', The 'O2[283]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11059, Cell 'SRAM', pin 'O2[284]', The 'O2[284]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11065, Cell 'SRAM', pin 'O2[285]', The 'O2[285]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11071, Cell 'SRAM', pin 'O2[286]', The 'O2[286]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11077, Cell 'SRAM', pin 'O2[287]', The 'O2[287]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11083, Cell 'SRAM', pin 'O2[288]', The 'O2[288]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11089, Cell 'SRAM', pin 'O2[289]', The 'O2[289]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11095, Cell 'SRAM', pin 'O2[290]', The 'O2[290]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11101, Cell 'SRAM', pin 'O2[291]', The 'O2[291]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11107, Cell 'SRAM', pin 'O2[292]', The 'O2[292]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11113, Cell 'SRAM', pin 'O2[293]', The 'O2[293]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11119, Cell 'SRAM', pin 'O2[294]', The 'O2[294]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11125, Cell 'SRAM', pin 'O2[295]', The 'O2[295]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11131, Cell 'SRAM', pin 'O2[296]', The 'O2[296]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11137, Cell 'SRAM', pin 'O2[297]', The 'O2[297]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11143, Cell 'SRAM', pin 'O2[298]', The 'O2[298]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11149, Cell 'SRAM', pin 'O2[299]', The 'O2[299]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11155, Cell 'SRAM', pin 'O2[300]', The 'O2[300]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11161, Cell 'SRAM', pin 'O2[301]', The 'O2[301]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11167, Cell 'SRAM', pin 'O2[302]', The 'O2[302]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11173, Cell 'SRAM', pin 'O2[303]', The 'O2[303]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11179, Cell 'SRAM', pin 'O2[304]', The 'O2[304]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11185, Cell 'SRAM', pin 'O2[305]', The 'O2[305]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11191, Cell 'SRAM', pin 'O2[306]', The 'O2[306]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11197, Cell 'SRAM', pin 'O2[307]', The 'O2[307]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11203, Cell 'SRAM', pin 'O2[308]', The 'O2[308]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11209, Cell 'SRAM', pin 'O2[309]', The 'O2[309]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11215, Cell 'SRAM', pin 'O2[310]', The 'O2[310]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11221, Cell 'SRAM', pin 'O2[311]', The 'O2[311]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11227, Cell 'SRAM', pin 'O2[312]', The 'O2[312]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11233, Cell 'SRAM', pin 'O2[313]', The 'O2[313]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11239, Cell 'SRAM', pin 'O2[314]', The 'O2[314]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11245, Cell 'SRAM', pin 'O2[315]', The 'O2[315]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11251, Cell 'SRAM', pin 'O2[316]', The 'O2[316]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11257, Cell 'SRAM', pin 'O2[317]', The 'O2[317]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11263, Cell 'SRAM', pin 'O2[318]', The 'O2[318]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11269, Cell 'SRAM', pin 'O2[319]', The 'O2[319]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11275, Cell 'SRAM', pin 'O2[320]', The 'O2[320]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11281, Cell 'SRAM', pin 'O2[321]', The 'O2[321]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11287, Cell 'SRAM', pin 'O2[322]', The 'O2[322]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11293, Cell 'SRAM', pin 'O2[323]', The 'O2[323]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11299, Cell 'SRAM', pin 'O2[324]', The 'O2[324]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11305, Cell 'SRAM', pin 'O2[325]', The 'O2[325]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11311, Cell 'SRAM', pin 'O2[326]', The 'O2[326]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11317, Cell 'SRAM', pin 'O2[327]', The 'O2[327]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11323, Cell 'SRAM', pin 'O2[328]', The 'O2[328]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11329, Cell 'SRAM', pin 'O2[329]', The 'O2[329]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11335, Cell 'SRAM', pin 'O2[330]', The 'O2[330]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11341, Cell 'SRAM', pin 'O2[331]', The 'O2[331]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11347, Cell 'SRAM', pin 'O2[332]', The 'O2[332]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11353, Cell 'SRAM', pin 'O2[333]', The 'O2[333]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11359, Cell 'SRAM', pin 'O2[334]', The 'O2[334]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11365, Cell 'SRAM', pin 'O2[335]', The 'O2[335]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11371, Cell 'SRAM', pin 'O2[336]', The 'O2[336]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11377, Cell 'SRAM', pin 'O2[337]', The 'O2[337]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11383, Cell 'SRAM', pin 'O2[338]', The 'O2[338]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11389, Cell 'SRAM', pin 'O2[339]', The 'O2[339]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11395, Cell 'SRAM', pin 'O2[340]', The 'O2[340]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11401, Cell 'SRAM', pin 'O2[341]', The 'O2[341]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11407, Cell 'SRAM', pin 'O2[342]', The 'O2[342]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11413, Cell 'SRAM', pin 'O2[343]', The 'O2[343]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11419, Cell 'SRAM', pin 'O2[344]', The 'O2[344]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11425, Cell 'SRAM', pin 'O2[345]', The 'O2[345]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11431, Cell 'SRAM', pin 'O2[346]', The 'O2[346]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11437, Cell 'SRAM', pin 'O2[347]', The 'O2[347]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11443, Cell 'SRAM', pin 'O2[348]', The 'O2[348]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11449, Cell 'SRAM', pin 'O2[349]', The 'O2[349]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11455, Cell 'SRAM', pin 'O2[350]', The 'O2[350]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11461, Cell 'SRAM', pin 'O2[351]', The 'O2[351]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11467, Cell 'SRAM', pin 'O2[352]', The 'O2[352]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11473, Cell 'SRAM', pin 'O2[353]', The 'O2[353]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11479, Cell 'SRAM', pin 'O2[354]', The 'O2[354]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11485, Cell 'SRAM', pin 'O2[355]', The 'O2[355]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11491, Cell 'SRAM', pin 'O2[356]', The 'O2[356]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11497, Cell 'SRAM', pin 'O2[357]', The 'O2[357]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11503, Cell 'SRAM', pin 'O2[358]', The 'O2[358]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11509, Cell 'SRAM', pin 'O2[359]', The 'O2[359]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11515, Cell 'SRAM', pin 'O2[360]', The 'O2[360]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11521, Cell 'SRAM', pin 'O2[361]', The 'O2[361]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11527, Cell 'SRAM', pin 'O2[362]', The 'O2[362]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11533, Cell 'SRAM', pin 'O2[363]', The 'O2[363]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11539, Cell 'SRAM', pin 'O2[364]', The 'O2[364]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11545, Cell 'SRAM', pin 'O2[365]', The 'O2[365]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11551, Cell 'SRAM', pin 'O2[366]', The 'O2[366]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11557, Cell 'SRAM', pin 'O2[367]', The 'O2[367]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11563, Cell 'SRAM', pin 'O2[368]', The 'O2[368]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11569, Cell 'SRAM', pin 'O2[369]', The 'O2[369]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11575, Cell 'SRAM', pin 'O2[370]', The 'O2[370]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11581, Cell 'SRAM', pin 'O2[371]', The 'O2[371]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11587, Cell 'SRAM', pin 'O2[372]', The 'O2[372]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11593, Cell 'SRAM', pin 'O2[373]', The 'O2[373]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11599, Cell 'SRAM', pin 'O2[374]', The 'O2[374]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11605, Cell 'SRAM', pin 'O2[375]', The 'O2[375]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11611, Cell 'SRAM', pin 'O2[376]', The 'O2[376]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11617, Cell 'SRAM', pin 'O2[377]', The 'O2[377]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11623, Cell 'SRAM', pin 'O2[378]', The 'O2[378]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11629, Cell 'SRAM', pin 'O2[379]', The 'O2[379]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11635, Cell 'SRAM', pin 'O2[380]', The 'O2[380]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11641, Cell 'SRAM', pin 'O2[381]', The 'O2[381]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11647, Cell 'SRAM', pin 'O2[382]', The 'O2[382]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11653, Cell 'SRAM', pin 'O2[383]', The 'O2[383]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11659, Cell 'SRAM', pin 'O2[384]', The 'O2[384]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11665, Cell 'SRAM', pin 'O2[385]', The 'O2[385]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11671, Cell 'SRAM', pin 'O2[386]', The 'O2[386]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11677, Cell 'SRAM', pin 'O2[387]', The 'O2[387]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11683, Cell 'SRAM', pin 'O2[388]', The 'O2[388]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11689, Cell 'SRAM', pin 'O2[389]', The 'O2[389]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11695, Cell 'SRAM', pin 'O2[390]', The 'O2[390]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11701, Cell 'SRAM', pin 'O2[391]', The 'O2[391]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11707, Cell 'SRAM', pin 'O2[392]', The 'O2[392]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11713, Cell 'SRAM', pin 'O2[393]', The 'O2[393]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11719, Cell 'SRAM', pin 'O2[394]', The 'O2[394]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11725, Cell 'SRAM', pin 'O2[395]', The 'O2[395]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11731, Cell 'SRAM', pin 'O2[396]', The 'O2[396]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11737, Cell 'SRAM', pin 'O2[397]', The 'O2[397]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11743, Cell 'SRAM', pin 'O2[398]', The 'O2[398]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11749, Cell 'SRAM', pin 'O2[399]', The 'O2[399]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11755, Cell 'SRAM', pin 'O2[400]', The 'O2[400]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11761, Cell 'SRAM', pin 'O2[401]', The 'O2[401]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11767, Cell 'SRAM', pin 'O2[402]', The 'O2[402]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11773, Cell 'SRAM', pin 'O2[403]', The 'O2[403]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11779, Cell 'SRAM', pin 'O2[404]', The 'O2[404]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11785, Cell 'SRAM', pin 'O2[405]', The 'O2[405]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11791, Cell 'SRAM', pin 'O2[406]', The 'O2[406]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11797, Cell 'SRAM', pin 'O2[407]', The 'O2[407]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11803, Cell 'SRAM', pin 'O2[408]', The 'O2[408]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11809, Cell 'SRAM', pin 'O2[409]', The 'O2[409]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11815, Cell 'SRAM', pin 'O2[410]', The 'O2[410]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11821, Cell 'SRAM', pin 'O2[411]', The 'O2[411]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11827, Cell 'SRAM', pin 'O2[412]', The 'O2[412]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11833, Cell 'SRAM', pin 'O2[413]', The 'O2[413]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11839, Cell 'SRAM', pin 'O2[414]', The 'O2[414]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11845, Cell 'SRAM', pin 'O2[415]', The 'O2[415]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11851, Cell 'SRAM', pin 'O2[416]', The 'O2[416]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11857, Cell 'SRAM', pin 'O2[417]', The 'O2[417]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11863, Cell 'SRAM', pin 'O2[418]', The 'O2[418]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11869, Cell 'SRAM', pin 'O2[419]', The 'O2[419]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11875, Cell 'SRAM', pin 'O2[420]', The 'O2[420]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11881, Cell 'SRAM', pin 'O2[421]', The 'O2[421]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11887, Cell 'SRAM', pin 'O2[422]', The 'O2[422]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11893, Cell 'SRAM', pin 'O2[423]', The 'O2[423]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11899, Cell 'SRAM', pin 'O2[424]', The 'O2[424]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11905, Cell 'SRAM', pin 'O2[425]', The 'O2[425]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11911, Cell 'SRAM', pin 'O2[426]', The 'O2[426]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11917, Cell 'SRAM', pin 'O2[427]', The 'O2[427]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11923, Cell 'SRAM', pin 'O2[428]', The 'O2[428]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11929, Cell 'SRAM', pin 'O2[429]', The 'O2[429]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11935, Cell 'SRAM', pin 'O2[430]', The 'O2[430]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11941, Cell 'SRAM', pin 'O2[431]', The 'O2[431]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11947, Cell 'SRAM', pin 'O2[432]', The 'O2[432]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11953, Cell 'SRAM', pin 'O2[433]', The 'O2[433]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11959, Cell 'SRAM', pin 'O2[434]', The 'O2[434]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11965, Cell 'SRAM', pin 'O2[435]', The 'O2[435]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11971, Cell 'SRAM', pin 'O2[436]', The 'O2[436]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11977, Cell 'SRAM', pin 'O2[437]', The 'O2[437]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11983, Cell 'SRAM', pin 'O2[438]', The 'O2[438]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11989, Cell 'SRAM', pin 'O2[439]', The 'O2[439]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 11995, Cell 'SRAM', pin 'O2[440]', The 'O2[440]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12001, Cell 'SRAM', pin 'O2[441]', The 'O2[441]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12007, Cell 'SRAM', pin 'O2[442]', The 'O2[442]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12013, Cell 'SRAM', pin 'O2[443]', The 'O2[443]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12019, Cell 'SRAM', pin 'O2[444]', The 'O2[444]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12025, Cell 'SRAM', pin 'O2[445]', The 'O2[445]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12031, Cell 'SRAM', pin 'O2[446]', The 'O2[446]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12037, Cell 'SRAM', pin 'O2[447]', The 'O2[447]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12043, Cell 'SRAM', pin 'O2[448]', The 'O2[448]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12049, Cell 'SRAM', pin 'O2[449]', The 'O2[449]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12055, Cell 'SRAM', pin 'O2[450]', The 'O2[450]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12061, Cell 'SRAM', pin 'O2[451]', The 'O2[451]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12067, Cell 'SRAM', pin 'O2[452]', The 'O2[452]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12073, Cell 'SRAM', pin 'O2[453]', The 'O2[453]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12079, Cell 'SRAM', pin 'O2[454]', The 'O2[454]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12085, Cell 'SRAM', pin 'O2[455]', The 'O2[455]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12091, Cell 'SRAM', pin 'O2[456]', The 'O2[456]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12097, Cell 'SRAM', pin 'O2[457]', The 'O2[457]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12103, Cell 'SRAM', pin 'O2[458]', The 'O2[458]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12109, Cell 'SRAM', pin 'O2[459]', The 'O2[459]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12115, Cell 'SRAM', pin 'O2[460]', The 'O2[460]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12121, Cell 'SRAM', pin 'O2[461]', The 'O2[461]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12127, Cell 'SRAM', pin 'O2[462]', The 'O2[462]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12133, Cell 'SRAM', pin 'O2[463]', The 'O2[463]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12139, Cell 'SRAM', pin 'O2[464]', The 'O2[464]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12145, Cell 'SRAM', pin 'O2[465]', The 'O2[465]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12151, Cell 'SRAM', pin 'O2[466]', The 'O2[466]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12157, Cell 'SRAM', pin 'O2[467]', The 'O2[467]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12163, Cell 'SRAM', pin 'O2[468]', The 'O2[468]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12169, Cell 'SRAM', pin 'O2[469]', The 'O2[469]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12175, Cell 'SRAM', pin 'O2[470]', The 'O2[470]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12181, Cell 'SRAM', pin 'O2[471]', The 'O2[471]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12187, Cell 'SRAM', pin 'O2[472]', The 'O2[472]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12193, Cell 'SRAM', pin 'O2[473]', The 'O2[473]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12199, Cell 'SRAM', pin 'O2[474]', The 'O2[474]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12205, Cell 'SRAM', pin 'O2[475]', The 'O2[475]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12211, Cell 'SRAM', pin 'O2[476]', The 'O2[476]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12217, Cell 'SRAM', pin 'O2[477]', The 'O2[477]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12223, Cell 'SRAM', pin 'O2[478]', The 'O2[478]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12229, Cell 'SRAM', pin 'O2[479]', The 'O2[479]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12235, Cell 'SRAM', pin 'O2[480]', The 'O2[480]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12241, Cell 'SRAM', pin 'O2[481]', The 'O2[481]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12247, Cell 'SRAM', pin 'O2[482]', The 'O2[482]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12253, Cell 'SRAM', pin 'O2[483]', The 'O2[483]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12259, Cell 'SRAM', pin 'O2[484]', The 'O2[484]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12265, Cell 'SRAM', pin 'O2[485]', The 'O2[485]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12271, Cell 'SRAM', pin 'O2[486]', The 'O2[486]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12277, Cell 'SRAM', pin 'O2[487]', The 'O2[487]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12283, Cell 'SRAM', pin 'O2[488]', The 'O2[488]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12289, Cell 'SRAM', pin 'O2[489]', The 'O2[489]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12295, Cell 'SRAM', pin 'O2[490]', The 'O2[490]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12301, Cell 'SRAM', pin 'O2[491]', The 'O2[491]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12307, Cell 'SRAM', pin 'O2[492]', The 'O2[492]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12313, Cell 'SRAM', pin 'O2[493]', The 'O2[493]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12319, Cell 'SRAM', pin 'O2[494]', The 'O2[494]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12325, Cell 'SRAM', pin 'O2[495]', The 'O2[495]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12331, Cell 'SRAM', pin 'O2[496]', The 'O2[496]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12337, Cell 'SRAM', pin 'O2[497]', The 'O2[497]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12343, Cell 'SRAM', pin 'O2[498]', The 'O2[498]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12349, Cell 'SRAM', pin 'O2[499]', The 'O2[499]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12355, Cell 'SRAM', pin 'O2[500]', The 'O2[500]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12361, Cell 'SRAM', pin 'O2[501]', The 'O2[501]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12367, Cell 'SRAM', pin 'O2[502]', The 'O2[502]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12373, Cell 'SRAM', pin 'O2[503]', The 'O2[503]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12379, Cell 'SRAM', pin 'O2[504]', The 'O2[504]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12385, Cell 'SRAM', pin 'O2[505]', The 'O2[505]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12391, Cell 'SRAM', pin 'O2[506]', The 'O2[506]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12397, Cell 'SRAM', pin 'O2[507]', The 'O2[507]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12403, Cell 'SRAM', pin 'O2[508]', The 'O2[508]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12409, Cell 'SRAM', pin 'O2[509]', The 'O2[509]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12415, Cell 'SRAM', pin 'O2[510]', The 'O2[510]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Warning: Line 12421, Cell 'SRAM', pin 'O2[511]', The 'O2[511]' Pin/bus on the 'SRAM' cell has no 'function' attribute.
+	The cell becomes a black box. (LIBG-16)
+Technology library 'SRAM' read successfully
+1

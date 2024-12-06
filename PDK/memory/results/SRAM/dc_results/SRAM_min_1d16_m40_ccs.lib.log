@@ -1,0 +1,71 @@
+Reading '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_min_1d16_m40_ccs.lib' ...
+Warning: Line 1, No default 'normalized_driver_waveform" group defined in 'library'. (LBDB-788)
+Warning: Line 1, The 'internal_power_calculation' attribute in char_config group is required for NLPM library. 
+	No default can be applied to this attribute. (LBDB-366)
+Warning: Line 3275, Cell 'SRAM', pin 'A1[0]', The CCS receiver data is not present, so
+	accuracy can be deteriorated.   (LBDB-819)
+Warning: Line 3847, Cell 'SRAM', pin 'A2[0]', The CCS receiver data is not present, so
+	accuracy can be deteriorated.   (LBDB-819)
+Warning: Line 2496, Cell 'SRAM', pin 'CE1', The pin 'CE1' does not have a internal_power group. (LBDB-607)
+Warning: Line 2520, Cell 'SRAM', pin 'CSB1', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.854974,
+	which is less than max transition of pin 'CSB1', 1.024. (LBDB-680)
+Warning: Line 2524, Cell 'SRAM', pin 'CSB1', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.850603,
+	which is less than max transition of pin 'CSB1', 1.024. (LBDB-680)
+Warning: Line 2607, Cell 'SRAM', pin 'WEB1', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.851173,
+	which is less than max transition of pin 'WEB1', 1.024. (LBDB-680)
+Warning: Line 2611, Cell 'SRAM', pin 'WEB1', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.852754,
+	which is less than max transition of pin 'WEB1', 1.024. (LBDB-680)
+Warning: Line 2625, Cell 'SRAM', pin 'OEB1', The pin 'OEB1' does not have a internal_power group. (LBDB-607)
+Warning: Line 2632, Cell 'SRAM', pin 'CE2', The pin 'CE2' does not have a internal_power group. (LBDB-607)
+Warning: Line 2656, Cell 'SRAM', pin 'CSB2', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.854974,
+	which is less than max transition of pin 'CSB2', 1.024. (LBDB-680)
+Warning: Line 2660, Cell 'SRAM', pin 'CSB2', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.850603,
+	which is less than max transition of pin 'CSB2', 1.024. (LBDB-680)
+Warning: Line 2743, Cell 'SRAM', pin 'WEB2', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.851173,
+	which is less than max transition of pin 'WEB2', 1.024. (LBDB-680)
+Warning: Line 2747, Cell 'SRAM', pin 'WEB2', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.852754,
+	which is less than max transition of pin 'WEB2', 1.024. (LBDB-680)
+Warning: Line 2761, Cell 'SRAM', pin 'OEB2', The pin 'OEB2' does not have a internal_power group. (LBDB-607)
+Warning: Line 2791, Cell 'SRAM', pin 'I1[511]', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.856546,
+	which is less than max transition of pin 'I1[511]', 1.024. (LBDB-680)
+Warning: Line 2795, Cell 'SRAM', pin 'I1[511]', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.856474,
+	which is less than max transition of pin 'I1[511]', 1.024. (LBDB-680)
+Warning: Line 2895, Cell 'SRAM', pin 'O1[511]', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.84819,
+	which is less than max transition of pin 'CE1', 1.024. (LBDB-680)
+Warning: Line 2906, Cell 'SRAM', pin 'O1[511]', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.850375,
+	which is less than max transition of pin 'CE1', 1.024. (LBDB-680)
+Warning: Line 2939, Cell 'SRAM', pin 'O1[511]', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.853414,
+	which is less than max transition of pin 'CE1', 1.024. (LBDB-680)
+Warning: Line 2950, Cell 'SRAM', pin 'O1[511]', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.856439,
+	which is less than max transition of pin 'CE1', 1.024. (LBDB-680)
+Warning: Line 3191, Cell 'SRAM', pin 'O1[511]', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.772795,
+	which is less than max transition of pin 'OEB1', 1.024. (LBDB-680)
+Warning: Line 3202, Cell 'SRAM', pin 'O1[511]', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.746271,
+	which is less than max transition of pin 'OEB1', 1.024. (LBDB-680)
+Information: Line 3236, Cell 'SRAM', pin 'O1[511]', The CCS data output_current_rise is not present, so
+	accuracy can be deteriorated.   (LBDB-823)
+Information: Line 3236, Cell 'SRAM', pin 'O1[511]', The CCS data output_current_fall is not present, so
+	accuracy can be deteriorated.   (LBDB-823)
+Warning: Line 3364, Cell 'SRAM', pin 'I2[511]', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.856546,
+	which is less than max transition of pin 'I2[511]', 1.024. (LBDB-680)
+Warning: Line 3368, Cell 'SRAM', pin 'I2[511]', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.856474,
+	which is less than max transition of pin 'I2[511]', 1.024. (LBDB-680)
+Warning: Line 3467, Cell 'SRAM', pin 'O2[511]', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.84819,
+	which is less than max transition of pin 'CE2', 1.024. (LBDB-680)
+Warning: Line 3478, Cell 'SRAM', pin 'O2[511]', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.850375,
+	which is less than max transition of pin 'CE2', 1.024. (LBDB-680)
+Warning: Line 3511, Cell 'SRAM', pin 'O2[511]', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.853414,
+	which is less than max transition of pin 'CE2', 1.024. (LBDB-680)
+Warning: Line 3522, Cell 'SRAM', pin 'O2[511]', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.856439,
+	which is less than max transition of pin 'CE2', 1.024. (LBDB-680)
+Warning: Line 3763, Cell 'SRAM', pin 'O2[511]', The max value of 1st index of group 'receiver_capacitance1_fall' is 0.772795,
+	which is less than max transition of pin 'OEB2', 1.024. (LBDB-680)
+Warning: Line 3774, Cell 'SRAM', pin 'O2[511]', The max value of 1st index of group 'receiver_capacitance1_rise' is 0.746271,
+	which is less than max transition of pin 'OEB2', 1.024. (LBDB-680)
+Information: Line 3808, Cell 'SRAM', pin 'O2[511]', The CCS data output_current_rise is not present, so
+	accuracy can be deteriorated.   (LBDB-823)
+Information: Line 3808, Cell 'SRAM', pin 'O2[511]', The CCS data output_current_fall is not present, so
+	accuracy can be deteriorated.   (LBDB-823)
+Information: Line 2478, Cell 'SRAM', The cell 'SRAM' contiains memory/memory_read/memory_write groups which are deprecated, use the is_memory_cell attribute instead. (LIBG-280)
+Technology library 'SRAM_min_1d16_m40_ccs' read successfully
+1

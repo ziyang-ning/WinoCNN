@@ -7,25 +7,25 @@ Report : timing
         -max_paths 1
         -transition_time
 Design : top
-Version: V-2023.12-SP5
-Date   : Thu Dec  5 20:11:37 2024
+Version: T-2022.03-SP3
+Date   : Fri Dec  6 17:23:34 2024
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
 
-Operating Conditions: TT1p05vm40T   Library: SRAM_typ_1d05_25_ccs
+Operating Conditions: tt1p05v25c   Library: saed32rvt_tt1p05v25c
 Wire Load Model Mode: enclosed
 
-  Startpoint: clk_reg (rising edge-triggered flip-flop clocked by core_clk)
-  Endpoint: CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg
+  Startpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: CIM_mem_top_0_output_mem_top_1_output_SRAM
             (rising edge-triggered flip-flop clocked by core_clk)
   Path Group: core_clk
   Path Type: max
 
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
-  top                ForQA                 SRAM_typ_1d05_25_ccs
-  DW01_cmp6_width8   ForQA                 SRAM_typ_1d05_25_ccs
+  top                540000                saed32rvt_tt1p05v25c
 
 Attributes:
     d - dont_touch
@@ -35,54 +35,63 @@ Attributes:
     i - ideal_net or ideal_network
   inf - infeasible path
 
-  Point                                                                          Fanout     Trans      Incr       Path      Attributes
-  --------------------------------------------------------------------------------------------------------------------------------------------
-  clock core_clk (rise edge)                                                                           0.00       0.00
-  clock network delay (ideal)                                                                          0.20       0.20
-  clk_reg/clocked_on (**SEQGEN**)                                                            0.08      0.00       0.20 r
-  clk_reg/Q (**SEQGEN**)                                                                     0.00      0.00 #     0.20 r
-  clk (net)                                                                    14291                   0.00       0.20 r
-  CIM_mem_top_0_output_mem_top_1_C5817/Z (GTECH_OR2)                                         0.00      0.05 #     0.25 r    d 
-  CIM_mem_top_0_output_mem_top_1_N14 (net)                                         1                   0.00       0.25 r
-  CIM_mem_top_0_output_mem_top_1_I_4/Z (GTECH_NOT)                                           0.00      0.00       0.25 f    d 
-  CIM_mem_top_0_output_mem_top_1_N15 (net)                                         1                   0.00       0.25 f
-  CIM_mem_top_0_output_mem_top_1_C5782/Z_1 (*SELECT_OP_4.2_4.1_2)                            0.00      0.00       0.26 f
-  CIM_mem_top_0_output_mem_top_1_local_scan_mode[1] (net)                          4                   0.00       0.26 f
-  CIM_mem_top_0_output_mem_top_1_I_6/Z (GTECH_NOT)                                           0.00      0.01       0.26 r
-  CIM_mem_top_0_output_mem_top_1_N20 (net)                                         2                   0.00       0.26 r
-  CIM_mem_top_0_output_mem_top_1_C36/Z (GTECH_OR2)                                           0.00      0.00       0.27 r    d 
-  CIM_mem_top_0_output_mem_top_1_N25 (net)                                         7                   0.00       0.27 r
-  CIM_mem_top_0_output_mem_top_1_I_9/Z (GTECH_NOT)                                           0.00      0.01       0.28 f
-  CIM_mem_top_0_output_mem_top_1_N26 (net)                                         1                   0.00       0.28 f
-  CIM_mem_top_0_output_mem_top_1_B_11/Z (GTECH_BUF)                                          0.00      0.00       0.28 f    d 
-  CIM_mem_top_0_output_mem_top_1_N11 (net)                                        16                   0.00       0.28 f
-  CIM_mem_top_0_output_mem_top_1_C5803/Z_1 (*SELECT_OP_4.8_4.1_8)                            0.00      0.01       0.29 f
-  CIM_mem_top_0_CIM_addr_o_1[1] (net)                                              3                   0.00       0.29 f
-  CIM_mem_top_0_CIM_1_eq_49/B_1 (*EQ_UNS_OP_8_8_1)                                                     0.00       0.29 f
-  CIM_mem_top_0_CIM_1_eq_49/net1516526 (net)                                                           0.00       0.29 f
-  CIM_mem_top_0_CIM_1_eq_49/*cell*80412/B[1] (DW01_cmp6_width8)                                        0.00       0.29 f
-  CIM_mem_top_0_CIM_1_eq_49/*cell*80412/B[1] (net)                                                     0.00       0.29 f
-  ...
-  CIM_mem_top_0_CIM_1_eq_49/*cell*80412/EQ (DW01_cmp6_width8)                                          0.06       0.36 r
-  CIM_mem_top_0_CIM_1_eq_49/net1516528 (net)                                                           0.00       0.36 r
-  CIM_mem_top_0_CIM_1_eq_49/Z_0 (*EQ_UNS_OP_8_8_1)                                                     0.00       0.36 r
-  CIM_mem_top_0_CIM_1_N0 (net)                                                                         0.00       0.36 r
-  CIM_mem_top_0_CIM_1_C8/Z (GTECH_AND2)                                                      0.00      0.00       0.36 r
-  CIM_mem_top_0_CIM_valid_i_1 (net)                                                1                   0.00       0.36 r
-  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/next_state (**SEQGEN**)      0.00      0.00       0.37 r
-  data arrival time                                                                                               0.37
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                       0.20       0.20
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)     0.08     0.00      0.20 r    d u 
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/O1[421] (SRAM)     0.07     0.09     0.29 f d u 
+  CIM_mem_top_0_output_mem_top_1_sram_output_1[421] (net)     4     0.00       0.29 f
+  U75178/Y (OR2X1_RVT)                                    0.01      1.08       1.37 f
+  n1497 (net)                                   1                   0.00       1.37 f
+  U22920/Y (AO22X1_RVT)                                   0.03      0.67       2.04 f
+  intadd_533_n11 (net)                          2                   0.00       2.04 f
+  U19914/Y (INVX1_RVT)                                    0.01      1.09       3.13 r
+  n1335 (net)                                   2                   0.00       3.13 r
+  U19878/Y (OA21X1_RVT)                                   0.01      0.19       3.33 r
+  n4879 (net)                                   1                   0.00       3.33 r
+  U19831/Y (OA21X1_RVT)                                   0.01      0.15       3.47 r
+  n4649 (net)                                   3                   0.00       3.47 r
+  U19797/Y (OR2X1_RVT)                                    0.01      0.22       3.69 r
+  n6573 (net)                                   1                   0.00       3.69 r
+  U19752/Y (AND3X1_RVT)                                   0.01      0.16       3.85 r
+  n43100 (net)                                  2                   0.00       3.85 r
+  U22350/Y (OAI22X1_RVT)                                  0.03      0.24       4.09 f
+  n3645 (net)                                   2                   0.00       4.09 f
+  U19686/Y (AO22X1_RVT)                                   0.03      0.78       4.87 f
+  intadd_533_n7 (net)                           1                   0.00       4.87 f
+  U20271/CO (FADDX1_RVT)                                  0.04      1.54       6.41 f    mo 
+  intadd_533_n6 (net)                           2                   0.00       6.41 f
+  U20272/Y (IBUFFX4_RVT)                                  0.01      0.19       6.61 r
+  n3646 (net)                                   1                   0.00       6.61 r
+  U73696/Y (OAI22X1_RVT)                                  0.02      0.20       6.81 f
+  intadd_533_n5 (net)                           1                   0.00       6.81 f
+  U23884/CO (FADDX1_RVT)                                  0.01      1.50       8.31 f    mo 
+  intadd_533_n4 (net)                           1                   0.00       8.31 f
+  U20230/Y (IBUFFX8_RVT)                                  0.01      0.18       8.49 r
+  n1349 (net)                                   2                   0.00       8.49 r
+  U73513/Y (OAI22X1_RVT)                                  0.02      0.23       8.71 f
+  intadd_533_n3 (net)                           2                   0.00       8.71 f
+  U73489/Y (AO21X1_RVT)                                   0.02      0.78       9.49 f
+  n867 (net)                                    1                   0.00       9.49 f
+  U20224/Y (XNOR2X1_RVT)                                  0.02      1.44      10.93 f
+  n4380 (net)                                   1                   0.00      10.93 f
+  U26395/Y (AND2X1_RVT)                                   0.02      0.62      11.55 f
+  CIM_mem_top_0_output_mem_top_1_sram_input_1[431] (net)     1      0.00      11.55 f
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/I1[431] (SRAM)     0.03     0.61    12.16 f d u 
+  data arrival time                                                           12.16
 
-  clock core_clk (rise edge)                                                                          10.00      10.00
-  clock network delay (ideal)                                                                          0.20      10.20
-  clock uncertainty                                                                                   -1.00       9.20
-  CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on (**SEQGEN**)                0.00       9.20 r
-  library setup time                                                                                   0.00       9.20
-  data required time                                                                                              9.20
-  --------------------------------------------------------------------------------------------------------------------------------------------
-  data required time                                                                                              9.20
-  data arrival time                                                                                              -0.37
-  --------------------------------------------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                                                     8.83
+  clock core_clk (rise edge)                                       12.00      12.00
+  clock network delay (ideal)                                       0.20      12.20
+  clock uncertainty                                                -0.12      12.08
+  CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1 (SRAM)             0.00      12.08 r
+  library setup time                                                0.08      12.16
+  data required time                                                          12.16
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                          12.16
+  data arrival time                                                          -12.16
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.00
 
 
 1

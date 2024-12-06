@@ -1,0 +1,350 @@
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM.lib > SRAM.lib.log 
+write_lib SRAM -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM.db 
+Wrote the 'SRAM' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM.db' successfully
+1
+exit
+Maximum memory usage for this session: 94.77 MB
+CPU usage for this session:      0 seconds (  0.00 hours)
+Elapsed time for this session:      4 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_max_0d95_m40_ccs.lib > SRAM_max_0d95_m40_ccs.lib.log 
+write_lib SRAM_max_0d95_m40_ccs -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_max_0d95_m40_ccs.db 
+Wrote the 'SRAM_max_0d95_m40_ccs' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_max_0d95_m40_ccs.db' successfully
+1
+exit
+Maximum memory usage for this session: 161.24 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:      2 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_max_0d95_125_ccs.lib > SRAM_max_0d95_125_ccs.lib.log 
+write_lib SRAM_max_0d95_125_ccs -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_max_0d95_125_ccs.db 
+Wrote the 'SRAM_max_0d95_125_ccs' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_max_0d95_125_ccs.db' successfully
+1
+exit
+Maximum memory usage for this session: 161.25 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:      2 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_min_1d16_25_ccs.lib > SRAM_min_1d16_25_ccs.lib.log 
+write_lib SRAM_min_1d16_25_ccs -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_min_1d16_25_ccs.db 
+Wrote the 'SRAM_min_1d16_25_ccs' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_min_1d16_25_ccs.db' successfully
+1
+exit
+Maximum memory usage for this session: 161.24 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:      2 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_typ_1d05_25_ccs.lib > SRAM_typ_1d05_25_ccs.lib.log 
+write_lib SRAM_typ_1d05_25_ccs -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_typ_1d05_25_ccs.db 
+Wrote the 'SRAM_typ_1d05_25_ccs' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_typ_1d05_25_ccs.db' successfully
+1
+exit
+Maximum memory usage for this session: 161.25 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:      2 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_typ_1d05_125_ccs.lib > SRAM_typ_1d05_125_ccs.lib.log 
+write_lib SRAM_typ_1d05_125_ccs -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_typ_1d05_125_ccs.db 
+Wrote the 'SRAM_typ_1d05_125_ccs' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_typ_1d05_125_ccs.db' successfully
+1
+exit
+Maximum memory usage for this session: 161.25 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:      2 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_min_1d16_125_ccs.lib > SRAM_min_1d16_125_ccs.lib.log 
+write_lib SRAM_min_1d16_125_ccs -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_min_1d16_125_ccs.db 
+Wrote the 'SRAM_min_1d16_125_ccs' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_min_1d16_125_ccs.db' successfully
+1
+exit
+Maximum memory usage for this session: 161.38 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:      2 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_typ_1d05_m40_ccs.lib > SRAM_typ_1d05_m40_ccs.lib.log 
+write_lib SRAM_typ_1d05_m40_ccs -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_typ_1d05_m40_ccs.db 
+Wrote the 'SRAM_typ_1d05_m40_ccs' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_typ_1d05_m40_ccs.db' successfully
+1
+exit
+Maximum memory usage for this session: 161.24 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:      2 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_max_0d95_25_ccs.lib > SRAM_max_0d95_25_ccs.lib.log 
+write_lib SRAM_max_0d95_25_ccs -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_max_0d95_25_ccs.db 
+Wrote the 'SRAM_max_0d95_25_ccs' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_max_0d95_25_ccs.db' successfully
+1
+exit
+Maximum memory usage for this session: 161.25 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:      2 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+                Version V-2023.12-SP5 for linux64 - Aug 01, 2024
+                           Base build date 2024-07-01
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+Initializing...
+read_lib /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/char_results/lib_ccs/SRAM_min_1d16_m40_ccs.lib > SRAM_min_1d16_m40_ccs.lib.log 
+write_lib SRAM_min_1d16_m40_ccs -format db  -output /home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_min_1d16_m40_ccs.db 
+Wrote the 'SRAM_min_1d16_m40_ccs' library to '/home/wenjieg/Desktop/class/WinoCNN/PDK/memory/mc_work/SRAM_min_1d16_m40_ccs.db' successfully
+1
+exit
+Maximum memory usage for this session: 161.37 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:      2 seconds (  0.00 hours)
+Thank you for using Library Compiler.
+
+Thank you...

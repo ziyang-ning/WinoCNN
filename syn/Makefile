@@ -34,7 +34,7 @@ export MK_COURSE_NAME = EECS598-002
 export MK_DESIGN_NAME = top
 
 # CPU core usage, capped at 6
-export MK_USE_NUM_CORES = 4
+export MK_USE_NUM_CORES = 6
 
 # memory library selection
 export MK_MEM_SUFFIX = typ_1d05_25

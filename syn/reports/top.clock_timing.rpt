@@ -3,37 +3,43 @@
 Report : clock timing
         -type summary
 Design : top
-Version: V-2023.12-SP5
-Date   : Thu Dec  5 20:11:37 2024
+Version: T-2022.03-SP3
+Date   : Fri Dec  6 17:23:34 2024
 ****************************************
 
   Clock: core_clk
 ----------------------------------------------------------------------------
   Maximum setup launch latency:
-      clk_reg/clocked_on                                     0.20      wr-+
+      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/CLK
+                                                             0.20      wr-+
 
   Minimum setup capture latency:
-      clk_reg/clocked_on                                     0.20      wr-+
+      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/CLK
+                                                             0.20      wr-+
 
   Minimum hold launch latency:
-      clk_reg/clocked_on                                     0.20      br-+
+      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/CLK
+                                                             0.20      br-+
 
   Maximum hold capture latency:
-      clk_reg/clocked_on                                     0.20      br-+
+      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/CLK
+                                                             0.20      br-+
 
   Maximum active transition:
-      clk_reg/clocked_on                                     0.08      wr-+
+      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/CLK
+                                                             0.08      wr-+
 
   Minimum active transition:
-      clk_reg/clocked_on                                     0.08      wr-+
+      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/CLK
+                                                             0.08      wr-+
 
   Maximum setup skew:
-      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on
+      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/CLK
                                                                        wr-+
       CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1         0.00      wr-+
 
   Maximum hold skew:
-      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/clocked_on
+      CIM_mem_top_0_output_mem_top_1_CIM_package_1_valid_in_reg_reg/CLK
                                                                        br-+
       CIM_mem_top_0_output_mem_top_1_output_SRAM/CE1         0.00      br-+
 ----------------------------------------------------------------------------
