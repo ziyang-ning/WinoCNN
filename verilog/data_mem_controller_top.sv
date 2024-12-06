@@ -4,19 +4,17 @@ module data_mem_controller_top (
     input logic reset,
 
     // input from main controller
-    input logic [3:0] input_id_i,
-    input logic input_prepare_i,
-    input logic [7:0] block_width_i,
-    input logic [7:0] block_height_i,
+    input logic [7:0] input_addr_i_1,
+    input logic [7:0] input_addr_i_2,
     input logic size_type_i,
+    input logic [7:0] block_cnt_i,
+    input logic [3:0] current_id_i,
+    input logic input_request_i,
 
     // scan related inputs
     input logic [511:0] scan_in,
     input logic scan_mode,
     input logic [7:0] scan_addr, 
-
-    // output to the main controller
-    output logic loop_finished_o,
 
     // outputs to PE arrays
     output logic signed [13:0] result_tile_o_1 [5:0][5:0],
@@ -26,7 +24,7 @@ module data_mem_controller_top (
     output logic data_valid_o_1,
     output logic data_valid_o_2,
     output logic size_type_o,
-    output logic [7:0] block_cnt
+    output logic [7:0] block_cnt_o
 
 
 );
@@ -47,11 +45,13 @@ module data_mem_controller_top (
     data_controller data_controller_inst (
         .clk(clk),
         .reset(reset),
-        .input_id_i(input_id_i),
-        .input_prepare_i(input_prepare_i),
-        .block_width_i(block_width_i),
-        .block_height_i(block_height_i),
+
+        .input_addr_i_1(input_addr_i_1),
+        .input_addr_i_2(input_addr_i_2),
         .size_type_i(size_type_i),
+        .block_cnt_i(block_cnt_i),
+        .current_id_i(current_id_i),
+        .input_request_i(input_request_i),
 
         .input_addr_o_1(input_addr_o_1),
         .input_addr_o_2(input_addr_o_2),
@@ -60,7 +60,6 @@ module data_mem_controller_top (
         .input_data_i_2(data_2_out),
         .input_valid_i(input_valid_i),
 
-        .loop_finished_o(loop_finished_o),
         .result_tile_o_1(result_tile_o_1),
         .result_tile_o_2(result_tile_o_2),
         .pe_data_addr_o_1(pe_data_addr_o_1),
@@ -68,7 +67,7 @@ module data_mem_controller_top (
         .data_valid_o_1(data_valid_o_1),
         .data_valid_o_2(data_valid_o_2),
         .size_type_o(size_type_o),
-        .block_cnt(block_cnt)
+        .block_cnt_o(block_cnt_o)
     );
 
     data_mem_top data_mem_top_inst (

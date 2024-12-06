@@ -33,14 +33,14 @@ module top(
         else clk <= ~clk;
     end
 
-    logic loop_finished;
     logic [7:0] weight_od1;
     logic [3:0] weight_id;
-    logic [7:0] block_width;
-    logic [7:0] block_height;
-    logic [3:0] data_id;
-    logic data_prepare;
+    logic [7:0] input_addr_1;
+    logic [7:0] input_addr_2;
     logic size_type;
+    logic [7:0] block_cnt;
+    logic [3:0] current_id;
+    logic input_request;
 
     logic signed [13:0] data_tile_1_ctrl [5:0][5:0];
     logic signed [13:0] data_tile_2_ctrl [5:0][5:0];
@@ -116,17 +116,15 @@ module top(
         .total_height_i(total_height),
         .total_size_type_i(total_size_type),
         .wen_i(wen),
-        
-        .loop_finished_i(loop_finished),
 
         .weight_od1_o(weight_od1),
-        .weight_id_o(weight_id),
 
-        .block_width_o(block_width),
-        .block_height_o(block_height),
-        .data_id_o(data_id),
-        .data_prepare_o(data_prepare),
+        .input_addr_o_1(input_addr_1),
+        .input_addr_o_2(input_addr_2),
         .size_type_o(size_type),
+        .block_cnt_o(block_cnt),
+        .current_id_o(current_id),
+        .input_request_o(input_request),
 
         .conv_completed(conv_completed)
     );
@@ -138,7 +136,7 @@ module top(
 
         .total_od_i(total_od),
         .weight_od1_i(weight_od1),
-        .weight_id_i(weight_id),
+        .weight_id_i(current_id),
         .weight_main_valid_i(wen),
 
         .scan_in(weight_mem_scan_in),
@@ -157,17 +155,16 @@ module top(
         .clk(clk),
         .reset(reset),
 
-        .input_id_i(data_id),
-        .input_prepare_i(data_prepare),
-        .block_width_i(block_width),
-        .block_height_i(block_height),
+        .input_addr_i_1(input_addr_1),
+        .input_addr_i_2(input_addr_2),
         .size_type_i(size_type),
+        .block_cnt_i(block_cnt),
+        .current_id_i(current_id),
+        .input_request_i(input_request),
 
         .scan_in(data_mem_scan_in),
         .scan_mode(input_mem_scan_mode),
         .scan_addr(scan_addr),
-
-        .loop_finished_o(loop_finished),
 
         .result_tile_o_1(data_tile_1_ctrl),
         .result_tile_o_2(data_tile_2_ctrl),
@@ -176,7 +173,7 @@ module top(
         .data_valid_o_1(data_valid_1_ctrl),
         .data_valid_o_2(data_valid_2_ctrl),
         .size_type_o(size_type_ctrl),
-        .block_cnt(block_cnt_ctrl)
+        .block_cnt_o(block_cnt_ctrl)
     );
 
     PE pe_0(

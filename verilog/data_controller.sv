@@ -5,11 +5,12 @@ module data_controller (
     input logic reset,
 
     // input from the main controller
-    input logic [3:0] input_id_i,
-    input logic input_prepare_i,
-    input logic [7:0] block_width_i,
-    input logic [7:0] block_height_i,
+    input logic [7:0] input_addr_i_1,
+    input logic [7:0] input_addr_i_2,
     input logic size_type_i,
+    input logic [7:0] block_cnt_i,
+    input logic [3:0] current_id_i,
+    input logic input_request_i,
 
     // output to the memory
     output logic [7:0] input_addr_o_1,
@@ -21,9 +22,6 @@ module data_controller (
     input logic signed [511:0] input_data_i_2,
     input logic input_valid_i,
 
-    // output to the main controller
-    output logic loop_finished_o,
-
     // output to the PE arrays
     output logic signed [13:0] result_tile_o_1 [5:0][5:0],
     output logic signed [13:0] result_tile_o_2 [5:0][5:0],
@@ -32,14 +30,14 @@ module data_controller (
     output logic data_valid_o_1,
     output logic data_valid_o_2,
     output logic size_type_o,
-    output logic [7:0] block_cnt
+    output logic [7:0] block_cnt_o
 );
 
-    logic [15:0] max_block;
-
-    assign block_cnt = block_width_i * block_height_i;
-    assign max_block = block_cnt * (input_id_i + 1);
     assign size_type_o = size_type_i;
+    assign block_cnt_o = block_cnt_i;
+    assign input_addr_o_1 = input_addr_i_1 + current_id_i * block_cnt_i;
+    assign input_addr_o_2 = input_addr_i_2 + current_id_i * block_cnt_i;
+    assign input_request_o = input_request_i;
 
     logic signed [7:0] input_raw_1[0:5][0:5];
     logic signed [7:0] input_raw_2[0:5][0:5];
@@ -69,48 +67,6 @@ module data_controller (
             input_raw_2 = '{default:'0};
         end
     end
-    
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            input_addr_o_1 <= 0;
-            input_addr_o_2 <= 1;
-            loop_finished_o <= 0;
-            input_request_o <= 0;
-        end else begin
-
-            if (loop_finished_o && input_request_o) begin
-                input_addr_o_1 <= block_cnt * input_id_i;
-                input_addr_o_2 <= block_cnt * input_id_i + 1;
-                loop_finished_o <= 0;
-                input_request_o <= 0;
-            end
-            else if ((input_addr_o_1 + 3 == max_block) && input_request_o) begin
-                input_addr_o_1 <= max_block - 1;
-                input_addr_o_2 <= 8'b11111111;
-                loop_finished_o <= 1;
-                input_request_o <= 1;
-            end
-            else if (input_request_o) begin
-                input_addr_o_1 <= input_addr_o_1 + 2;
-                input_addr_o_2 <= input_addr_o_2 + 2;
-                if (input_addr_o_1 + 4 == max_block) loop_finished_o <= 1;
-                else loop_finished_o <= 0;
-                input_request_o <= 1;
-            end
-            else if (input_prepare_i) begin
-                input_addr_o_1 <= block_cnt * input_id_i;
-                input_addr_o_2 <= block_cnt * input_id_i + 1;
-                loop_finished_o <= 0;
-                input_request_o <= 1;
-            end
-            else begin
-                input_addr_o_1 <= block_cnt * input_id_i;
-                input_addr_o_2 <= block_cnt * input_id_i + 1;
-                loop_finished_o <= 0;
-                input_request_o <= 0;
-            end
-        end
-    end
 
     always_ff @( posedge clk or posedge reset ) begin
         if (reset) begin
@@ -119,8 +75,8 @@ module data_controller (
         end 
         else begin
             if (input_valid_i) begin
-                data_addr_1_reg <= input_addr_o_1 - block_cnt * input_id_i;
-                data_addr_2_reg <= input_addr_o_2 - block_cnt * input_id_i;
+                data_addr_1_reg <= input_addr_i_1;
+                data_addr_2_reg <= input_addr_i_2;
             end
             else begin
                 data_addr_1_reg <= 0;

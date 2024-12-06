@@ -11,20 +11,16 @@ module main_controller(
     input logic total_size_type_i,
     input logic wen_i, // the enable signal to change the off-chip input
 
-    // input from the data controller
-    input logic loop_finished_i,
-
     // output to the weight controller
     output logic [7:0] weight_od1_o,
-    output logic [3:0] weight_id_o,
 
     // output to the data controller
-    output logic [7:0] block_width,
-    output logic [7:0] block_height,
-    output logic [3:0] data_id_o,
-    output logic data_prepare_o,
+    output logic [7:0] input_addr_o_1,
+    output logic [7:0] input_addr_o_2,
     output logic size_type_o,
-    output logic [7:0] block_cnt,
+    output logic [7:0] block_cnt_o,
+    output logic [3:0] current_id_o,
+    output logic input_request_o,
 
     // off-chip output
     output logic conv_completed
@@ -36,6 +32,9 @@ module main_controller(
     logic [8:0] total_width_reg;
     logic [8:0] total_height_reg;
     logic total_size_type_reg;
+    logic [7:0] block_width;
+    logic [7:0] block_height;
+    logic loop_finished;
 
     always_comb begin
         case(total_width_reg)
@@ -93,10 +92,8 @@ module main_controller(
 
     assign size_type_o = total_size_type_reg;
 
-    // definition of counter to count the od1, od2 and id
     logic [7:0] od1_counter;
     logic [7:0] od2_counter;
-    logic [3:0] id_counter;
     assign od2_counter = od1_counter + 1;
 
     // FSM for the main controller
@@ -113,12 +110,12 @@ module main_controller(
         next_state = state;
         case(state)
             PREPARE: begin
-                if (loop_finished_i) begin
+                if (loop_finished) begin
                     next_state = COMPLETE;
                 end
             end
             COMPLETE: begin
-                if ((od2_counter >= total_od_reg - 1) && (id_counter >= total_id_reg - 1)) begin
+                if (od2_counter >= total_od_reg - 1) begin
                     next_state = FINISH;
                 end else begin
                     next_state = PREPARE;
@@ -140,90 +137,76 @@ module main_controller(
 
     logic [15:0] max_block;
 
-    assign block_cnt = block_width_i * block_height_i;
-    assign max_block = block_cnt * (input_id_i + 1);
+    assign block_cnt_o = block_width * block_height;
+    assign max_block = block_cnt_o * total_id_reg;
 
     always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
+        if (reset || state == FINISH) begin
             input_addr_o_1 <= 0;
             input_addr_o_2 <= 1;
-            loop_finished_o <= 0;
+            loop_finished <= 0;
             input_request_o <= 0;
+            current_id_o <= 0;
         end else begin
-            if (loop_finished_o) begin
-                input_addr_o_1 <= block_cnt * input_id_i;
-                input_addr_o_2 <= block_cnt * input_id_i + 1;
-                loop_finished_o <= 0;
-                input_request_o <= 0;
+            if (current_id_o + 1 < total_id_reg) begin
+                input_addr_o_1 <= input_addr_o_1;
+                input_addr_o_2 <= input_addr_o_2;
+                loop_finished <= loop_finished;
+                input_request_o <= 1;
+                current_id_o <= current_id_o + 1;
+            end
+            else if (loop_finished) begin
+                input_addr_o_1 <= 0;
+                input_addr_o_2 <= 1;
+                loop_finished <= 0;
+                input_request_o <= 1;
+                current_id_o <= 0;
             end
             else if ((input_addr_o_1 + 3 == max_block) && input_request_o) begin
                 input_addr_o_1 <= max_block - 1;
                 input_addr_o_2 <= 8'b11111111;
-                loop_finished_o <= 1;
+                loop_finished <= 1;
                 input_request_o <= 1;
+                current_id_o <= 0;
             end
-            else if (input_request_o) begin
+            else if (state != FINISH && input_request_o) begin
                 input_addr_o_1 <= input_addr_o_1 + 2;
                 input_addr_o_2 <= input_addr_o_2 + 2;
-                if (input_addr_o_1 + 4 == max_block) loop_finished_o <= 1;
-                else loop_finished_o <= 0;
+                if (input_addr_o_1 + 4 == max_block) loop_finished <= 1;
+                else loop_finished <= 0;
                 input_request_o <= 1;
-            end
-            else if (input_prepare_i) begin
-                input_addr_o_1 <= block_cnt * input_id_i;
-                input_addr_o_2 <= block_cnt * input_id_i + 1;
-                loop_finished_o <= 0;
-                input_request_o <= 1;
+                current_id_o <= 0;
             end
             else begin
-                input_addr_o_1 <= block_cnt * input_id_i;
-                input_addr_o_2 <= block_cnt * input_id_i + 1;
-                loop_finished_o <= 0;
-                input_request_o <= 0;
+                input_addr_o_1 <= 0;
+                input_addr_o_2 <= 1;
+                loop_finished <= loop_finished;
+                input_request_o <= ~loop_finished;
+                current_id_o <= 0;
             end
         end
     end
 
-    // counter for od1, od2 and id
+
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             od1_counter <= 0;
-            id_counter <= 0;
         end else begin
             if (state == COMPLETE) begin
                 if (od2_counter >= total_od_reg - 1) begin
-                    // start the next id
                     od1_counter <= 0;
-                    id_counter <= id_counter + 1;
                 end else begin
-                    // still work on the same id
                     od1_counter <= od1_counter + 2;
                 end
             end else begin
                 od1_counter <= od1_counter;
-                id_counter <= id_counter;
             end
         end
     end
 
-    // comb logic for other output
     always_comb begin
-        data_id_o = id_counter;
-        weight_id_o = id_counter;
         weight_od1_o = od1_counter;
         conv_completed = (state == FINISH);
-        data_prepare_o = 0;
-        case (state)
-            PREPARE: begin
-                data_prepare_o = 1;
-            end
-            COMPLETE: begin
-                data_prepare_o = 0;
-            end
-            FINISH: begin
-                data_prepare_o = 0;
-            end
-        endcase
     end
 
 endmodule
