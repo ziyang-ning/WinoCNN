@@ -70,6 +70,7 @@ else %file_generation == 3
     input_HEX_fileName = fullfile(data_folder_name, 'input.txt');
     filter_HEX_fileName = fullfile(data_folder_name, 'filter.txt');
     Y_HEX_fileName = fullfile(Y_HEX_out_folder_name, 'Y_HEX.txt');
+    Y_HEX_mod_fileName = fullfile(Y_HEX_out_folder_name, 'Y_HEX_modified.txt');
     
     if (file_generation == 3)
         input_HEX_fileID = fopen(input_HEX_fileName, 'w');
@@ -320,6 +321,8 @@ end
 if(file_generation == 3)
     fprintf(input_HEX_fileID, '0\n'); % Append a '0' on a new line
 end
+
+data_post_process(Y_HEX_fileName, Y_HEX_mod_fileName);
 
 
 diff_float = red_out_wino - red_float_out

@@ -71,6 +71,9 @@ else %file_generation == 3
     
     output_even_HEX_fileName = fullfile(output_folder_name, 'output_even.txt');
     output_odd_HEX_fileName = fullfile(output_folder_name, 'output_odd.txt');
+    
+    output_even_HEX_mod_fileName = fullfile(output_folder_name, 'output_even_modified.txt');
+    output_odd_HEX_mod_fileName = fullfile(output_folder_name, 'output_odd_modified.txt');
 %     U_HEX_fileName = fullfile(data_folder_name, 'U.txt');
     
     if (file_generation == 3)
@@ -428,6 +431,11 @@ if(file_generation == 3)
     end
 end
 
+
+
+% post process the data by adding 0s.
+data_post_process(output_even_HEX_fileName, output_even_HEX_mod_fileName);
+data_post_process(output_odd_HEX_fileName, output_odd_HEX_mod_fileName);
 
 diff_float = all_out_wino - red_float_out
 max_diff_wino = max(max(abs(diff_float)))

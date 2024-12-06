@@ -1,9 +1,10 @@
 % Read the file
-inputFile = 'Y_HEX.txt'; % Input filename
-outputFile = 'Y_HEX_modified.txt'; % Output filename
+function data_post_process(inputFile_name, outputFile)
+
+% outputFile = 'Y_HEX_modified.txt'; % Output filename
 
 % Open the input file for reading
-fid_in = fopen(inputFile, 'r');
+fid_in = fopen(inputFile_name, 'r');
 if fid_in == -1
     error('Error opening the input file.');
 end
@@ -50,4 +51,5 @@ end
 fclose(fid_in);
 fclose(fid_out);
 
-disp('File processing complete. Modified file saved as Y_HEX_modified.txt.');
+disp('File processing complete.');
+end
