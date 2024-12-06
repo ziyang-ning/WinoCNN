@@ -421,8 +421,8 @@ if(file_generation == 3)
                 Y_HEX = Y.hex;           %F is optional because we provide to PE
                 Y_flattened = strjoin(string(Y_HEX), ' ');
                 pretty_Y_HEX_data = regexprep(Y_flattened, '\s+', ''); % Replace multiple spaces with nothing
-                pretty_Y_HEX_data_with_zeros = strcat(repmat('0', 1, 20), pretty_Y_HEX_data, repmat('0', 1, 42));
-                fprintf(output_folder_name, '%s\n', pretty_Y_HEX_data_with_zeros); % Write the character array
+%                 pretty_Y_HEX_data_with_zeros = strcat(repmat('0', 1, 20), pretty_Y_HEX_data, repmat('0', 1, 42));
+                fprintf(output_folder_name, '%s\n', pretty_Y_HEX_data); % Write the character array
             end
         end
     end
