@@ -36,15 +36,13 @@ verdi:	$(SIMFILES) $(TESTBENCH)
 
 .PHONY: verdi
 
-diff2:
-	cd test2 && \
-	diff Y_HEX_modified.txt output_mem1_scan_out.txt 
-
-
 diff1:
-	cd test1 && \
-	diff output_odd_modified.txt output_mem1_scan_out.txt && \
-	diff output_even_modified.txt output_mem2_scan_out.txt
+	diff test1/Y_HEX_modified.txt test1/output_mem1_scan_out.txt 
+
+
+diff2:
+	diff test2/output_odd_modified.txt test2/output_mem1_scan_out.txt && \
+	diff test2/output_even_modified.txt test2/output_mem2_scan_out.txt
 
 top.vg: verilog/top.sv syn/top.tcl
 	dc_shell-t -f syn/top.tcl | tee syn/top.out
