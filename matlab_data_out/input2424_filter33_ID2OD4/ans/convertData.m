@@ -15,6 +15,7 @@ if fid_out == -1
     error('Error opening the output file.');
 end
 
+lineCount = 0;
 % Process each line
 while ~feof(fid_in)
     line = fgetl(fid_in); % Read a line
@@ -31,16 +32,18 @@ while ~feof(fid_in)
             modifiedLine = [modifiedLine, chunk, '000000'];
         end
         
-        % Add 42-6 zeros at the end
+        % Add 42 -6 zeros at the end
         modifiedLine = [modifiedLine, '000000000000000000000000000000000000'];
         
         % Write the modified line to the output file
         fprintf(fid_out, '%s\n', modifiedLine);
+        lineCount = lineCount + 1;
     end
 end
 
-for i = 1 : 128
+while lineCount < 128
     fprintf(fid_out, '%s\n', repmat('0', 1, 128));
+    lineCount = lineCount + 1;
 end
 
 % Close the files
@@ -50,6 +53,7 @@ fclose(fid_out);
 
 inputFile = 'output_even.txt'; % Input filename
 outputFile = 'output_even_modified.txt'; % Output filename
+
 % Open the input file for reading
 fid_in = fopen(inputFile, 'r');
 if fid_in == -1
@@ -63,6 +67,7 @@ if fid_out == -1
     error('Error opening the output file.');
 end
 
+lineCount = 0;
 % Process each line
 while ~feof(fid_in)
     line = fgetl(fid_in); % Read a line
@@ -79,16 +84,18 @@ while ~feof(fid_in)
             modifiedLine = [modifiedLine, chunk, '000000'];
         end
         
-        % Add 42-6 zeros at the end
+        % Add 42 -6 zeros at the end
         modifiedLine = [modifiedLine, '000000000000000000000000000000000000'];
         
         % Write the modified line to the output file
         fprintf(fid_out, '%s\n', modifiedLine);
+        lineCount = lineCount + 1;
     end
 end
 
-for i = 1 : 128
+while lineCount < 128
     fprintf(fid_out, '%s\n', repmat('0', 1, 128));
+    lineCount = lineCount + 1;
 end
 
 

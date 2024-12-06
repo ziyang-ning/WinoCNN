@@ -15,6 +15,7 @@ if fid_out == -1
     error('Error opening the output file.');
 end
 
+lineCount = 0;
 % Process each line
 while ~feof(fid_in)
     line = fgetl(fid_in); % Read a line
@@ -36,11 +37,13 @@ while ~feof(fid_in)
         
         % Write the modified line to the output file
         fprintf(fid_out, '%s\n', modifiedLine);
+        lineCount = lineCount + 1;
     end
 end
 
-for i = 1 : 128
+while lineCount < 128
     fprintf(fid_out, '%s\n', repmat('0', 1, 128));
+    lineCount = lineCount + 1;
 end
 
 % Close the files
