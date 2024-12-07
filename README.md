@@ -51,12 +51,12 @@ NOTE: This repository already have the pre-generated data inside the needed fold
 
 #### To Run Test1 (ID = 1, OD = 1):
 
-Find `filter.txt`, `input.txt`, `Y_HEX_modified.txt` and drag it into the `/test1` directory.
+In `\test1` folder, `data_scan_in.txt` and `weight_scan_in.txt` are the inputs for test1. The ground truth is `Y_HEX_modified.txt`. Scan out data are stored in `output_mem1_scan_out.txt` and `output_mem2_scan_out.txt`
 
 Find the `Makefile` and make sure the testbench is `top_test1.sv`
 
 #### To Run Test2 (ID = 2, OD = 4):
-Find `filter.txt`, `input.txt`, `output_even_modified.txt`, `output_odd_modified.txt` and drag it into the `/test1` directory.
+In `\test2` folder, `filter_OD4.txt` and `input_ID2.txt` are the inputs for test1. The ground truth are `output_odd_modified.txt` and `output_even_modified.txt`. Scan out data are stored in `output_mem1_scan_out.txt` and `output_mem2_scan_out.txt`
 
 Find the `Makefile` and make sure the testbench is `top_test2.sv`
 
