@@ -17,7 +17,22 @@ For both files, you can make changes to variables like `size_k`, `file_generatio
 NOTE: Report Results are created with the input image `A = imread('2424_pic.jpg');` due to the size limitations of the Verilog SRAM. 
 
 ## Verilog
-All Verilog modules are inside the `/verilog` directory, the testbenches are inside the `/testbench` directory and Verdi signals configurations are saved as `signal.rc` files. Explanation of what each module perform can be found inside of the project report. 
+All Verilog modules are inside the `/verilog` directory, the testbenches are inside the `/testbench` directory and Verdi signals configurations are saved as `signal.rc` files. Explanation of what each module perform can be found inside of the project report. `\test1` and `\test2` contains the input and output for the two seperate test.
+
+## Verilog file explaination:
+
+`CIM_mem_top.sv`: connects CIM, SRAM, output memory controller
+`CIM.sv`: code for computer-near-memory blcok
+`data_controller.sv`: code for data controller
+`data_mem_controller_top.sv`: connects data controller, input memory and input memory controller
+`main_controler.sv`: code for main controller
+`newPE.sv`: processing element
+`output_mem_top.sv`: connects output memory and output controllers
+`SRAM.v`: code for SRAM
+`top.v`: top level design
+`weight_controller.sv`: code for weight controller
+`weight_mem_controller_top.sv`: connects weight controller, input memory and input memory controller
+
 
 ## HOW TO RECREATE REPORT RESULT:
 
@@ -49,8 +64,8 @@ Find the `Makefile` and make sure the testbench is `top_test2.sv`
 
 In the terminal, run `$ make` or `$ make verdi`
 
-Output files will be automatically generated. To compare the MATLAB result and testbench result, type: `$ make diff1` or `$ make diff2` depending on your test.
+Output files will be automatically generated. To compare the MATLAB result and testbench result, type: `$ make diff1` or `$ make diff2` depending on your test. Test could be changed by changing the testbench in Makefile
 
 ### Step 4: Syn the project
 
-Enter the `/syn` folder. Run `$ module load eecs598-002/f23` and then run `$ make syn`.
+Enter the `/syn` folder. Run `$ module load eecs598-002/f23` and then run `$ make syn`. Reports could be find in `/syn/reports`
